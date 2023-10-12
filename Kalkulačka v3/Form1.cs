@@ -17,13 +17,18 @@ namespace Kalkulačka_v3
             InitializeComponent();
             
         }
+
+        /* Globální proměnné */
+
         char operace;
         double cislo,cislo2;
         bool pruchod = false;
+
+        
         private void nula_Click(object sender, EventArgs e)
         {
-            if(textBox1.Text!="0") textBox1.Text+=(sender as Button).Text;
-            else textBox1.Text = (sender as Button).Text;
+            if(textBox1.Text!="0") textBox1.Text+=(sender as Button).Text;      //Ošetření aby nebylo víc než jedna 0
+            else textBox1.Text = (sender as Button).Text;               //Braní textu tlačítek jako zadávání
             rovnase.Focus();
         }
 
@@ -247,7 +252,8 @@ namespace Kalkulačka_v3
                     rovnase.PerformClick();
                         break;
                 case Keys.Decimal:
-                    button1.PerformClick();
+                    if(!textBox1.Text.Contains(","))
+                        button1.PerformClick();
                     break;
             }
         }
