@@ -34,6 +34,7 @@ namespace Kalkulačka_v3
 
         private void rovnase_Click(object sender, EventArgs e)
         {
+            
            if (textBox1.Text.Length>0)
            {
                 
@@ -46,7 +47,8 @@ namespace Kalkulačka_v3
                             cislo += cislo2;
                             break;
                         case '-':
-                            if (cislo2 < 0) cislo += (cislo2 * (-1));
+                            if (cislo2 < 0)
+                                cislo += (cislo2 * -1);
                             else cislo -= cislo2;
                             break;
                         case 'x':
@@ -95,20 +97,22 @@ namespace Kalkulačka_v3
             }
             if (pruchod == true) 
             {
+                cislo2 = Convert.ToDouble(textBox1.Text);
                 switch (operace)
                 {
                     case '+':
-                        cislo += Convert.ToDouble(textBox1.Text);
+                        cislo += cislo2;
                         break;
                     case '-':
-                        if (Convert.ToDouble(textBox1.Text) < 0) cislo += (Convert.ToDouble(textBox1.Text) * (-1));
-                        else cislo -= Convert.ToDouble(textBox1.Text);
+                        if (cislo2 < 0)                   
+                            cislo += (cislo2*-1);                                               
+                        else cislo -= cislo2;
                         break;
                     case 'x':
-                        cislo *= Convert.ToDouble(textBox1.Text);
+                        cislo *= cislo2;
                         break;
                     case '/':
-                        cislo /= Convert.ToDouble(textBox1.Text);
+                        cislo /= cislo2;
                         break;
                 }
                 listBox1.Items.Add(cislo);
@@ -152,8 +156,7 @@ namespace Kalkulačka_v3
         {
             if (textBox1.Text.Length > 0)
             {
-                textBox1.Text = (Convert.ToDouble(textBox1.Text) * (-1)).ToString();
-                cislo = Convert.ToDouble(textBox1.Text);
+                textBox1.Text = (Convert.ToDouble(textBox1.Text) * (-1)).ToString();                
             }
             rovnase.Focus();
         }
