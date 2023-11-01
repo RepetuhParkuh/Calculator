@@ -301,7 +301,7 @@
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(53, 49);
             this.button11.TabIndex = 24;
-            this.button11.Text = "π";
+            this.button11.Text = "1/x";
             this.button11.UseVisualStyleBackColor = true;
             this.button11.Click += new System.EventHandler(this.button11_Click);
             // 

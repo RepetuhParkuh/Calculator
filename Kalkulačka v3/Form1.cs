@@ -50,7 +50,8 @@ namespace Kalkulačka_v3
                             else cislo -= cislo2;
                             break;
                         case 'x':
-                            cislo *= cislo2;
+                            if (cislo2 < 0) cislo *=  (Convert.ToDouble(textBox1.Text) * (-1));
+                            else cislo *= cislo2;
                             break;
                         case '/':
                             cislo /= cislo2;
@@ -69,7 +70,8 @@ namespace Kalkulačka_v3
                             else cislo -= cislo2;
                             break;
                         case 'x':
-                            cislo *= cislo2;
+                            if (cislo2 < 0) cislo *= (Convert.ToDouble(textBox1.Text) * (-1));
+                            else cislo *= cislo2;
                             break;
                         case '/':
                             cislo /= cislo2;
@@ -105,6 +107,7 @@ namespace Kalkulačka_v3
                         else cislo -= Convert.ToDouble(textBox1.Text);
                         break;
                     case 'x':
+                        if (Convert.ToDouble(textBox1.Text) < 0 && cislo < 0) cislo *= (-1) * (Convert.ToDouble(textBox1.Text) * (-1));
                         cislo *= Convert.ToDouble(textBox1.Text);
                         break;
                     case '/':
@@ -192,12 +195,18 @@ namespace Kalkulačka_v3
             rovnase.Focus();
         }
 
+        /* Pí */
+
         private void button11_Click(object sender, EventArgs e)
         {
-            textBox1.Text = "3,14159265359";
+            double pom = Convert.ToDouble(textBox1.Text);
+            pom = 1 / pom;
+            textBox1.Text = pom.ToString();
             rovnase.Focus();
         }
 
+
+        /* Zadávání klávesnicí */
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
