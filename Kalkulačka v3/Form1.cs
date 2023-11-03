@@ -197,9 +197,11 @@ namespace Kalkulačka_v3
 
         private void button11_Click(object sender, EventArgs e)
         {
-            textBox1.Text = "3,14159265359";
+            textBox1.Text = (1 / Convert.ToDouble(textBox1.Text)).ToString();
             rovnase.Focus();
         }
+
+        // Zadávání pomocí klávesnice
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
