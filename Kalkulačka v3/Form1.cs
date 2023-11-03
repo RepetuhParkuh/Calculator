@@ -23,10 +23,16 @@ namespace Kalkulačka_v3
         char operace;
         double cislo,cislo2;
         bool pruchod = false;
+        bool vysledek = false;
 
         
         private void nula_Click(object sender, EventArgs e)
         {
+            if (vysledek)                   //Po zmáčknutí rovnáse se nebude připisovat do výsledku ale přepíše se
+            {
+                textBox1.Text = "";
+                vysledek = false;
+            }
             if(textBox1.Text!="0") textBox1.Text+=(sender as Button).Text;      //Ošetření aby nebylo víc než jedna 0
             else textBox1.Text = (sender as Button).Text;               //Braní textu tlačítek jako zadávání
             rovnase.Focus();
@@ -82,7 +88,8 @@ namespace Kalkulačka_v3
             textBox1.Text = cislo.ToString();
             listBox1.Items.Add(cislo);
             pruchod = false;
-           }
+                vysledek = true;        //Po zmáčknutí rovnáse se nebude připisovat do výsledku ale přepíše se
+            }
         }
 
         private void plus_Click(object sender, EventArgs e)
