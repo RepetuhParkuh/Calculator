@@ -43,10 +43,11 @@ namespace Kalkulačka_v3
             
            if (textBox1.Text.Length>0)
            {
-                
+
                 if (pruchod == true)
                 {
                     cislo2 = Convert.ToDouble(textBox1.Text);
+                }
                     switch (operace)
                     {
                         case '+':
@@ -64,26 +65,7 @@ namespace Kalkulačka_v3
                             cislo /= cislo2;
                             break;
                     }
-                }
-                else
-                {
-                    switch (operace)
-                    {
-                        case '+':
-                            cislo += cislo2;
-                            break;
-                        case '-':
-                            if (cislo2 < 0) cislo += (cislo2 * (-1));
-                            else cislo -= cislo2;
-                            break;
-                        case 'x':
-                            cislo *= cislo2;
-                            break;
-                        case '/':
-                            cislo /= cislo2;
-                            break;
-                    }
-                }
+                
             label1.Text = "";
             textBox1.Text = cislo.ToString();
             listBox1.Items.Add(cislo);
