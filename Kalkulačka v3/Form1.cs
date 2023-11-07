@@ -18,6 +18,91 @@ namespace Kalkulačka_v3
             
         }
 
+        //responsivita
+
+        void autores()
+        {
+            Control tab1 = this.button11;
+            int locX = 0;
+            int sirkaForm = this.Width;
+
+            if (sirkaForm < 350)
+            {
+                listBox1.Visible = false;
+            }
+
+            else
+            {
+                listBox1.Visible = true;
+                listBox1.Location = new Point(textBox1.Location.X + textBox1.Width + 25, textBox1.Location.Y);
+            }
+
+
+            if (!listBox1.Visible)
+            {
+                textBox1.Width = sirkaForm - 50;
+
+                foreach (Control c in this.Controls)
+                {
+                    if (c is Button)
+                    {
+                        c.Width = (sirkaForm - 20) / 4 - 10;
+
+                        if (c.TabIndex > 1)
+                        {
+                            switch (c.TabIndex)
+                            {
+                                case 2:
+                                    locX = tab1.Location.X + c.Width + 10;
+                                    break;
+                                case 3:
+                                    locX = tab1.Location.X + 2 * c.Width + 20;
+                                    break;
+                                case 4:
+                                    locX = tab1.Location.X + 3 * c.Width + 30;
+                                    break;
+                            }
+
+                            c.Location = new Point(locX, c.Location.Y);
+                        }
+                    }
+                }
+            }
+
+            else
+            {
+                textBox1.Width = sirkaForm - listBox1.Width - 50;
+
+                foreach (Control c in this.Controls)
+                {
+
+                    if (c is Button)
+                    {
+                        c.Width = (sirkaForm - 50) / 4 - 10 - (listBox1.Width / 4);
+
+                        if (c.TabIndex > 1)
+                        {
+                            switch (c.TabIndex)
+                            {
+                                case 2:
+                                    locX = tab1.Location.X + c.Width + 10;
+                                    break;
+                                case 3:
+                                    locX = tab1.Location.X + 2 * c.Width + 20;
+                                    break;
+                                case 4:
+                                    locX = tab1.Location.X + 3 * c.Width + 30;
+                                    break;
+                            }
+
+                            c.Location = new Point(locX, c.Location.Y);
+                        }
+                    }
+                }
+            }
+
+        }
+
         /* Globální proměnné */
 
         char operace;
@@ -59,8 +144,7 @@ namespace Kalkulačka_v3
                             else cislo -= cislo2;
                             break;
                         case 'x':
-                            if (cislo2 < 0) cislo *= (Convert.ToDouble(textBox1.Text) * (-1));
-                            else cislo *= cislo2;
+                            cislo *= cislo2;
                             break;
                         case '/':
                             cislo /= cislo2;
@@ -253,6 +337,21 @@ namespace Kalkulačka_v3
                         button1.PerformClick();
                     break;
             }
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            autores();
+        }
+
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            autores();
         }
 
         private void jedna_KeyDown(object sender, KeyEventArgs e)
