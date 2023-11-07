@@ -60,18 +60,20 @@
             // 
             this.textBox1.Enabled = false;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox1.Location = new System.Drawing.Point(10, 28);
+            this.textBox1.Location = new System.Drawing.Point(8, 23);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(227, 38);
+            this.textBox1.Size = new System.Drawing.Size(171, 32);
             this.textBox1.TabIndex = 0;
             this.textBox1.Text = "0";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // nula
             // 
-            this.nula.Location = new System.Drawing.Point(66, 350);
+            this.nula.Location = new System.Drawing.Point(50, 284);
+            this.nula.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.nula.Name = "nula";
-            this.nula.Size = new System.Drawing.Size(53, 49);
+            this.nula.Size = new System.Drawing.Size(40, 40);
             this.nula.TabIndex = 17;
             this.nula.Text = "0";
             this.nula.UseVisualStyleBackColor = true;
@@ -79,9 +81,10 @@
             // 
             // jedna
             // 
-            this.jedna.Location = new System.Drawing.Point(7, 295);
+            this.jedna.Location = new System.Drawing.Point(5, 240);
+            this.jedna.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.jedna.Name = "jedna";
-            this.jedna.Size = new System.Drawing.Size(53, 49);
+            this.jedna.Size = new System.Drawing.Size(40, 40);
             this.jedna.TabIndex = 2;
             this.jedna.Text = "1";
             this.jedna.UseVisualStyleBackColor = true;
@@ -90,9 +93,10 @@
             // 
             // dva
             // 
-            this.dva.Location = new System.Drawing.Point(66, 295);
+            this.dva.Location = new System.Drawing.Point(50, 240);
+            this.dva.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dva.Name = "dva";
-            this.dva.Size = new System.Drawing.Size(53, 49);
+            this.dva.Size = new System.Drawing.Size(40, 40);
             this.dva.TabIndex = 3;
             this.dva.Text = "2";
             this.dva.UseVisualStyleBackColor = true;
@@ -100,9 +104,10 @@
             // 
             // tri
             // 
-            this.tri.Location = new System.Drawing.Point(125, 295);
+            this.tri.Location = new System.Drawing.Point(94, 240);
+            this.tri.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tri.Name = "tri";
-            this.tri.Size = new System.Drawing.Size(53, 49);
+            this.tri.Size = new System.Drawing.Size(40, 40);
             this.tri.TabIndex = 4;
             this.tri.Text = "3";
             this.tri.UseVisualStyleBackColor = true;
@@ -110,9 +115,10 @@
             // 
             // ctyri
             // 
-            this.ctyri.Location = new System.Drawing.Point(6, 240);
+            this.ctyri.Location = new System.Drawing.Point(4, 195);
+            this.ctyri.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ctyri.Name = "ctyri";
-            this.ctyri.Size = new System.Drawing.Size(53, 49);
+            this.ctyri.Size = new System.Drawing.Size(40, 40);
             this.ctyri.TabIndex = 5;
             this.ctyri.Text = "4";
             this.ctyri.UseVisualStyleBackColor = true;
@@ -120,9 +126,10 @@
             // 
             // pet
             // 
-            this.pet.Location = new System.Drawing.Point(65, 240);
+            this.pet.Location = new System.Drawing.Point(49, 195);
+            this.pet.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pet.Name = "pet";
-            this.pet.Size = new System.Drawing.Size(53, 49);
+            this.pet.Size = new System.Drawing.Size(40, 40);
             this.pet.TabIndex = 6;
             this.pet.Text = "5";
             this.pet.UseVisualStyleBackColor = true;
@@ -130,9 +137,10 @@
             // 
             // sest
             // 
-            this.sest.Location = new System.Drawing.Point(124, 240);
+            this.sest.Location = new System.Drawing.Point(93, 195);
+            this.sest.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.sest.Name = "sest";
-            this.sest.Size = new System.Drawing.Size(53, 49);
+            this.sest.Size = new System.Drawing.Size(40, 40);
             this.sest.TabIndex = 7;
             this.sest.Text = "6";
             this.sest.UseVisualStyleBackColor = true;
@@ -140,9 +148,10 @@
             // 
             // sedm
             // 
-            this.sedm.Location = new System.Drawing.Point(7, 185);
+            this.sedm.Location = new System.Drawing.Point(5, 150);
+            this.sedm.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.sedm.Name = "sedm";
-            this.sedm.Size = new System.Drawing.Size(53, 49);
+            this.sedm.Size = new System.Drawing.Size(40, 40);
             this.sedm.TabIndex = 8;
             this.sedm.Text = "7";
             this.sedm.UseVisualStyleBackColor = true;
@@ -150,9 +159,10 @@
             // 
             // osm
             // 
-            this.osm.Location = new System.Drawing.Point(66, 185);
+            this.osm.Location = new System.Drawing.Point(50, 150);
+            this.osm.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.osm.Name = "osm";
-            this.osm.Size = new System.Drawing.Size(53, 49);
+            this.osm.Size = new System.Drawing.Size(40, 40);
             this.osm.TabIndex = 9;
             this.osm.Text = "8";
             this.osm.UseVisualStyleBackColor = true;
@@ -160,9 +170,10 @@
             // 
             // devet
             // 
-            this.devet.Location = new System.Drawing.Point(124, 185);
+            this.devet.Location = new System.Drawing.Point(93, 150);
+            this.devet.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.devet.Name = "devet";
-            this.devet.Size = new System.Drawing.Size(53, 49);
+            this.devet.Size = new System.Drawing.Size(40, 40);
             this.devet.TabIndex = 10;
             this.devet.Text = "9";
             this.devet.UseVisualStyleBackColor = true;
@@ -170,9 +181,10 @@
             // 
             // plus
             // 
-            this.plus.Location = new System.Drawing.Point(184, 295);
+            this.plus.Location = new System.Drawing.Point(138, 240);
+            this.plus.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.plus.Name = "plus";
-            this.plus.Size = new System.Drawing.Size(53, 49);
+            this.plus.Size = new System.Drawing.Size(40, 40);
             this.plus.TabIndex = 11;
             this.plus.Text = "+";
             this.plus.UseVisualStyleBackColor = true;
@@ -180,9 +192,10 @@
             // 
             // minus
             // 
-            this.minus.Location = new System.Drawing.Point(184, 240);
+            this.minus.Location = new System.Drawing.Point(138, 195);
+            this.minus.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.minus.Name = "minus";
-            this.minus.Size = new System.Drawing.Size(53, 49);
+            this.minus.Size = new System.Drawing.Size(40, 40);
             this.minus.TabIndex = 12;
             this.minus.Text = "-";
             this.minus.UseVisualStyleBackColor = true;
@@ -190,9 +203,10 @@
             // 
             // krat
             // 
-            this.krat.Location = new System.Drawing.Point(183, 185);
+            this.krat.Location = new System.Drawing.Point(137, 150);
+            this.krat.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.krat.Name = "krat";
-            this.krat.Size = new System.Drawing.Size(53, 49);
+            this.krat.Size = new System.Drawing.Size(40, 40);
             this.krat.TabIndex = 13;
             this.krat.Text = "x";
             this.krat.UseVisualStyleBackColor = true;
@@ -200,9 +214,10 @@
             // 
             // deleno
             // 
-            this.deleno.Location = new System.Drawing.Point(184, 130);
+            this.deleno.Location = new System.Drawing.Point(138, 106);
+            this.deleno.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.deleno.Name = "deleno";
-            this.deleno.Size = new System.Drawing.Size(53, 49);
+            this.deleno.Size = new System.Drawing.Size(40, 40);
             this.deleno.TabIndex = 14;
             this.deleno.Text = "/";
             this.deleno.UseVisualStyleBackColor = true;
@@ -210,9 +225,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(124, 350);
+            this.button1.Location = new System.Drawing.Point(93, 284);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(53, 49);
+            this.button1.Size = new System.Drawing.Size(40, 40);
             this.button1.TabIndex = 15;
             this.button1.Text = ",";
             this.button1.UseVisualStyleBackColor = true;
@@ -220,9 +236,10 @@
             // 
             // rovnase
             // 
-            this.rovnase.Location = new System.Drawing.Point(184, 350);
+            this.rovnase.Location = new System.Drawing.Point(138, 284);
+            this.rovnase.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rovnase.Name = "rovnase";
-            this.rovnase.Size = new System.Drawing.Size(53, 49);
+            this.rovnase.Size = new System.Drawing.Size(40, 40);
             this.rovnase.TabIndex = 1;
             this.rovnase.Text = "=";
             this.rovnase.UseVisualStyleBackColor = true;
@@ -230,16 +247,18 @@
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(9, 7);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(286, 16);
+            this.label1.Size = new System.Drawing.Size(214, 13);
             this.label1.TabIndex = 17;
             // 
             // bck
             // 
-            this.bck.Location = new System.Drawing.Point(184, 75);
+            this.bck.Location = new System.Drawing.Point(138, 61);
+            this.bck.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.bck.Name = "bck";
-            this.bck.Size = new System.Drawing.Size(53, 49);
+            this.bck.Size = new System.Drawing.Size(40, 40);
             this.bck.TabIndex = 18;
             this.bck.Text = "<<";
             this.bck.UseVisualStyleBackColor = true;
@@ -247,9 +266,10 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(125, 75);
+            this.button6.Location = new System.Drawing.Point(94, 61);
+            this.button6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(53, 49);
+            this.button6.Size = new System.Drawing.Size(40, 40);
             this.button6.TabIndex = 19;
             this.button6.Text = "C";
             this.button6.UseVisualStyleBackColor = true;
@@ -257,9 +277,10 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(66, 75);
+            this.button7.Location = new System.Drawing.Point(50, 61);
+            this.button7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(53, 49);
+            this.button7.Size = new System.Drawing.Size(40, 40);
             this.button7.TabIndex = 20;
             this.button7.Text = "CA";
             this.button7.UseVisualStyleBackColor = true;
@@ -267,9 +288,10 @@
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(6, 350);
+            this.button8.Location = new System.Drawing.Point(4, 284);
+            this.button8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(53, 49);
+            this.button8.Size = new System.Drawing.Size(40, 40);
             this.button8.TabIndex = 21;
             this.button8.Text = "+/-";
             this.button8.UseVisualStyleBackColor = true;
@@ -277,9 +299,10 @@
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(66, 130);
+            this.button9.Location = new System.Drawing.Point(50, 106);
+            this.button9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(53, 49);
+            this.button9.Size = new System.Drawing.Size(40, 40);
             this.button9.TabIndex = 22;
             this.button9.Text = "x2";
             this.button9.UseVisualStyleBackColor = true;
@@ -287,9 +310,10 @@
             // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(125, 130);
+            this.button10.Location = new System.Drawing.Point(94, 106);
+            this.button10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(53, 49);
+            this.button10.Size = new System.Drawing.Size(40, 40);
             this.button10.TabIndex = 23;
             this.button10.Text = "√";
             this.button10.UseVisualStyleBackColor = true;
@@ -297,9 +321,10 @@
             // 
             // button11
             // 
-            this.button11.Location = new System.Drawing.Point(7, 130);
+            this.button11.Location = new System.Drawing.Point(5, 106);
+            this.button11.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(53, 49);
+            this.button11.Size = new System.Drawing.Size(40, 40);
             this.button11.TabIndex = 24;
             this.button11.Text = "1/x";
             this.button11.UseVisualStyleBackColor = true;
@@ -311,17 +336,17 @@
             this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listBox1.Enabled = false;
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(272, 28);
+            this.listBox1.Location = new System.Drawing.Point(204, 23);
+            this.listBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(139, 352);
+            this.listBox1.Size = new System.Drawing.Size(104, 286);
             this.listBox1.TabIndex = 25;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(423, 404);
+            this.ClientSize = new System.Drawing.Size(317, 328);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.button11);
             this.Controls.Add(this.button10);
@@ -349,6 +374,7 @@
             this.Controls.Add(this.nula);
             this.Controls.Add(this.textBox1);
             this.KeyPreview = true;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.Text = "Kalkulačka";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);

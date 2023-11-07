@@ -23,10 +23,16 @@ namespace Kalkulačka_v3
         char operace;
         double cislo,cislo2;
         bool pruchod = false;
+        bool vysledek = false;
 
         
         private void nula_Click(object sender, EventArgs e)
         {
+            if (vysledek)                   //Po zmáčknutí rovnáse se nebude připisovat do výsledku ale přepíše se
+            {
+                textBox1.Text = "";
+                vysledek = false;
+            }
             if(textBox1.Text!="0") textBox1.Text+=(sender as Button).Text;      //Ošetření aby nebylo víc než jedna 0
             else textBox1.Text = (sender as Button).Text;               //Braní textu tlačítek jako zadávání
             rovnase.Focus();
@@ -34,39 +40,22 @@ namespace Kalkulačka_v3
 
         private void rovnase_Click(object sender, EventArgs e)
         {
+            
            if (textBox1.Text.Length>0)
            {
-                
+
                 if (pruchod == true)
                 {
                     cislo2 = Convert.ToDouble(textBox1.Text);
-                    switch (operace)
-                    {
-                        case '+':
-                            cislo += cislo2;
-                            break;
-                        case '-':
-                            if (cislo2 < 0) cislo += (cislo2 * (-1));
-                            else cislo -= cislo2;
-                            break;
-                        case 'x':
-                            if (cislo2 < 0) cislo *=  (Convert.ToDouble(textBox1.Text) * (-1));
-                            else cislo *= cislo2;
-                            break;
-                        case '/':
-                            cislo /= cislo2;
-                            break;
-                    }
                 }
-                else
-                {
                     switch (operace)
                     {
                         case '+':
                             cislo += cislo2;
                             break;
                         case '-':
-                            if (cislo2 < 0) cislo += (cislo2 * (-1));
+                            if (cislo2 < 0)
+                                cislo += (cislo2 * -1);
                             else cislo -= cislo2;
                             break;
                         case 'x':
@@ -77,12 +66,13 @@ namespace Kalkulačka_v3
                             cislo /= cislo2;
                             break;
                     }
-                }
+                
             label1.Text = "";
             textBox1.Text = cislo.ToString();
             listBox1.Items.Add(cislo);
             pruchod = false;
-           }
+                vysledek = true;        //Po zmáčknutí rovnáse se nebude připisovat do výsledku ale přepíše se
+            }
         }
 
         private void plus_Click(object sender, EventArgs e)
@@ -97,21 +87,22 @@ namespace Kalkulačka_v3
             }
             if (pruchod == true) 
             {
+                cislo2 = Convert.ToDouble(textBox1.Text);
                 switch (operace)
                 {
                     case '+':
-                        cislo += Convert.ToDouble(textBox1.Text);
+                        cislo += cislo2;
                         break;
                     case '-':
-                        if (Convert.ToDouble(textBox1.Text) < 0) cislo += (Convert.ToDouble(textBox1.Text) * (-1));
-                        else cislo -= Convert.ToDouble(textBox1.Text);
+                        if (cislo2 < 0)                   
+                            cislo += (cislo2*-1);                                               
+                        else cislo -= cislo2;
                         break;
                     case 'x':
-                        if (Convert.ToDouble(textBox1.Text) < 0 && cislo < 0) cislo *= (-1) * (Convert.ToDouble(textBox1.Text) * (-1));
-                        cislo *= Convert.ToDouble(textBox1.Text);
+                        cislo *= cislo2;
                         break;
                     case '/':
-                        cislo /= Convert.ToDouble(textBox1.Text);
+                        cislo /= cislo2;
                         break;
                 }
                 listBox1.Items.Add(cislo);
@@ -155,8 +146,7 @@ namespace Kalkulačka_v3
         {
             if (textBox1.Text.Length > 0)
             {
-                textBox1.Text = (Convert.ToDouble(textBox1.Text) * (-1)).ToString();
-                cislo = Convert.ToDouble(textBox1.Text);
+                textBox1.Text = (Convert.ToDouble(textBox1.Text) * (-1)).ToString();                
             }
             rovnase.Focus();
         }
@@ -199,14 +189,12 @@ namespace Kalkulačka_v3
 
         private void button11_Click(object sender, EventArgs e)
         {
-            double pom = Convert.ToDouble(textBox1.Text);
-            pom = 1 / pom;
-            textBox1.Text = pom.ToString();
+            textBox1.Text = (1 / Convert.ToDouble(textBox1.Text)).ToString();
             rovnase.Focus();
         }
 
+        // Zadávání pomocí klávesnice
 
-        /* Zadávání klávesnicí */
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
