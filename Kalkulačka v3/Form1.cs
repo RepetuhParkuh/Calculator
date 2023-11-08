@@ -22,9 +22,12 @@ namespace Kalkulačka_v3
 
         void autores()
         {
-            Control tab1 = this.button11;
+            Control sloup1 = this.button11;
+            Control radek1 = this.button7;
             int locX = 0;
+            int locY = 0;
             int sirkaForm = this.Width;
+            int vyskaForm=this.Height;
 
             if (sirkaForm < 350)
             {
@@ -41,29 +44,54 @@ namespace Kalkulačka_v3
             if (!listBox1.Visible)
             {
                 textBox1.Width = sirkaForm - 50;
-
                 foreach (Control c in this.Controls)
                 {
                     if (c is Button)
                     {
                         c.Width = (sirkaForm - 20) / 4 - 10;
+                        c.Height = (vyskaForm - textBox1.Height) / 6 - 20;
+                        int sloupec = c.TabIndex / 10;
+                        int radek = c.TabIndex % 10;
 
-                        if (c.TabIndex > 1)
+                        if (sloupec > 1)
                         {
-                            switch (c.TabIndex)
+                            switch (sloupec)
                             {
                                 case 2:
-                                    locX = tab1.Location.X + c.Width + 10;
+                                    locX = sloup1.Location.X + c.Width + 10;
                                     break;
                                 case 3:
-                                    locX = tab1.Location.X + 2 * c.Width + 20;
+                                    locX = sloup1.Location.X + 2 * c.Width + 20;
                                     break;
                                 case 4:
-                                    locX = tab1.Location.X + 3 * c.Width + 30;
+                                    locX = sloup1.Location.X + 3 * c.Width + 30;
                                     break;
-                            }
+                            }                           
 
                             c.Location = new Point(locX, c.Location.Y);
+                        }
+
+                        if(radek > 1)
+                        {
+                            switch (radek)
+                            {
+                                case 2:
+                                    locY = radek1.Location.Y + c.Height + 10;
+                                    break;
+                                case 3:
+                                    locY = radek1.Location.Y + 2 * c.Height + 20;
+                                    break;
+                                case 4:
+                                    locY = radek1.Location.Y + 3 * c.Height + 30;
+                                    break;
+                                case 5:
+                                    locY = radek1.Location.Y + 4 * c.Height + 40;
+                                    break;
+                                case 6:
+                                    locY = radek1.Location.Y + 5 * c.Height + 50;
+                                    break;
+                            }
+                            c.Location = new Point(c.Location.X,locY);
                         }
                     }
                 }
@@ -79,23 +107,48 @@ namespace Kalkulačka_v3
                     if (c is Button)
                     {
                         c.Width = (sirkaForm - 50) / 4 - 10 - (listBox1.Width / 4);
-
-                        if (c.TabIndex > 1)
+                        c.Height = (vyskaForm - textBox1.Height) / 6 - 20;
+                        int sloupec = c.TabIndex / 10;
+                        int radek = c.TabIndex % 10;
+                        if (sloupec > 1)
                         {
-                            switch (c.TabIndex)
+                            switch (sloupec)
                             {
                                 case 2:
-                                    locX = tab1.Location.X + c.Width + 10;
+                                    locX = sloup1.Location.X + c.Width + 10;
                                     break;
                                 case 3:
-                                    locX = tab1.Location.X + 2 * c.Width + 20;
+                                    locX = sloup1.Location.X + 2 * c.Width + 20;
                                     break;
                                 case 4:
-                                    locX = tab1.Location.X + 3 * c.Width + 30;
+                                    locX = sloup1.Location.X + 3 * c.Width + 30;
                                     break;
                             }
 
                             c.Location = new Point(locX, c.Location.Y);
+                        }
+
+                        if (radek > 1)
+                        {
+                            switch (radek)
+                            {
+                                case 2:
+                                    locY = radek1.Location.Y + c.Height + 5;
+                                    break;
+                                case 3:
+                                    locY = radek1.Location.Y + 2 * c.Height + 10;
+                                    break;
+                                case 4:
+                                    locY = radek1.Location.Y + 3 * c.Height + 15;
+                                    break;
+                                case 5:
+                                    locY = radek1.Location.Y + 4 * c.Height + 20;
+                                    break;
+                                case 6:
+                                    locY = radek1.Location.Y + 5 * c.Height + 25;
+                                    break;
+                            }
+                            c.Location = new Point(c.Location.X, locY);
                         }
                     }
                 }

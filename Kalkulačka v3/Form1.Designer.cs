@@ -74,7 +74,7 @@
             this.nula.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.nula.Name = "nula";
             this.nula.Size = new System.Drawing.Size(53, 49);
-            this.nula.TabIndex = 2;
+            this.nula.TabIndex = 26;
             this.nula.Text = "0";
             this.nula.UseVisualStyleBackColor = true;
             this.nula.Click += new System.EventHandler(this.nula_Click);
@@ -85,7 +85,7 @@
             this.jedna.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.jedna.Name = "jedna";
             this.jedna.Size = new System.Drawing.Size(53, 49);
-            this.jedna.TabIndex = 1;
+            this.jedna.TabIndex = 15;
             this.jedna.Text = "1";
             this.jedna.UseVisualStyleBackColor = true;
             this.jedna.Click += new System.EventHandler(this.nula_Click);
@@ -97,7 +97,7 @@
             this.dva.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dva.Name = "dva";
             this.dva.Size = new System.Drawing.Size(53, 49);
-            this.dva.TabIndex = 2;
+            this.dva.TabIndex = 25;
             this.dva.Text = "2";
             this.dva.UseVisualStyleBackColor = true;
             this.dva.Click += new System.EventHandler(this.nula_Click);
@@ -108,7 +108,7 @@
             this.tri.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tri.Name = "tri";
             this.tri.Size = new System.Drawing.Size(53, 49);
-            this.tri.TabIndex = 3;
+            this.tri.TabIndex = 35;
             this.tri.Text = "3";
             this.tri.UseVisualStyleBackColor = true;
             this.tri.Click += new System.EventHandler(this.nula_Click);
@@ -119,18 +119,18 @@
             this.ctyri.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ctyri.Name = "ctyri";
             this.ctyri.Size = new System.Drawing.Size(53, 49);
-            this.ctyri.TabIndex = 1;
+            this.ctyri.TabIndex = 14;
             this.ctyri.Text = "4";
             this.ctyri.UseVisualStyleBackColor = true;
             this.ctyri.Click += new System.EventHandler(this.nula_Click);
             // 
             // pet
             // 
-            this.pet.Location = new System.Drawing.Point(65, 240);
+            this.pet.Location = new System.Drawing.Point(64, 240);
             this.pet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pet.Name = "pet";
             this.pet.Size = new System.Drawing.Size(53, 49);
-            this.pet.TabIndex = 2;
+            this.pet.TabIndex = 24;
             this.pet.Text = "5";
             this.pet.UseVisualStyleBackColor = true;
             this.pet.Click += new System.EventHandler(this.nula_Click);
@@ -141,7 +141,7 @@
             this.sest.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sest.Name = "sest";
             this.sest.Size = new System.Drawing.Size(53, 49);
-            this.sest.TabIndex = 3;
+            this.sest.TabIndex = 34;
             this.sest.Text = "6";
             this.sest.UseVisualStyleBackColor = true;
             this.sest.Click += new System.EventHandler(this.nula_Click);
@@ -152,7 +152,7 @@
             this.sedm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sedm.Name = "sedm";
             this.sedm.Size = new System.Drawing.Size(53, 49);
-            this.sedm.TabIndex = 1;
+            this.sedm.TabIndex = 13;
             this.sedm.Text = "7";
             this.sedm.UseVisualStyleBackColor = true;
             this.sedm.Click += new System.EventHandler(this.nula_Click);
@@ -163,7 +163,7 @@
             this.osm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.osm.Name = "osm";
             this.osm.Size = new System.Drawing.Size(53, 49);
-            this.osm.TabIndex = 2;
+            this.osm.TabIndex = 23;
             this.osm.Text = "8";
             this.osm.UseVisualStyleBackColor = true;
             this.osm.Click += new System.EventHandler(this.nula_Click);
@@ -174,7 +174,7 @@
             this.devet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.devet.Name = "devet";
             this.devet.Size = new System.Drawing.Size(53, 49);
-            this.devet.TabIndex = 3;
+            this.devet.TabIndex = 33;
             this.devet.Text = "9";
             this.devet.UseVisualStyleBackColor = true;
             this.devet.Click += new System.EventHandler(this.nula_Click);
@@ -185,7 +185,7 @@
             this.plus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.plus.Name = "plus";
             this.plus.Size = new System.Drawing.Size(53, 49);
-            this.plus.TabIndex = 4;
+            this.plus.TabIndex = 45;
             this.plus.Text = "+";
             this.plus.UseVisualStyleBackColor = true;
             this.plus.Click += new System.EventHandler(this.plus_Click);
@@ -196,7 +196,7 @@
             this.minus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.minus.Name = "minus";
             this.minus.Size = new System.Drawing.Size(53, 49);
-            this.minus.TabIndex = 4;
+            this.minus.TabIndex = 44;
             this.minus.Text = "-";
             this.minus.UseVisualStyleBackColor = true;
             this.minus.Click += new System.EventHandler(this.plus_Click);
@@ -207,7 +207,7 @@
             this.krat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.krat.Name = "krat";
             this.krat.Size = new System.Drawing.Size(53, 49);
-            this.krat.TabIndex = 4;
+            this.krat.TabIndex = 43;
             this.krat.Text = "x";
             this.krat.UseVisualStyleBackColor = true;
             this.krat.Click += new System.EventHandler(this.plus_Click);
@@ -218,7 +218,7 @@
             this.deleno.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.deleno.Name = "deleno";
             this.deleno.Size = new System.Drawing.Size(53, 49);
-            this.deleno.TabIndex = 4;
+            this.deleno.TabIndex = 42;
             this.deleno.Text = "/";
             this.deleno.UseVisualStyleBackColor = true;
             this.deleno.Click += new System.EventHandler(this.plus_Click);
@@ -229,7 +229,7 @@
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(53, 49);
-            this.button1.TabIndex = 3;
+            this.button1.TabIndex = 36;
             this.button1.Text = ",";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -240,7 +240,7 @@
             this.rovnase.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rovnase.Name = "rovnase";
             this.rovnase.Size = new System.Drawing.Size(53, 49);
-            this.rovnase.TabIndex = 4;
+            this.rovnase.TabIndex = 46;
             this.rovnase.Text = "=";
             this.rovnase.UseVisualStyleBackColor = true;
             this.rovnase.Click += new System.EventHandler(this.rovnase_Click);
@@ -258,7 +258,7 @@
             this.bck.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bck.Name = "bck";
             this.bck.Size = new System.Drawing.Size(53, 49);
-            this.bck.TabIndex = 4;
+            this.bck.TabIndex = 41;
             this.bck.Text = "<<";
             this.bck.UseVisualStyleBackColor = true;
             this.bck.Click += new System.EventHandler(this.button5_Click);
@@ -269,7 +269,7 @@
             this.button6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(53, 49);
-            this.button6.TabIndex = 3;
+            this.button6.TabIndex = 31;
             this.button6.Text = "C";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
@@ -280,7 +280,7 @@
             this.button7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(53, 49);
-            this.button7.TabIndex = 2;
+            this.button7.TabIndex = 21;
             this.button7.Text = "CA";
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
@@ -291,7 +291,7 @@
             this.button8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(53, 49);
-            this.button8.TabIndex = 1;
+            this.button8.TabIndex = 16;
             this.button8.Text = "+/-";
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click);
@@ -302,7 +302,7 @@
             this.button9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(53, 49);
-            this.button9.TabIndex = 2;
+            this.button9.TabIndex = 22;
             this.button9.Text = "x2";
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Click += new System.EventHandler(this.button9_Click);
@@ -313,7 +313,7 @@
             this.button10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(53, 49);
-            this.button10.TabIndex = 3;
+            this.button10.TabIndex = 32;
             this.button10.Text = "√";
             this.button10.UseVisualStyleBackColor = true;
             this.button10.Click += new System.EventHandler(this.button10_Click);
@@ -324,7 +324,7 @@
             this.button11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(53, 49);
-            this.button11.TabIndex = 1;
+            this.button11.TabIndex = 12;
             this.button11.Text = "1/x";
             this.button11.UseVisualStyleBackColor = true;
             this.button11.Click += new System.EventHandler(this.button11_Click);
@@ -376,6 +376,7 @@
             this.Controls.Add(this.textBox1);
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MinimumSize = new System.Drawing.Size(300, 400);
             this.Name = "Form1";
             this.Text = "Kalkulačka";
             this.Load += new System.EventHandler(this.Form1_Load);
