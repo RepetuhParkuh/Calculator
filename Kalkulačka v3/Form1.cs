@@ -28,6 +28,7 @@ namespace Kalkulačka_v3
             int locY = 0;
             int sirkaForm = this.Width;
             int vyskaForm=this.Height;
+            textBox1.Font = new Font(textBox1.Font.FontFamily,vyskaForm/7-35);
 
             if (sirkaForm < 350)
             {
@@ -93,6 +94,10 @@ namespace Kalkulačka_v3
                             }
                             c.Location = new Point(c.Location.X,locY);
                         }
+                        else
+                        {
+                            c.Location=new Point(c.Location.X,textBox1.Location.Y+textBox1.Height+5);
+                        }
                     }
                 }
             }
@@ -148,7 +153,12 @@ namespace Kalkulačka_v3
                                     locY = radek1.Location.Y + 5 * c.Height + 25;
                                     break;
                             }
+                            
                             c.Location = new Point(c.Location.X, locY);
+                        }
+                        else
+                        {
+                            c.Location = new Point(c.Location.X, textBox1.Location.Y + textBox1.Height + 5);
                         }
                     }
                 }
