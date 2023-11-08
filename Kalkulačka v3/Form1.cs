@@ -28,32 +28,33 @@ namespace Kalkulačka_v3
             int locY = 0;
             int sirkaForm = this.Width;
             int vyskaForm=this.Height;
+            int lbSirka = 0;
             textBox1.Font = new Font(textBox1.Font.FontFamily,vyskaForm/7-35);
 
             if (sirkaForm < 350)
             {
                 listBox1.Visible = false;
+                lbSirka = 0;
             }
 
             else
             {
                 listBox1.Visible = true;
                 listBox1.Location = new Point(textBox1.Location.X + textBox1.Width + 25, textBox1.Location.Y);
-            }
+                lbSirka = listBox1.Width;
+            }            
+            
+                textBox1.Width = sirkaForm - lbSirka - 50;
 
-
-            if (!listBox1.Visible)
-            {
-                textBox1.Width = sirkaForm - 50;
                 foreach (Control c in this.Controls)
                 {
+
                     if (c is Button)
                     {
-                        c.Width = (sirkaForm - 20) / 4 - 10;
+                        c.Width = (sirkaForm - 50) / 4 - 10 - (lbSirka / 4);
                         c.Height = (vyskaForm - textBox1.Height) / 6 - 20;
                         int sloupec = c.TabIndex / 10;
                         int radek = c.TabIndex % 10;
-
                         if (sloupec > 1)
                         {
                             switch (sloupec)
@@ -67,70 +68,13 @@ namespace Kalkulačka_v3
                                 case 4:
                                     locX = sloup1.Location.X + 3 * c.Width + 30;
                                     break;
-                            }                           
+                            }
 
                             c.Location = new Point(locX, c.Location.Y);
-                        }
-
-                        if(radek > 1)
-                        {
-                            switch (radek)
-                            {
-                                case 2:
-                                    locY = radek1.Location.Y + c.Height + 10;
-                                    break;
-                                case 3:
-                                    locY = radek1.Location.Y + 2 * c.Height + 20;
-                                    break;
-                                case 4:
-                                    locY = radek1.Location.Y + 3 * c.Height + 30;
-                                    break;
-                                case 5:
-                                    locY = radek1.Location.Y + 4 * c.Height + 40;
-                                    break;
-                                case 6:
-                                    locY = radek1.Location.Y + 5 * c.Height + 50;
-                                    break;
-                            }
-                            c.Location = new Point(c.Location.X,locY);
                         }
                         else
                         {
-                            c.Location=new Point(c.Location.X,textBox1.Location.Y+textBox1.Height+5);
-                        }
-                    }
-                }
-            }
-
-            else
-            {
-                textBox1.Width = sirkaForm - listBox1.Width - 50;
-
-                foreach (Control c in this.Controls)
-                {
-
-                    if (c is Button)
-                    {
-                        c.Width = (sirkaForm - 50) / 4 - 10 - (listBox1.Width / 4);
-                        c.Height = (vyskaForm - textBox1.Height) / 6 - 20;
-                        int sloupec = c.TabIndex / 10;
-                        int radek = c.TabIndex % 10;
-                        if (sloupec > 1)
-                        {
-                            switch (sloupec)
-                            {
-                                case 2:
-                                    locX = sloup1.Location.X + c.Width + 10;
-                                    break;
-                                case 3:
-                                    locX = sloup1.Location.X + 2 * c.Width + 20;
-                                    break;
-                                case 4:
-                                    locX = sloup1.Location.X + 3 * c.Width + 30;
-                                    break;
-                            }
-
-                            c.Location = new Point(locX, c.Location.Y);
+                            c.Location = new Point(textBox1.Location.X, c.Location.Y);
                         }
 
                         if (radek > 1)
@@ -161,7 +105,7 @@ namespace Kalkulačka_v3
                             c.Location = new Point(c.Location.X, textBox1.Location.Y + textBox1.Height + 5);
                         }
                     }
-                }
+                
             }
 
         }
