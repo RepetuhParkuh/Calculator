@@ -361,7 +361,7 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panel1.Controls.Add(this.basicCalc);
-            this.panel1.Location = new System.Drawing.Point(3, 39);
+            this.panel1.Location = new System.Drawing.Point(-5, 36);
             this.panel1.MaximumSize = new System.Drawing.Size(450, 1000);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(196, 405);
@@ -384,6 +384,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(423, 443);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.button11);
@@ -393,7 +394,6 @@
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.bck);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.rovnase);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.deleno);

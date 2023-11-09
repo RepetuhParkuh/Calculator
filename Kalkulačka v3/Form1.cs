@@ -32,6 +32,9 @@ namespace Kalkulačka_v3
             int lbSirka = 0;
             textBox1.Font = new Font(textBox1.Font.FontFamily,vyskaForm/7-35);
             listBox1.Font = new Font(listBox1.Font.FontFamily, vyskaForm / 12-25);
+            if(textBox1.Font.Size<40) label1.Font = new Font(label1.Font.FontFamily, textBox1.Font.Size - 15);
+            label1.Height = label1.Font.Height;
+            textBox1.Location= new Point(textBox1.Location.X,label1.Location.Y+label1.Height+5);
             panel1.Width = sirkaForm / 12*5;
             //panel1.Height = vyskaForm / 5 * 4;
             if (sirkaForm < 350)
@@ -58,7 +61,7 @@ namespace Kalkulačka_v3
                     if (c is Button && c.TabIndex!=99)
                     {
                         c.Width = (sirkaForm - 50) / 4 - 10 - (lbSirka / 4);
-                        c.Height = (vyskaForm - textBox1.Height) / 6 - 20;
+                        c.Height = (vyskaForm - textBox1.Height-label1.Height) / 6 - 20;
                         c.Font = new Font(c.Font.FontFamily, c.Height / 2-10);
                         int sloupec = c.TabIndex / 10;
                         int radek = c.TabIndex % 10;
