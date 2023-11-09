@@ -22,18 +22,22 @@ namespace Kalkulačka_v3
 
         void autores()
         {
+            
             Control sloup1 = this.button11;
             Control radek1 = this.button7;
             int locX = 0;
             int locY = 0;
             int sirkaForm = this.Width;
-            int vyskaForm=this.Height;
+            int vyskaForm = this.Height;
             int lbSirka = 0;
             textBox1.Font = new Font(textBox1.Font.FontFamily,vyskaForm/7-35);
-
+            listBox1.Font = new Font(listBox1.Font.FontFamily, vyskaForm / 12-25);
+            panel1.Width = sirkaForm / 12*5;
+            //panel1.Height = vyskaForm / 5 * 4;
             if (sirkaForm < 350)
             {
                 listBox1.Visible = false;
+                panel1.Width = sirkaForm / 3*2;
                 lbSirka = 0;
             }
 
@@ -41,7 +45,9 @@ namespace Kalkulačka_v3
             {
                 listBox1.Visible = true;
                 listBox1.Location = new Point(textBox1.Location.X + textBox1.Width + 25, textBox1.Location.Y);
+                listBox1.Width = sirkaForm / 3;
                 lbSirka = listBox1.Width;
+                
             }            
             
                 textBox1.Width = sirkaForm - lbSirka - 50;
@@ -49,10 +55,11 @@ namespace Kalkulačka_v3
                 foreach (Control c in this.Controls)
                 {
 
-                    if (c is Button)
+                    if (c is Button && c.TabIndex!=99)
                     {
                         c.Width = (sirkaForm - 50) / 4 - 10 - (lbSirka / 4);
                         c.Height = (vyskaForm - textBox1.Height) / 6 - 20;
+                        c.Font = new Font(c.Font.FontFamily, c.Height / 2-10);
                         int sloupec = c.TabIndex / 10;
                         int radek = c.TabIndex % 10;
                         if (sloupec > 1)
@@ -106,6 +113,11 @@ namespace Kalkulačka_v3
                         }
                     }
                 
+                }
+
+            foreach(Control c in panel1.Controls)
+            {
+                c.Width = panel1.Width / 5 * 4;
             }
 
         }
@@ -359,6 +371,17 @@ namespace Kalkulačka_v3
         private void Form1_Resize(object sender, EventArgs e)
         {
             autores();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (panel1.Visible) panel1.Visible = false;
+            else panel1.Visible = true;
+        }
+
+        private void basicCalc_Click(object sender, EventArgs e)
+        {
+            panel1.Visible= false;
         }
 
         private void jedna_KeyDown(object sender, KeyEventArgs e)

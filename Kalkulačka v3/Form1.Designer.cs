@@ -54,13 +54,17 @@
             this.button10 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.basicCalc = new System.Windows.Forms.Button();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBox1
             // 
             this.textBox1.Enabled = false;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox1.Location = new System.Drawing.Point(11, 28);
+            this.textBox1.Location = new System.Drawing.Point(24, 55);
             this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(227, 38);
@@ -70,7 +74,7 @@
             // 
             // nula
             // 
-            this.nula.Location = new System.Drawing.Point(67, 350);
+            this.nula.Location = new System.Drawing.Point(80, 377);
             this.nula.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.nula.Name = "nula";
             this.nula.Size = new System.Drawing.Size(53, 49);
@@ -81,7 +85,7 @@
             // 
             // jedna
             // 
-            this.jedna.Location = new System.Drawing.Point(7, 295);
+            this.jedna.Location = new System.Drawing.Point(20, 322);
             this.jedna.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.jedna.Name = "jedna";
             this.jedna.Size = new System.Drawing.Size(53, 49);
@@ -93,7 +97,7 @@
             // 
             // dva
             // 
-            this.dva.Location = new System.Drawing.Point(67, 295);
+            this.dva.Location = new System.Drawing.Point(80, 322);
             this.dva.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dva.Name = "dva";
             this.dva.Size = new System.Drawing.Size(53, 49);
@@ -104,7 +108,7 @@
             // 
             // tri
             // 
-            this.tri.Location = new System.Drawing.Point(125, 295);
+            this.tri.Location = new System.Drawing.Point(138, 322);
             this.tri.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tri.Name = "tri";
             this.tri.Size = new System.Drawing.Size(53, 49);
@@ -115,7 +119,7 @@
             // 
             // ctyri
             // 
-            this.ctyri.Location = new System.Drawing.Point(5, 240);
+            this.ctyri.Location = new System.Drawing.Point(18, 267);
             this.ctyri.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ctyri.Name = "ctyri";
             this.ctyri.Size = new System.Drawing.Size(53, 49);
@@ -126,7 +130,7 @@
             // 
             // pet
             // 
-            this.pet.Location = new System.Drawing.Point(64, 240);
+            this.pet.Location = new System.Drawing.Point(77, 267);
             this.pet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pet.Name = "pet";
             this.pet.Size = new System.Drawing.Size(53, 49);
@@ -137,7 +141,7 @@
             // 
             // sest
             // 
-            this.sest.Location = new System.Drawing.Point(124, 240);
+            this.sest.Location = new System.Drawing.Point(137, 267);
             this.sest.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sest.Name = "sest";
             this.sest.Size = new System.Drawing.Size(53, 49);
@@ -148,7 +152,7 @@
             // 
             // sedm
             // 
-            this.sedm.Location = new System.Drawing.Point(7, 185);
+            this.sedm.Location = new System.Drawing.Point(20, 212);
             this.sedm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sedm.Name = "sedm";
             this.sedm.Size = new System.Drawing.Size(53, 49);
@@ -159,7 +163,7 @@
             // 
             // osm
             // 
-            this.osm.Location = new System.Drawing.Point(67, 185);
+            this.osm.Location = new System.Drawing.Point(80, 212);
             this.osm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.osm.Name = "osm";
             this.osm.Size = new System.Drawing.Size(53, 49);
@@ -170,7 +174,7 @@
             // 
             // devet
             // 
-            this.devet.Location = new System.Drawing.Point(124, 185);
+            this.devet.Location = new System.Drawing.Point(137, 212);
             this.devet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.devet.Name = "devet";
             this.devet.Size = new System.Drawing.Size(53, 49);
@@ -181,7 +185,7 @@
             // 
             // plus
             // 
-            this.plus.Location = new System.Drawing.Point(184, 295);
+            this.plus.Location = new System.Drawing.Point(197, 322);
             this.plus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.plus.Name = "plus";
             this.plus.Size = new System.Drawing.Size(53, 49);
@@ -192,7 +196,7 @@
             // 
             // minus
             // 
-            this.minus.Location = new System.Drawing.Point(184, 240);
+            this.minus.Location = new System.Drawing.Point(197, 267);
             this.minus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.minus.Name = "minus";
             this.minus.Size = new System.Drawing.Size(53, 49);
@@ -203,7 +207,7 @@
             // 
             // krat
             // 
-            this.krat.Location = new System.Drawing.Point(183, 185);
+            this.krat.Location = new System.Drawing.Point(196, 212);
             this.krat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.krat.Name = "krat";
             this.krat.Size = new System.Drawing.Size(53, 49);
@@ -214,7 +218,7 @@
             // 
             // deleno
             // 
-            this.deleno.Location = new System.Drawing.Point(184, 130);
+            this.deleno.Location = new System.Drawing.Point(197, 157);
             this.deleno.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.deleno.Name = "deleno";
             this.deleno.Size = new System.Drawing.Size(53, 49);
@@ -225,7 +229,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(124, 350);
+            this.button1.Location = new System.Drawing.Point(137, 377);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(53, 49);
@@ -236,7 +240,7 @@
             // 
             // rovnase
             // 
-            this.rovnase.Location = new System.Drawing.Point(184, 350);
+            this.rovnase.Location = new System.Drawing.Point(197, 377);
             this.rovnase.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rovnase.Name = "rovnase";
             this.rovnase.Size = new System.Drawing.Size(53, 49);
@@ -247,14 +251,14 @@
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(25, 36);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(285, 16);
+            this.label1.Size = new System.Drawing.Size(241, 17);
             this.label1.TabIndex = 17;
             // 
             // bck
             // 
-            this.bck.Location = new System.Drawing.Point(184, 75);
+            this.bck.Location = new System.Drawing.Point(197, 102);
             this.bck.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bck.Name = "bck";
             this.bck.Size = new System.Drawing.Size(53, 49);
@@ -265,7 +269,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(125, 75);
+            this.button6.Location = new System.Drawing.Point(138, 102);
             this.button6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(53, 49);
@@ -276,7 +280,7 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(67, 75);
+            this.button7.Location = new System.Drawing.Point(80, 102);
             this.button7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(53, 49);
@@ -287,7 +291,7 @@
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(5, 350);
+            this.button8.Location = new System.Drawing.Point(20, 377);
             this.button8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(53, 49);
@@ -298,7 +302,7 @@
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(67, 130);
+            this.button9.Location = new System.Drawing.Point(80, 157);
             this.button9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(53, 49);
@@ -309,7 +313,7 @@
             // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(125, 130);
+            this.button10.Location = new System.Drawing.Point(138, 157);
             this.button10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(53, 49);
@@ -320,7 +324,7 @@
             // 
             // button11
             // 
-            this.button11.Location = new System.Drawing.Point(7, 130);
+            this.button11.Location = new System.Drawing.Point(20, 157);
             this.button11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(53, 49);
@@ -336,18 +340,51 @@
             this.listBox1.Enabled = false;
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(272, 28);
+            this.listBox1.Location = new System.Drawing.Point(272, 11);
             this.listBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(139, 352);
+            this.listBox1.Size = new System.Drawing.Size(139, 416);
             this.listBox1.TabIndex = 25;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(24, 8);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(35, 25);
+            this.button2.TabIndex = 99;
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel1.Controls.Add(this.basicCalc);
+            this.panel1.Location = new System.Drawing.Point(3, 39);
+            this.panel1.MaximumSize = new System.Drawing.Size(450, 1000);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(196, 405);
+            this.panel1.TabIndex = 100;
+            this.panel1.Visible = false;
+            // 
+            // basicCalc
+            // 
+            this.basicCalc.Location = new System.Drawing.Point(15, 17);
+            this.basicCalc.Name = "basicCalc";
+            this.basicCalc.Size = new System.Drawing.Size(166, 40);
+            this.basicCalc.TabIndex = 0;
+            this.basicCalc.Text = "Základní";
+            this.basicCalc.UseVisualStyleBackColor = true;
+            this.basicCalc.Click += new System.EventHandler(this.basicCalc_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(423, 404);
+            this.ClientSize = new System.Drawing.Size(423, 443);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.button11);
             this.Controls.Add(this.button10);
@@ -376,12 +413,13 @@
             this.Controls.Add(this.textBox1);
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.MinimumSize = new System.Drawing.Size(300, 400);
+            this.MinimumSize = new System.Drawing.Size(300, 490);
             this.Name = "Form1";
             this.Text = "Kalkulačka";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.Resize += new System.EventHandler(this.Form1_Resize);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -415,6 +453,9 @@
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button basicCalc;
     }
 }
 
