@@ -252,8 +252,10 @@ namespace Kalkulačka_v3
         {
             if (textBox1.Text.Length > 0)
             {
-                textBox1.Text = (Convert.ToDouble(textBox1.Text) * (-1)).ToString();                
+                textBox1.Text = (Convert.ToDouble(textBox1.Text) * (-1)).ToString();
+                vysledek = false;
             }
+            else textBox1.Text = "0";
             rovnase.Focus();
         }
 
@@ -273,7 +275,8 @@ namespace Kalkulačka_v3
             if (textBox1.Text.Length == 0) textBox1.Text = "0";
             double pom1=Convert.ToDouble(textBox1.Text);
             int pom = Convert.ToInt32(pom1);
-            if (pom == pom1) textBox1.Text += (sender as Button).Text;
+            if (pom == pom1 && !vysledek) textBox1.Text += (sender as Button).Text;
+            else textBox1.Text = "0" + (sender as Button).Text;
             rovnase.Focus();
         }
 
