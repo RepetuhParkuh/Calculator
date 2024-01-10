@@ -18,24 +18,33 @@ namespace Kalkulačka_v3
             
         }
 
+
+        /* Globální proměnné */
+
+        char operace;
+        double cislo,cislo2;
+        bool pruchod = false;
+        bool vysledek = false;
+
         //responsivita
 
-        void autores()
+        void autores(int pocSloup, int pocRad, Panel kalk)
         {
-            
-            Control sloup1 = this.button11;
-            Control radek1 = this.button7;
+            Control radek1 = this.button11;
+            Control sloup1 = this.button7;            
+            if(kalk.Name == kalkZakl.Name)
+            {
+                kalkZakl.Location = new Point(kalkVed.Location.X, kalkVed.Location.Y);
+                sloup1 = this.button40;
+                radek1 = this.button40;
+            }
             int locX = 0;
             int locY = 0;
             int sirkaForm = this.Width;
             int vyskaForm = this.Height;
             int lbSirka = 0;
-            textBox1.Font = new Font(textBox1.Font.FontFamily,vyskaForm/7-35);
-            listBox1.Font = new Font(listBox1.Font.FontFamily, vyskaForm / 12-25);
-            if(textBox1.Font.Size<40) label1.Font = new Font(label1.Font.FontFamily, textBox1.Font.Size - 15);
-            label1.Height = label1.Font.Height;
-            textBox1.Location= new Point(textBox1.Location.X,label1.Location.Y+label1.Height+5);
-            panel1.Width = sirkaForm / 12*5;
+            
+            
             //panel1.Height = vyskaForm / 5 * 4;
             if (sirkaForm < 350)
             {
@@ -54,14 +63,22 @@ namespace Kalkulačka_v3
             }            
             
                 textBox1.Width = sirkaForm - lbSirka - 50;
+                kalk.Location = new Point(textBox1.Location.X, textBox1.Location.Y + textBox1.Height);
+                kalk.Width = textBox1.Width;
+                textBox1.Font = new Font(textBox1.Font.FontFamily, vyskaForm / 7 - 35);
+                listBox1.Font = new Font(listBox1.Font.FontFamily, vyskaForm / 12 - 25);
+                if (textBox1.Font.Size < 40) label1.Font = new Font(label1.Font.FontFamily, textBox1.Font.Size - 15);
+                label1.Height = label1.Font.Height;
+                textBox1.Location = new Point(textBox1.Location.X, label1.Location.Y + label1.Height + 5);
+                panel1.Width = sirkaForm / 12 * 5;
 
-                foreach (Control c in this.Controls)
+            foreach (Control c in kalk.Controls)
                 {
 
                     if (c is Button && c.TabIndex!=99)
                     {
-                        c.Width = (sirkaForm - 50) / 4 - 10 - (lbSirka / 4);
-                        c.Height = (vyskaForm - textBox1.Height-label1.Height) / 6 - 20;
+                        c.Width = (kalk.Width-50)/pocSloup;
+                        c.Height = (vyskaForm - textBox1.Height-label1.Height) / pocRad - 20;
                         c.Font = new Font(c.Font.FontFamily, c.Height / 2-10);
                         int sloupec = c.TabIndex / 10;
                         int radek = c.TabIndex % 10;
@@ -70,13 +87,16 @@ namespace Kalkulačka_v3
                             switch (sloupec)
                             {
                                 case 2:
-                                    locX = sloup1.Location.X + c.Width + 10;
+                                    locX = sloup1.Location.X + c.Width + 7;
                                     break;
                                 case 3:
-                                    locX = sloup1.Location.X + 2 * c.Width + 20;
+                                    locX = sloup1.Location.X + 2 * c.Width + 12;
                                     break;
                                 case 4:
-                                    locX = sloup1.Location.X + 3 * c.Width + 30;
+                                    locX = sloup1.Location.X + 3 * c.Width + 17;
+                                    break;
+                            case 5:
+                                    locX=sloup1.Location.X+4*c.Width+22;
                                     break;
                             }
 
@@ -95,16 +115,19 @@ namespace Kalkulačka_v3
                                     locY = radek1.Location.Y + c.Height + 5;
                                     break;
                                 case 3:
-                                    locY = radek1.Location.Y + 2 * c.Height + 10;
+                                    locY = radek1.Location.Y + 2 * c.Height + 7;
                                     break;
                                 case 4:
-                                    locY = radek1.Location.Y + 3 * c.Height + 15;
+                                    locY = radek1.Location.Y + 3 * c.Height + 12;
                                     break;
                                 case 5:
-                                    locY = radek1.Location.Y + 4 * c.Height + 20;
+                                    locY = radek1.Location.Y + 4 * c.Height + 17;
                                     break;
                                 case 6:
-                                    locY = radek1.Location.Y + 5 * c.Height + 25;
+                                    locY = radek1.Location.Y + 5 * c.Height + 22;
+                                    break;
+                                case 7:
+                                    locY = radek1.Location.Y + 6 * c.Height + 27;
                                     break;
                             }
                             
@@ -112,28 +135,21 @@ namespace Kalkulačka_v3
                         }
                         else
                         {
-                            c.Location = new Point(c.Location.X, textBox1.Location.Y + textBox1.Height + 5);
+                            c.Location = new Point(c.Location.X, c.Location.Y);
                         }
                     }
                 
                 }
-
+            
             foreach(Control c in panel1.Controls)
             {
                 c.Width = panel1.Width / 5 * 4;
             }
 
         }
-
-        /* Globální proměnné */
-
-        char operace;
-        double cislo,cislo2;
-        bool pruchod = false;
-        bool vysledek = false;
-
         
-        private void nula_Click(object sender, EventArgs e)
+        // Zadávání čísel
+        private void cisla_Click(object sender, EventArgs e)
         {
             if (vysledek)                   //Po zmáčknutí rovnáse se nebude připisovat do výsledku ale přepíše se
             {
@@ -144,8 +160,133 @@ namespace Kalkulačka_v3
             else textBox1.Text = (sender as Button).Text;               //Braní textu tlačítek jako zadávání
             rovnase.Focus();
         }
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(kalkZakl.Visible)
+            {
+                switch (e.KeyCode)
+                {
+                    case Keys.NumPad0:
+                        nula.PerformClick();
+                        break;
+                    case Keys.NumPad1:
+                        jedna.PerformClick();
+                        break;
 
-        private void rovnase_Click(object sender, EventArgs e)
+                    case Keys.NumPad2:
+                        dva.PerformClick();
+                        break;
+                    case Keys.NumPad3:
+                        tri.PerformClick();
+                        break;
+                    case Keys.NumPad4:
+                        ctyri.PerformClick();
+                        break;
+                    case Keys.NumPad5:
+                        pet.PerformClick();
+                        break;
+                    case Keys.NumPad6:
+                        sest.PerformClick();
+                        break;
+                    case Keys.NumPad7:
+                        sedm.PerformClick();
+                        break;
+                    case Keys.NumPad8:
+                        osm.PerformClick();
+                        break;
+                    case Keys.NumPad9:
+                        devet.PerformClick();
+                        break;
+                    case Keys.Add:
+                        plus.PerformClick();
+                        break;
+                    case Keys.Subtract:
+                        minus.PerformClick();
+                        break;
+                    case Keys.Multiply:
+                        krat.PerformClick();
+                        break;
+                    case Keys.Divide:
+                        deleno.PerformClick();
+                        break;
+                    case Keys.Back:
+                        bck.PerformClick();
+                        break;
+                    case Keys.Enter:
+                        rovnase.PerformClick();
+                        break;
+                    case Keys.Decimal:
+                        if (!textBox1.Text.Contains(","))
+                            desCarka.PerformClick();
+                        break;
+                }
+                rovnase.Focus();
+            }
+
+            else if(kalkVed.Visible)
+            {
+                switch (e.KeyCode)
+                {
+                    case Keys.NumPad0:
+                        nulaV.PerformClick();
+                        break;
+                    case Keys.NumPad1:
+                        jednaV.PerformClick();
+                        break;
+
+                    case Keys.NumPad2:
+                        dvaV.PerformClick();
+                        break;
+                    case Keys.NumPad3:
+                        triV.PerformClick();
+                        break;
+                    case Keys.NumPad4:
+                        ctyriV.PerformClick();
+                        break;
+                    case Keys.NumPad5:
+                        petV.PerformClick();
+                        break;
+                    case Keys.NumPad6:
+                        sestV.PerformClick();
+                        break;
+                    case Keys.NumPad7:
+                        sedmV.PerformClick();
+                        break;
+                    case Keys.NumPad8:
+                        osmV.PerformClick();
+                        break;
+                    case Keys.NumPad9:
+                        devetV.PerformClick();
+                        break;
+                    case Keys.Add:
+                        plusV.PerformClick();
+                        break;
+                    case Keys.Subtract:
+                        minusV.PerformClick();
+                        break;
+                    case Keys.Multiply:
+                        kratV.PerformClick();
+                        break;
+                    case Keys.Divide:
+                        delenoV.PerformClick();
+                        break;
+                    case Keys.Back:
+                        bckV.PerformClick();
+                        break;
+                    case Keys.Enter:
+                        rovnaseV.PerformClick();
+                            break;
+                    case Keys.Decimal:
+                        if(!textBox1.Text.Contains(","))
+                            desCarkaV.PerformClick();
+                        break;
+                }
+                rovnaseV.Focus();
+            }
+        }
+
+        //Základní kalkulačka - operace
+        private void zaklRovnase_Click(object sender, EventArgs e)
         {
             
            if (textBox1.Text.Length>0)
@@ -181,7 +322,7 @@ namespace Kalkulačka_v3
             }
         }
 
-        private void plus_Click(object sender, EventArgs e)
+        private void zaklOper_Click(object sender, EventArgs e)
         {
             if (textBox1.Text.Length == 0)
             {
@@ -224,42 +365,8 @@ namespace Kalkulačka_v3
             rovnase.Focus();
         }
 
-        private void button6_Click(object sender, EventArgs e)
-        {
-            textBox1.Clear();
-            textBox1.Text = "0";
-            rovnase.Focus();
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            if(textBox1.Text.Length>0) textBox1.Text=textBox1.Text.Substring(0,textBox1.Text.Length-1);
-            if (textBox1.Text.Length == 0) textBox1.Text = "0";
-            rovnase.Focus();
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-            textBox1.Clear();
-            label1.Text = "";
-            cislo = 0;
-            listBox1.Items.Clear();
-            textBox1.Text = "0";
-            rovnase.Focus();
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-            if (textBox1.Text.Length > 0)
-            {
-                textBox1.Text = (Convert.ToDouble(textBox1.Text) * (-1)).ToString();
-                vysledek = false;
-            }
-            else textBox1.Text = "0";
-            rovnase.Focus();
-        }
-
-        private void button9_Click(object sender, EventArgs e)
+        //Mocniny
+        private void druhaMocnina_Click(object sender, EventArgs e)
         {
             if (textBox1.Text.Length > 0)
             {
@@ -268,19 +375,10 @@ namespace Kalkulačka_v3
                 textBox1.Text = (pom *= pom).ToString();
             }
             rovnase.Focus();
+            rovnaseV.Focus();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (textBox1.Text.Length == 0) textBox1.Text = "0";
-            double pom1=Convert.ToDouble(textBox1.Text);
-            int pom = Convert.ToInt32(pom1);
-            if (pom == pom1 && !vysledek) textBox1.Text += (sender as Button).Text;
-            else textBox1.Text = "0" + (sender as Button).Text;
-            rovnase.Focus();
-        }
-
-        private void button10_Click(object sender, EventArgs e)
+        private void druhaOdmocnina_Click(object sender, EventArgs e)
         {
             if (textBox1.Text.Length > 0)
             {
@@ -294,105 +392,132 @@ namespace Kalkulačka_v3
             rovnase.Focus();
         }
 
-        /* Pí */
+        //Změny hodnot
+        private void btnPlusMinus_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text.Length > 0)
+            {
+                textBox1.Text = (Convert.ToDouble(textBox1.Text) * (-1)).ToString();
+                vysledek = false;
+            }
+            else textBox1.Text = "0";
+            rovnase.Focus();
+        }
 
-        private void button11_Click(object sender, EventArgs e)
+        private void obracenaHodnota_Click(object sender, EventArgs e)
         {
             textBox1.Text = (1 / Convert.ToDouble(textBox1.Text)).ToString();
             rovnase.Focus();
         }
-
-        // Zadávání pomocí klávesnice
-
-        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        private void desCarka_Click(object sender, EventArgs e)
         {
-            switch (e.KeyCode)
-            {
-                case Keys.NumPad0:
-                    nula.PerformClick();
-                    break;
-                case Keys.NumPad1:
-                    jedna.PerformClick();
-                    break;
-
-                case Keys.NumPad2:
-                    dva.PerformClick();
-                    break;
-                case Keys.NumPad3:
-                    tri.PerformClick();
-                    break;
-                case Keys.NumPad4:
-                    ctyri.PerformClick();
-                    break;
-                case Keys.NumPad5:
-                    pet.PerformClick();
-                    break;
-                case Keys.NumPad6:
-                    sest.PerformClick();
-                    break;
-                case Keys.NumPad7:
-                    sedm.PerformClick();
-                    break;
-                case Keys.NumPad8:
-                    osm.PerformClick();
-                    break;
-                case Keys.NumPad9:
-                    devet.PerformClick();
-                    break;
-                case Keys.Add:
-                    plus.PerformClick();
-                    break;
-                case Keys.Subtract:
-                    minus.PerformClick();
-                    break;
-                case Keys.Multiply:
-                    krat.PerformClick();
-                    break;
-                case Keys.Divide:
-                    deleno.PerformClick();
-                    break;
-                case Keys.Back:
-                    bck.PerformClick();
-                    break;
-                case Keys.Enter:
-                    rovnase.PerformClick();
-                        break;
-                case Keys.Decimal:
-                    if(!textBox1.Text.Contains(","))
-                        button1.PerformClick();
-                    break;
-            }
+            if (textBox1.Text.Length == 0) textBox1.Text = "0";
+            double pom1=Convert.ToDouble(textBox1.Text);
+            int pom = Convert.ToInt32(pom1);
+            if (pom == pom1 && !vysledek) textBox1.Text += (sender as Button).Text;
+            else textBox1.Text = "0" + (sender as Button).Text;
+            rovnase.Focus();
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-        }
+        //Form akce
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            autores();
+                /* JEN NA TVORBU VĚD KALK */                
+                listBox1.Visible = false;
+                kalkZakl.Visible = false;
+                kalkVed.Visible = true;
+                this.Height=500;
+                this.Width=500;
+                this.FormBorderStyle = FormBorderStyle.Fixed3D;
+
+                kalkVed.Location = new Point(kalkZakl.Location.X, kalkZakl.Location.Y);
         }
 
         private void Form1_Resize(object sender, EventArgs e)
-        {
-            autores();
+        {            
+            //autores(5,7,kalkVed);
         }
 
-        private void button2_Click(object sender, EventArgs e)
+
+        //Menu button
+        private void menu_Click(object sender, EventArgs e)
         {
             if (panel1.Visible) panel1.Visible = false;
             else panel1.Visible = true;
         }
 
-        private void basicCalc_Click(object sender, EventArgs e)
+        //Funkce na schování všech panelů
+        private void PanelHide()
         {
-            panel1.Visible= false;
+            foreach (Control c in this.Controls)
+            {
+                if (c is Panel)
+                    c.Visible = false;
+            }
+            
+            Clear();
         }
 
+
+        //Funkce na zobrazení konkrétních kalkulaček
+        private void basicCalc_Click(object sender, EventArgs e)
+        {
+            PanelHide();
+            kalkZakl.Visible = true;
+            
+        }
+
+        private void sciCalc_Click(object sender, EventArgs e)
+        {
+            PanelHide();
+            kalkVed.Visible=true;
+        }
+
+        //Clear funkce
+        private void backspace_Click(object sender, EventArgs e)
+        {
+            if(textBox1.Text.Length>0) textBox1.Text=textBox1.Text.Substring(0,textBox1.Text.Length-1);
+            if (textBox1.Text.Length == 0) textBox1.Text = "0";
+            rovnase.Focus();
+        }
+
+        private void CE_Click(object sender, EventArgs e)
+        {
+            textBox1.Clear();
+            textBox1.Text = "0";
+            rovnase.Focus();
+        }
+        private void Clear_Click(object sender, EventArgs e)
+        {
+           Clear();
+        }
+
+        private void Clear()
+        {
+            textBox1.Clear();
+            label1.Text = "";
+            cislo = 0;
+            listBox1.Items.Clear();
+            textBox1.Text = "0";
+            rovnase.Focus();
+        }
+
+
+
+        //Nepoužité
+        private void CA_Click(object sender, EventArgs e)
+        {
+
+        }
         private void jedna_KeyDown(object sender, KeyEventArgs e)
         {
             
+        }
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
