@@ -21,10 +21,16 @@ namespace Kalkulačka_v3
 
         /* Globální proměnné */
 
+
+        //Základní kalkulačka
         char operace;
         double cislo,cislo2;
         bool pruchod = false;
         bool vysledek = false;
+
+        //Vědecká kalkulačka
+        string priklad="";
+   
 
         //responsivita
 
@@ -147,7 +153,26 @@ namespace Kalkulačka_v3
             }
 
         }
-        
+
+        //Pomocné funkce
+
+        private void rovnaseFocus()
+        {
+            rovnase.Focus();
+            rovnaseV.Focus();
+        }
+
+        private void PanelHide()
+        {
+            foreach (Control c in this.Controls)
+            {
+                if (c is Panel)
+                    c.Visible = false;
+            }
+
+            Clear();
+        }
+
         // Zadávání čísel
         private void cisla_Click(object sender, EventArgs e)
         {
@@ -158,7 +183,7 @@ namespace Kalkulačka_v3
             }
             if(textBox1.Text!="0") textBox1.Text+=(sender as Button).Text;      //Ošetření aby nebylo víc než jedna 0
             else textBox1.Text = (sender as Button).Text;               //Braní textu tlačítek jako zadávání
-            rovnase.Focus();
+            rovnaseFocus();
         }
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
@@ -220,7 +245,7 @@ namespace Kalkulačka_v3
                             desCarka.PerformClick();
                         break;
                 }
-                rovnase.Focus();
+               
             }
 
             else if(kalkVed.Visible)
@@ -281,8 +306,10 @@ namespace Kalkulačka_v3
                             desCarkaV.PerformClick();
                         break;
                 }
-                rovnaseV.Focus();
+               
             }
+
+            rovnaseFocus();
         }
 
         //Základní kalkulačka - operace
@@ -362,8 +389,138 @@ namespace Kalkulačka_v3
             label1.Text = textBox1.Text;            
             textBox1.Clear();
             pruchod = true;
-            rovnase.Focus();
+            rovnaseFocus();
         }
+
+
+        //Vědecká kalkulačka - operace
+        private void vedOper_Click(object sender, EventArgs e)
+        {
+            priklad += textBox1.Text;
+            priklad+=(sender as Button).Text;
+            label1.Text = priklad;
+            textBox1.Text = "0";
+        }
+        private void rovnaseV_Click(object sender, EventArgs e)
+        {
+            if(priklad.Length!=0)
+            {
+                if (textBox1.Text.Length != 0) priklad += textBox1.Text;
+                label1.Text = priklad;
+                List<double> cisla=new List<double>();
+                List<char> operandy = new List<char>();
+                double cislo = 0;
+                bool prvni = true;
+                bool des = false;
+                double del = 1;
+                double vysledek = 0 ;
+
+                //Získávání čísel a operandů
+                foreach(char c in priklad)
+                {
+                    if(c>='0'&&c<='9')
+                    {
+                        if(!prvni) cislo *= 10;                       
+                        cislo += Convert.ToDouble(c.ToString());
+                        prvni = false;
+                        if(des) del *= 10;
+                    }
+                    else if(c=='+'||c=='-'||c=='x'||c=='/')
+                    {
+                        prvni = true;
+                        if(des)
+                        {
+                            cislo /= del;
+                            des= false;
+                            del = 10;
+                        }
+                        cisla.Add(cislo);
+                        cislo = 0;
+                        operandy.Add(c);
+                    }
+                    else if(c==',')
+                    {
+                        des = true;
+                    }
+                }
+                if (des)
+                {
+                    cislo /= del;
+                    des = false;
+                    del = 10;
+                }
+                cisla.Add(cislo);
+                
+
+                //Určování priority operací
+                List<int> prioritaIndex=new List<int>();
+                for(int i = 0;i<operandy.Count;i++)
+                {                 
+                    if (operandy[i] == 'x' || operandy[i] == '/')
+                    {
+                        prioritaIndex.Add(i);
+                    }
+                }
+
+                
+
+                //Počítání operací s prioritou
+
+                double meziVypocet = 0;
+                int diff = 0;
+
+                if(prioritaIndex.Count>0)
+                {
+                    foreach (int i in prioritaIndex)
+                    {
+                        switch (operandy[i])
+                        {
+                            case 'x': meziVypocet = cisla[i - diff] * cisla[i + 1 - diff];
+                                break;
+                            case '/': meziVypocet = cisla[i - diff] / cisla[i + 1 - diff];
+                                break;
+                        }           
+                        cisla[i-diff] = meziVypocet;                      
+                        cisla.RemoveAt(i + 1-diff);
+                        diff++;
+                    }
+                    
+                    int diffOp = 0;
+                    foreach(int i in prioritaIndex)
+                    {
+                        
+                        operandy.RemoveAt(i-diffOp);
+                        diffOp++;
+                    }              
+                }
+
+                vysledek = cisla[0];
+
+                if (operandy.Count > 0)
+                {
+                    int count = 1;
+                    foreach (char c in operandy)
+                    {
+                        switch (c)
+                        {
+                            case '+':
+                                vysledek += cisla[count];
+                                break;
+                            case '-':
+                                vysledek -= cisla[count];
+                                break;
+                        }
+                        count++;
+                    }
+                }
+
+
+                label1.Text += "=";
+                textBox1.Text = vysledek.ToString();
+                priklad = "";
+            }
+        }
+
 
         //Mocniny
         private void druhaMocnina_Click(object sender, EventArgs e)
@@ -374,8 +531,7 @@ namespace Kalkulačka_v3
                 textBox1.Clear();
                 textBox1.Text = (pom *= pom).ToString();
             }
-            rovnase.Focus();
-            rovnaseV.Focus();
+            rovnaseFocus();
         }
 
         private void druhaOdmocnina_Click(object sender, EventArgs e)
@@ -389,7 +545,7 @@ namespace Kalkulačka_v3
                     textBox1.Text=pom.ToString();
                 }
             }
-            rovnase.Focus();
+            rovnaseFocus();
         }
 
         //Změny hodnot
@@ -401,13 +557,13 @@ namespace Kalkulačka_v3
                 vysledek = false;
             }
             else textBox1.Text = "0";
-            rovnase.Focus();
+            rovnaseFocus();
         }
 
         private void obracenaHodnota_Click(object sender, EventArgs e)
         {
             textBox1.Text = (1 / Convert.ToDouble(textBox1.Text)).ToString();
-            rovnase.Focus();
+            rovnaseFocus();
         }
         private void desCarka_Click(object sender, EventArgs e)
         {
@@ -416,7 +572,7 @@ namespace Kalkulačka_v3
             int pom = Convert.ToInt32(pom1);
             if (pom == pom1 && !vysledek) textBox1.Text += (sender as Button).Text;
             else textBox1.Text = "0" + (sender as Button).Text;
-            rovnase.Focus();
+            rovnaseFocus();
         }
 
 
@@ -448,18 +604,6 @@ namespace Kalkulačka_v3
             else panel1.Visible = true;
         }
 
-        //Funkce na schování všech panelů
-        private void PanelHide()
-        {
-            foreach (Control c in this.Controls)
-            {
-                if (c is Panel)
-                    c.Visible = false;
-            }
-            
-            Clear();
-        }
-
 
         //Funkce na zobrazení konkrétních kalkulaček
         private void basicCalc_Click(object sender, EventArgs e)
@@ -480,14 +624,14 @@ namespace Kalkulačka_v3
         {
             if(textBox1.Text.Length>0) textBox1.Text=textBox1.Text.Substring(0,textBox1.Text.Length-1);
             if (textBox1.Text.Length == 0) textBox1.Text = "0";
-            rovnase.Focus();
+            rovnaseFocus();
         }
 
         private void CE_Click(object sender, EventArgs e)
         {
             textBox1.Clear();
             textBox1.Text = "0";
-            rovnase.Focus();
+            rovnaseFocus();
         }
         private void Clear_Click(object sender, EventArgs e)
         {
@@ -501,7 +645,8 @@ namespace Kalkulačka_v3
             cislo = 0;
             listBox1.Items.Clear();
             textBox1.Text = "0";
-            rovnase.Focus();
+            rovnaseFocus();
+            priklad = "";
         }
 
 
@@ -515,6 +660,8 @@ namespace Kalkulačka_v3
         {
             
         }
+
+
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 

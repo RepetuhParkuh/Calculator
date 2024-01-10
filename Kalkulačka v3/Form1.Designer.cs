@@ -232,7 +232,7 @@
             this.plusV.TabIndex = 56;
             this.plusV.Text = "+";
             this.plusV.UseVisualStyleBackColor = true;
-            this.plusV.Click += new System.EventHandler(this.zaklOper_Click);
+            this.plusV.Click += new System.EventHandler(this.vedOper_Click);
             // 
             // minusV
             // 
@@ -243,7 +243,7 @@
             this.minusV.TabIndex = 55;
             this.minusV.Text = "-";
             this.minusV.UseVisualStyleBackColor = true;
-            this.minusV.Click += new System.EventHandler(this.zaklOper_Click);
+            this.minusV.Click += new System.EventHandler(this.vedOper_Click);
             // 
             // kratV
             // 
@@ -254,7 +254,7 @@
             this.kratV.TabIndex = 54;
             this.kratV.Text = "x";
             this.kratV.UseVisualStyleBackColor = true;
-            this.kratV.Click += new System.EventHandler(this.zaklOper_Click);
+            this.kratV.Click += new System.EventHandler(this.vedOper_Click);
             // 
             // delenoV
             // 
@@ -265,7 +265,7 @@
             this.delenoV.TabIndex = 53;
             this.delenoV.Text = "/";
             this.delenoV.UseVisualStyleBackColor = true;
-            this.delenoV.Click += new System.EventHandler(this.zaklOper_Click);
+            this.delenoV.Click += new System.EventHandler(this.vedOper_Click);
             // 
             // desCarkaV
             // 
@@ -287,7 +287,7 @@
             this.rovnaseV.TabIndex = 57;
             this.rovnaseV.Text = "=";
             this.rovnaseV.UseVisualStyleBackColor = true;
-            this.rovnaseV.Click += new System.EventHandler(this.zaklRovnase_Click);
+            this.rovnaseV.Click += new System.EventHandler(this.rovnaseV_Click);
             // 
             // label1
             // 
@@ -309,7 +309,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(149, 13);
+            this.button6.Location = new System.Drawing.Point(149, 11);
             this.button6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(40, 30);
