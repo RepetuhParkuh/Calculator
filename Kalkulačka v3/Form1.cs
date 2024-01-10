@@ -517,6 +517,7 @@ namespace Kalkulačka_v3
 
                 label1.Text += "=";
                 textBox1.Text = vysledek.ToString();
+                listBox1.Items.Add(vysledek);
                 priklad = "";
             }
         }
@@ -580,10 +581,9 @@ namespace Kalkulačka_v3
 
         private void Form1_Load(object sender, EventArgs e)
         {
-                /* JEN NA TVORBU VĚD KALK */                
-                listBox1.Visible = false;
-                kalkZakl.Visible = false;
-                kalkVed.Visible = true;
+            /* JEN NA TVORBU VĚD KALK */
+            kalkZakl.Visible = true;
+            kalkVed.Visible = false;
                 this.Height=500;
                 this.Width=500;
                 this.FormBorderStyle = FormBorderStyle.Fixed3D;
