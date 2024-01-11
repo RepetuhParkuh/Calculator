@@ -527,6 +527,7 @@
             this.button39.TabIndex = 23;
             this.button39.Text = "(";
             this.button39.UseVisualStyleBackColor = true;
+            this.button39.Click += new System.EventHandler(this.cisla_Click);
             // 
             // button38
             // 
@@ -557,6 +558,7 @@
             this.button36.TabIndex = 32;
             this.button36.Text = "n!";
             this.button36.UseVisualStyleBackColor = true;
+            this.button36.Click += new System.EventHandler(this.btnFakt);
             // 
             // button35
             // 
@@ -567,6 +569,7 @@
             this.button35.TabIndex = 33;
             this.button35.Text = ")";
             this.button35.UseVisualStyleBackColor = true;
+            this.button35.Click += new System.EventHandler(this.cisla_Click);
             // 
             // button34
             // 

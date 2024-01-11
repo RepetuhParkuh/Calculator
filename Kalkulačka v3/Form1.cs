@@ -26,7 +26,7 @@ namespace Kalkulačka_v3
         char operace;
         double cislo,cislo2;
         bool pruchod = false;
-        bool vysledek = false;
+        bool jeVysledek = false;
 
         //Vědecká kalkulačka
         string priklad="";
@@ -172,14 +172,26 @@ namespace Kalkulačka_v3
 
             Clear();
         }
+        private void btnFakt(object sender, EventArgs e)
+        {
+            if (double.TryParse(textBox1.Text, out double pom))
+            {
+                int fakt = 1;
+                for(int i=2;i<=pom;i++)
+                {
+                    fakt *= i;
+                }
+                textBox1.Text=fakt.ToString();
+            }
+        }
 
         // Zadávání čísel
         private void cisla_Click(object sender, EventArgs e)
         {
-            if (vysledek)                   //Po zmáčknutí rovnáse se nebude připisovat do výsledku ale přepíše se
+            if (jeVysledek)                   //Po zmáčknutí rovnáse se nebude připisovat do výsledku ale přepíše se
             {
                 textBox1.Text = "";
-                vysledek = false;
+                jeVysledek = false;
             }
             if(textBox1.Text!="0") textBox1.Text+=(sender as Button).Text;      //Ošetření aby nebylo víc než jedna 0
             else textBox1.Text = (sender as Button).Text;               //Braní textu tlačítek jako zadávání
@@ -345,7 +357,7 @@ namespace Kalkulačka_v3
             textBox1.Text = cislo.ToString();
             listBox1.Items.Add(cislo);
             pruchod = false;
-                vysledek = true;        //Po zmáčknutí rovnáse se nebude připisovat do výsledku ale přepíše se
+                jeVysledek = true;        //Po zmáčknutí rovnáse se nebude připisovat do výsledku ale přepíše se
             }
         }
 
@@ -394,104 +406,134 @@ namespace Kalkulačka_v3
 
 
         //Vědecká kalkulačka - operace
-        private void vedOper_Click(object sender, EventArgs e)
-        {
-            priklad += textBox1.Text;
-            priklad+=(sender as Button).Text;
-            label1.Text = priklad;
-            textBox1.Text = "0";
-        }
-        private void rovnaseV_Click(object sender, EventArgs e)
-        {
-            if(priklad.Length!=0)
-            {
-                if (textBox1.Text.Length != 0) priklad += textBox1.Text;
-                label1.Text = priklad;
-                List<double> cisla=new List<double>();
-                List<char> operandy = new List<char>();
-                double cislo = 0;
-                bool prvni = true;
-                bool des = false;
-                double del = 1;
-                double vysledek = 0 ;
 
-                //Získávání čísel a operandů
-                foreach(char c in priklad)
+        private double vypocitaniPrikladu(string prikladS)
+        {
+            List<double> cisla = new List<double>();
+            List<char> operandy = new List<char>();
+            double cislo = 0;
+            bool prvni = true;
+            bool des = false;
+            bool zavorka = false;
+            double del = 1;
+            double vysledek = 0;
+
+            string podPriklad = "";
+
+
+            while(prikladS.Contains('('))
+            {
+                 foreach(char c in prikladS)
                 {
-                    if(c>='0'&&c<='9')
+                    if (c == '(')
                     {
-                        if(!prvni) cislo *= 10;                       
+                        zavorka = true;
+                    }
+
+                    else if (c == ')')
+                    {
+                        int indZacZav = prikladS.IndexOf('(');
+                        int indKonZav = prikladS.IndexOf(')');
+                        prikladS = prikladS.Remove(indZacZav, indKonZav - indZacZav + 1);
+                        double vysPod = vypocitaniPrikladu(podPriklad);                                           
+                        prikladS = prikladS.Insert(indZacZav, vysPod.ToString());
+                        zavorka = false;
+                    }
+
+                    else if (zavorka&&c!=')')
+                    {
+                        podPriklad += c;
+                    }
+                }                
+            }
+
+
+            //Získávání čísel a operandů
+            foreach (char c in prikladS)
+            {                    
+                    if (c >= '0' && c <= '9')
+                    {
+                        if (!prvni) cislo *= 10;
                         cislo += Convert.ToDouble(c.ToString());
                         prvni = false;
-                        if(des) del *= 10;
+                        if (des) del *= 10;
                     }
-                    else if(c=='+'||c=='-'||c=='x'||c=='/')
+
+                    else if (c == ',')
+                    {
+                        des = true;
+                    }
+                    if (c == '+' || c == '-' || c == 'x' || c == '/')
                     {
                         prvni = true;
-                        if(des)
+                        if (des)
                         {
                             cislo /= del;
-                            des= false;
+                            des = false;
                             del = 10;
                         }
                         cisla.Add(cislo);
                         cislo = 0;
                         operandy.Add(c);
-                    }
-                    else if(c==',')
-                    {
-                        des = true;
-                    }
-                }
-                if (des)
-                {
-                    cislo /= del;
-                    des = false;
-                    del = 10;
-                }
-                cisla.Add(cislo);
-                
+                    }                    
+                        
+            }
 
+            
+            
+            
+            if (des)
+            {
+                cislo /= del;
+                des = false;
+                del = 10;
+            }
+            cisla.Add(cislo);
+        
+            if(!double.TryParse(prikladS,out vysledek))
+            {                
                 //Určování priority operací
-                List<int> prioritaIndex=new List<int>();
-                for(int i = 0;i<operandy.Count;i++)
-                {                 
+                List<int> prioritaIndex = new List<int>();
+                for (int i = 0; i < operandy.Count; i++)
+                {
                     if (operandy[i] == 'x' || operandy[i] == '/')
                     {
                         prioritaIndex.Add(i);
                     }
                 }
 
-                
+
 
                 //Počítání operací s prioritou
 
                 double meziVypocet = 0;
                 int diff = 0;
 
-                if(prioritaIndex.Count>0)
+                if (prioritaIndex.Count > 0)
                 {
                     foreach (int i in prioritaIndex)
                     {
                         switch (operandy[i])
                         {
-                            case 'x': meziVypocet = cisla[i - diff] * cisla[i + 1 - diff];
+                            case 'x':
+                                meziVypocet = cisla[i - diff] * cisla[i + 1 - diff];
                                 break;
-                            case '/': meziVypocet = cisla[i - diff] / cisla[i + 1 - diff];
+                            case '/':
+                                meziVypocet = cisla[i - diff] / cisla[i + 1 - diff];
                                 break;
-                        }           
-                        cisla[i-diff] = meziVypocet;                      
-                        cisla.RemoveAt(i + 1-diff);
+                        }
+                        cisla[i - diff] = meziVypocet;
+                        cisla.RemoveAt(i + 1 - diff);
                         diff++;
                     }
-                    
+
                     int diffOp = 0;
-                    foreach(int i in prioritaIndex)
+                    foreach (int i in prioritaIndex)
                     {
-                        
-                        operandy.RemoveAt(i-diffOp);
+
+                        operandy.RemoveAt(i - diffOp);
                         diffOp++;
-                    }              
+                    }
                 }
 
                 vysledek = cisla[0];
@@ -513,8 +555,28 @@ namespace Kalkulačka_v3
                         count++;
                     }
                 }
+            }
+                
+                     
 
-
+            
+            return vysledek;
+        }
+        private void vedOper_Click(object sender, EventArgs e)
+        {
+            priklad += textBox1.Text;
+            priklad+=(sender as Button).Text;
+            label1.Text = priklad;
+            textBox1.Text = "0";
+        }
+        private void rovnaseV_Click(object sender, EventArgs e)
+        {
+            if(priklad.Length!=0)
+            {
+                if (textBox1.Text.Length != 0) priklad += textBox1.Text;
+                if (priklad.Contains("(") && !priklad.Contains(")")) priklad += ")";
+                label1.Text = priklad;
+                double vysledek=vypocitaniPrikladu(priklad);
                 label1.Text += "=";
                 textBox1.Text = vysledek.ToString();
                 listBox1.Items.Add(vysledek);
@@ -555,7 +617,7 @@ namespace Kalkulačka_v3
             if (textBox1.Text.Length > 0)
             {
                 textBox1.Text = (Convert.ToDouble(textBox1.Text) * (-1)).ToString();
-                vysledek = false;
+                jeVysledek = false;
             }
             else textBox1.Text = "0";
             rovnaseFocus();
@@ -571,7 +633,7 @@ namespace Kalkulačka_v3
             if (textBox1.Text.Length == 0) textBox1.Text = "0";
             double pom1=Convert.ToDouble(textBox1.Text);
             int pom = Convert.ToInt32(pom1);
-            if (pom == pom1 && !vysledek) textBox1.Text += (sender as Button).Text;
+            if (pom == pom1 && !jeVysledek) textBox1.Text += (sender as Button).Text;
             else textBox1.Text = "0" + (sender as Button).Text;
             rovnaseFocus();
         }
