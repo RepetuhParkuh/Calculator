@@ -184,6 +184,10 @@ namespace Kalkulačka_v3
                 textBox1.Text=fakt.ToString();
             }
         }
+        private void Pi_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = Math.PI.ToString("F8");
+        }
 
         // Zadávání čísel
         private void cisla_Click(object sender, EventArgs e)
@@ -463,7 +467,7 @@ namespace Kalkulačka_v3
                     {
                         des = true;
                     }
-                    if (c == '+' || c == '-' || c == 'x' || c == '/')
+                    if (c == '+' || c == '-' || c == 'x' || c == '/' || c == '%')
                     {
                         prvni = true;
                         if (des)
@@ -496,7 +500,7 @@ namespace Kalkulačka_v3
                 List<int> prioritaIndex = new List<int>();
                 for (int i = 0; i < operandy.Count; i++)
                 {
-                    if (operandy[i] == 'x' || operandy[i] == '/')
+                    if (operandy[i] == 'x' || operandy[i] == '/' || operandy[i] == '%')
                     {
                         prioritaIndex.Add(i);
                     }
@@ -520,6 +524,9 @@ namespace Kalkulačka_v3
                                 break;
                             case '/':
                                 meziVypocet = cisla[i - diff] / cisla[i + 1 - diff];
+                                break;
+                            case '%':
+                                meziVypocet = Convert.ToInt32(cisla[i - diff]) % Convert.ToInt32(cisla[i + 1 - diff]);
                                 break;
                         }
                         cisla[i - diff] = meziVypocet;
@@ -565,7 +572,8 @@ namespace Kalkulačka_v3
         private void vedOper_Click(object sender, EventArgs e)
         {
             priklad += textBox1.Text;
-            priklad+=(sender as Button).Text;
+            if ((sender as Button).Name == "btnMod") priklad +="%";
+            else priklad += (sender as Button).Text;
             label1.Text = priklad;
             textBox1.Text = "0";
         }
