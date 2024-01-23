@@ -415,38 +415,58 @@ namespace Kalkulačka_v3
         {
             List<double> cisla = new List<double>();
             List<char> operandy = new List<char>();
-            double cislo = 0;
+            //Promenna do ktere hazim cisla
+            double cislo = 0;            
             bool prvni = true;
+            
+            //Desetinne cislo
             bool des = false;
-            bool zavorka = false;
             double del = 1;
-            double vysledek = 0;
+
+            // Zavorky
+            bool zavorka = false;
+            int countZacZavorek = 0;
+            int countKonZavorek = 0;
+            int indexZacZav = 0;           
 
             string podPriklad = "";
+            
+            //Vysledek
+            double vysledek = 0;
 
+            
 
+            //Kontrola zavorek v prikladu
             while(prikladS.Contains('('))
-            {
-                 foreach(char c in prikladS)
+            {                
+                for(int i = 0;i<prikladS.Length;i++)
                 {
-                    if (c == '(')
+                    char c = prikladS[i];
+                    if(c == '(')
                     {
-                        zavorka = true;
+                        if (!zavorka)
+                        {                            
+                            zavorka = true;
+                            indexZacZav = i;
+                        }
+                        countZacZavorek++;
                     }
-
-                    else if (c == ')')
+                    else if(c== ')')
                     {
-                        int indZacZav = prikladS.IndexOf('(');
-                        int indKonZav = prikladS.IndexOf(')');
-                        prikladS = prikladS.Remove(indZacZav, indKonZav - indZacZav + 1);
-                        double vysPod = vypocitaniPrikladu(podPriklad);                                           
-                        prikladS = prikladS.Insert(indZacZav, vysPod.ToString());
-                        zavorka = false;
-                    }
-
-                    else if (zavorka&&c!=')')
-                    {
-                        podPriklad += c;
+                        countKonZavorek++;
+                        if (countZacZavorek == countKonZavorek)  //Diky tomuhle nevadi vnorene zavorky
+                        {
+                            //vytvoreni prikladu ze zavorky
+                            podPriklad=prikladS.Substring(indexZacZav+1,i-indexZacZav-1);  
+                            //Odstraneni podprikladu z hlavniho prikladu
+                            prikladS = prikladS.Remove(indexZacZav, i - indexZacZav+1);
+                            //Vlozeni vysledku z podprikladu
+                            prikladS = prikladS.Insert(indexZacZav, vypocitaniPrikladu(podPriklad).ToString());
+                            zavorka = false;
+                            //Neni nejlip optimalizovany, ale aspon to funguje. Sice se bude cely priklad prochazet znovu
+                            //ale aspon je jistota ze to projde vsechny zavorky spravne
+                            i = 0;
+                        }
                     }
                 }                
             }
@@ -474,7 +494,7 @@ namespace Kalkulačka_v3
                         {
                             cislo /= del;
                             des = false;
-                            del = 10;
+                            del = 1;
                         }
                         cisla.Add(cislo);
                         cislo = 0;
@@ -638,10 +658,8 @@ namespace Kalkulačka_v3
         }
         private void desCarka_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text.Length == 0) textBox1.Text = "0";
-            double pom1=Convert.ToDouble(textBox1.Text);
-            int pom = Convert.ToInt32(pom1);
-            if (pom == pom1 && !jeVysledek) textBox1.Text += (sender as Button).Text;
+            if (textBox1.Text.Length == 0) textBox1.Text = "0";            
+            if (!textBox1.Text.Contains(",") && !jeVysledek) textBox1.Text += (sender as Button).Text;
             else textBox1.Text = "0" + (sender as Button).Text;
             rovnaseFocus();
         }
