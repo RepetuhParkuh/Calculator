@@ -416,12 +416,10 @@ namespace Kalkulačka_v3
             List<double> cisla = new List<double>();
             List<char> operandy = new List<char>();
             //Promenna do ktere hazim cisla
-            double cislo = 0;            
-            bool prvni = true;
-            
-            //Desetinne cislo
-            bool des = false;
-            double del = 1;
+            string cislo = "";     
+                   
+            //Zaporne cislo
+            bool znam = true;
 
             // Zavorky
             bool zavorka = false;
@@ -475,44 +473,42 @@ namespace Kalkulačka_v3
             //Získávání čísel a operandů
             foreach (char c in prikladS)
             {                    
-                    if (c >= '0' && c <= '9')
+                    if (c >= '0' && c <= '9'||znam&&c=='-'||c==',')
                     {
-                        if (!prvni) cislo *= 10;
-                        cislo += Convert.ToDouble(c.ToString());
-                        prvni = false;
-                        if (des) del *= 10;
+                        cislo += c;
+                        znam = false;                        
                     }
-
-                    else if (c == ',')
-                    {
-                        des = true;
-                    }
-                    if (c == '+' || c == '-' || c == 'x' || c == '/' || c == '%')
-                    {
-                        prvni = true;
-                        if (des)
+                    
+                    else if (c == '+' || c == '-' || c == 'x' || c == '/' || c == '%')
+                    {                  
+                  
+                        if (cislo.Contains("-"))
                         {
-                            cislo /= del;
-                            des = false;
-                            del = 1;
+                            cislo = cislo.Replace("-", "");
+                            cisla.Add(Convert.ToDouble(cislo) * -1);
                         }
-                        cisla.Add(cislo);
-                        cislo = 0;
+                        else if(cislo!="")
+                        {
+                            //MessageBox.Show(cislo);
+                            cisla.Add(Convert.ToDouble(cislo));
+                        }
+                        cislo = "";
                         operandy.Add(c);
+                        znam = true;
                     }                    
                         
             }
 
+
+
+
             
-            
-            
-            if (des)
+            if (cislo.Contains("-"))
             {
-                cislo /= del;
-                des = false;
-                del = 10;
+                cislo = cislo.Replace("-","");
+                cisla.Add(Convert.ToDouble(cislo) * -1);
             }
-            cisla.Add(cislo);
+            else if(cislo!="") cisla.Add(Convert.ToDouble(cislo));
         
             if(!double.TryParse(prikladS,out vysledek))
             {                
@@ -562,6 +558,8 @@ namespace Kalkulačka_v3
                         diffOp++;
                     }
                 }
+
+             
 
                 vysledek = cisla[0];
 
@@ -642,9 +640,16 @@ namespace Kalkulačka_v3
         //Změny hodnot
         private void btnPlusMinus_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text.Length > 0)
+            string s = textBox1.Text;
+            textBox1.Text = "";
+            if(s.Contains("("))
             {
-                textBox1.Text = (Convert.ToDouble(textBox1.Text) * (-1)).ToString();
+                s = s.Replace("(", "");
+                textBox1.Text = "(";
+            }
+            if (s.Length > 0)
+            {
+                textBox1.Text += (Convert.ToDouble(s) * (-1)).ToString();
                 jeVysledek = false;
             }
             else textBox1.Text = "0";
