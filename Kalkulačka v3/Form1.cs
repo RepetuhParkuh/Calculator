@@ -30,7 +30,7 @@ namespace Kalkulačka_v3
 
         //Vědecká kalkulačka
         string priklad="";
-   
+        int ZavCount=0;
 
         //responsivita
 
@@ -196,9 +196,12 @@ namespace Kalkulačka_v3
             {
                 textBox1.Text = "";
                 jeVysledek = false;
-            }
-            if(textBox1.Text!="0") textBox1.Text+=(sender as Button).Text;      //Ošetření aby nebylo víc než jedna 0
-            else textBox1.Text = (sender as Button).Text;               //Braní textu tlačítek jako zadávání
+            }            
+            string s= (sender as Button).Text;
+            if (s == "(") ZavCount++;
+            if (s == ")") ZavCount--;
+            if(textBox1.Text=="0") textBox1.Text = s;                //Braní textu tlačítek jako zadávání
+            else textBox1.Text += s;
             rovnaseFocus();
         }
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -600,13 +603,18 @@ namespace Kalkulačka_v3
             if(priklad.Length!=0)
             {
                 if (textBox1.Text.Length != 0) priklad += textBox1.Text;
-                if (priklad.Contains("(") && !priklad.Contains(")")) priklad += ")";
-                label1.Text = priklad;
+                while(ZavCount>0)
+                {
+                    priklad += ")";
+                    ZavCount--;
+                }
+                label1.Text = priklad;                
                 double vysledek=vypocitaniPrikladu(priklad);
                 label1.Text += "=";
                 textBox1.Text = vysledek.ToString();
                 listBox1.Items.Add(vysledek);
                 priklad = "";
+                jeVysledek = true;
             }
         }
 
