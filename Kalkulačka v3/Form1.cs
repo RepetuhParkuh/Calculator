@@ -491,8 +491,7 @@ namespace Kalkulačka_v3
                             cisla.Add(Convert.ToDouble(cislo) * -1);
                         }
                         else if(cislo!="")
-                        {
-                            //MessageBox.Show(cislo);
+                        {                           
                             cisla.Add(Convert.ToDouble(cislo));
                         }
                         cislo = "";
