@@ -723,6 +723,8 @@ namespace Kalkulačka_v3
         //Clear funkce
         private void backspace_Click(object sender, EventArgs e)
         {
+            if (textBox1.Text[textBox1.Text.Length - 1] == '(') ZavCount--;
+            if (textBox1.Text[textBox1.Text.Length - 1] == ')') ZavCount++;
             if(textBox1.Text.Length>0) textBox1.Text=textBox1.Text.Substring(0,textBox1.Text.Length-1);
             if (textBox1.Text.Length == 0) textBox1.Text = "0";
             rovnaseFocus();
