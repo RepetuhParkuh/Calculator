@@ -536,6 +536,7 @@ namespace Kalkulačka_v3
 
                 double meziVypocet = 0;
                 int diff = 0;
+                int ovrOpDiff = 0;
 
                 if(mocninaIndex.Count>0)
                 {
@@ -547,13 +548,12 @@ namespace Kalkulačka_v3
                         cisla[i- diff] = meziVypocet;
                         cisla.RemoveAt(i + 1 - diff);
                         diff++;
-                    }
-                    int diffOp = 0;
+                    }                    
                     foreach (int i in mocninaIndex)
                     {
 
-                        operandy.RemoveAt(i - diffOp);
-                        diffOp++;
+                        operandy.RemoveAt(i - ovrOpDiff);                        
+                        ovrOpDiff++;
                     }
                 }
 
@@ -561,7 +561,7 @@ namespace Kalkulačka_v3
                 {
                     foreach (int i in prioritaIndex)
                     {
-                        switch (operandy[i])
+                        switch (operandy[i- ovrOpDiff])
                         {
                             case 'x':
                                 meziVypocet = cisla[i - diff] * cisla[i + 1 - diff];
@@ -577,13 +577,12 @@ namespace Kalkulačka_v3
                         cisla.RemoveAt(i + 1 - diff);
                         diff++;
                     }
-
-                    int diffOp = 0;
+                    
                     foreach (int i in prioritaIndex)
                     {
 
-                        operandy.RemoveAt(i - diffOp);
-                        diffOp++;
+                        operandy.RemoveAt(i - ovrOpDiff);
+                        ovrOpDiff++;
                     }
                 }
 
