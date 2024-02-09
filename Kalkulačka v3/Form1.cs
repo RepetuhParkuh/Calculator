@@ -31,6 +31,7 @@ namespace Kalkulačka_v3
         //Vědecká kalkulačka
         string priklad="";
         int ZavCount=0;
+        bool jeMocnina = false;
 
         //responsivita
 
@@ -482,7 +483,7 @@ namespace Kalkulačka_v3
                         znam = false;                        
                     }
                     
-                    else if (c == '+' || c == '-' || c == 'x' || c == '/' || c == '%')
+                    else if (c == '+' || c == '-' || c == 'x' || c == '/' || c == '%'||c=='^')
                     {                  
                   
                         if (cislo.Contains("-"))
@@ -516,8 +517,13 @@ namespace Kalkulačka_v3
             {                
                 //Určování priority operací
                 List<int> prioritaIndex = new List<int>();
+                List<int> mocninaIndex = new List<int>();
                 for (int i = 0; i < operandy.Count; i++)
                 {
+                    if(operandy[i] == '^')
+                    {
+                        mocninaIndex.Add(i);
+                    }
                     if (operandy[i] == 'x' || operandy[i] == '/' || operandy[i] == '%')
                     {
                         prioritaIndex.Add(i);
@@ -530,6 +536,19 @@ namespace Kalkulačka_v3
 
                 double meziVypocet = 0;
                 int diff = 0;
+
+                if(mocninaIndex.Count>0)
+                {
+                    foreach(int i in mocninaIndex)
+                    {
+                        double a = cisla[i - diff];
+                        double n = cisla[i - diff + 1];
+                        meziVypocet = Math.Pow(a, n);
+                        cisla[i- diff] = meziVypocet;
+                        cisla.RemoveAt(i + 1 - diff);
+                        diff++;
+                    }
+                }
 
                 if (prioritaIndex.Count > 0)
                 {
@@ -591,6 +610,7 @@ namespace Kalkulačka_v3
         }
         private void vedOper_Click(object sender, EventArgs e)
         {
+            if (jeMocnina) jeMocnina = false;
             priklad += textBox1.Text;
             if ((sender as Button).Name == "btnMod") priklad +="%";
             else priklad += (sender as Button).Text;
@@ -599,6 +619,12 @@ namespace Kalkulačka_v3
         }
         private void rovnaseV_Click(object sender, EventArgs e)
         {
+            if (jeMocnina)
+            {
+                priklad += textBox1.Text;
+                textBox1.Text = "";
+                jeMocnina = false;
+            }
             if(priklad.Length!=0)
             {
                 if (textBox1.Text.Length != 0) priklad += textBox1.Text;
@@ -642,6 +668,16 @@ namespace Kalkulačka_v3
                 }
             }
             rovnaseFocus();
+        }
+
+        private void libovolnaMocnina_Click(object sender, EventArgs e)
+        {
+            char[] operandyPole = { '+', '-', '*', '/', '%' };
+            if (!operandyPole.Contains(textBox1.Text[textBox1.Text.Length-1]))
+            {
+                textBox1.Text += "^";
+                jeMocnina = true;
+            }
         }
 
         //Změny hodnot
