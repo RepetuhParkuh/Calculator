@@ -548,6 +548,13 @@ namespace Kalkulačka_v3
                         cisla.RemoveAt(i + 1 - diff);
                         diff++;
                     }
+                    int diffOp = 0;
+                    foreach (int i in mocninaIndex)
+                    {
+
+                        operandy.RemoveAt(i - diffOp);
+                        diffOp++;
+                    }
                 }
 
                 if (prioritaIndex.Count > 0)
