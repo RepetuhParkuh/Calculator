@@ -479,7 +479,7 @@
             this.button44.TabIndex = 17;
             this.button44.Text = "ln";
             this.button44.UseVisualStyleBackColor = true;
-            this.button44.Visible = false;
+            this.button44.Click += new System.EventHandler(this.ln_Click);
             // 
             // button43
             // 

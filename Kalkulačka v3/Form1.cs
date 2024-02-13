@@ -30,9 +30,10 @@ namespace Kalkulačka_v3
 
         //Vědecká kalkulačka
         string priklad="";
-        int ZavCount=0;
+        int ZavCount=0;        
         bool jeMocnina = false;
         bool valid = true;
+        bool jeLog = false;
 
         //responsivita
 
@@ -629,10 +630,22 @@ namespace Kalkulačka_v3
         private void vedOper_Click(object sender, EventArgs e)
         {
             if (jeMocnina) jeMocnina = false;
-            priklad += textBox1.Text;
-            if ((sender as Button).Name == "btnMod") priklad +="%";
-            else priklad += (sender as Button).Text;
-            label1.Text = priklad;
+            if (!jeLog)
+            {
+                priklad += textBox1.Text;
+                jeLog = false;
+            }
+            label1.Text += textBox1.Text;
+            if ((sender as Button).Name == "btnMod")
+            {
+                priklad += "%";
+                label1.Text += "%";
+            }
+            else
+            {
+                priklad += (sender as Button).Text;
+                label1.Text += (sender as Button).Text;
+            }            
             textBox1.Text = "0";
         }
         private void rovnaseV_Click(object sender, EventArgs e)
@@ -645,13 +658,13 @@ namespace Kalkulačka_v3
             }
             if(priklad.Length!=0)
             {
-                if (textBox1.Text.Length != 0) priklad += textBox1.Text;
+                if (textBox1.Text.Length != 0&&!jeLog) priklad += textBox1.Text;
                 while(ZavCount>0)
                 {
                     priklad += ")";
                     ZavCount--;
                 }
-                label1.Text = priklad;                
+                label1.Text += textBox1.Text;                
                 double vysledek=vypocitaniPrikladu(priklad);
                 label1.Text += "=";
                 textBox1.Text = vysledek.ToString();
@@ -700,8 +713,7 @@ namespace Kalkulačka_v3
         
         //Logaritmy
         private void log_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show(ZavCount.ToString());
+        {            
             if(Double.TryParse(textBox1.Text,out double logPar))
             {
                 if(logPar<=0)
@@ -710,10 +722,30 @@ namespace Kalkulačka_v3
                 }
                 else
                 {
+                    jeLog = true;
                     textBox1.Text = $"log({logPar})";
                     ZavCount = 0;
+                    priklad+=Math.Log10(logPar);
                 }
             }            
+        }
+
+        private void ln_Click(object sender, EventArgs e)
+        {
+            if (Double.TryParse(textBox1.Text, out double logPar))
+            {
+                if (logPar <= 0)
+                {
+                    invalidInput();
+                }
+                else
+                {
+                    jeLog = true;
+                    textBox1.Text = $"ln({logPar})";
+                    ZavCount = 0;
+                    priklad += Math.Log(logPar);
+                }
+            }
         }
 
         //Změny hodnot
@@ -834,7 +866,6 @@ namespace Kalkulačka_v3
         {
             
         }
-
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
