@@ -429,7 +429,7 @@ namespace Kalkulačka_v3
         //Vědecká kalkulačka - operace
 
         private double vypocitaniPrikladu(string prikladS)
-        {
+        {           
             List<double> cisla = new List<double>();
             List<char> operandy = new List<char>();
             //Promenna do ktere hazim cisla
@@ -448,8 +448,7 @@ namespace Kalkulačka_v3
             
             //Vysledek
             double vysledek = 0;
-
-            
+          
 
             //Kontrola zavorek v prikladu
             while(prikladS.Contains('('))
@@ -499,12 +498,12 @@ namespace Kalkulačka_v3
                     else if (c == '+' || c == '-' || c == 'x' || c == '/' || c == '%'||c=='^')
                     {                  
                   
-                        if (cislo.Contains("-"))
-                        {
+                        /*if (cislo.Contains("-"))
+                        {                         
                             cislo = cislo.Replace("-", "");
                             cisla.Add(Convert.ToDouble(cislo) * -1);
                         }
-                        else if(cislo!="")
+                        else*/ if(cislo!="")
                         {                           
                             cisla.Add(Convert.ToDouble(cislo));
                         }
@@ -519,12 +518,12 @@ namespace Kalkulačka_v3
 
 
             
-            if (cislo.Contains("-"))
+           /* if (cislo.Contains("-"))
             {
                 cislo = cislo.Replace("-","");
                 cisla.Add(Convert.ToDouble(cislo) * -1);
             }
-            else if(cislo!="") cisla.Add(Convert.ToDouble(cislo));
+            else*/ if(cislo!="") cisla.Add(Convert.ToDouble(cislo));
         
             if(!double.TryParse(prikladS,out vysledek))
             {                
@@ -579,8 +578,8 @@ namespace Kalkulačka_v3
                             case 'x':
                                 meziVypocet = cisla[i - diff] * cisla[i + 1 - diff];
                                 break;
-                            case '/':
-                                meziVypocet = cisla[i - diff] / cisla[i + 1 - diff];
+                            case '/':                               
+                                    meziVypocet = cisla[i - diff] / cisla[i + 1 - diff];                                
                                 break;
                             case '%':
                                 meziVypocet = Convert.ToInt32(cisla[i - diff]) % Convert.ToInt32(cisla[i + 1 - diff]);
@@ -603,6 +602,7 @@ namespace Kalkulačka_v3
 
                 vysledek = cisla[0];
 
+               
                 if (operandy.Count > 0)
                 {
                     int count = 1;
@@ -633,8 +633,8 @@ namespace Kalkulačka_v3
             if (!jeLog)
             {
                 priklad += textBox1.Text;
-                jeLog = false;
             }
+            jeLog = false;               
             label1.Text += textBox1.Text;
             if ((sender as Button).Name == "btnMod")
             {
@@ -723,8 +723,7 @@ namespace Kalkulačka_v3
                 else
                 {
                     jeLog = true;
-                    textBox1.Text = $"log({logPar})";
-                    ZavCount = 0;
+                    textBox1.Text = $"log({logPar})";                    
                     priklad+=Math.Log10(logPar);
                 }
             }            
@@ -741,8 +740,7 @@ namespace Kalkulačka_v3
                 else
                 {
                     jeLog = true;
-                    textBox1.Text = $"ln({logPar})";
-                    ZavCount = 0;
+                    textBox1.Text = $"ln({logPar})";                   
                     priklad += Math.Log(logPar);
                 }
             }
