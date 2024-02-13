@@ -32,6 +32,7 @@ namespace Kalkulačka_v3
         string priklad="";
         int ZavCount=0;
         bool jeMocnina = false;
+        bool valid = true;
 
         //responsivita
 
@@ -190,6 +191,12 @@ namespace Kalkulačka_v3
             textBox1.Text = Math.PI.ToString("F8");
         }
 
+        private void invalidInput()
+        {
+            textBox1.Text = "Invalid input";
+            valid = false;
+        }
+
         // Zadávání čísel
         private void cisla_Click(object sender, EventArgs e)
         {
@@ -197,7 +204,12 @@ namespace Kalkulačka_v3
             {
                 textBox1.Text = "";
                 jeVysledek = false;
-            }            
+            }   
+            if(!valid)
+            {
+                textBox1.Text = "";
+                valid = true;
+            }
             string s= (sender as Button).Text;
             if (s == "(") ZavCount++;
             if (s == ")") ZavCount--;
@@ -684,6 +696,24 @@ namespace Kalkulačka_v3
                 textBox1.Text += "^";
                 jeMocnina = true;
             }
+        }
+        
+        //Logaritmy
+        private void log_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(ZavCount.ToString());
+            if(Double.TryParse(textBox1.Text,out double logPar))
+            {
+                if(logPar<=0)
+                {
+                    invalidInput();
+                }
+                else
+                {
+                    textBox1.Text = $"log({logPar})";
+                    ZavCount = 0;
+                }
+            }            
         }
 
         //Změny hodnot
