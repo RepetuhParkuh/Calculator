@@ -498,12 +498,7 @@ namespace Kalkulačka_v3
                     else if (c == '+' || c == '-' || c == 'x' || c == '/' || c == '%'||c=='^')
                     {                  
                   
-                        /*if (cislo.Contains("-"))
-                        {                         
-                            cislo = cislo.Replace("-", "");
-                            cisla.Add(Convert.ToDouble(cislo) * -1);
-                        }
-                        else*/ if(cislo!="")
+                         if(cislo!="")
                         {                           
                             cisla.Add(Convert.ToDouble(cislo));
                         }
@@ -518,12 +513,7 @@ namespace Kalkulačka_v3
 
 
             
-           /* if (cislo.Contains("-"))
-            {
-                cislo = cislo.Replace("-","");
-                cisla.Add(Convert.ToDouble(cislo) * -1);
-            }
-            else*/ if(cislo!="") cisla.Add(Convert.ToDouble(cislo));
+            if(cislo!="") cisla.Add(Convert.ToDouble(cislo));
         
             if(!double.TryParse(prikladS,out vysledek))
             {                
