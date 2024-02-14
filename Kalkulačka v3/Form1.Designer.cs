@@ -501,7 +501,7 @@
             this.button42.TabIndex = 15;
             this.button42.Text = "10X";
             this.button42.UseVisualStyleBackColor = true;
-            this.button42.Visible = false;
+            this.button42.Click += new System.EventHandler(this.mocnina10_Click);
             // 
             // button41
             // 

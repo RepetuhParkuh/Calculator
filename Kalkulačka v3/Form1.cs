@@ -700,6 +700,14 @@ namespace Kalkulačka_v3
                 jeMocnina = true;
             }
         }
+        private void mocnina10_Click(object sender, EventArgs e)
+        {
+            if(textBox1.Text.Length!=0)
+            {
+                textBox1.Text = "10^" + textBox1.Text;
+                jeMocnina=true;
+            }
+        }
         
         //Logaritmy
         private void log_Click(object sender, EventArgs e)
@@ -854,6 +862,7 @@ namespace Kalkulačka_v3
         {
             
         }
+
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
