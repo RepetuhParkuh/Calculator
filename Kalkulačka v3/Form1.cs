@@ -34,6 +34,7 @@ namespace Kalkulačka_v3
         bool jeMocnina = false;
         bool valid = true;
         bool jeLog = false;
+        char[] operandyPole = { '+', '-', '*', '/', '%', '(' };
 
         //responsivita
 
@@ -215,25 +216,32 @@ namespace Kalkulačka_v3
             }
             string s= (sender as Button).Text;
             if (s == "(")
-            {                
-                if(priklad.Length==0)
-                {
-                    char c = textBox1.Text[textBox1.Text.Length - 1];
-                    if (c >= '0' && c <= '9') textBox1.Text += 'x';
-                }
+            {
+                validZadani = false;
+                if(Double.TryParse(textBox1.Text,out double pom)&&pom!=0)
+                {                   
+                     textBox1.Text += 'x';
+                     priklad += textBox1.Text;
+                     textBox1.Text = "";
+                }         
+                priklad += "(";
                 ZavCount++; 
             }
             if (s == ")")
             {
                 if(ZavCount != 0)
+                {
                     ZavCount--;
-                else validZadani = false;
+                    priklad += ")";
+                }
+                validZadani = false;
             }
             if(validZadani)
             {
                 if(textBox1.Text=="0") textBox1.Text = s;                //Braní textu tlačítek jako zadávání
                 else textBox1.Text += s;
-            }            
+            }
+            label1.Text = priklad;
             rovnaseFocus();
         }
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -869,7 +877,7 @@ namespace Kalkulačka_v3
 
         private void druhaMocninaV_Click(object sender, EventArgs e)
         {
-            char[] operandyPole = { '+', '-', '*', '/', '%', '(' };
+            
             if (!operandyPole.Contains(textBox1.Text[textBox1.Text.Length - 1])&&valid)
             {
                 textBox1.Text += "^2";
@@ -896,6 +904,7 @@ namespace Kalkulačka_v3
                 textBox1.Text = "10^" + textBox1.Text;
                 jeMocnina=true;
             }
+            rovnaseFocus();
         }
         
         //Logaritmy
