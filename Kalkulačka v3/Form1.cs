@@ -610,28 +610,30 @@ namespace Kalkulačka_v3
                     }
                 }
 
-             
-
-                vysledek = cisla[0];
+                if(cisla.Count>0)
+                {
+                    vysledek = cisla[0];
 
                
-                if (operandy.Count > 0)
-                {
-                    int count = 1;
-                    foreach (char c in operandy)
+                    if (operandy.Count > 0)
                     {
-                        switch (c)
+                        int count = 1;
+                        foreach (char c in operandy)
                         {
-                            case '+':
-                                vysledek += cisla[count];
-                                break;
-                            case '-':
-                                vysledek -= cisla[count];
-                                break;
+                            switch (c)
+                            {
+                                case '+':
+                                    vysledek += cisla[count];
+                                    break;
+                                case '-':
+                                    vysledek -= cisla[count];
+                                    break;
+                            }
+                            count++;
                         }
-                        count++;
                     }
                 }
+
             }
                 
                      
