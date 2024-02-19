@@ -163,6 +163,7 @@ namespace Kalkulačka_v3
         {
             rovnase.Focus();
             rovnaseV.Focus();
+            rovnaseP.Focus();
         }
 
         private void PanelHide()
@@ -237,7 +238,7 @@ namespace Kalkulačka_v3
         }
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            if(kalkZakl.Visible)
+            if (kalkZakl.Visible)
             {
                 switch (e.KeyCode)
                 {
@@ -295,10 +296,10 @@ namespace Kalkulačka_v3
                             desCarka.PerformClick();
                         break;
                 }
-               
+
             }
 
-            else if(kalkVed.Visible)
+            else if (kalkVed.Visible)
             {
                 switch (e.KeyCode)
                 {
@@ -350,15 +351,73 @@ namespace Kalkulačka_v3
                         break;
                     case Keys.Enter:
                         rovnaseV.PerformClick();
-                            break;
+                        break;
                     case Keys.Decimal:
-                        if(!textBox1.Text.Contains(","))
+                        if (!textBox1.Text.Contains(","))
                             desCarkaV.PerformClick();
                         break;
                 }
-               
+
             }
 
+            else if (kalkProg.Visible)
+            {
+                switch (e.KeyCode)
+                {
+                    case Keys.NumPad0:
+                        nulaP.PerformClick();
+                        break;
+                    case Keys.NumPad1:
+                        jednaP.PerformClick();
+                        break;
+                    case Keys.NumPad2:
+                        dvaP.PerformClick();
+                        break;
+                    case Keys.NumPad3:
+                        triP.PerformClick();
+                        break;
+                    case Keys.NumPad4:
+                        ctyriP.PerformClick();
+                        break;
+                    case Keys.NumPad5:
+                        petP.PerformClick();
+                        break;
+                    case Keys.NumPad6:
+                        sestP.PerformClick();
+                        break;
+                    case Keys.NumPad7:
+                        sedmP.PerformClick();
+                        break;
+                    case Keys.NumPad8:
+                        osmP.PerformClick();
+                        break;
+                    case Keys.NumPad9:
+                        devetP.PerformClick();
+                        break;
+                    case Keys.Add:
+                        plusP.PerformClick();
+                        break;
+                    case Keys.Subtract:
+                        minusP.PerformClick();
+                        break;
+                    case Keys.Multiply:
+                        kratP.PerformClick();
+                        break;
+                    case Keys.Divide:
+                        delenoP.PerformClick();
+                        break;
+                    case Keys.Back:
+                        bckP.PerformClick();
+                        break;
+                    case Keys.Enter:
+                        rovnaseP.PerformClick();
+                        break;
+                    case Keys.Decimal:
+                        if (!textBox1.Text.Contains(","))
+                            desCarkaP.PerformClick();
+                        break;
+                }
+            }
             rovnaseFocus();
         }
 
@@ -583,6 +642,7 @@ namespace Kalkulačka_v3
                         ovrOpDiff++;
                     }
                 }
+
 
                 if (prioritaIndex.Count > 0)
                 {
@@ -829,7 +889,8 @@ namespace Kalkulačka_v3
                 this.Width=500;
                 this.FormBorderStyle = FormBorderStyle.Fixed3D;
 
-                kalkVed.Location = new Point(kalkZakl.Location.X, kalkZakl.Location.Y);
+            kalkVed.Location = new Point(kalkZakl.Location.X, kalkZakl.Location.Y);
+            kalkProg.Location = new Point(kalkZakl.Location.X, kalkZakl.Location.Y);     
         }
 
         private void Form1_Resize(object sender, EventArgs e)
@@ -858,6 +919,12 @@ namespace Kalkulačka_v3
         {
             PanelHide();
             kalkVed.Visible=true;
+        }
+
+        private void progCalc_Click(object sender, EventArgs e)
+        {
+            PanelHide();
+            kalkProg.Visible = true;
         }
 
         //Clear funkce
@@ -906,6 +973,10 @@ namespace Kalkulačka_v3
             
         }
 
+        private void bin_Checked(object sender, EventArgs e)
+        {
+            //foreach(Control c in kalkProg.Controls)
+        }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
