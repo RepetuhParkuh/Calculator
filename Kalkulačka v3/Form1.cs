@@ -214,9 +214,12 @@ namespace Kalkulačka_v3
             }
             string s= (sender as Button).Text;
             if (s == "(")
-            {
-                char c = textBox1.Text[textBox1.Text.Length - 1];
-                if (c >= '0' && c <= '9') textBox1.Text += 'x';
+            {                
+                if(priklad.Length==0)
+                {
+                    char c = textBox1.Text[textBox1.Text.Length - 1];
+                    if (c >= '0' && c <= '9') textBox1.Text += 'x';
+                }
                 ZavCount++; 
             }
             if (s == ")")
@@ -635,10 +638,10 @@ namespace Kalkulačka_v3
                 }
 
             }
-                
-                     
 
-            
+
+
+            ZavCount = 0;
             return vysledek;
         }
         private void vedOper_Click(object sender, EventArgs e)
@@ -676,6 +679,7 @@ namespace Kalkulačka_v3
                 while(ZavCount>0)
                 {
                     priklad += ")";
+                    textBox1.Text += ")";
                     ZavCount--;
                 }
                 label1.Text += textBox1.Text;                
@@ -715,9 +719,20 @@ namespace Kalkulačka_v3
             rovnaseFocus();
         }
 
+        private void druhaMocninaV_Click(object sender, EventArgs e)
+        {
+            char[] operandyPole = { '+', '-', '*', '/', '%', '(' };
+            if (!operandyPole.Contains(textBox1.Text[textBox1.Text.Length - 1]))
+            {
+                textBox1.Text += "^2";
+                jeMocnina = true;
+            }
+        }
+
+
         private void libovolnaMocnina_Click(object sender, EventArgs e)
         {
-            char[] operandyPole = { '+', '-', '*', '/', '%' };
+            char[] operandyPole = { '+', '-', '*', '/', '%','(' };
             if (!operandyPole.Contains(textBox1.Text[textBox1.Text.Length-1]))
             {
                 textBox1.Text += "^";
@@ -858,6 +873,7 @@ namespace Kalkulačka_v3
         {
             textBox1.Clear();
             textBox1.Text = "0";
+            ZavCount = 0;
             rovnaseFocus();
         }
         private void Clear_Click(object sender, EventArgs e)
@@ -867,6 +883,7 @@ namespace Kalkulačka_v3
 
         private void Clear()
         {
+            ZavCount = 0;
             textBox1.Clear();
             label1.Text = "";
             cislo = 0;
