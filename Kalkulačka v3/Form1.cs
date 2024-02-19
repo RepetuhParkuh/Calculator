@@ -1082,37 +1082,5 @@ namespace Kalkulačka_v3
             priklad = "";
         }
 
-
-
-        //Nepoužité
-        private void CA_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void jedna_KeyDown(object sender, KeyEventArgs e)
-        {
-            
-        }
-
-        
-
-        private void dec_Checked(object sender, EventArgs e)
-        {           
-        }
-
-        private void oct_Checked(object sender, EventArgs e)
-        {           
-        }
-
-        private void hex_Checked(object sender, EventArgs e)
-        {           
-        }
-
-       
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

@@ -174,8 +174,7 @@
             this.jednaV.TabIndex = 26;
             this.jednaV.Text = "1";
             this.jednaV.UseVisualStyleBackColor = true;
-            this.jednaV.Click += new System.EventHandler(this.cisla_Click);
-            this.jednaV.KeyDown += new System.Windows.Forms.KeyEventHandler(this.jedna_KeyDown);
+            this.jednaV.Click += new System.EventHandler(this.cisla_Click);            
             // 
             // dvaV
             // 
@@ -415,8 +414,7 @@
             this.listBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(125, 416);
-            this.listBox1.TabIndex = 25;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.listBox1.TabIndex = 25;            
             // 
             // button2
             // 
