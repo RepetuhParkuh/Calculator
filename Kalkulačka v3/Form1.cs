@@ -727,6 +727,7 @@ namespace Kalkulačka_v3
                 textBox1.Text += "^2";
                 jeMocnina = true;
             }
+            rovnaseFocus();
         }
 
 
