@@ -201,6 +201,7 @@ namespace Kalkulačka_v3
         // Zadávání čísel
         private void cisla_Click(object sender, EventArgs e)
         {
+            bool validZadani = true;
             if (jeVysledek)                   //Po zmáčknutí rovnáse se nebude připisovat do výsledku ale přepíše se
             {
                 textBox1.Text = "";
@@ -212,10 +213,23 @@ namespace Kalkulačka_v3
                 valid = true;
             }
             string s= (sender as Button).Text;
-            if (s == "(") ZavCount++;
-            if (s == ")") ZavCount--;
-            if(textBox1.Text=="0") textBox1.Text = s;                //Braní textu tlačítek jako zadávání
-            else textBox1.Text += s;
+            if (s == "(")
+            {
+                char c = textBox1.Text[textBox1.Text.Length - 1];
+                if (c >= '0' && c <= '9') textBox1.Text += 'x';
+                ZavCount++; 
+            }
+            if (s == ")")
+            {
+                if(ZavCount != 0)
+                    ZavCount--;
+                else validZadani = false;
+            }
+            if(validZadani)
+            {
+                if(textBox1.Text=="0") textBox1.Text = s;                //Braní textu tlačítek jako zadávání
+                else textBox1.Text += s;
+            }            
             rovnaseFocus();
         }
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -370,8 +384,12 @@ namespace Kalkulačka_v3
                             cislo *= cislo2;
                             break;
                         case '/':
-                            cislo /= cislo2;
-                            break;
+                            if (cislo2 == 0)
+                            {
+                                invalidInput();
+                            }
+                            else cislo /= cislo2;
+                        break;
                     }
                 
             label1.Text = "";
@@ -409,7 +427,11 @@ namespace Kalkulačka_v3
                         cislo *= cislo2;
                         break;
                     case '/':
-                        cislo /= cislo2;
+                        if(cislo2==0)
+                        {
+                            invalidInput();
+                        }
+                        else cislo /= cislo2;
                         break;
                 }
                 listBox1.Items.Add(cislo);
@@ -699,6 +721,7 @@ namespace Kalkulačka_v3
                 textBox1.Text += "^";
                 jeMocnina = true;
             }
+            rovnaseFocus();
         }
         private void mocnina10_Click(object sender, EventArgs e)
         {
