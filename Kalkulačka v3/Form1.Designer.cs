@@ -131,6 +131,10 @@
             this.bitPosLev = new System.Windows.Forms.Button();
             this.clearP = new System.Windows.Forms.Button();
             this.bckP = new System.Windows.Forms.Button();
+            this.labelDec = new System.Windows.Forms.Label();
+            this.labelBin = new System.Windows.Forms.Label();
+            this.labelOct = new System.Windows.Forms.Label();
+            this.labelHex = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.kalkVed.SuspendLayout();
             this.kalkZakl.SuspendLayout();
@@ -148,6 +152,7 @@
             this.textBox1.TabIndex = 0;
             this.textBox1.Text = "0";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // nulaV
             // 
@@ -946,6 +951,10 @@
             // 
             // kalkProg
             // 
+            this.kalkProg.Controls.Add(this.labelHex);
+            this.kalkProg.Controls.Add(this.labelOct);
+            this.kalkProg.Controls.Add(this.labelBin);
+            this.kalkProg.Controls.Add(this.labelDec);
             this.kalkProg.Controls.Add(this.button1);
             this.kalkProg.Controls.Add(this.radioHex);
             this.kalkProg.Controls.Add(this.radioOct);
@@ -1251,6 +1260,7 @@
             this.button5.Tag = "4";
             this.button5.Text = "mod";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.vedOper_Click);
             // 
             // btnKonZavP
             // 
@@ -1394,6 +1404,42 @@
             this.bckP.UseVisualStyleBackColor = true;
             this.bckP.Click += new System.EventHandler(this.backspace_Click);
             // 
+            // labelDec
+            // 
+            this.labelDec.AutoSize = true;
+            this.labelDec.Location = new System.Drawing.Point(71, 6);
+            this.labelDec.Name = "labelDec";
+            this.labelDec.Size = new System.Drawing.Size(14, 16);
+            this.labelDec.TabIndex = 76;
+            this.labelDec.Text = "0";
+            // 
+            // labelBin
+            // 
+            this.labelBin.AutoSize = true;
+            this.labelBin.Location = new System.Drawing.Point(71, 34);
+            this.labelBin.Name = "labelBin";
+            this.labelBin.Size = new System.Drawing.Size(14, 16);
+            this.labelBin.TabIndex = 77;
+            this.labelBin.Text = "0";
+            // 
+            // labelOct
+            // 
+            this.labelOct.AutoSize = true;
+            this.labelOct.Location = new System.Drawing.Point(71, 62);
+            this.labelOct.Name = "labelOct";
+            this.labelOct.Size = new System.Drawing.Size(14, 16);
+            this.labelOct.TabIndex = 78;
+            this.labelOct.Text = "0";
+            // 
+            // labelHex
+            // 
+            this.labelHex.AutoSize = true;
+            this.labelHex.Location = new System.Drawing.Point(71, 91);
+            this.labelHex.Name = "labelHex";
+            this.labelHex.Size = new System.Drawing.Size(14, 16);
+            this.labelHex.TabIndex = 79;
+            this.labelHex.Text = "0";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1530,6 +1576,10 @@
         private System.Windows.Forms.RadioButton radioOct;
         private System.Windows.Forms.RadioButton radioBin;
         private System.Windows.Forms.RadioButton radioDec;
+        private System.Windows.Forms.Label labelHex;
+        private System.Windows.Forms.Label labelOct;
+        private System.Windows.Forms.Label labelBin;
+        private System.Windows.Forms.Label labelDec;
     }
 }
 

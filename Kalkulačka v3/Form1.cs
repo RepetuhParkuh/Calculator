@@ -706,49 +706,55 @@ namespace Kalkulačka_v3
         }
         private void vedOper_Click(object sender, EventArgs e)
         {
-            if (jeMocnina) jeMocnina = false;
-            if (!jeLog)
+            if(valid)
             {
-                priklad += textBox1.Text;
+                if (jeMocnina) jeMocnina = false;
+                if (!jeLog)
+                {
+                    priklad += textBox1.Text;
+                }
+                jeLog = false;               
+                label1.Text += textBox1.Text;
+                if ((sender as Button).Name == "btnMod")
+                {
+                    priklad += "%";
+                    label1.Text += "%";
+                }
+                else
+                {
+                    priklad += (sender as Button).Text;
+                    label1.Text += (sender as Button).Text;
+                }            
+                textBox1.Text = "0";
             }
-            jeLog = false;               
-            label1.Text += textBox1.Text;
-            if ((sender as Button).Name == "btnMod")
-            {
-                priklad += "%";
-                label1.Text += "%";
-            }
-            else
-            {
-                priklad += (sender as Button).Text;
-                label1.Text += (sender as Button).Text;
-            }            
-            textBox1.Text = "0";
         }
         private void rovnaseV_Click(object sender, EventArgs e)
         {
-            if (jeMocnina)
+            if(valid)
             {
-                priklad += textBox1.Text;
-                textBox1.Text = "";
-                jeMocnina = false;
-            }
-            if(priklad.Length!=0)
-            {
-                if (textBox1.Text.Length != 0&&!jeLog) priklad += textBox1.Text;
-                while(ZavCount>0)
+                if (jeMocnina)
                 {
-                    priklad += ")";
-                    textBox1.Text += ")";
-                    ZavCount--;
+                    priklad += textBox1.Text;
+                    textBox1.Text = "";
+                    jeMocnina = false;
                 }
-                label1.Text += textBox1.Text;                
-                double vysledek=vypocitaniPrikladu(priklad);
-                label1.Text += "=";
-                textBox1.Text = vysledek.ToString();
-                listBox1.Items.Add(vysledek);
-                priklad = "";
-                jeVysledek = true;
+                if(priklad.Length!=0)
+                {
+                    if (textBox1.Text.Length != 0&&!jeLog) priklad += textBox1.Text;
+                    while(ZavCount>0)
+                    {
+                        priklad += ")";
+                        textBox1.Text += ")";
+                        ZavCount--;
+                    }
+                    label1.Text += textBox1.Text;                
+                    double vysledek=vypocitaniPrikladu(priklad);
+                    label1.Text += "=";
+                    textBox1.Text = vysledek.ToString();
+                    listBox1.Items.Add(vysledek);
+                    priklad = "";
+                    jeVysledek = true;
+                }
             }
         }
 
@@ -756,7 +762,7 @@ namespace Kalkulačka_v3
         //Mocniny
         private void druhaMocnina_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text.Length > 0)
+            if (textBox1.Text.Length > 0&&valid)
             {
                 double pom = Convert.ToDouble(textBox1.Text);
                 textBox1.Clear();
@@ -767,7 +773,7 @@ namespace Kalkulačka_v3
 
         private void druhaOdmocnina_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text.Length > 0)
+            if (textBox1.Text.Length > 0&&valid)
             {
                 if(Convert.ToDouble(textBox1.Text)>=0)
                 {
@@ -782,7 +788,7 @@ namespace Kalkulačka_v3
         private void druhaMocninaV_Click(object sender, EventArgs e)
         {
             char[] operandyPole = { '+', '-', '*', '/', '%', '(' };
-            if (!operandyPole.Contains(textBox1.Text[textBox1.Text.Length - 1]))
+            if (!operandyPole.Contains(textBox1.Text[textBox1.Text.Length - 1])&&valid)
             {
                 textBox1.Text += "^2";
                 jeMocnina = true;
@@ -794,7 +800,7 @@ namespace Kalkulačka_v3
         private void libovolnaMocnina_Click(object sender, EventArgs e)
         {
             char[] operandyPole = { '+', '-', '*', '/', '%','(' };
-            if (!operandyPole.Contains(textBox1.Text[textBox1.Text.Length-1]))
+            if (!operandyPole.Contains(textBox1.Text[textBox1.Text.Length-1])&&valid)
             {
                 textBox1.Text += "^";
                 jeMocnina = true;
@@ -803,7 +809,7 @@ namespace Kalkulačka_v3
         }
         private void mocnina10_Click(object sender, EventArgs e)
         {
-            if(textBox1.Text.Length!=0)
+            if(textBox1.Text.Length!=0&&valid)
             {
                 textBox1.Text = "10^" + textBox1.Text;
                 jeMocnina=true;
@@ -813,7 +819,7 @@ namespace Kalkulačka_v3
         //Logaritmy
         private void log_Click(object sender, EventArgs e)
         {            
-            if(Double.TryParse(textBox1.Text,out double logPar))
+            if(Double.TryParse(textBox1.Text,out double logPar)&&valid)
             {
                 if(logPar<=0)
                 {
@@ -830,7 +836,7 @@ namespace Kalkulačka_v3
 
         private void ln_Click(object sender, EventArgs e)
         {
-            if (Double.TryParse(textBox1.Text, out double logPar))
+            if (Double.TryParse(textBox1.Text, out double logPar)&&valid)
             {
                 if (logPar <= 0)
                 {
@@ -848,32 +854,38 @@ namespace Kalkulačka_v3
         //Změny hodnot
         private void btnPlusMinus_Click(object sender, EventArgs e)
         {
-            string s = textBox1.Text;
-            textBox1.Text = "";
-            if(s.Contains("("))
+            if(valid)
             {
-                s = s.Replace("(", "");
-                textBox1.Text = "(";
+                string s = textBox1.Text;
+                textBox1.Text = "";
+                if(s.Contains("("))
+                {
+                    s = s.Replace("(", "");
+                    textBox1.Text = "(";
+                }
+                if (s.Length > 0)
+                {
+                    textBox1.Text += (Convert.ToDouble(s) * (-1)).ToString();
+                    jeVysledek = false;
+                }
+                else textBox1.Text = "0";
             }
-            if (s.Length > 0)
-            {
-                textBox1.Text += (Convert.ToDouble(s) * (-1)).ToString();
-                jeVysledek = false;
-            }
-            else textBox1.Text = "0";
             rovnaseFocus();
         }
 
         private void obracenaHodnota_Click(object sender, EventArgs e)
         {
-            textBox1.Text = (1 / Convert.ToDouble(textBox1.Text)).ToString();
+            if(valid) textBox1.Text = (1 / Convert.ToDouble(textBox1.Text)).ToString();
             rovnaseFocus();
         }
         private void desCarka_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text.Length == 0) textBox1.Text = "0";            
-            if (!textBox1.Text.Contains(",") && !jeVysledek) textBox1.Text += (sender as Button).Text;
-            else textBox1.Text = "0" + (sender as Button).Text;
+            if (valid)
+            {
+                if (textBox1.Text.Length == 0) textBox1.Text = "0";            
+                if (!textBox1.Text.Contains(",") && !jeVysledek) textBox1.Text += (sender as Button).Text;
+                else textBox1.Text = "0" + (sender as Button).Text;
+            }
             rovnaseFocus();
         }
 
@@ -930,10 +942,14 @@ namespace Kalkulačka_v3
         //Clear funkce
         private void backspace_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text[textBox1.Text.Length - 1] == '(') ZavCount--;
-            if (textBox1.Text[textBox1.Text.Length - 1] == ')') ZavCount++;
-            if(textBox1.Text.Length>0) textBox1.Text=textBox1.Text.Substring(0,textBox1.Text.Length-1);
-            if (textBox1.Text.Length == 0) textBox1.Text = "0";
+            if (!valid) textBox1.Text = "0";
+            else
+            {
+                if (textBox1.Text[textBox1.Text.Length - 1] == '(') ZavCount--;
+                if (textBox1.Text[textBox1.Text.Length - 1] == ')') ZavCount++;
+                if(textBox1.Text.Length>0) textBox1.Text=textBox1.Text.Substring(0,textBox1.Text.Length-1);
+                if (textBox1.Text.Length == 0) textBox1.Text = "0";
+            }
             rovnaseFocus();
         }
 
@@ -1007,6 +1023,20 @@ namespace Kalkulačka_v3
 
         private void hex_Checked(object sender, EventArgs e)
         {           
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if(textBox1.Text.Length!=0&&valid)
+            {
+                if (Int64.TryParse(textBox1.Text, out long hodnota))
+                {
+                    labelDec.Text = hodnota.ToString();
+                    //labelBin.Text = Convert.ToInt32(textBox1.Text).ToString("b");
+                    labelHex.Text = hodnota.ToString("X");
+                }
+                else invalidInput();
+            }
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
