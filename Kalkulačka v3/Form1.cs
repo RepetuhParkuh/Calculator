@@ -973,9 +973,40 @@ namespace Kalkulačka_v3
             
         }
 
-        private void bin_Checked(object sender, EventArgs e)
+
+        private void enableButtons(int tagKalk)
         {
-            //foreach(Control c in kalkProg.Controls)
+            foreach (Control c in kalkProg.Controls)
+            {
+                if (c is Button && Convert.ToInt32(c.Tag) >= tagKalk)
+                {
+                    c.Enabled = true;
+                }
+                else if(c is Button)
+                {
+                    c.Enabled = false;
+                }
+            }
+        }
+
+        private void zmenaSoustavy_ChangeChecked(object sender, EventArgs e)
+        {
+            if (radioBin.Checked) enableButtons(4);
+            else if (radioOct.Checked) enableButtons(3);
+            else if (radioDec.Checked) enableButtons(2);
+            else if (radioHex.Checked) enableButtons(1);
+        }
+
+        private void dec_Checked(object sender, EventArgs e)
+        {           
+        }
+
+        private void oct_Checked(object sender, EventArgs e)
+        {           
+        }
+
+        private void hex_Checked(object sender, EventArgs e)
+        {           
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
