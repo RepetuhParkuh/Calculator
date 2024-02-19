@@ -759,6 +759,111 @@ namespace Kalkulačka_v3
         }
 
 
+        //Programátorská kalkulačka
+
+        private string prevodSoustavy(long cislo,int soustava)
+        {
+            string vys = "";
+            while(cislo!=0)
+            {
+                vys = (cislo % soustava) + vys;
+                cislo /= soustava;
+            }
+            return vys;
+        }
+
+        private long prevodSoustavy(string hodnota,int soustava)
+        {
+            long cislo = 0;
+            int nasobek = 1;
+            while(hodnota.Length!=0)
+            {
+                cislo += (Convert.ToInt32(hodnota[hodnota.Length - 1])-48) * nasobek;
+                nasobek *= soustava;
+                hodnota = hodnota.Substring(0, hodnota.Length - 1);
+            }
+            return cislo;
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (textBox1.Text.Length != 0 && valid)
+            {
+                if (Int64.TryParse(textBox1.Text, out long hodnota)&&radioDec.Checked)
+                {
+                    labelDec.Text = hodnota.ToString();
+                    labelBin.Text = prevodSoustavy(hodnota,2);
+                    labelOct.Text = prevodSoustavy(hodnota, 8);
+                    labelHex.Text = hodnota.ToString("X");
+                }
+                else if(radioBin.Checked)
+                {
+                    labelBin.Text = textBox1.Text;
+                    long dec = prevodSoustavy(textBox1.Text, 2);
+                    labelDec.Text = dec.ToString();
+                    labelOct.Text = prevodSoustavy(dec, 8);
+                    labelHex.Text = dec.ToString("X");
+                }
+                else if(radioOct.Checked)
+                {
+                    labelOct.Text = textBox1.Text;
+                    long dec = prevodSoustavy(textBox1.Text, 8);
+                    labelDec.Text = dec.ToString();
+                    labelBin.Text = prevodSoustavy(dec, 2);
+                    labelHex.Text = dec.ToString("X");
+                }
+                else if(radioHex.Checked)
+                {
+                    labelHex.Text = textBox1.Text;
+                    long dec=Convert.ToInt64(textBox1.Text,16);
+                    labelDec.Text = dec.ToString();
+                    labelBin.Text = prevodSoustavy(dec, 2);
+                    labelOct.Text = prevodSoustavy(dec, 8);
+                }
+                else invalidInput();
+            }
+        }
+
+        //Povolení buttonů pouze pro danou soustavu
+        private void enableButtons(int tagKalk)
+        {
+            foreach (Control c in kalkProg.Controls)
+            {
+                if (c is Button && Convert.ToInt32(c.Tag) >= tagKalk)
+                {
+                    c.Enabled = true;
+                }
+                else if (c is Button)
+                {
+                    c.Enabled = false;
+                }
+            }
+        }
+
+        private void zmenaSoustavy_ChangeChecked(object sender, EventArgs e)
+        {
+            if (radioBin.Checked)
+            {
+                enableButtons(4);
+                textBox1.Text = labelBin.Text;
+            }
+            else if (radioOct.Checked)
+            {
+                enableButtons(3);
+                textBox1.Text = labelOct.Text;
+            }
+            else if (radioDec.Checked)
+            {
+                enableButtons(2);
+                textBox1.Text = labelDec.Text;
+            }
+            else if (radioHex.Checked)
+            {
+                enableButtons(1);
+                textBox1.Text=labelHex.Text;
+            }
+        }
+
         //Mocniny
         private void druhaMocnina_Click(object sender, EventArgs e)
         {
@@ -989,29 +1094,7 @@ namespace Kalkulačka_v3
             
         }
 
-
-        private void enableButtons(int tagKalk)
-        {
-            foreach (Control c in kalkProg.Controls)
-            {
-                if (c is Button && Convert.ToInt32(c.Tag) >= tagKalk)
-                {
-                    c.Enabled = true;
-                }
-                else if(c is Button)
-                {
-                    c.Enabled = false;
-                }
-            }
-        }
-
-        private void zmenaSoustavy_ChangeChecked(object sender, EventArgs e)
-        {
-            if (radioBin.Checked) enableButtons(4);
-            else if (radioOct.Checked) enableButtons(3);
-            else if (radioDec.Checked) enableButtons(2);
-            else if (radioHex.Checked) enableButtons(1);
-        }
+        
 
         private void dec_Checked(object sender, EventArgs e)
         {           
@@ -1025,19 +1108,7 @@ namespace Kalkulačka_v3
         {           
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            if(textBox1.Text.Length!=0&&valid)
-            {
-                if (Int64.TryParse(textBox1.Text, out long hodnota))
-                {
-                    labelDec.Text = hodnota.ToString();
-                    //labelBin.Text = Convert.ToInt32(textBox1.Text).ToString("b");
-                    labelHex.Text = hodnota.ToString("X");
-                }
-                else invalidInput();
-            }
-        }
+       
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
