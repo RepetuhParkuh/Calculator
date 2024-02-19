@@ -229,7 +229,9 @@ namespace Kalkulačka_v3
             }
             if (s == ")")
             {
-                if(ZavCount != 0)
+                priklad += textBox1.Text;
+                textBox1.Text = "";
+                if (ZavCount != 0)
                 {
                     ZavCount--;
                     priklad += ")";
@@ -541,13 +543,30 @@ namespace Kalkulačka_v3
             //Vysledek
             double vysledek = 0;
           
+                    bool logVPrikladu = false;
+                    bool lnVPrikladu = false;
+                    bool absVPrikladu = false;
 
             //Kontrola zavorek v prikladu
             while(prikladS.Contains('('))
             {                
                 for(int i = 0;i<prikladS.Length;i++)
-                {
+                {                    
                     char c = prikladS[i];
+                    if (c == 'g'&&!logVPrikladu&&!lnVPrikladu && !absVPrikladu)
+                    {
+                        logVPrikladu = true;
+                        prikladS=prikladS.Remove(i - 2,3);
+                        i -= 3;
+                    }                    
+                    if(c=='n'&&!logVPrikladu&&!lnVPrikladu&&!absVPrikladu)
+                    {
+                        lnVPrikladu=true;
+                        prikladS=prikladS.Remove(i - 1, 2);
+                        i-= 2;
+                    }
+                    
+
                     if(c == '(')
                     {
                         if (!zavorka)
@@ -567,7 +586,27 @@ namespace Kalkulačka_v3
                             //Odstraneni podprikladu z hlavniho prikladu
                             prikladS = prikladS.Remove(indexZacZav, i - indexZacZav+1);
                             //Vlozeni vysledku z podprikladu
-                            prikladS = prikladS.Insert(indexZacZav, vypocitaniPrikladu(podPriklad).ToString());
+                            double pomVys = vypocitaniPrikladu(podPriklad);
+                            MessageBox.Show(logVPrikladu ? "ano" : "ne");
+                            if(logVPrikladu)
+                            {
+                                if (pomVys >= 0)
+                                {
+                                    pomVys = Math.Log10(pomVys);                                 
+                                    logVPrikladu = false;
+                                }
+                                else invalidInput();
+                            }
+                            if(lnVPrikladu)
+                            {
+                                if (pomVys >= 0)
+                                {
+                                    pomVys = Math.Log(pomVys);          
+                                    lnVPrikladu=false;
+                                }
+                                else invalidInput();
+                            }
+                            prikladS = prikladS.Insert(indexZacZav, pomVys.ToString());
                             zavorka = false;
                             //Neni nejlip optimalizovany, ale aspon to funguje. Sice se bude cely priklad prochazet znovu
                             //ale aspon je jistota ze to projde vsechny zavorky spravne
@@ -918,11 +957,29 @@ namespace Kalkulačka_v3
                 }
                 else
                 {
-                    jeLog = true;
-                    textBox1.Text = $"log({logPar})";                    
-                    priklad+=Math.Log10(logPar);
+                    jeLog = true;                           
+                    priklad+= $"log({logPar})";
+                    label1.Text = priklad;
+                    textBox1.Text = "";
                 }
-            }            
+            }
+            else if(priklad[priklad.Length-1]==')')
+            {
+                int pomPocZav = 1;
+                int pomIndZav = 0;
+                for(int i=priklad.Length-2;i>=0;i--)
+                {
+                    if (priklad[i] == '(') pomPocZav--;
+                    else if(priklad[i]==')') pomPocZav++;
+                    if (pomPocZav == 0)
+                    {
+                        pomIndZav = i;
+                        break;
+                    }                   
+                }
+                priklad = priklad.Insert(pomIndZav, "log");
+                label1.Text = priklad;
+            }
         }
 
         private void ln_Click(object sender, EventArgs e)
@@ -936,9 +993,27 @@ namespace Kalkulačka_v3
                 else
                 {
                     jeLog = true;
-                    textBox1.Text = $"ln({logPar})";                   
-                    priklad += Math.Log(logPar);
+                    priklad += $"ln({logPar})";
+                    label1.Text = priklad;
+                    textBox1.Text = "";
                 }
+            }
+            else
+            {
+                int pomPocZav = 1;
+                int pomIndZav = 0;
+                for (int i = priklad.Length - 2; i >= 0; i--)
+                {
+                    if (priklad[i] == '(') pomPocZav--;
+                    else if (priklad[i] == ')') pomPocZav++;
+                    if (pomPocZav == 0)
+                    {
+                        pomIndZav = i;
+                        break;
+                    }
+                }
+                priklad = priklad.Insert(pomIndZav, "ln");
+                label1.Text = priklad;
             }
         }
 
