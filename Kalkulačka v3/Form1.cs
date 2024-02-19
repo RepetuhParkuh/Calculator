@@ -603,76 +603,56 @@ namespace Kalkulačka_v3
             {                
                 //Určování priority operací
                 List<int> prioritaIndex = new List<int>();
-                List<int> mocninaIndex = new List<int>();
-                for (int i = 0; i < operandy.Count; i++)
+                          
+                if (prikladS.Contains("^"))
                 {
-                    if(operandy[i] == '^')
+                    double meziVypocet = 0;
+                    int diff = 0;
+                    for (int i = 0; i < operandy.Count; i++)
                     {
-                        mocninaIndex.Add(i);
-                    }
-                    if (operandy[i] == 'x' || operandy[i] == '/' || operandy[i] == '%')
-                    {
-                        prioritaIndex.Add(i);
-                    }
-                }
-
-
-
-                //Počítání operací s prioritou
-
-                double meziVypocet = 0;
-                int diff = 0;
-                int ovrOpDiff = 0;
-
-                if(mocninaIndex.Count>0)
-                {
-                    foreach(int i in mocninaIndex)
-                    {
-                        double a = cisla[i - diff];
-                        double n = cisla[i - diff + 1];
-                        meziVypocet = Math.Pow(a, n);
-                        cisla[i- diff] = meziVypocet;
-                        cisla.RemoveAt(i + 1 - diff);
-                        diff++;
-                    }                    
-                    foreach (int i in mocninaIndex)
-                    {
-
-                        operandy.RemoveAt(i - ovrOpDiff);                        
-                        ovrOpDiff++;
-                    }
-                }
-
-
-                if (prioritaIndex.Count > 0)
-                {
-                    foreach (int i in prioritaIndex)
-                    {
-                        switch (operandy[i- ovrOpDiff])
+                        if (operandy[i] == '^')
                         {
-                            case 'x':
-                                meziVypocet = cisla[i - diff] * cisla[i + 1 - diff];
-                                break;
-                            case '/':                               
-                                    meziVypocet = cisla[i - diff] / cisla[i + 1 - diff];                                
-                                break;
-                            case '%':
-                                meziVypocet = Convert.ToInt32(cisla[i - diff]) % Convert.ToInt32(cisla[i + 1 - diff]);
-                                break;
+                            double a = cisla[i - diff];
+                            double n = cisla[i - diff + 1];
+                            meziVypocet = Math.Pow(a, n);
+                            cisla[i - diff] = meziVypocet;
+                            cisla.RemoveAt(i + 1 - diff);
+                            operandy.RemoveAt(i - diff);                        
+                            diff++;
                         }
-                        cisla[i - diff] = meziVypocet;
-                        cisla.RemoveAt(i + 1 - diff);
-                        diff++;
-                    }
-                    
-                    foreach (int i in prioritaIndex)
-                    {
+                    }                   
+                }
 
-                        operandy.RemoveAt(i - ovrOpDiff);
-                        ovrOpDiff++;
+
+                if(prikladS.Contains("x")||prikladS.Contains("/")||prikladS.Contains("%"))
+                {
+                    double meziVypocet = 0;
+                    int diff = 0;
+                    for (int i = 0; i < operandy.Count; i++)
+                    {
+                        if (operandy[i] == 'x' || operandy[i] == '/' || operandy[i] == '%')
+                        {
+                            switch (operandy[i])
+                            {
+                                case 'x':
+                                    meziVypocet = cisla[i - diff] * cisla[i + 1 - diff];
+                                    break;
+                                case '/':
+                                    meziVypocet = cisla[i - diff] / cisla[i + 1 - diff];
+                                    break;
+                                case '%':
+                                    meziVypocet = Convert.ToInt32(cisla[i - diff]) % Convert.ToInt32(cisla[i + 1 - diff]);
+                                    break;
+                            }
+                            cisla[i - diff] = meziVypocet;
+                            cisla.RemoveAt(i + 1 - diff);
+                            operandy.RemoveAt(i - diff);
+                            diff++;
+                        }
                     }
                 }
 
+                
                 if(cisla.Count>0)
                 {
                     vysledek = cisla[0];
@@ -787,7 +767,7 @@ namespace Kalkulačka_v3
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            if (textBox1.Text.Length != 0 && valid)
+            if (textBox1.Text.Length != 0 && valid&&kalkProg.Visible)
             {
                 if (Int64.TryParse(textBox1.Text, out long hodnota)&&radioDec.Checked)
                 {
