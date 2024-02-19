@@ -582,17 +582,16 @@ namespace Kalkulačka_v3
                         if (countZacZavorek == countKonZavorek)  //Diky tomuhle nevadi vnorene zavorky
                         {
                             //vytvoreni prikladu ze zavorky
-                            podPriklad=prikladS.Substring(indexZacZav+1,i-indexZacZav-1);  
+                            podPriklad=prikladS.Substring(indexZacZav+1,i-indexZacZav-1);
                             //Odstraneni podprikladu z hlavniho prikladu
                             prikladS = prikladS.Remove(indexZacZav, i - indexZacZav+1);
-                            //Vlozeni vysledku z podprikladu
-                            double pomVys = vypocitaniPrikladu(podPriklad);
-                            MessageBox.Show(logVPrikladu ? "ano" : "ne");
+                            //Vlozeni vysledku z podprikladu                            
+                            double pomVys = vypocitaniPrikladu(podPriklad);                            
                             if(logVPrikladu)
                             {
                                 if (pomVys >= 0)
                                 {
-                                    pomVys = Math.Log10(pomVys);                                 
+                                    pomVys = Math.Log10(pomVys);                                    
                                     logVPrikladu = false;
                                 }
                                 else invalidInput();
@@ -605,8 +604,8 @@ namespace Kalkulačka_v3
                                     lnVPrikladu=false;
                                 }
                                 else invalidInput();
-                            }
-                            prikladS = prikladS.Insert(indexZacZav, pomVys.ToString());
+                            }           
+                            prikladS = prikladS.Insert(indexZacZav, pomVys.ToString());                            
                             zavorka = false;
                             //Neni nejlip optimalizovany, ale aspon to funguje. Sice se bude cely priklad prochazet znovu
                             //ale aspon je jistota ze to projde vsechny zavorky spravne
