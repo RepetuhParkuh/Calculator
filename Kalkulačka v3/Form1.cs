@@ -601,12 +601,10 @@ namespace Kalkulačka_v3
         
             if(!double.TryParse(prikladS,out vysledek))
             {                
-                //Určování priority operací
-                List<int> prioritaIndex = new List<int>();
+                //Určování a počítání priority operací             
                           
                 if (prikladS.Contains("^"))
-                {
-                    double meziVypocet = 0;
+                {                    
                     int diff = 0;
                     for (int i = 0; i < operandy.Count; i++)
                     {
@@ -614,8 +612,7 @@ namespace Kalkulačka_v3
                         {
                             double a = cisla[i - diff];
                             double n = cisla[i - diff + 1];
-                            meziVypocet = Math.Pow(a, n);
-                            cisla[i - diff] = meziVypocet;
+                            cisla[i - diff] = Math.Pow(a, n);
                             cisla.RemoveAt(i + 1 - diff);
                             operandy.RemoveAt(i - diff);                        
                             diff++;
