@@ -1040,7 +1040,7 @@ namespace Kalkulačka_v3
 
         private void obracenaHodnota_Click(object sender, EventArgs e)
         {
-            if(valid) textBox1.Text = (1 / Convert.ToDouble(textBox1.Text)).ToString();
+            if(valid&&Double.TryParse(textBox1.Text,out double pomVys)) textBox1.Text = (1 / pomVys).ToString();
             rovnaseFocus();
         }
         private void desCarka_Click(object sender, EventArgs e)
