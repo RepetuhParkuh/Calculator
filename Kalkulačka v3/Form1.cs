@@ -34,7 +34,7 @@ namespace Kalkulačka_v3
         bool jeMocnina = false;
         bool valid = true;
         bool jeLog = false;
-        char[] operandyPole = { '+', '-', '*', '/', '%', '(' };
+        char[] operandyPole = { '+', '-', '*', '/', '%', '(' , '^'};
 
         //responsivita
 
@@ -209,21 +209,31 @@ namespace Kalkulačka_v3
                 textBox1.Text = "";
                 jeVysledek = false;
             }   
-            if(!valid)
+            if(!valid&&!jeMocnina)
             {
                 textBox1.Text = "";
                 valid = true;
             }
             string s= (sender as Button).Text;
+            if(!valid&&Double.TryParse(s,out double d))
+            {
+                valid = true;
+            }
             if (s == "(")
             {
+                if(jeMocnina)
+                {
+                    priklad += textBox1.Text;
+                    textBox1.Text = "";
+                }
                 validZadani = false;
                 if(Double.TryParse(textBox1.Text,out double pom)&&pom!=0)
                 {                   
                      textBox1.Text += 'x';
                      priklad += textBox1.Text;
                      textBox1.Text = "";
-                }         
+                }
+                if (s == "0") s = "";
                 priklad += "(";
                 ZavCount++; 
             }
@@ -684,7 +694,8 @@ namespace Kalkulačka_v3
                                     meziVypocet = cisla[i - diff] / cisla[i + 1 - diff];
                                     break;
                                 case '%':
-                                    meziVypocet = Convert.ToInt32(cisla[i - diff]) % Convert.ToInt32(cisla[i + 1 - diff]);
+                                    if (Convert.ToInt64(cisla[i + 1 - diff]) == 0) invalidInput();
+                                    else meziVypocet = Convert.ToInt64(cisla[i - diff]) % Convert.ToInt64(cisla[i + 1 - diff]);
                                     break;
                             }
                             cisla[i - diff] = meziVypocet;
@@ -916,7 +927,7 @@ namespace Kalkulačka_v3
         private void druhaMocninaV_Click(object sender, EventArgs e)
         {
             
-            if (!operandyPole.Contains(textBox1.Text[textBox1.Text.Length - 1])&&valid)
+            if (textBox1.Text.Length != 0&&!operandyPole.Contains(textBox1.Text[textBox1.Text.Length - 1])&&valid)
             {
                 textBox1.Text += "^2";
                 jeMocnina = true;
@@ -926,12 +937,12 @@ namespace Kalkulačka_v3
 
 
         private void libovolnaMocnina_Click(object sender, EventArgs e)
-        {
-            char[] operandyPole = { '+', '-', '*', '/', '%','(' };
-            if (!operandyPole.Contains(textBox1.Text[textBox1.Text.Length-1])&&valid)
+        {            
+            if (textBox1.Text.Length != 0 && !operandyPole.Contains(textBox1.Text[textBox1.Text.Length-1])&&valid)
             {
                 textBox1.Text += "^";
                 jeMocnina = true;
+                valid = false;
             }
             rovnaseFocus();
         }
@@ -947,8 +958,15 @@ namespace Kalkulačka_v3
         
         //Logaritmy
         private void log_Click(object sender, EventArgs e)
-        {            
-            if(Double.TryParse(textBox1.Text,out double logPar)&&valid)
+        {
+            if (jeMocnina)
+            {
+                priklad += "(" + textBox1.Text + ")";
+                textBox1.Text = "";
+                jeMocnina = false;
+                valid = true;
+            }
+            if (Double.TryParse(textBox1.Text,out double logPar)&&valid)
             {
                 if(logPar<=0)
                 {
@@ -962,7 +980,7 @@ namespace Kalkulačka_v3
                     textBox1.Text = "";
                 }
             }
-            else if(priklad[priklad.Length-1]==')')
+            else if(valid&&priklad[priklad.Length-1]==')')
             {
                 int pomPocZav = 1;
                 int pomIndZav = 0;
@@ -983,6 +1001,13 @@ namespace Kalkulačka_v3
 
         private void ln_Click(object sender, EventArgs e)
         {
+            if(jeMocnina)
+            {
+                priklad += "(" + textBox1.Text + ")";
+                textBox1.Text = "";
+                jeMocnina = false;
+                valid = true;
+            }
             if (Double.TryParse(textBox1.Text, out double logPar)&&valid)
             {
                 if (logPar <= 0)
@@ -997,7 +1022,7 @@ namespace Kalkulačka_v3
                     textBox1.Text = "";
                 }
             }
-            else
+            else if (valid&&priklad[priklad.Length - 1] == ')')
             {
                 int pomPocZav = 1;
                 int pomIndZav = 0;
@@ -1040,7 +1065,11 @@ namespace Kalkulačka_v3
 
         private void obracenaHodnota_Click(object sender, EventArgs e)
         {
-            if(valid&&Double.TryParse(textBox1.Text,out double pomVys)) textBox1.Text = (1 / pomVys).ToString();
+            if (valid && Double.TryParse(textBox1.Text, out double pomVys))
+            {
+                textBox1.Text = (1 / pomVys).ToString();
+                jeVysledek = true;
+            }
             rovnaseFocus();
         }
         private void desCarka_Click(object sender, EventArgs e)
@@ -1110,8 +1139,8 @@ namespace Kalkulačka_v3
             if (!valid) textBox1.Text = "0";
             else
             {
-                if (textBox1.Text[textBox1.Text.Length - 1] == '(') ZavCount--;
-                if (textBox1.Text[textBox1.Text.Length - 1] == ')') ZavCount++;
+                /*if (textBox1.Text[textBox1.Text.Length - 1] == '(') ZavCount--;
+                if (textBox1.Text[textBox1.Text.Length - 1] == ')') ZavCount++;*/
                 if(textBox1.Text.Length>0) textBox1.Text=textBox1.Text.Substring(0,textBox1.Text.Length-1);
                 if (textBox1.Text.Length == 0) textBox1.Text = "0";
             }
