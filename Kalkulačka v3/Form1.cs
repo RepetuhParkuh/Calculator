@@ -811,6 +811,305 @@ namespace Kalkulačka_v3
 
         //Programátorská kalkulačka
 
+
+        private long vypocitaniPrikladuProg(string prikladS)
+        {
+            List<long> cisla = new List<long>();
+            List<char> operandy = new List<char>();
+
+            string cislo = "";
+
+            // Zavorky
+            bool zavorka = false;
+            int countZacZavorek = 0;
+            int countKonZavorek = 0;
+            int indexZacZav = 0;
+
+            string podPriklad = "";
+
+            long vysledek;
+
+            while (prikladS.Contains('('))
+            {
+                for (int i = 0; i < prikladS.Length; i++)
+                {
+                    char c = prikladS[i];                   
+
+
+                    if (c == '(')
+                    {
+                        if (!zavorka)
+                        {
+                            zavorka = true;
+                            indexZacZav = i;
+                        }
+                        countZacZavorek++;
+                    }
+                    else if (c == ')')
+                    {
+                        countKonZavorek++;
+                        if (countZacZavorek == countKonZavorek)  //Diky tomuhle nevadi vnorene zavorky
+                        {
+                            //vytvoreni prikladu ze zavorky
+                            podPriklad = prikladS.Substring(indexZacZav + 1, i - indexZacZav - 1);
+                            //Odstraneni podprikladu z hlavniho prikladu
+                            prikladS = prikladS.Remove(indexZacZav, i - indexZacZav + 1);
+                            //Vlozeni vysledku z podprikladu                            
+                            double pomVys = vypocitaniPrikladu(podPriklad);                            
+              
+                            prikladS = prikladS.Insert(indexZacZav, pomVys.ToString());
+                            zavorka = false;
+                            //Neni nejlip optimalizovany, ale aspon to funguje. Sice se bude cely priklad prochazet znovu
+                            //ale aspon je jistota ze to projde vsechny zavorky spravne
+                            i = 0;
+                        }
+                    }
+                }
+            }
+
+            //Získávání čísel a operandů            
+            foreach (char c in prikladS)
+            {
+                if ((c >= '0' && c <= '9'))
+                {
+                    cislo += c;                    
+                }
+
+                else if (c == '+' || c == '-' || c == 'x' || c == '/' || c == '%' || c == '^')
+                {
+
+                    if (cislo != "")
+                    {
+                        cisla.Add(Convert.ToInt64(cislo));
+                    }
+                    cislo = "";
+                    operandy.Add(c);                    
+                }
+
+            }
+
+            if (cislo != "") cisla.Add(Convert.ToInt64(cislo));
+
+
+            if (!Int64.TryParse(prikladS, out vysledek))
+            {
+                //Určování a počítání priority operací             
+                              
+
+
+                if (prikladS.Contains("x") || prikladS.Contains("/") || prikladS.Contains("%"))
+                {
+                    long meziVypocet = 0;
+                    int diff = 0;
+                    for (int i = 0; i < operandy.Count; i++)
+                    {
+                        if (operandy[i] == 'x' || operandy[i] == '/' || operandy[i] == '%')
+                        {
+                            switch (operandy[i])
+                            {
+                                case 'x':
+                                    meziVypocet = cisla[i - diff] * cisla[i + 1 - diff];
+                                    break;
+                                case '/':
+                                    meziVypocet = cisla[i - diff] / cisla[i + 1 - diff];
+                                    break;
+                                case '%':
+                                    if (Convert.ToInt64(cisla[i + 1 - diff]) == 0) invalidInput();
+                                    else meziVypocet = Convert.ToInt64(cisla[i - diff]) % Convert.ToInt64(cisla[i + 1 - diff]);
+                                    break;
+                            }
+                            cisla[i - diff] = meziVypocet;
+                            cisla.RemoveAt(i + 1 - diff);
+                            operandy.RemoveAt(i - diff);
+                            diff++;
+                        }
+                    }
+                }
+
+
+                if (cisla.Count > 0)
+                {
+                    vysledek = cisla[0];
+
+
+                    if (operandy.Count > 0)
+                    {
+                        int count = 1;
+                        foreach (char c in operandy)
+                        {
+                            switch (c)
+                            {
+                                case '+':
+                                    vysledek += cisla[count];
+                                    break;
+                                case '-':
+                                    vysledek -= cisla[count];
+                                    break;
+                            }
+                            count++;
+                        }
+                    }
+                }
+
+            }
+
+            ZavCount = 0;
+            return vysledek;
+
+        }
+
+        private void rovnaseP_Click(object sender, EventArgs e)
+        {
+            if(valid)
+            {
+                if(priklad.Length!=0)
+                {
+                    //Doplnění o obsah textboxu
+                    if (textBox1.Text.Length != 0) priklad += textBox1.Text;
+                    //Doplnění závorek
+                    while (ZavCount > 0)
+                    {
+                        priklad += ")";
+                        ZavCount--;
+                    }
+                    //vypsání příkladu do labelu
+                    label1.Text = priklad;                  
+                    //vypočítání pokud 10 soustava
+                    if (radioDec.Checked) textBox1.Text = vypocitaniPrikladuProg(priklad).ToString();
+                    //vypočítání pokud 2 soustava
+                    else if(radioBin.Checked)
+                    {
+                        string cisloBin = "";
+                        bool jeBinCislo = false;
+                        int pomIndBin = 0;
+                        int delka = 0;                        
+
+                        for(int i=0;i<priklad.Length;i++)
+                        {
+                            char c=priklad[i];
+                            if(c=='0'||c=='1')
+                            {
+                                if(!jeBinCislo)
+                                {
+                                    pomIndBin = i;          //index začátku bin čísla
+                                    jeBinCislo=true;
+                                }
+                                cisloBin += c;
+                                delka++;
+                            }
+                            else if(jeBinCislo)
+                            {                                
+                                //nahrazení binárního čísla desítkovým
+                                priklad =priklad.Remove(pomIndBin,delka);
+                                long pomDes = prevodSoustavy(cisloBin, 2);
+                                i -= (delka - pomDes.ToString().Length);                              
+                                priklad = priklad.Insert(pomIndBin, pomDes.ToString());
+                                cisloBin = "";
+                                jeBinCislo=false;
+                                delka=0;
+                            }                         
+                        }
+                        if(jeBinCislo)
+                        {
+                            //přidání posledního čísla v příkladu
+                            priklad = priklad.Remove(pomIndBin, delka);
+                            priklad = priklad.Insert(pomIndBin, prevodSoustavy(cisloBin, 2).ToString());
+                        }
+                        //vypočítání v 10 a převod do 2
+                        
+                        textBox1.Text = prevodSoustavy(vypocitaniPrikladuProg(priklad), 2);
+                        
+                    }
+                    else if(radioOct.Checked)
+                    {
+                        string cisloOct = "";
+                        bool jeOctCislo = false;
+                        int pomIndOct = 0;
+                        int delka = 0;
+
+                        for (int i = 0; i < priklad.Length; i++)
+                        {
+                            char c = priklad[i];
+                            if (c >= '0' && c < '8')
+                            {
+                                if (!jeOctCislo)
+                                {
+                                    pomIndOct = i;          //index začátku bin čísla
+                                    jeOctCislo = true;
+                                }
+                                cisloOct += c;
+                                delka++;
+                            }
+                            else if (jeOctCislo)
+                            {
+                                //nahrazení binárního čísla desítkovým
+                                priklad = priklad.Remove(pomIndOct, delka);
+                                long pomDes = prevodSoustavy(cisloOct, 8);
+                                i -= (delka - pomDes.ToString().Length);
+                                priklad = priklad.Insert(pomIndOct, pomDes.ToString());
+                                cisloOct = "";
+                                jeOctCislo = false;
+                                delka = 0;
+                            }
+                        }
+                        if (jeOctCislo)
+                        {
+                            //přidání posledního čísla v příkladu
+                            priklad = priklad.Remove(pomIndOct, delka);
+                            priklad = priklad.Insert(pomIndOct, prevodSoustavy(cisloOct, 8).ToString());
+                        }
+                        //vypočítání v 10 a převod do 8
+
+                        textBox1.Text = prevodSoustavy(vypocitaniPrikladuProg(priklad), 8);
+                    }
+                    else
+                    {
+                        string cisloHex = "";
+                        bool jeHexCislo = false;
+                        int pomIndHex = 0;
+                        int delka = 0;
+
+                        for (int i = 0; i < priklad.Length; i++)
+                        {
+                            char c = priklad[i];
+                            if (c >= '0' && c <= '9'||c>='A'&&c<='F')
+                            {
+                                if (!jeHexCislo)
+                                {
+                                    pomIndHex = i;          //index začátku bin čísla
+                                    jeHexCislo = true;
+                                }
+                                cisloHex += c;
+                                delka++;
+                            }
+                            else if (jeHexCislo)
+                            {
+                                //nahrazení binárního čísla desítkovým
+                                priklad = priklad.Remove(pomIndHex, delka);
+                                long pomDes = Convert.ToInt64(cisloHex,16);
+                                i -= (delka - pomDes.ToString().Length);
+                                priklad = priklad.Insert(pomIndHex, pomDes.ToString());
+                                cisloHex = "";
+                                jeHexCislo = false;
+                                delka = 0;
+                            }
+                        }
+                        if (jeHexCislo)
+                        {
+                            //přidání posledního čísla v příkladu
+                            priklad = priklad.Remove(pomIndHex, delka);
+                            priklad = priklad.Insert(pomIndHex, Convert.ToInt64(cisloHex, 16).ToString());
+                        }
+                        //vypočítání v 10 a převod do 16
+
+                        textBox1.Text = vypocitaniPrikladuProg(priklad).ToString("X");
+                    }
+                    jeVysledek = true;
+                    priklad = "";
+                }
+            }
+        }
+
         private string prevodSoustavy(long cislo,int soustava)
         {
             string vys = "";
@@ -1211,7 +1510,7 @@ namespace Kalkulačka_v3
            Clear();
         }
 
-        
+     
 
         private void Clear()
         {

@@ -1032,6 +1032,7 @@
             // 
             // button1
             // 
+            this.button1.Enabled = false;
             this.button1.Location = new System.Drawing.Point(67, 300);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
@@ -1234,7 +1235,7 @@
             this.rovnaseP.Tag = "4";
             this.rovnaseP.Text = "=";
             this.rovnaseP.UseVisualStyleBackColor = true;
-            this.rovnaseP.Click += new System.EventHandler(this.rovnaseV_Click);
+            this.rovnaseP.Click += new System.EventHandler(this.rovnaseP_Click);
             // 
             // plusP
             // 
