@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.nulaV = new System.Windows.Forms.Button();
             this.jednaV = new System.Windows.Forms.Button();
@@ -1459,8 +1459,8 @@
             this.chart1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.chart1.Location = new System.Drawing.Point(-1, 0);
             this.chart1.Name = "chart1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(300, 300);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -1481,9 +1481,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1066, 710);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.kalkGraf);
             this.Controls.Add(this.kalkProg);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.kalkVed);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
