@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.nulaV = new System.Windows.Forms.Button();
             this.jednaV = new System.Windows.Forms.Button();
@@ -435,7 +435,7 @@
             this.button2.Location = new System.Drawing.Point(24, 7);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(35, 25);
+            this.button2.Size = new System.Drawing.Size(40, 30);
             this.button2.TabIndex = 99;
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.menu_Click);
@@ -459,7 +459,7 @@
             // 
             // progCalc
             // 
-            this.progCalc.Location = new System.Drawing.Point(15, 106);
+            this.progCalc.Location = new System.Drawing.Point(15, 103);
             this.progCalc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.progCalc.Name = "progCalc";
             this.progCalc.Size = new System.Drawing.Size(165, 39);
@@ -470,7 +470,7 @@
             // 
             // scienceCalc
             // 
-            this.scienceCalc.Location = new System.Drawing.Point(15, 62);
+            this.scienceCalc.Location = new System.Drawing.Point(15, 60);
             this.scienceCalc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.scienceCalc.Name = "scienceCalc";
             this.scienceCalc.Size = new System.Drawing.Size(165, 39);
@@ -652,6 +652,7 @@
             this.btnMod.Name = "btnMod";
             this.btnMod.Size = new System.Drawing.Size(53, 30);
             this.btnMod.TabIndex = 52;
+            this.btnMod.Tag = "10";
             this.btnMod.Text = "mod";
             this.btnMod.UseVisualStyleBackColor = true;
             this.btnMod.Click += new System.EventHandler(this.vedOper_Click);
@@ -1054,7 +1055,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(53, 30);
             this.button1.TabIndex = 75;
-            this.button1.Tag = "4";
+            this.button1.Tag = "0";
             this.button1.Text = "+/-";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.btnPlusMinus_Click);
@@ -1308,7 +1309,7 @@
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(53, 30);
             this.button5.TabIndex = 59;
-            this.button5.Tag = "4";
+            this.button5.Tag = "10";
             this.button5.Text = "mod";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.vedOper_Click);
@@ -1468,15 +1469,15 @@
             this.chart1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.chart1.Location = new System.Drawing.Point(-1, 0);
             this.chart1.Name = "chart1";
-            series4.Name = "Series1";
-            this.chart1.Series.Add(series4);
+            series9.Name = "Series1";
+            this.chart1.Series.Add(series9);
             this.chart1.Size = new System.Drawing.Size(300, 300);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
             // 
             // graphCalc
             // 
-            this.graphCalc.Location = new System.Drawing.Point(15, 149);
+            this.graphCalc.Location = new System.Drawing.Point(15, 146);
             this.graphCalc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.graphCalc.Name = "graphCalc";
             this.graphCalc.Size = new System.Drawing.Size(165, 39);
@@ -1533,7 +1534,7 @@
             // 
             // dateCalc
             // 
-            this.dateCalc.Location = new System.Drawing.Point(15, 192);
+            this.dateCalc.Location = new System.Drawing.Point(15, 189);
             this.dateCalc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateCalc.Name = "dateCalc";
             this.dateCalc.Size = new System.Drawing.Size(165, 39);
