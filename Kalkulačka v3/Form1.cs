@@ -1442,13 +1442,15 @@ namespace Kalkulačka_v3
             /* JEN NA TVORBU VĚD KALK */
             kalkZakl.Visible = true;
             kalkVed.Visible = false;
+            kalkGraf.Visible = false;
+            kalkDate.Visible = false;
                 this.Height=500;
                 this.Width=500;
                 this.FormBorderStyle = FormBorderStyle.Fixed3D;
-            kalkGraf.Visible = false;
             kalkVed.Location = new Point(kalkZakl.Location.X, kalkZakl.Location.Y);
             kalkProg.Location = new Point(kalkZakl.Location.X, kalkZakl.Location.Y);
             kalkGraf.Location = new Point(kalkZakl.Location.X, kalkZakl.Location.Y);
+            kalkDate.Location = new Point(kalkZakl.Location.X, kalkZakl.Location.Y);
         }
 
         private void Form1_Resize(object sender, EventArgs e)
@@ -1508,6 +1510,13 @@ namespace Kalkulačka_v3
             chart1.DataSource = data;
         }
 
+        private void dateCalc_Click(object sender, EventArgs e)
+        {
+            PanelHide();
+            textBox1.Visible=false;
+            kalkDate.Visible = true;
+        }
+
         //Clear funkce
         private void backspace_Click(object sender, EventArgs e)
         {
@@ -1532,6 +1541,23 @@ namespace Kalkulačka_v3
         private void Clear_Click(object sender, EventArgs e)
         {
            Clear();
+        }
+
+        private void dateFrom_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime dateFrom = dateTimePicker1.Value;
+            DateTime dateTo = dateTimePicker2.Value;
+            if (dateFrom != dateTo)
+            {
+                TimeSpan rozdil = dateFrom - dateTo;
+                int dny=Convert.ToInt32(rozdil.TotalDays);                
+                if (dny < 0) dny*= -1;
+                string sklonDnu = " dní";
+                if (dny == 1) sklonDnu = " den";
+                else if (dny >= 2 && dny <= 4) sklonDnu = " dny";
+                labelDate.Text = dny.ToString()+sklonDnu;
+            }
+            else labelDate.Text = "Stejné datumy";
         }
 
         private void Clear()

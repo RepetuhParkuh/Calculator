@@ -139,12 +139,20 @@
             this.kalkGraf = new System.Windows.Forms.Panel();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.graphCalc = new System.Windows.Forms.Button();
+            this.kalkDate = new System.Windows.Forms.Panel();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dateCalc = new System.Windows.Forms.Button();
+            this.labelDate = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.kalkVed.SuspendLayout();
             this.kalkZakl.SuspendLayout();
             this.kalkProg.SuspendLayout();
             this.kalkGraf.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            this.kalkDate.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBox1
@@ -436,6 +444,7 @@
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel1.Controls.Add(this.dateCalc);
             this.panel1.Controls.Add(this.graphCalc);
             this.panel1.Controls.Add(this.progCalc);
             this.panel1.Controls.Add(this.scienceCalc);
@@ -1449,7 +1458,7 @@
             // kalkGraf
             // 
             this.kalkGraf.Controls.Add(this.chart1);
-            this.kalkGraf.Location = new System.Drawing.Point(627, 55);
+            this.kalkGraf.Location = new System.Drawing.Point(627, 351);
             this.kalkGraf.Name = "kalkGraf";
             this.kalkGraf.Size = new System.Drawing.Size(317, 317);
             this.kalkGraf.TabIndex = 104;
@@ -1476,11 +1485,77 @@
             this.graphCalc.UseVisualStyleBackColor = true;
             this.graphCalc.Click += new System.EventHandler(this.graphCalc_Click);
             // 
+            // kalkDate
+            // 
+            this.kalkDate.Controls.Add(this.labelDate);
+            this.kalkDate.Controls.Add(this.label3);
+            this.kalkDate.Controls.Add(this.dateTimePicker2);
+            this.kalkDate.Controls.Add(this.label2);
+            this.kalkDate.Controls.Add(this.dateTimePicker1);
+            this.kalkDate.Location = new System.Drawing.Point(643, 55);
+            this.kalkDate.Name = "kalkDate";
+            this.kalkDate.Size = new System.Drawing.Size(252, 278);
+            this.kalkDate.TabIndex = 105;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(15, 64);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
+            this.dateTimePicker1.TabIndex = 0;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateFrom_ValueChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 43);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(25, 16);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Od";
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(15, 130);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(200, 22);
+            this.dateTimePicker2.TabIndex = 2;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(12, 111);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(25, 16);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Do";
+            // 
+            // dateCalc
+            // 
+            this.dateCalc.Location = new System.Drawing.Point(15, 192);
+            this.dateCalc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dateCalc.Name = "dateCalc";
+            this.dateCalc.Size = new System.Drawing.Size(165, 39);
+            this.dateCalc.TabIndex = 4;
+            this.dateCalc.Text = "Datum";
+            this.dateCalc.UseVisualStyleBackColor = true;
+            this.dateCalc.Click += new System.EventHandler(this.dateCalc_Click);
+            // 
+            // labelDate
+            // 
+            this.labelDate.AutoSize = true;
+            this.labelDate.Location = new System.Drawing.Point(12, 173);
+            this.labelDate.Name = "labelDate";
+            this.labelDate.Size = new System.Drawing.Size(92, 16);
+            this.labelDate.TabIndex = 4;
+            this.labelDate.Text = "Stejné datumy";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1066, 710);
+            this.Controls.Add(this.kalkDate);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.kalkGraf);
             this.Controls.Add(this.kalkProg);
@@ -1505,6 +1580,8 @@
             this.kalkProg.PerformLayout();
             this.kalkGraf.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            this.kalkDate.ResumeLayout(false);
+            this.kalkDate.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1622,6 +1699,13 @@
         private System.Windows.Forms.Panel kalkGraf;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.Button graphCalc;
+        private System.Windows.Forms.Button dateCalc;
+        private System.Windows.Forms.Panel kalkDate;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label labelDate;
     }
 }
 
