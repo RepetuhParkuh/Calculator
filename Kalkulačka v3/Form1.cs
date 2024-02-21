@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Kalkulačka_v3
 {
@@ -1444,9 +1445,10 @@ namespace Kalkulačka_v3
                 this.Height=500;
                 this.Width=500;
                 this.FormBorderStyle = FormBorderStyle.Fixed3D;
-
+            kalkGraf.Visible = false;
             kalkVed.Location = new Point(kalkZakl.Location.X, kalkZakl.Location.Y);
-            kalkProg.Location = new Point(kalkZakl.Location.X, kalkZakl.Location.Y);     
+            kalkProg.Location = new Point(kalkZakl.Location.X, kalkZakl.Location.Y);
+            kalkGraf.Location = new Point(kalkZakl.Location.X, kalkZakl.Location.Y);
         }
 
         private void Form1_Resize(object sender, EventArgs e)
@@ -1467,6 +1469,7 @@ namespace Kalkulačka_v3
         private void basicCalc_Click(object sender, EventArgs e)
         {
             PanelHide();
+            textBox1.Visible = true;
             kalkZakl.Visible = true;
             
         }
@@ -1474,6 +1477,7 @@ namespace Kalkulačka_v3
         private void sciCalc_Click(object sender, EventArgs e)
         {
             PanelHide();
+            textBox1.Visible = true;
             kalkVed.Visible=true;
         }
 
@@ -1481,7 +1485,27 @@ namespace Kalkulačka_v3
         {
             PanelHide();
             enableButtons(2);
+            textBox1.Visible = true;
             kalkProg.Visible = true;
+        }
+
+        private void graphCalc_Click(object sender, EventArgs e)
+        {
+            PanelHide();
+            textBox1.Visible = false;
+            kalkGraf.Visible = true;
+            var data = new List<Tuple<double, double>>();
+            for (double x = -2; x < Math.PI * 2; x += Math.PI / 180.0)
+            {
+                data.Add(Tuple.Create(x, Math.Sin(x)));
+            }
+            chart1.ChartAreas.Add("area1");
+            var series = chart1.Series.Add("series1");
+            series.ChartType = SeriesChartType.Line;
+            series.ChartArea = "area1";
+            series.XValueMember = "Item1";
+            series.YValueMembers = "Item2";
+            chart1.DataSource = data;
         }
 
         //Clear funkce
@@ -1509,8 +1533,6 @@ namespace Kalkulačka_v3
         {
            Clear();
         }
-
-     
 
         private void Clear()
         {

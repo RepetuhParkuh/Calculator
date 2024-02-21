@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.nulaV = new System.Windows.Forms.Button();
             this.jednaV = new System.Windows.Forms.Button();
@@ -135,10 +136,15 @@
             this.bitPosLev = new System.Windows.Forms.Button();
             this.clearP = new System.Windows.Forms.Button();
             this.bckP = new System.Windows.Forms.Button();
+            this.kalkGraf = new System.Windows.Forms.Panel();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.graphCalc = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.kalkVed.SuspendLayout();
             this.kalkZakl.SuspendLayout();
             this.kalkProg.SuspendLayout();
+            this.kalkGraf.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox1
@@ -430,6 +436,7 @@
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel1.Controls.Add(this.graphCalc);
             this.panel1.Controls.Add(this.progCalc);
             this.panel1.Controls.Add(this.scienceCalc);
             this.panel1.Controls.Add(this.basicCalc);
@@ -1439,11 +1446,42 @@
             this.bckP.UseVisualStyleBackColor = true;
             this.bckP.Click += new System.EventHandler(this.backspace_Click);
             // 
+            // kalkGraf
+            // 
+            this.kalkGraf.Controls.Add(this.chart1);
+            this.kalkGraf.Location = new System.Drawing.Point(627, 55);
+            this.kalkGraf.Name = "kalkGraf";
+            this.kalkGraf.Size = new System.Drawing.Size(317, 317);
+            this.kalkGraf.TabIndex = 104;
+            // 
+            // chart1
+            // 
+            this.chart1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.chart1.Location = new System.Drawing.Point(-1, 0);
+            this.chart1.Name = "chart1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(300, 300);
+            this.chart1.TabIndex = 0;
+            this.chart1.Text = "chart1";
+            // 
+            // graphCalc
+            // 
+            this.graphCalc.Location = new System.Drawing.Point(15, 149);
+            this.graphCalc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.graphCalc.Name = "graphCalc";
+            this.graphCalc.Size = new System.Drawing.Size(165, 39);
+            this.graphCalc.TabIndex = 3;
+            this.graphCalc.Text = "Graf";
+            this.graphCalc.UseVisualStyleBackColor = true;
+            this.graphCalc.Click += new System.EventHandler(this.graphCalc_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(847, 710);
+            this.ClientSize = new System.Drawing.Size(1066, 710);
+            this.Controls.Add(this.kalkGraf);
             this.Controls.Add(this.kalkProg);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.kalkVed);
@@ -1465,6 +1503,8 @@
             this.kalkZakl.ResumeLayout(false);
             this.kalkProg.ResumeLayout(false);
             this.kalkProg.PerformLayout();
+            this.kalkGraf.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1579,6 +1619,9 @@
         private System.Windows.Forms.Label labelOct;
         private System.Windows.Forms.Label labelBin;
         private System.Windows.Forms.Label labelDec;
+        private System.Windows.Forms.Panel kalkGraf;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.Button graphCalc;
     }
 }
 
