@@ -194,6 +194,11 @@ namespace Kalkulačka_v3
             textBox1.Text = Math.PI.ToString("F8");
         }
 
+        private void euler_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = Math.E.ToString("F8");
+        }
+
         private void invalidInput()
         {
             textBox1.Text = "Invalid input";
@@ -575,6 +580,12 @@ namespace Kalkulačka_v3
                         prikladS=prikladS.Remove(i - 1, 2);
                         i-= 2;
                     }
+                    if(c=='s'&& !logVPrikladu && !lnVPrikladu && !absVPrikladu)
+                    {
+                        absVPrikladu = true;
+                        prikladS = prikladS.Remove(i - 2, 3);
+                        i -= 3;
+                    }
                     
 
                     if(c == '(')
@@ -596,7 +607,8 @@ namespace Kalkulačka_v3
                             //Odstraneni podprikladu z hlavniho prikladu
                             prikladS = prikladS.Remove(indexZacZav, i - indexZacZav+1);
                             //Vlozeni vysledku z podprikladu                            
-                            double pomVys = vypocitaniPrikladu(podPriklad);                            
+                            double pomVys = vypocitaniPrikladu(podPriklad);
+                            MessageBox.Show(pomVys.ToString());
                             if(logVPrikladu)
                             {
                                 if (pomVys >= 0)
@@ -614,7 +626,12 @@ namespace Kalkulačka_v3
                                     lnVPrikladu=false;
                                 }
                                 else invalidInput();
-                            }           
+                            }   
+                            if(absVPrikladu)
+                            {
+                                pomVys=Math.Abs(pomVys);
+                                absVPrikladu = false;
+                            }
                             prikladS = prikladS.Insert(indexZacZav, pomVys.ToString());                            
                             zavorka = false;
                             //Neni nejlip optimalizovany, ale aspon to funguje. Sice se bude cely priklad prochazet znovu
@@ -626,11 +643,11 @@ namespace Kalkulačka_v3
             }
 
 
-            //Získávání čísel a operandů
+            //Získávání čísel a operandů            
             foreach (char c in prikladS)
             {                    
-                    if (c >= '0' && c <= '9'||znam&&c=='-'||c==',')
-                    {
+                    if ((c >= '0' && c <= '9')||(znam&&c=='-')||c==',')
+                    {                    
                         cislo += c;
                         znam = false;                        
                     }
@@ -777,8 +794,7 @@ namespace Kalkulačka_v3
                     if (textBox1.Text.Length != 0&&!jeLog) priklad += textBox1.Text;
                     while(ZavCount>0)
                     {
-                        priklad += ")";
-                        textBox1.Text += ")";
+                        priklad += ")";                       
                         ZavCount--;
                     }
                     label1.Text += textBox1.Text;                
@@ -1065,7 +1081,7 @@ namespace Kalkulačka_v3
 
         private void obracenaHodnota_Click(object sender, EventArgs e)
         {
-            if (valid && Double.TryParse(textBox1.Text, out double pomVys))
+            if (valid && Double.TryParse(textBox1.Text, out double pomVys)&&pomVys!=0)
             {
                 textBox1.Text = (1 / pomVys).ToString();
                 jeVysledek = true;
@@ -1081,6 +1097,41 @@ namespace Kalkulačka_v3
                 else textBox1.Text = "0" + (sender as Button).Text;
             }
             rovnaseFocus();
+        }
+
+        private void abs_Click(object sender, EventArgs e)
+        {
+            if (jeMocnina)
+            {
+                priklad += "(" + textBox1.Text + ")";
+                textBox1.Text = "";
+                jeMocnina = false;
+                valid = true;
+            }
+            if (Double.TryParse(textBox1.Text, out double logPar) && valid)
+            {
+                jeLog = true;
+                priklad += $"abs({logPar})";
+                label1.Text = priklad;
+                textBox1.Text = "";
+            }
+            else if (valid && priklad[priklad.Length - 1] == ')')
+            {
+                int pomPocZav = 1;
+                int pomIndZav = 0;
+                for (int i = priklad.Length - 2; i >= 0; i--)
+                {
+                    if (priklad[i] == '(') pomPocZav--;
+                    else if (priklad[i] == ')') pomPocZav++;
+                    if (pomPocZav == 0)
+                    {
+                        pomIndZav = i;
+                        break;
+                    }
+                }
+                priklad = priklad.Insert(pomIndZav, "abs");
+                label1.Text = priklad;
+            }
         }
 
 
@@ -1130,6 +1181,7 @@ namespace Kalkulačka_v3
         private void progCalc_Click(object sender, EventArgs e)
         {
             PanelHide();
+            enableButtons(2);
             kalkProg.Visible = true;
         }
 
@@ -1158,6 +1210,8 @@ namespace Kalkulačka_v3
         {
            Clear();
         }
+
+        
 
         private void Clear()
         {

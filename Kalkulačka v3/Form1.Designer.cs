@@ -97,6 +97,10 @@
             this.deleno = new System.Windows.Forms.Button();
             this.krat = new System.Windows.Forms.Button();
             this.kalkProg = new System.Windows.Forms.Panel();
+            this.labelHex = new System.Windows.Forms.Label();
+            this.labelOct = new System.Windows.Forms.Label();
+            this.labelBin = new System.Windows.Forms.Label();
+            this.labelDec = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.radioHex = new System.Windows.Forms.RadioButton();
             this.radioOct = new System.Windows.Forms.RadioButton();
@@ -131,10 +135,6 @@
             this.bitPosLev = new System.Windows.Forms.Button();
             this.clearP = new System.Windows.Forms.Button();
             this.bckP = new System.Windows.Forms.Button();
-            this.labelDec = new System.Windows.Forms.Label();
-            this.labelBin = new System.Windows.Forms.Label();
-            this.labelOct = new System.Windows.Forms.Label();
-            this.labelHex = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.kalkVed.SuspendLayout();
             this.kalkZakl.SuspendLayout();
@@ -174,7 +174,7 @@
             this.jednaV.TabIndex = 26;
             this.jednaV.Text = "1";
             this.jednaV.UseVisualStyleBackColor = true;
-            this.jednaV.Click += new System.EventHandler(this.cisla_Click);            
+            this.jednaV.Click += new System.EventHandler(this.cisla_Click);
             // 
             // dvaV
             // 
@@ -414,7 +414,7 @@
             this.listBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(125, 416);
-            this.listBox1.TabIndex = 25;            
+            this.listBox1.TabIndex = 25;
             // 
             // button2
             // 
@@ -605,7 +605,7 @@
             this.button37.TabIndex = 31;
             this.button37.Text = "e";
             this.button37.UseVisualStyleBackColor = true;
-            this.button37.Visible = false;
+            this.button37.Click += new System.EventHandler(this.euler_Click);
             // 
             // button36
             // 
@@ -616,7 +616,7 @@
             this.button36.TabIndex = 32;
             this.button36.Text = "|x|";
             this.button36.UseVisualStyleBackColor = true;
-            this.button36.Visible = false;
+            this.button36.Click += new System.EventHandler(this.abs_Click);
             // 
             // btnKonZavV
             // 
@@ -993,6 +993,42 @@
             this.kalkProg.Size = new System.Drawing.Size(317, 345);
             this.kalkProg.TabIndex = 103;
             this.kalkProg.Visible = false;
+            // 
+            // labelHex
+            // 
+            this.labelHex.AutoSize = true;
+            this.labelHex.Location = new System.Drawing.Point(71, 91);
+            this.labelHex.Name = "labelHex";
+            this.labelHex.Size = new System.Drawing.Size(14, 16);
+            this.labelHex.TabIndex = 79;
+            this.labelHex.Text = "0";
+            // 
+            // labelOct
+            // 
+            this.labelOct.AutoSize = true;
+            this.labelOct.Location = new System.Drawing.Point(71, 62);
+            this.labelOct.Name = "labelOct";
+            this.labelOct.Size = new System.Drawing.Size(14, 16);
+            this.labelOct.TabIndex = 78;
+            this.labelOct.Text = "0";
+            // 
+            // labelBin
+            // 
+            this.labelBin.AutoSize = true;
+            this.labelBin.Location = new System.Drawing.Point(71, 34);
+            this.labelBin.Name = "labelBin";
+            this.labelBin.Size = new System.Drawing.Size(14, 16);
+            this.labelBin.TabIndex = 77;
+            this.labelBin.Text = "0";
+            // 
+            // labelDec
+            // 
+            this.labelDec.AutoSize = true;
+            this.labelDec.Location = new System.Drawing.Point(71, 6);
+            this.labelDec.Name = "labelDec";
+            this.labelDec.Size = new System.Drawing.Size(14, 16);
+            this.labelDec.TabIndex = 76;
+            this.labelDec.Text = "0";
             // 
             // button1
             // 
@@ -1401,42 +1437,6 @@
             this.bckP.Text = "<";
             this.bckP.UseVisualStyleBackColor = true;
             this.bckP.Click += new System.EventHandler(this.backspace_Click);
-            // 
-            // labelDec
-            // 
-            this.labelDec.AutoSize = true;
-            this.labelDec.Location = new System.Drawing.Point(71, 6);
-            this.labelDec.Name = "labelDec";
-            this.labelDec.Size = new System.Drawing.Size(14, 16);
-            this.labelDec.TabIndex = 76;
-            this.labelDec.Text = "0";
-            // 
-            // labelBin
-            // 
-            this.labelBin.AutoSize = true;
-            this.labelBin.Location = new System.Drawing.Point(71, 34);
-            this.labelBin.Name = "labelBin";
-            this.labelBin.Size = new System.Drawing.Size(14, 16);
-            this.labelBin.TabIndex = 77;
-            this.labelBin.Text = "0";
-            // 
-            // labelOct
-            // 
-            this.labelOct.AutoSize = true;
-            this.labelOct.Location = new System.Drawing.Point(71, 62);
-            this.labelOct.Name = "labelOct";
-            this.labelOct.Size = new System.Drawing.Size(14, 16);
-            this.labelOct.TabIndex = 78;
-            this.labelOct.Text = "0";
-            // 
-            // labelHex
-            // 
-            this.labelHex.AutoSize = true;
-            this.labelHex.Location = new System.Drawing.Point(71, 91);
-            this.labelHex.Name = "labelHex";
-            this.labelHex.Size = new System.Drawing.Size(14, 16);
-            this.labelHex.TabIndex = 79;
-            this.labelHex.Text = "0";
             // 
             // Form1
             // 
