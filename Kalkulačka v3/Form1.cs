@@ -274,7 +274,6 @@ namespace Kalkulačka_v3
                     case Keys.NumPad1:
                         jedna.PerformClick();
                         break;
-
                     case Keys.NumPad2:
                         dva.PerformClick();
                         break;
@@ -609,7 +608,8 @@ namespace Kalkulačka_v3
                             prikladS = prikladS.Remove(indexZacZav, i - indexZacZav+1);
                             //Vlozeni vysledku z podprikladu                            
                             double pomVys = vypocitaniPrikladu(podPriklad);
-                            MessageBox.Show(pomVys.ToString());
+                            
+
                             if(logVPrikladu)
                             {
                                 if (pomVys >= 0)
@@ -634,9 +634,8 @@ namespace Kalkulačka_v3
                                 absVPrikladu = false;
                             }
                             prikladS = prikladS.Insert(indexZacZav, pomVys.ToString());                            
-                            zavorka = false;
-                            //Neni nejlip optimalizovany, ale aspon to funguje. Sice se bude cely priklad prochazet znovu
-                            //ale aspon je jistota ze to projde vsechny zavorky spravne
+                            zavorka = false;                            
+                            //jistota ze to projde vsechny zavorky spravne
                             i = 0;
                         }
                     }
@@ -750,8 +749,6 @@ namespace Kalkulačka_v3
                 }
 
             }
-
-
 
             ZavCount = 0;
             return vysledek;
@@ -1495,7 +1492,7 @@ namespace Kalkulačka_v3
         private void graphCalc_Click(object sender, EventArgs e)
         {
             PanelHide();
-            textBox1.Visible = false;
+            //textBox1.Visible = false;
             kalkGraf.Visible = true;
             var data = new List<Tuple<double, double>>();
             for (double x = -2; x < Math.PI * 2; x += Math.PI / 180.0)
