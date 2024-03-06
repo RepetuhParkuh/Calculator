@@ -1245,8 +1245,7 @@ namespace Kalkulačka_v3
                     funkce=funkce.Remove(indexOfX, 1);
                     funkce = funkce.Insert(indexOfX, x.ToString());
                 }
-                bod=vypocitaniPrikladu(funkce);
-                if (x >-0.005&&x<0.005) MessageBox.Show(bod.ToString()+" "+x.ToString());
+                bod=vypocitaniPrikladu(funkce);                
                 data.Add(Tuple.Create(x, bod));
             }
             
