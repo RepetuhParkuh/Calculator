@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.nulaV = new System.Windows.Forms.Button();
             this.jednaV = new System.Windows.Forms.Button();
@@ -1803,6 +1803,7 @@
             this.button47.TabIndex = 71;
             this.button47.Text = "+/-";
             this.button47.UseVisualStyleBackColor = true;
+            this.button47.Click += new System.EventHandler(this.btnPlusMinus_Click);
             // 
             // sestG
             // 
@@ -1900,6 +1901,7 @@
             this.desCarkaG.TabIndex = 85;
             this.desCarkaG.Text = ",";
             this.desCarkaG.UseVisualStyleBackColor = true;
+            this.desCarkaG.Click += new System.EventHandler(this.desCarka_Click);
             // 
             // minusG
             // 
@@ -1939,8 +1941,8 @@
             this.chart1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.chart1.Location = new System.Drawing.Point(306, 6);
             this.chart1.Name = "chart1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
+            series3.Name = "Series1";
+            this.chart1.Series.Add(series3);
             this.chart1.Size = new System.Drawing.Size(435, 416);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
