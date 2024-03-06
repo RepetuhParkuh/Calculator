@@ -1814,9 +1814,7 @@ namespace Kalkulačka_v3
         {
             if (!valid) textBox1.Text = "0";
             else
-            {
-                /*if (textBox1.Text[textBox1.Text.Length - 1] == '(') ZavCount--;
-                if (textBox1.Text[textBox1.Text.Length - 1] == ')') ZavCount++;*/
+            {                
                 if(textBox1.Text.Length>0) textBox1.Text=textBox1.Text.Substring(0,textBox1.Text.Length-1);
                 if (textBox1.Text.Length == 0) textBox1.Text = "0";
             }
