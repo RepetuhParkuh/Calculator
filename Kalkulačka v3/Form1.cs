@@ -243,10 +243,19 @@ namespace Kalkulačka_v3
                 valid = true;
             }
             string s= (sender as Button).Text;
-            if(s=="x"&&(textBox1.Text[textBox1.Text.Length-1]=='x'|| !operandyPole.Contains(textBox1.Text[textBox1.Text.Length - 1])))
+            if(s=="x")
             {
-                priklad += $"{textBox1.Text}*";
-                textBox1.Text="";
+                if(priklad!="")
+                {
+                    if (textBox1.Text != "")
+                    {
+                        if (textBox1.Text[textBox1.Text.Length - 1] == 'x' || !operandyPole.Contains(textBox1.Text[textBox1.Text.Length - 1]))
+                        {
+                            priklad += $"{textBox1.Text}*";
+                            textBox1.Text = "";
+                        }
+                    }                    
+                }                
             }
             if(!valid&&Double.TryParse(s,out double d))
             {
@@ -1468,6 +1477,7 @@ namespace Kalkulačka_v3
             chart1.ChartAreas[0].AxisY.Interval = 5.0;
             chart1.ChartAreas[0].AxisY.Minimum = -30;
             chart1.ChartAreas[0].AxisY.Maximum = 30;
+
             jeVysledek = true;
             rovnaseFocus();
         }
@@ -1521,7 +1531,8 @@ namespace Kalkulačka_v3
                 valid = true;
             }
             if (Double.TryParse(textBox1.Text, out double logPar) && valid)
-            {
+            {                
+              
                 if (logPar < 0)
                 {
                     invalidInput();
@@ -1533,6 +1544,14 @@ namespace Kalkulačka_v3
                     label1.Text = priklad;
                     textBox1.Text = "";
                 }
+                               
+            }
+            else if(textBox1.Text == "x")
+            {
+                jeLog = true;
+                priklad += $"root(x)";
+                label1.Text = priklad;
+                textBox1.Text = "";
             }
             else if (valid && priklad[priklad.Length - 1] == ')')
             {
@@ -1598,6 +1617,13 @@ namespace Kalkulačka_v3
                     textBox1.Text = "";
                 }
             }
+            else if (textBox1.Text == "x")
+            {
+                jeLog = true;
+                priklad += $"log(x)";
+                label1.Text = priklad;
+                textBox1.Text = "";
+            }
             else if(valid&&priklad[priklad.Length-1]==')')
             {
                 int pomPocZav = 1;
@@ -1639,6 +1665,13 @@ namespace Kalkulačka_v3
                     label1.Text = priklad;
                     textBox1.Text = "";
                 }
+            }
+            else if (textBox1.Text == "x")
+            {
+                jeLog = true;
+                priklad += $"ln(x)";
+                label1.Text = priklad;
+                textBox1.Text = "";
             }
             else if (valid&&priklad[priklad.Length - 1] == ')')
             {
@@ -1714,6 +1747,13 @@ namespace Kalkulačka_v3
             {
                 jeLog = true;
                 priklad += $"abs({logPar})";
+                label1.Text = priklad;
+                textBox1.Text = "";
+            }
+            else if (textBox1.Text == "x")
+            {
+                jeLog = true;
+                priklad += $"abs(x)";
                 label1.Text = priklad;
                 textBox1.Text = "";
             }
@@ -1862,6 +1902,10 @@ namespace Kalkulačka_v3
             textBox1.Text = "0";
             rovnaseFocus();
             priklad = "";
+            chart1.ChartAreas.Clear();
+            chart1.Series.Clear();
+            chart1.DataSource = null;
+            jeGraf = false;
         }
 
     }
