@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.nulaV = new System.Windows.Forms.Button();
             this.jednaV = new System.Windows.Forms.Button();
@@ -1673,9 +1673,7 @@
             this.button26.Size = new System.Drawing.Size(53, 30);
             this.button26.TabIndex = 87;
             this.button26.Tag = "10";
-            this.button26.Text = "mod";
             this.button26.UseVisualStyleBackColor = true;
-            this.button26.Click += new System.EventHandler(this.vedOper_Click);
             // 
             // button27
             // 
@@ -1684,7 +1682,6 @@
             this.button27.Name = "button27";
             this.button27.Size = new System.Drawing.Size(53, 30);
             this.button27.TabIndex = 80;
-            this.button27.Text = "exp";
             this.button27.UseVisualStyleBackColor = true;
             // 
             // button28
@@ -1942,8 +1939,8 @@
             this.chart1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.chart1.Location = new System.Drawing.Point(306, 6);
             this.chart1.Name = "chart1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(435, 449);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";

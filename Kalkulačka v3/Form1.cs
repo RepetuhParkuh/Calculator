@@ -37,6 +37,9 @@ namespace Kalkulačka_v3
         bool jeLog = false;
         char[] operandyPole = { '+', '-', '*', '/', '%', '(' , '^'};
 
+        //Programatorská kalkulačka
+        int predchoziSoustava = 0;
+
         //Grafy
         bool jeGraf = false;
 
@@ -207,7 +210,16 @@ namespace Kalkulačka_v3
         private void invalidInput()
         {
             textBox1.Text = "Invalid input";
+            clearLabeluVProgKalk();
             valid = false;
+        }
+
+        private void clearLabeluVProgKalk()
+        {
+            labelBin.Text = "0";
+            labelDec.Text = "0";
+            labelHex.Text = "0";
+            labelOct.Text = "0";
         }
 
         // Zadávání čísel
@@ -996,129 +1008,21 @@ namespace Kalkulačka_v3
                     //vypočítání pokud 2 soustava
                     else if(radioBin.Checked)
                     {
-                        string cisloBin = "";
-                        bool jeBinCislo = false;
-                        int pomIndBin = 0;
-                        int delka = 0;                        
-
-                        for(int i=0;i<priklad.Length;i++)
-                        {
-                            char c=priklad[i];
-                            if(c=='0'||c=='1')
-                            {
-                                if(!jeBinCislo)
-                                {
-                                    pomIndBin = i;          //index začátku bin čísla
-                                    jeBinCislo=true;
-                                }
-                                cisloBin += c;
-                                delka++;
-                            }
-                            else if(jeBinCislo)
-                            {                                
-                                //nahrazení binárního čísla desítkovým
-                                priklad =priklad.Remove(pomIndBin,delka);
-                                long pomDes = prevodSoustavy(cisloBin, 2);
-                                i -= (delka - pomDes.ToString().Length);                              
-                                priklad = priklad.Insert(pomIndBin, pomDes.ToString());
-                                cisloBin = "";
-                                jeBinCislo=false;
-                                delka=0;
-                            }                         
-                        }
-                        if(jeBinCislo)
-                        {
-                            //přidání posledního čísla v příkladu
-                            priklad = priklad.Remove(pomIndBin, delka);
-                            priklad = priklad.Insert(pomIndBin, prevodSoustavy(cisloBin, 2).ToString());
-                        }
+                        priklad = prevodPrikladuZBinDoDec(priklad);
                         //vypočítání v 10 a převod do 2
-                        
                         textBox1.Text = prevodSoustavy(vypocitaniPrikladuProg(priklad), 2);
                         
                     }
                     else if(radioOct.Checked)
                     {
-                        string cisloOct = "";
-                        bool jeOctCislo = false;
-                        int pomIndOct = 0;
-                        int delka = 0;
-
-                        for (int i = 0; i < priklad.Length; i++)
-                        {
-                            char c = priklad[i];
-                            if (c >= '0' && c < '8')
-                            {
-                                if (!jeOctCislo)
-                                {
-                                    pomIndOct = i;          //index začátku bin čísla
-                                    jeOctCislo = true;
-                                }
-                                cisloOct += c;
-                                delka++;
-                            }
-                            else if (jeOctCislo)
-                            {
-                                //nahrazení binárního čísla desítkovým
-                                priklad = priklad.Remove(pomIndOct, delka);
-                                long pomDes = prevodSoustavy(cisloOct, 8);
-                                i -= (delka - pomDes.ToString().Length);
-                                priklad = priklad.Insert(pomIndOct, pomDes.ToString());
-                                cisloOct = "";
-                                jeOctCislo = false;
-                                delka = 0;
-                            }
-                        }
-                        if (jeOctCislo)
-                        {
-                            //přidání posledního čísla v příkladu
-                            priklad = priklad.Remove(pomIndOct, delka);
-                            priklad = priklad.Insert(pomIndOct, prevodSoustavy(cisloOct, 8).ToString());
-                        }
+                        priklad = prevodPrikladuZOctDoDec(priklad);
                         //vypočítání v 10 a převod do 8
-
                         textBox1.Text = prevodSoustavy(vypocitaniPrikladuProg(priklad), 8);
                     }
                     else
                     {
-                        string cisloHex = "";
-                        bool jeHexCislo = false;
-                        int pomIndHex = 0;
-                        int delka = 0;
-
-                        for (int i = 0; i < priklad.Length; i++)
-                        {
-                            char c = priklad[i];
-                            if (c >= '0' && c <= '9'||c>='A'&&c<='F')
-                            {
-                                if (!jeHexCislo)
-                                {
-                                    pomIndHex = i;          //index začátku bin čísla
-                                    jeHexCislo = true;
-                                }
-                                cisloHex += c;
-                                delka++;
-                            }
-                            else if (jeHexCislo)
-                            {
-                                //nahrazení binárního čísla desítkovým
-                                priklad = priklad.Remove(pomIndHex, delka);
-                                long pomDes = Convert.ToInt64(cisloHex,16);
-                                i -= (delka - pomDes.ToString().Length);
-                                priklad = priklad.Insert(pomIndHex, pomDes.ToString());
-                                cisloHex = "";
-                                jeHexCislo = false;
-                                delka = 0;
-                            }
-                        }
-                        if (jeHexCislo)
-                        {
-                            //přidání posledního čísla v příkladu
-                            priklad = priklad.Remove(pomIndHex, delka);
-                            priklad = priklad.Insert(pomIndHex, Convert.ToInt64(cisloHex, 16).ToString());
-                        }
+                        priklad = prevodPrikladuZHexDoDec(priklad);
                         //vypočítání v 10 a převod do 16
-
                         textBox1.Text = vypocitaniPrikladuProg(priklad).ToString("X");
                     }
                     jeVysledek = true;
@@ -1130,6 +1034,7 @@ namespace Kalkulačka_v3
         private string prevodSoustavy(long cislo,int soustava)
         {
             string vys = "";
+            if (cislo == 0) vys = "0";
             while(cislo!=0)
             {
                 vys = (cislo % soustava) + vys;
@@ -1151,6 +1056,183 @@ namespace Kalkulačka_v3
             return cislo;
         }
 
+
+        private string prevodPrikladuZDec(string prikladDec,int soustava)
+        {
+            string cisloDec = "";
+            bool jeDecCislo = false;
+            int pomIndDec = 0;
+            int delka = 0;
+
+            for (int i = 0; i < prikladDec.Length; i++)
+            {
+                char c = prikladDec[i];
+                if (c >= '0' && c <= '9')
+                {
+                    if (!jeDecCislo)
+                    {
+                        pomIndDec = i;          //index začátku bin čísla
+                        jeDecCislo = true;
+                    }
+                    cisloDec += c;
+                    delka++;
+                }
+                else if (jeDecCislo)
+                {                    
+                    prikladDec = prikladDec.Remove(pomIndDec, delka);
+                    long pomDes = Int64.Parse(cisloDec);
+                    string pomPrevod;
+                    if (soustava == 2 || soustava == 8)
+                    {
+                        pomPrevod = prevodSoustavy(pomDes, soustava);
+                        prikladDec = prikladDec.Insert(pomIndDec, pomPrevod);                    
+                    }
+                    else
+                    {
+                        pomPrevod = pomDes.ToString("X");
+                        prikladDec = prikladDec.Insert(pomIndDec, pomPrevod);
+                    }
+                    i -= (delka - pomPrevod.Length);
+                    cisloDec = "";
+                    jeDecCislo = false;
+                    delka = 0;
+                }
+            }
+            if (jeDecCislo)
+            {
+                //přidání posledního čísla v příkladu
+                prikladDec = prikladDec.Remove(pomIndDec, delka);
+                long pomDes = Int64.Parse(cisloDec);
+                if (soustava == 2 || soustava == 8)
+                    prikladDec = prikladDec.Insert(pomIndDec, prevodSoustavy(pomDes, soustava));
+                else
+                    prikladDec = prikladDec.Insert(pomIndDec, pomDes.ToString("X"));
+            }            
+            return prikladDec;
+        }
+
+        private string prevodPrikladuZBinDoDec(string prikladBin)
+        {
+            string cisloBin = "";
+            bool jeBinCislo = false;
+            int pomIndBin = 0;
+            int delka = 0;
+
+            for (int i = 0; i < prikladBin.Length; i++)
+            {
+                char c = prikladBin[i];
+                if (c == '0' || c == '1')
+                {
+                    if (!jeBinCislo)
+                    {
+                        pomIndBin = i;          //index začátku bin čísla
+                        jeBinCislo = true;
+                    }
+                    cisloBin += c;
+                    delka++;
+                }
+                else if (jeBinCislo)
+                {
+                    //nahrazení binárního čísla desítkovým
+                    prikladBin = prikladBin.Remove(pomIndBin, delka);
+                    long pomDes = prevodSoustavy(cisloBin, 2);
+                    i -= (delka - pomDes.ToString().Length);
+                    prikladBin = prikladBin.Insert(pomIndBin, pomDes.ToString());
+                    cisloBin = "";
+                    jeBinCislo = false;
+                    delka = 0;
+                }
+            }
+            if (jeBinCislo)
+            {
+                //přidání posledního čísla v příkladu
+                prikladBin = prikladBin.Remove(pomIndBin, delka);
+                prikladBin = prikladBin.Insert(pomIndBin, prevodSoustavy(cisloBin, 2).ToString());
+            }            
+            return prikladBin;
+        }
+
+        private string prevodPrikladuZOctDoDec(string prikladOct)
+        {
+            string cisloOct = "";
+            bool jeOctCislo = false;
+            int pomIndOct = 0;
+            int delka = 0;
+
+            for (int i = 0; i < prikladOct.Length; i++)
+            {
+                char c = prikladOct[i];
+                if (c >= '0' && c < '8')
+                {
+                    if (!jeOctCislo)
+                    {
+                        pomIndOct = i;          //index začátku bin čísla
+                        jeOctCislo = true;
+                    }
+                    cisloOct += c;
+                    delka++;
+                }
+                else if (jeOctCislo)
+                {
+                    //nahrazení binárního čísla desítkovým
+                    prikladOct = prikladOct.Remove(pomIndOct, delka);
+                    long pomDes = prevodSoustavy(cisloOct, 8);
+                    i -= (delka - pomDes.ToString().Length);
+                    prikladOct = prikladOct.Insert(pomIndOct, pomDes.ToString());
+                    cisloOct = "";
+                    jeOctCislo = false;
+                    delka = 0;
+                }
+            }
+            if (jeOctCislo)
+            {
+                //přidání posledního čísla v příkladu
+                prikladOct = prikladOct.Remove(pomIndOct, delka);
+                prikladOct = prikladOct.Insert(pomIndOct, prevodSoustavy(cisloOct, 8).ToString());
+            }
+            return prikladOct;
+        }
+
+        private string prevodPrikladuZHexDoDec(string prikladHex)
+        {
+            string cisloHex = "";
+            bool jeHexCislo = false;
+            int pomIndHex = 0;
+            int delka = 0;
+
+            for (int i = 0; i < prikladHex.Length; i++)
+            {
+                char c = prikladHex[i];
+                if (c >= '0' && c <= '9' || c >= 'A' && c <= 'F')
+                {
+                    if (!jeHexCislo)
+                    {
+                        pomIndHex = i;          //index začátku bin čísla
+                        jeHexCislo = true;
+                    }
+                    cisloHex += c;
+                    delka++;
+                }
+                else if (jeHexCislo)
+                {
+                    //nahrazení binárního čísla desítkovým
+                    prikladHex = prikladHex.Remove(pomIndHex, delka);
+                    long pomDes = Convert.ToInt64(cisloHex, 16);
+                    i -= (delka - pomDes.ToString().Length);
+                    prikladHex = prikladHex.Insert(pomIndHex, pomDes.ToString());
+                    cisloHex = "";
+                    jeHexCislo = false;
+                    delka = 0;
+                }
+            }
+            if (jeHexCislo)
+            {
+                //přidání posledního čísla v příkladu
+                prikladHex = prikladHex.Remove(pomIndHex, delka);
+                prikladHex = prikladHex.Insert(pomIndHex, Convert.ToInt64(cisloHex, 16).ToString());
+            }
+            return prikladHex;
+        }
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             if (textBox1.Text.Length != 0 && valid&&kalkProg.Visible)
@@ -1208,24 +1290,47 @@ namespace Kalkulačka_v3
 
         private void zmenaSoustavy_ChangeChecked(object sender, EventArgs e)
         {
+            switch(predchoziSoustava)
+            {
+                case 0:
+                    break;
+                case 1: priklad = prevodPrikladuZBinDoDec(priklad);
+                    break;
+                case 2: priklad = prevodPrikladuZOctDoDec(priklad);
+                    break;
+                case 3: priklad = prevodPrikladuZHexDoDec(priklad);
+                    break;
+            }
+
             if (radioBin.Checked)
             {
                 enableButtons(4);
+                priklad = prevodPrikladuZDec(priklad, 2);
+                predchoziSoustava = 1;
+                label1.Text = priklad;
                 textBox1.Text = labelBin.Text;
             }
             else if (radioOct.Checked)
             {
                 enableButtons(3);
+                priklad = prevodPrikladuZDec(priklad, 8);
+                predchoziSoustava = 2;
+                label1.Text = priklad;
                 textBox1.Text = labelOct.Text;
             }
             else if (radioDec.Checked)
             {
                 enableButtons(2);
+                predchoziSoustava=0;
+                label1.Text = priklad;
                 textBox1.Text = labelDec.Text;
             }
             else if (radioHex.Checked)
             {
                 enableButtons(1);
+                priklad = prevodPrikladuZDec(priklad, 16);
+                predchoziSoustava = 3;
+                label1.Text = priklad;
                 textBox1.Text=labelHex.Text;
             }
         }
