@@ -37,6 +37,9 @@ namespace Kalkulačka_v3
         bool jeLog = false;
         char[] operandyPole = { '+', '-', '*', '/', '%', '(' , '^'};
 
+        //Grafy
+        bool jeGraf = false;
+
         //responsivita
 
         void autores(int pocSloup, int pocRad, Panel kalk)
@@ -166,6 +169,7 @@ namespace Kalkulačka_v3
             rovnase.Focus();
             rovnaseV.Focus();
             rovnaseP.Focus();
+            btnMakeGraph.Focus();
         }
 
         private void PanelHide()
@@ -210,6 +214,12 @@ namespace Kalkulačka_v3
         private void cisla_Click(object sender, EventArgs e)
         {
             bool validZadani = true;
+            if(jeGraf)
+            {
+                priklad = "";
+                label1.Text = "";
+                jeGraf = false;
+            }
             if (jeVysledek)                   //Po zmáčknutí rovnáse se nebude připisovat do výsledku ale přepíše se
             {
                 textBox1.Text = "";
@@ -1223,7 +1233,9 @@ namespace Kalkulačka_v3
 
         // Grafy
         private void makeGraph_Click(object sender, EventArgs e)
-        {            
+        {
+            jeGraf = true;
+
             chart1.ChartAreas.Clear();
             chart1.Series.Clear();
             chart1.DataSource = null;
@@ -1267,6 +1279,8 @@ namespace Kalkulačka_v3
             chart1.ChartAreas[0].AxisY.Interval = 5.0;
             chart1.ChartAreas[0].AxisY.Minimum = -20;
             chart1.ChartAreas[0].AxisY.Maximum = 20;
+            jeVysledek = true;
+            rovnaseFocus();
         }
 
 

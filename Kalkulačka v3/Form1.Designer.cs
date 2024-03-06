@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.nulaV = new System.Windows.Forms.Button();
             this.jednaV = new System.Windows.Forms.Button();
@@ -168,7 +168,7 @@
             this.button51 = new System.Windows.Forms.Button();
             this.button52 = new System.Windows.Forms.Button();
             this.button53 = new System.Windows.Forms.Button();
-            this.button54 = new System.Windows.Forms.Button();
+            this.btnMakeGraph = new System.Windows.Forms.Button();
             this.button55 = new System.Windows.Forms.Button();
             this.button56 = new System.Windows.Forms.Button();
             this.button57 = new System.Windows.Forms.Button();
@@ -1543,7 +1543,7 @@
             this.kalkGraf.Controls.Add(this.button51);
             this.kalkGraf.Controls.Add(this.button52);
             this.kalkGraf.Controls.Add(this.button53);
-            this.kalkGraf.Controls.Add(this.button54);
+            this.kalkGraf.Controls.Add(this.btnMakeGraph);
             this.kalkGraf.Controls.Add(this.button55);
             this.kalkGraf.Controls.Add(this.button56);
             this.kalkGraf.Controls.Add(this.button57);
@@ -1873,15 +1873,15 @@
             this.button53.UseVisualStyleBackColor = true;
             this.button53.Click += new System.EventHandler(this.cisla_Click);
             // 
-            // button54
+            // btnMakeGraph
             // 
-            this.button54.Location = new System.Drawing.Point(237, 212);
-            this.button54.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button54.Name = "button54";
-            this.button54.Size = new System.Drawing.Size(53, 30);
-            this.button54.TabIndex = 92;
-            this.button54.UseVisualStyleBackColor = true;
-            this.button54.Click += new System.EventHandler(this.makeGraph_Click);
+            this.btnMakeGraph.Location = new System.Drawing.Point(237, 212);
+            this.btnMakeGraph.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnMakeGraph.Name = "btnMakeGraph";
+            this.btnMakeGraph.Size = new System.Drawing.Size(53, 30);
+            this.btnMakeGraph.TabIndex = 92;
+            this.btnMakeGraph.UseVisualStyleBackColor = true;
+            this.btnMakeGraph.Click += new System.EventHandler(this.makeGraph_Click);
             // 
             // button55
             // 
@@ -1942,8 +1942,8 @@
             this.chart1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.chart1.Location = new System.Drawing.Point(306, 6);
             this.chart1.Name = "chart1";
-            series2.Name = "Series1";
-            this.chart1.Series.Add(series2);
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(435, 449);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -2188,7 +2188,7 @@
         private System.Windows.Forms.Button button51;
         private System.Windows.Forms.Button button52;
         private System.Windows.Forms.Button button53;
-        private System.Windows.Forms.Button button54;
+        private System.Windows.Forms.Button btnMakeGraph;
         private System.Windows.Forms.Button button55;
         private System.Windows.Forms.Button button56;
         private System.Windows.Forms.Button button57;
