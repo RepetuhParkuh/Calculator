@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.nulaV = new System.Windows.Forms.Button();
             this.jednaV = new System.Windows.Forms.Button();
@@ -342,7 +342,7 @@
             this.kratV.Name = "kratV";
             this.kratV.Size = new System.Drawing.Size(53, 30);
             this.kratV.TabIndex = 54;
-            this.kratV.Text = "x";
+            this.kratV.Text = "*";
             this.kratV.UseVisualStyleBackColor = true;
             this.kratV.Click += new System.EventHandler(this.vedOper_Click);
             // 
@@ -1016,7 +1016,7 @@
             this.krat.Name = "krat";
             this.krat.Size = new System.Drawing.Size(53, 49);
             this.krat.TabIndex = 43;
-            this.krat.Text = "x";
+            this.krat.Text = "*";
             this.krat.UseVisualStyleBackColor = true;
             this.krat.Click += new System.EventHandler(this.zaklOper_Click);
             // 
@@ -1342,7 +1342,7 @@
             this.kratP.Size = new System.Drawing.Size(53, 30);
             this.kratP.TabIndex = 58;
             this.kratP.Tag = "4";
-            this.kratP.Text = "x";
+            this.kratP.Text = "*";
             this.kratP.UseVisualStyleBackColor = true;
             this.kratP.Click += new System.EventHandler(this.vedOper_Click);
             // 
@@ -1933,7 +1933,7 @@
             this.button59.Name = "button59";
             this.button59.Size = new System.Drawing.Size(53, 30);
             this.button59.TabIndex = 89;
-            this.button59.Text = "x";
+            this.button59.Text = "*";
             this.button59.UseVisualStyleBackColor = true;
             this.button59.Click += new System.EventHandler(this.vedOper_Click);
             // 
@@ -1942,8 +1942,8 @@
             this.chart1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.chart1.Location = new System.Drawing.Point(306, 6);
             this.chart1.Name = "chart1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(435, 449);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";

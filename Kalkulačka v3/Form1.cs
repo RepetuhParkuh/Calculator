@@ -475,7 +475,7 @@ namespace Kalkulačka_v3
                                 cislo += (cislo2 * -1);
                             else cislo -= cislo2;
                             break;
-                        case 'x':
+                        case '*':
                             cislo *= cislo2;
                             break;
                         case '/':
@@ -518,7 +518,7 @@ namespace Kalkulačka_v3
                             cislo += (cislo2*-1);                                               
                         else cislo -= cislo2;
                         break;
-                    case 'x':
+                    case '*':
                         cislo *= cislo2;
                         break;
                     case '/':
@@ -661,7 +661,7 @@ namespace Kalkulačka_v3
                         znam = false;                        
                     }
                     
-                    else if (c == '+' || c == '-' || c == 'x' || c == '/' || c == '%'||c=='^')
+                    else if (c == '+' || c == '-' || c == '*' || c == '/' || c == '%'||c=='^')
                     {                  
                   
                          if(cislo!="")
@@ -703,17 +703,17 @@ namespace Kalkulačka_v3
                 }
 
 
-                if(prikladS.Contains("x")||prikladS.Contains("/")||prikladS.Contains("%"))
+                if(prikladS.Contains("*")||prikladS.Contains("/")||prikladS.Contains("%"))
                 {
                     double meziVypocet = 0;
                     int diff = 0;
                     for (int i = 0; i < operandy.Count; i++)
                     {
-                        if (operandy[i] == 'x' || operandy[i] == '/' || operandy[i] == '%')
+                        if (operandy[i] == '*' || operandy[i] == '/' || operandy[i] == '%')
                         {
                             switch (operandy[i])
                             {
-                                case 'x':
+                                case '*':
                                     meziVypocet = cisla[i - diff] * cisla[i + 1 - diff];
                                     break;
                                 case '/':
