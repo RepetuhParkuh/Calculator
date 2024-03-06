@@ -443,6 +443,8 @@ namespace Kalkulačka_v3
                         break;
                 }
             }
+
+
             rovnaseFocus();
         }
 
@@ -1225,13 +1227,17 @@ namespace Kalkulačka_v3
             chart1.ChartAreas.Clear();
             chart1.Series.Clear();
             chart1.DataSource = null;
+            
             priklad += textBox1.Text;
             textBox1.Text = priklad;
             label1.Text = "";
+            
             double bod;            
             var data = new List<Tuple<double, double>>();
+            
             for (double x = -100; x <= 100; x += 0.005)
-            {                
+            {
+                x = Math.Round(x, 8);
                 string funkce = priklad;
                 while(funkce.Contains("x"))
                 {
@@ -1240,14 +1246,19 @@ namespace Kalkulačka_v3
                     funkce = funkce.Insert(indexOfX, x.ToString());
                 }
                 bod=vypocitaniPrikladu(funkce);
+                if (x >-0.005&&x<0.005) MessageBox.Show(bod.ToString()+" "+x.ToString());
                 data.Add(Tuple.Create(x, bod));
             }
+            
             chart1.ChartAreas.Add("area1");
+            
             var series = chart1.Series.Add("series1");
+           
             series.ChartType = SeriesChartType.Line;
             series.ChartArea = "area1";
             series.XValueMember = "Item1";
             series.YValueMembers = "Item2";
+            
             chart1.DataSource = data;
 
             chart1.ChartAreas[0].AxisX.Interval = 5.0;
