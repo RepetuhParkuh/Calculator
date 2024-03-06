@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.nulaV = new System.Windows.Forms.Button();
             this.jednaV = new System.Windows.Forms.Button();
@@ -197,7 +197,7 @@
             this.textBox1.Location = new System.Drawing.Point(24, 55);
             this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(236, 38);
+            this.textBox1.Size = new System.Drawing.Size(247, 38);
             this.textBox1.TabIndex = 0;
             this.textBox1.Text = "0";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -439,7 +439,7 @@
             this.button10.TabIndex = 13;
             this.button10.Text = "√";
             this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.druhaOdmocnina_Click);
+            this.button10.Click += new System.EventHandler(this.vedeckaOdmocnina_Click);
             // 
             // button11
             // 
@@ -1759,7 +1759,7 @@
             this.button35.TabIndex = 60;
             this.button35.Text = "√";
             this.button35.UseVisualStyleBackColor = true;
-            this.button35.Click += new System.EventHandler(this.druhaOdmocnina_Click);
+            this.button35.Click += new System.EventHandler(this.vedeckaOdmocnina_Click);
             // 
             // ctyriG
             // 
@@ -1941,8 +1941,8 @@
             this.chart1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.chart1.Location = new System.Drawing.Point(306, 6);
             this.chart1.Name = "chart1";
-            series3.Name = "Series1";
-            this.chart1.Series.Add(series3);
+            series6.Name = "Series1";
+            this.chart1.Series.Add(series6);
             this.chart1.Size = new System.Drawing.Size(435, 416);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
