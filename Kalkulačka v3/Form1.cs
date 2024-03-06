@@ -243,6 +243,11 @@ namespace Kalkulačka_v3
                 valid = true;
             }
             string s= (sender as Button).Text;
+            if(s=="x"&&(textBox1.Text[textBox1.Text.Length-1]=='x'|| !operandyPole.Contains(textBox1.Text[textBox1.Text.Length - 1])))
+            {
+                priklad += $"{textBox1.Text}*";
+                textBox1.Text="";
+            }
             if(!valid&&Double.TryParse(s,out double d))
             {
                 valid = true;
