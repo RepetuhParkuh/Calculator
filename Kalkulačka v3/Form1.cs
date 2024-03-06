@@ -446,6 +446,12 @@ namespace Kalkulačka_v3
             rovnaseFocus();
         }
 
+
+
+        /* Kalkulačky */
+
+
+
         //Základní kalkulačka - operace
         private void zaklRovnase_Click(object sender, EventArgs e)
         {
@@ -534,6 +540,7 @@ namespace Kalkulačka_v3
             rovnaseFocus();
         }
 
+        
 
         //Vědecká kalkulačka - operace
 
@@ -1211,6 +1218,49 @@ namespace Kalkulačka_v3
             }
         }
 
+
+        // Grafy
+        private void makeGraph_Click(object sender, EventArgs e)
+        {            
+            chart1.ChartAreas.Clear();
+            chart1.Series.Clear();
+            chart1.DataSource = null;
+            priklad += textBox1.Text;
+            textBox1.Text = priklad;
+            label1.Text = "";
+            double bod;            
+            var data = new List<Tuple<double, double>>();
+            for (double x = -100; x <= 100; x += 0.005)
+            {                
+                string funkce = priklad;
+                while(funkce.Contains("x"))
+                {
+                    int indexOfX=funkce.IndexOf("x");
+                    funkce=funkce.Remove(indexOfX, 1);
+                    funkce = funkce.Insert(indexOfX, x.ToString());
+                }
+                bod=vypocitaniPrikladu(funkce);
+                data.Add(Tuple.Create(x, bod));
+            }
+            chart1.ChartAreas.Add("area1");
+            var series = chart1.Series.Add("series1");
+            series.ChartType = SeriesChartType.Line;
+            series.ChartArea = "area1";
+            series.XValueMember = "Item1";
+            series.YValueMembers = "Item2";
+            chart1.DataSource = data;
+
+            chart1.ChartAreas[0].AxisX.Interval = 5.0;
+            chart1.ChartAreas[0].AxisX.Minimum = -20;
+            chart1.ChartAreas[0].AxisX.Maximum = 20;
+
+            chart1.ChartAreas[0].AxisY.Interval = 5.0;
+            chart1.ChartAreas[0].AxisY.Minimum = -20;
+            chart1.ChartAreas[0].AxisY.Maximum = 20;
+        }
+
+
+
         //Mocniny
         private void druhaMocnina_Click(object sender, EventArgs e)
         {
@@ -1492,20 +1542,9 @@ namespace Kalkulačka_v3
         private void graphCalc_Click(object sender, EventArgs e)
         {
             PanelHide();
-            //textBox1.Visible = false;
-            kalkGraf.Visible = true;
-            var data = new List<Tuple<double, double>>();
-            for (double x = -2; x < Math.PI * 2; x += Math.PI / 180.0)
-            {
-                data.Add(Tuple.Create(x, Math.Sin(x)));
-            }
-            chart1.ChartAreas.Add("area1");
-            var series = chart1.Series.Add("series1");
-            series.ChartType = SeriesChartType.Line;
-            series.ChartArea = "area1";
-            series.XValueMember = "Item1";
-            series.YValueMembers = "Item2";
-            chart1.DataSource = data;
+            this.Width = 700;
+            textBox1.Visible = true;
+            kalkGraf.Visible = true;            
         }
 
         private void dateCalc_Click(object sender, EventArgs e)
@@ -1557,6 +1596,7 @@ namespace Kalkulačka_v3
             }
             else labelDate.Text = "Stejné datumy";
         }
+        
 
         private void Clear()
         {
