@@ -466,6 +466,67 @@ namespace Kalkulačka_v3
                 }
             }
 
+            else if(kalkGraf.Visible)
+            {
+                switch (e.KeyCode)
+                {
+                    case Keys.NumPad0:
+                        nulaG.PerformClick();
+                        break;
+                    case Keys.NumPad1:
+                        jednaG.PerformClick();
+                        break;
+                    case Keys.NumPad2:
+                        dvaG.PerformClick();
+                        break;
+                    case Keys.NumPad3:
+                        triG.PerformClick();
+                        break;
+                    case Keys.NumPad4:
+                        ctyriG.PerformClick();
+                        break;
+                    case Keys.NumPad5:
+                        petG.PerformClick();
+                        break;
+                    case Keys.NumPad6:
+                        sestG.PerformClick();
+                        break;
+                    case Keys.NumPad7:
+                        sedmG.PerformClick();
+                        break;
+                    case Keys.NumPad8:
+                        osmG.PerformClick();
+                        break;
+                    case Keys.NumPad9:
+                        devetG.PerformClick();
+                        break;
+                    case Keys.Add:
+                        plusG.PerformClick();
+                        break;
+                    case Keys.Subtract:
+                        minusG.PerformClick();
+                        break;
+                    case Keys.Multiply:
+                        kratG.PerformClick();
+                        break;
+                    case Keys.Divide:
+                        delenoG.PerformClick();
+                        break;
+                    case Keys.Back:
+                        bckG.PerformClick();
+                        break;
+                    case Keys.Enter:
+                        btnMakeGraph.PerformClick();
+                        break;
+                    case Keys.Decimal:
+                        if (!textBox1.Text.Contains(","))
+                            desCarkaG.PerformClick();
+                        break;
+                    case Keys.X:
+                        btnX.PerformClick();
+                        break;
+                }
+            }
 
             rovnaseFocus();
         }
@@ -1378,12 +1439,12 @@ namespace Kalkulačka_v3
             chart1.DataSource = data;
 
             chart1.ChartAreas[0].AxisX.Interval = 5.0;
-            chart1.ChartAreas[0].AxisX.Minimum = -20;
-            chart1.ChartAreas[0].AxisX.Maximum = 20;
+            chart1.ChartAreas[0].AxisX.Minimum = -30;
+            chart1.ChartAreas[0].AxisX.Maximum = 30;
 
             chart1.ChartAreas[0].AxisY.Interval = 5.0;
-            chart1.ChartAreas[0].AxisY.Minimum = -20;
-            chart1.ChartAreas[0].AxisY.Maximum = 20;
+            chart1.ChartAreas[0].AxisY.Minimum = -30;
+            chart1.ChartAreas[0].AxisY.Maximum = 30;
             jeVysledek = true;
             rovnaseFocus();
         }
