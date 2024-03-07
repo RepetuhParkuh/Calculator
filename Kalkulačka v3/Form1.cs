@@ -279,12 +279,13 @@ namespace Kalkulačka_v3
                      priklad += textBox1.Text;
                      textBox1.Text = "";
                 }
-                if (s == "0") s = "";
+                if (priklad.Length!=0&&priklad[priklad.Length - 1] == ')') priklad += "*";
                 priklad += "(";
                 ZavCount++; 
             }
             if (s == ")")
             {
+                if (textBox1.Text.Length == 0&&priklad[priklad.Length-1]=='(') textBox1.Text = "0";
                 priklad += textBox1.Text;
                 textBox1.Text = "";
                 if (ZavCount != 0)
@@ -1790,6 +1791,7 @@ namespace Kalkulačka_v3
         private void Form1_Load(object sender, EventArgs e)
         {
             /* JEN NA TVORBU VĚD KALK */
+            this.Text = "Základní kalkulačka";
             kalkZakl.Visible = true;
             kalkVed.Visible = false;
             kalkGraf.Visible = false;
@@ -1823,7 +1825,9 @@ namespace Kalkulačka_v3
             PanelHide();
             textBox1.Visible = true;
             kalkZakl.Visible = true;
-            
+            this.Text = "Základní kalkulačka";
+            this.Height = 500;
+            this.Width = 500;
         }
 
         private void sciCalc_Click(object sender, EventArgs e)
@@ -1831,6 +1835,9 @@ namespace Kalkulačka_v3
             PanelHide();
             textBox1.Visible = true;
             kalkVed.Visible=true;
+            this.Text = "Vědecká kalkulačka";
+            this.Height = 500;
+            this.Width = 500;
         }
 
         private void progCalc_Click(object sender, EventArgs e)
@@ -1840,6 +1847,9 @@ namespace Kalkulačka_v3
             enableButtons(2);
             textBox1.Visible = true;
             kalkProg.Visible = true;
+            this.Text = "Programátorská kalkulačka";
+            this.Height = 500;
+            this.Width = 500;
         }
 
         private void graphCalc_Click(object sender, EventArgs e)
@@ -1847,7 +1857,8 @@ namespace Kalkulačka_v3
             PanelHide();
             this.Width = 700;
             textBox1.Visible = true;
-            kalkGraf.Visible = true;            
+            kalkGraf.Visible = true;
+            this.Text = "Vykreslování grafů";
         }
 
         private void dateCalc_Click(object sender, EventArgs e)
@@ -1855,6 +1866,9 @@ namespace Kalkulačka_v3
             PanelHide();
             textBox1.Visible=false;
             kalkDate.Visible = true;
+            this.Text = "Výpočet data";
+            this.Height = 500;
+            this.Width = 500;
         }
 
         //Clear funkce
