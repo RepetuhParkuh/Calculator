@@ -247,20 +247,19 @@ namespace Kalkulačka_v3
             string s= (sender as Button).Text;
             if(s=="x")
             {
-                if(priklad!="")
+                if(textBox1.Text.Length!=0)
                 {
-                    if (textBox1.Text != "")
+                    if(textBox1.Text!="0")
                     {
-                        if (textBox1.Text[textBox1.Text.Length - 1] == 'x' || !operandyPole.Contains(textBox1.Text[textBox1.Text.Length - 1]))
+                        if(textBox1.Text[textBox1.Text.Length-1]=='x'||(textBox1.Text[textBox1.Text.Length - 1]>='0'&& textBox1.Text[textBox1.Text.Length - 1]<='í'))
                         {
-                            if(priklad[priklad.Length-1]!='(')
-                            {
+                        
                                 priklad += $"{textBox1.Text}*";
                                 textBox1.Text = "";
-                            }                            
+                        
                         }
-                    }                    
-                }                
+                    }
+                }
             }
             if(!valid&&Double.TryParse(s,out double d))
             {
