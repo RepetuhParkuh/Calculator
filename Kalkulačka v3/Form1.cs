@@ -13,6 +13,8 @@ namespace Kalkulačka_v3
 {
     public partial class Form1 : Form
     {
+
+        
         public Form1()
         {
             InitializeComponent();
@@ -251,8 +253,11 @@ namespace Kalkulačka_v3
                     {
                         if (textBox1.Text[textBox1.Text.Length - 1] == 'x' || !operandyPole.Contains(textBox1.Text[textBox1.Text.Length - 1]))
                         {
-                            priklad += $"{textBox1.Text}*";
-                            textBox1.Text = "";
+                            if(priklad[priklad.Length-1]!='(')
+                            {
+                                priklad += $"{textBox1.Text}*";
+                                textBox1.Text = "";
+                            }                            
                         }
                     }                    
                 }                
