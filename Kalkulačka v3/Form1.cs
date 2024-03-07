@@ -798,7 +798,7 @@ namespace Kalkulačka_v3
 
 
             
-            if(cislo!="") cisla.Add(Convert.ToDouble(cislo));
+            if(cislo!=""&&Double.TryParse(cislo,out double pomCislo)) cisla.Add(pomCislo);
         
             if(!double.TryParse(prikladS,out vysledek))
             {                
@@ -1436,6 +1436,10 @@ namespace Kalkulačka_v3
         // Grafy
         private void makeGraph_Click(object sender, EventArgs e)
         {
+            if(jeGraf)
+            {
+                Clear();
+            }
             jeGraf = true;
 
             chart1.ChartAreas.Clear();
