@@ -651,7 +651,7 @@ namespace Kalkulačka_v3
         private double vypocitaniPrikladu(string prikladS)
         {           
             List<double> cisla = new List<double>();
-            List<char> operandy = new List<char>();
+            List<char> operandy = new List<char>();            
             //Promenna do ktere hazim cisla
             string cislo = "";     
                    
@@ -723,12 +723,13 @@ namespace Kalkulačka_v3
                         if (countZacZavorek == countKonZavorek)  //Diky tomuhle nevadi vnorene zavorky
                         {
                             //vytvoreni prikladu ze zavorky
-                            podPriklad=prikladS.Substring(indexZacZav+1,i-indexZacZav-1);
+                            podPriklad = prikladS.Substring(indexZacZav + 1, i - indexZacZav - 1);
                             //Odstraneni podprikladu z hlavniho prikladu
-                            prikladS = prikladS.Remove(indexZacZav, i - indexZacZav+1);
+                            prikladS = prikladS.Remove(indexZacZav, i - indexZacZav + 1);
                             //Vlozeni vysledku z podprikladu                            
                             double pomVys = vypocitaniPrikladu(podPriklad);
-                            
+
+                            MessageBox.Show(podPriklad+" "+ pomVys.ToString());
 
                             if(logVPrikladu)
                             {
@@ -924,7 +925,8 @@ namespace Kalkulačka_v3
                         priklad += ")";                       
                         ZavCount--;
                     }
-                    label1.Text += textBox1.Text;                
+                    //label1.Text += textBox1.Text;
+                    label1.Text = priklad;
                     double vysledek=vypocitaniPrikladu(priklad);
                     label1.Text += "=";
                     textBox1.Text = vysledek.ToString();
@@ -1922,12 +1924,12 @@ namespace Kalkulačka_v3
             cislo = 0;
             listBox1.Items.Clear();
             textBox1.Text = "0";
-            rovnaseFocus();
             priklad = "";
             chart1.ChartAreas.Clear();
             chart1.Series.Clear();
             chart1.DataSource = null;
             jeGraf = false;
+            rovnaseFocus();
         }
 
     }
