@@ -38,6 +38,7 @@ namespace Kalkulačka_v3
         bool valid = true;
         bool jeLog = false;
         char[] operandyPole = { '+', '-', '*', '/', '%', '(' , '^'};
+        string[] funkcePole = { "log", "ln", "abs", "root" };
 
         //Programatorská kalkulačka
         int predchoziSoustava = 0;
@@ -680,34 +681,7 @@ namespace Kalkulačka_v3
                 for (int i = 0; i < prikladS.Length; i++)
                 {
                     char c = prikladS[i];
-                    if (!logVPrikladu && !lnVPrikladu && !absVPrikladu && !rootVPrikladu)
-                    {
-                        if (c == 'g')
-                        {
-                            logVPrikladu = true;
-                            prikladS = prikladS.Remove(i - 2, 3);
-                            i -= 3;
-                        }
-                        if (c == 'n')
-                        {
-                            lnVPrikladu = true;
-                            prikladS = prikladS.Remove(i - 1, 2);
-                            i -= 2;
-                        }
-                        if (c == 's')
-                        {
-                            absVPrikladu = true;
-                            prikladS = prikladS.Remove(i - 2, 3);
-                            i -= 3;
-                        }
-                        if (c == 't')
-                        {
-                            rootVPrikladu = true;
-                            prikladS = prikladS.Remove(i - 3, 4);
-                            i -= 4;
-                        }
-                    }
-
+                    
                     if (c == '(')
                     {
                         if (!zavorka)
@@ -728,41 +702,7 @@ namespace Kalkulačka_v3
                             prikladS = prikladS.Remove(indexZacZav, i - indexZacZav + 1);
                             //Vlozeni vysledku z podprikladu                            
                             double pomVys = vypocitaniPrikladu(podPriklad);
-
-                            MessageBox.Show(podPriklad+" "+ pomVys.ToString());
-
-                            if(logVPrikladu)
-                            {
-                                if (pomVys >= 0)
-                                {
-                                    pomVys = Math.Log10(pomVys);                                    
-                                    logVPrikladu = false;
-                                }
-                                else invalidInput();
-                            }
-                            if(lnVPrikladu)
-                            {
-                                if (pomVys >= 0)
-                                {
-                                    pomVys = Math.Log(pomVys);          
-                                    lnVPrikladu=false;
-                                }
-                                else invalidInput();
-                            }   
-                            if(absVPrikladu)
-                            {
-                                pomVys=Math.Abs(pomVys);
-                                absVPrikladu = false;
-                            }
-                            if(rootVPrikladu)
-                            {
-                                if(pomVys < 0) invalidInput();
-                                else
-                                {
-                                    pomVys=Math.Sqrt(pomVys);
-                                    rootVPrikladu=false;
-                                }
-                            }
+                           
                             prikladS = prikladS.Insert(indexZacZav, pomVys.ToString());                            
                             zavorka = false;                            
                             //jistota ze to projde vsechny zavorky spravne
@@ -772,27 +712,51 @@ namespace Kalkulačka_v3
                 }                
             }
 
+            
 
             //Získávání čísel a operandů            
             foreach (char c in prikladS)
             {                    
-                    if ((c >= '0' && c <= '9')||(znam&&c=='-')||c==',')
-                    {                    
-                        cislo += c;
-                        znam = false;                        
-                    }
+                if ((c >= '0' && c <= '9')||(znam&&c=='-')||c==',')
+                {                    
+                    cislo += c;
+                    znam = false;                        
+                }
                     
-                    else if (c == '+' || c == '-' || c == '*' || c == '/' || c == '%'||c=='^')
-                    {                  
+                else if (c == '+' || c == '-' || c == '*' || c == '/' || c == '%'||c=='^')
+                {                  
                   
-                         if(cislo!="")
-                        {                           
-                            cisla.Add(Convert.ToDouble(cislo));
-                        }
-                        cislo = "";
-                        operandy.Add(c);
-                        znam = true;
-                    }                    
+                    if(cislo!="")
+                    {                           
+                        cisla.Add(Convert.ToDouble(cislo));
+                    }
+                    cislo = "";
+                    operandy.Add(c);
+                    znam = true;
+                }    
+                /* l = log
+                 * n = ln
+                 * a = abs
+                 * r = root
+                 */
+                else if(c=='g'||c=='n'||c=='s'||c=='t')
+                {
+                    switch(c)
+                    {
+                        case 'g':
+                            operandy.Add('l');
+                            break;
+                        case 'n':
+                            operandy.Add('n');
+                            break;
+                        case 's':
+                            operandy.Add('a');
+                            break;
+                        case 't':
+                            operandy.Add('r');
+                            break;
+                    }
+                }
                         
             }
 
@@ -801,12 +765,76 @@ namespace Kalkulačka_v3
 
             
             if(cislo!=""&&Double.TryParse(cislo,out double pomCislo)) cisla.Add(pomCislo);
-        
             if(!double.TryParse(prikladS,out vysledek))
-            {                
+            {               
+                
+
                 //Určování a počítání priority operací             
                           
-                if (prikladS.Contains("^"))
+
+                    //Složitější funkce
+                if(funkcePole.Any(prikladS.Contains) && valid)
+                {
+                    int diff = 0;
+                    for (int i = 0; i < operandy.Count; i++)
+                    {
+                        if (operandy[i] == 'l')
+                        {                            
+                            double n = cisla[i - diff];
+                            if (n >= 0)
+                            {                                
+                                cisla[i - diff] = Math.Log10(n);
+                                operandy.RemoveAt(i - diff);
+                                diff++;
+                            }
+                            else
+                            {
+                                invalidInput();
+                                break;
+                            }
+                        }
+                        else if (operandy[i] == 'n')
+                        {
+                            double n = cisla[i - diff];
+                            if (n >= 0)
+                            {
+                                cisla[i - diff] = Math.Log(n);
+                                operandy.RemoveAt(i - diff);
+                                diff++;
+                            }
+                            else
+                            {
+                                invalidInput();
+                                break;
+                            }
+                        }
+                        else if (operandy[i] == 'a')
+                        {
+                            double n = cisla[i - diff];                            
+                            cisla[i - diff] = Math.Abs(n);
+                            operandy.RemoveAt(i - diff);
+                            diff++;                            
+                        }
+                        else if (operandy[i] == 'r')
+                        {
+                            double n = cisla[i - diff];
+                            if (n >= 0)
+                            {
+                                cisla[i - diff] = Math.Sqrt(n);
+                                operandy.RemoveAt(i - diff);
+                                diff++;
+                            }
+                            else
+                            {
+                                invalidInput();
+                                break;
+                            }
+                        }
+                    }
+                }
+
+                    //Mocniny
+                if (prikladS.Contains("^")&&valid)
                 {                    
                     int diff = 0;
                     for (int i = 0; i < operandy.Count; i++)
@@ -824,7 +852,7 @@ namespace Kalkulačka_v3
                 }
 
 
-                if(prikladS.Contains("*")||prikladS.Contains("/")||prikladS.Contains("%"))
+                if((prikladS.Contains("*")||prikladS.Contains("/")||prikladS.Contains("%")) && valid)
                 {
                     double meziVypocet = 0;
                     int diff = 0;
@@ -854,7 +882,7 @@ namespace Kalkulačka_v3
                 }
 
                 
-                if(cisla.Count>0)
+                if(cisla.Count>0 && valid)
                 {
                     vysledek = cisla[0];
 
@@ -929,8 +957,12 @@ namespace Kalkulačka_v3
                     label1.Text = priklad;
                     double vysledek=vypocitaniPrikladu(priklad);
                     label1.Text += "=";
-                    textBox1.Text = vysledek.ToString();
-                    listBox1.Items.Add(vysledek);
+                    if (valid)
+                    {
+                        textBox1.Text = vysledek.ToString();
+                        listBox1.Items.Add(vysledek);
+                    }
+                    else invalidInput();
                     priklad = "";
                     jeVysledek = true;
                 }
@@ -1468,6 +1500,7 @@ namespace Kalkulačka_v3
                 }
                 bod=vypocitaniPrikladu(funkce);                
                 data.Add(Tuple.Create(x, bod));
+                valid = true;
             }
             
             chart1.ChartAreas.Add("area1");
@@ -1524,7 +1557,7 @@ namespace Kalkulačka_v3
         private void druhaMocninaV_Click(object sender, EventArgs e)
         {
             
-            if (textBox1.Text.Length != 0&&!operandyPole.Contains(textBox1.Text[textBox1.Text.Length - 1])&&valid)
+            if (textBox1.Text.Length != 0&&!operandyPole.Contains(textBox1.Text[textBox1.Text.Length - 1])&&valid && !jeMocnina)
             {
                 textBox1.Text += "^2";
                 jeMocnina = true;
@@ -1586,7 +1619,7 @@ namespace Kalkulačka_v3
 
         private void libovolnaMocnina_Click(object sender, EventArgs e)
         {            
-            if (textBox1.Text.Length != 0 && !operandyPole.Contains(textBox1.Text[textBox1.Text.Length-1])&&valid)
+            if (textBox1.Text.Length != 0 && !operandyPole.Contains(textBox1.Text[textBox1.Text.Length-1])&&valid&&!jeMocnina)
             {
                 textBox1.Text += "^";
                 jeMocnina = true;
