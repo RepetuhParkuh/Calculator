@@ -669,12 +669,7 @@ namespace Kalkulačka_v3
             
             //Vysledek
             double vysledek = 0;
-          
-            bool logVPrikladu = false;
-            bool lnVPrikladu = false;
-            bool absVPrikladu = false;
-            bool rootVPrikladu = false;
-
+                    
             //Kontrola zavorek v prikladu
             while (prikladS.Contains('('))
             {
