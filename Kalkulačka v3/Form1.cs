@@ -1488,7 +1488,7 @@ namespace Kalkulačka_v3
             double bod;            
             var data = new List<Tuple<double, double>>();
             
-            for (double x = -100; x <= 100; x += 0.005)
+            for (double x = -30; x <= 30; x += 0.05)
             {
                 x = Math.Round(x, 8);
                 string funkce = priklad;
@@ -1498,10 +1498,19 @@ namespace Kalkulačka_v3
                     funkce=funkce.Remove(indexOfX, 1);
                     funkce = funkce.Insert(indexOfX, x.ToString());
                 }
-                bod=vypocitaniPrikladu(funkce);                
-                data.Add(Tuple.Create(x, bod));
+                try
+                {
+                    bod = vypocitaniPrikladu(funkce);
+                    data.Add(Tuple.Create(x, bod));
+                }
+                catch(System.OverflowException)
+                {
+                    break;
+                }
                 valid = true;
             }
+
+            textBox1.Text = priklad;
             
             chart1.ChartAreas.Add("area1");
             
@@ -1962,6 +1971,7 @@ namespace Kalkulačka_v3
             chart1.Series.Clear();
             chart1.DataSource = null;
             jeGraf = false;
+            jeMocnina = false;
             rovnaseFocus();
         }
 
