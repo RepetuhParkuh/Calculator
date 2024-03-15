@@ -1829,6 +1829,7 @@ namespace Kalkulačka_v3
             kalkVed.Visible = false;
             kalkGraf.Visible = false;
             kalkDate.Visible = false;
+            kalkPrevod.Visible = false;
                 this.Height=500;
                 this.Width=500;
                 this.FormBorderStyle = FormBorderStyle.Fixed3D;
@@ -1836,6 +1837,7 @@ namespace Kalkulačka_v3
             kalkProg.Location = new Point(kalkZakl.Location.X, kalkZakl.Location.Y);
             kalkGraf.Location = new Point(kalkZakl.Location.X, kalkZakl.Location.Y);
             kalkDate.Location = new Point(kalkZakl.Location.X, kalkZakl.Location.Y);
+            kalkPrevod.Location= new Point(kalkZakl.Location.X, kalkZakl.Location.Y);
         }
 
         private void Form1_Resize(object sender, EventArgs e)
@@ -1900,6 +1902,16 @@ namespace Kalkulačka_v3
             textBox1.Visible=false;
             kalkDate.Visible = true;
             this.Text = "Výpočet data";
+            this.Height = 500;
+            this.Width = 500;
+        }
+
+        private void delkaCalc_Click(object sender, EventArgs e)
+        {
+            PanelHide();
+            textBox1.Visible = true;
+            kalkPrevod.Visible = true;
+            this.Text = "Převod délky";
             this.Height = 500;
             this.Width = 500;
         }
