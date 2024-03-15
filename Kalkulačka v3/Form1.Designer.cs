@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.nulaV = new System.Windows.Forms.Button();
             this.jednaV = new System.Windows.Forms.Button();
@@ -187,7 +187,7 @@
             this.labPrevod = new System.Windows.Forms.Label();
             this.comboPrevodZ = new System.Windows.Forms.ComboBox();
             this.btnPrevodClear = new System.Windows.Forms.Button();
-            this.button54 = new System.Windows.Forms.Button();
+            this.bckT = new System.Windows.Forms.Button();
             this.nulaT = new System.Windows.Forms.Button();
             this.jednaT = new System.Windows.Forms.Button();
             this.dvaT = new System.Windows.Forms.Button();
@@ -1965,8 +1965,8 @@
             this.chart1.Location = new System.Drawing.Point(230, 5);
             this.chart1.Margin = new System.Windows.Forms.Padding(2);
             this.chart1.Name = "chart1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
+            series3.Name = "Series1";
+            this.chart1.Series.Add(series3);
             this.chart1.Size = new System.Drawing.Size(326, 338);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -2038,7 +2038,7 @@
             this.kalkPrevod.Controls.Add(this.labPrevod);
             this.kalkPrevod.Controls.Add(this.comboPrevodZ);
             this.kalkPrevod.Controls.Add(this.btnPrevodClear);
-            this.kalkPrevod.Controls.Add(this.button54);
+            this.kalkPrevod.Controls.Add(this.bckT);
             this.kalkPrevod.Controls.Add(this.nulaT);
             this.kalkPrevod.Controls.Add(this.jednaT);
             this.kalkPrevod.Controls.Add(this.dvaT);
@@ -2063,6 +2063,7 @@
             this.comboPrevodDo.Name = "comboPrevodDo";
             this.comboPrevodDo.Size = new System.Drawing.Size(128, 21);
             this.comboPrevodDo.TabIndex = 52;
+            this.comboPrevodDo.SelectedIndexChanged += new System.EventHandler(this.ZmenaComboPrevodu);
             // 
             // labPrevod
             // 
@@ -2082,6 +2083,7 @@
             this.comboPrevodZ.Name = "comboPrevodZ";
             this.comboPrevodZ.Size = new System.Drawing.Size(128, 21);
             this.comboPrevodZ.TabIndex = 50;
+            this.comboPrevodZ.SelectedIndexChanged += new System.EventHandler(this.ZmenaComboPrevodu);
             // 
             // btnPrevodClear
             // 
@@ -2094,16 +2096,16 @@
             this.btnPrevodClear.UseVisualStyleBackColor = true;
             this.btnPrevodClear.Click += new System.EventHandler(this.Clear_Click);
             // 
-            // button54
+            // bckT
             // 
-            this.button54.Location = new System.Drawing.Point(96, 91);
-            this.button54.Margin = new System.Windows.Forms.Padding(2);
-            this.button54.Name = "button54";
-            this.button54.Size = new System.Drawing.Size(40, 40);
-            this.button54.TabIndex = 49;
-            this.button54.Text = "<";
-            this.button54.UseVisualStyleBackColor = true;
-            this.button54.Click += new System.EventHandler(this.backspace_Click);
+            this.bckT.Location = new System.Drawing.Point(96, 91);
+            this.bckT.Margin = new System.Windows.Forms.Padding(2);
+            this.bckT.Name = "bckT";
+            this.bckT.Size = new System.Drawing.Size(40, 40);
+            this.bckT.TabIndex = 49;
+            this.bckT.Text = "<";
+            this.bckT.UseVisualStyleBackColor = true;
+            this.bckT.Click += new System.EventHandler(this.backspace_Click);
             // 
             // nulaT
             // 
@@ -2436,7 +2438,7 @@
         private System.Windows.Forms.Label labPrevod;
         private System.Windows.Forms.ComboBox comboPrevodZ;
         private System.Windows.Forms.Button btnPrevodClear;
-        private System.Windows.Forms.Button button54;
+        private System.Windows.Forms.Button bckT;
         private System.Windows.Forms.Button nulaT;
         private System.Windows.Forms.Button jednaT;
         private System.Windows.Forms.Button dvaT;

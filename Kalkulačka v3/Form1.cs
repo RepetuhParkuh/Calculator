@@ -567,6 +567,49 @@ namespace Kalkulačka_v3
                 }
             }
 
+            else if(kalkPrevod.Visible)
+            {
+                switch (e.KeyCode)
+                {
+                    case Keys.NumPad0:
+                        nulaT.PerformClick();
+                        break;
+                    case Keys.NumPad1:
+                        jednaT.PerformClick();
+                        break;
+                    case Keys.NumPad2:
+                        dvaT.PerformClick();
+                        break;
+                    case Keys.NumPad3:
+                        triT.PerformClick();
+                        break;
+                    case Keys.NumPad4:
+                        ctyriT.PerformClick();
+                        break;
+                    case Keys.NumPad5:
+                        petT.PerformClick();
+                        break;
+                    case Keys.NumPad6:
+                        sestT.PerformClick();
+                        break;
+                    case Keys.NumPad7:
+                        sedmT.PerformClick();
+                        break;
+                    case Keys.NumPad8:
+                        osmT.PerformClick();
+                        break;
+                    case Keys.NumPad9:
+                        devetT.PerformClick();
+                        break;                   
+                    case Keys.Back:
+                        bckT.PerformClick();
+                        break;
+                    case Keys.Decimal:
+                        if (!textBox1.Text.Contains(","))
+                            desCarka.PerformClick();
+                        break;
+                }
+            }
             rovnaseFocus();
         }
 
@@ -1428,6 +1471,11 @@ namespace Kalkulačka_v3
                         while(indPrevodZ<indPrevodDo)
                             hodnota /= Soustavy[ZvolenaSoustava,++indPrevodZ];
                     }
+                    else
+                    {
+                        while (indPrevodZ > indPrevodDo)
+                            hodnota *= Soustavy[ZvolenaSoustava, ++indPrevodZ];
+                    }
                     labPrevod.Text = hodnota.ToString();
                 }
             }
@@ -1558,7 +1606,31 @@ namespace Kalkulačka_v3
             rovnaseFocus();
         }
 
-
+        //Převody
+        private void ZmenaComboPrevodu(object sender, EventArgs e)
+        {
+            if(kalkPrevod.Visible)
+            {
+                int indPrevodZ = comboPrevodZ.SelectedIndex;
+                int indPrevodDo = comboPrevodDo.SelectedIndex;
+                double hodnota = Double.Parse(textBox1.Text);
+                if (indPrevodZ != indPrevodDo)
+                {
+                    if (indPrevodZ - indPrevodDo < 0)
+                    {
+                        while (indPrevodZ < indPrevodDo)
+                            hodnota /= Soustavy[ZvolenaSoustava, ++indPrevodZ];
+                    }
+                    else if(indPrevodZ - indPrevodDo > 0)
+                    {
+                        MessageBox.Show("ahoj");
+                        while (indPrevodZ > indPrevodDo)
+                            hodnota *= Soustavy[ZvolenaSoustava, --indPrevodZ];
+                    }
+                }
+                labPrevod.Text = hodnota.ToString();
+            }            
+        }
 
         //Mocniny
         private void druhaMocnina_Click(object sender, EventArgs e)
@@ -2020,6 +2092,7 @@ namespace Kalkulačka_v3
         }
 
         
+
         private void Clear()
         {
             ZavCount = 0;
