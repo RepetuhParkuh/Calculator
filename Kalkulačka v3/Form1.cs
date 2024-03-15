@@ -46,6 +46,20 @@ namespace Kalkulačka_v3
         //Grafy
         bool jeGraf = false;
 
+        //Převody
+
+        double[,] Soustavy = {
+            {10,10,100,1000},
+            {100,100,10000,10000}
+        };
+        int ZvolenaSoustava = 0;
+        string[,] SoustavyText =
+        {
+            {"Mm","Cm","m","Km" },
+            {"Mm^2","Cm^2","m^2","Ha"}
+        };
+        
+
         //responsivita
 
         void autores(int pocSloup, int pocRad, Panel kalk)
@@ -1362,40 +1376,47 @@ namespace Kalkulačka_v3
         }
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            if (textBox1.Text.Length != 0 && valid&&kalkProg.Visible)
+            if (textBox1.Text.Length != 0 && valid)
             {
-                if (Int64.TryParse(textBox1.Text, out long hodnota)&&radioDec.Checked)
+                if(kalkProg.Visible)
                 {
-                    labelDec.Text = hodnota.ToString();
-                    labelBin.Text = prevodSoustavy(hodnota,2);
-                    labelOct.Text = prevodSoustavy(hodnota, 8);
-                    labelHex.Text = hodnota.ToString("X");
-                }
-                else if(radioBin.Checked)
+                    if (Int64.TryParse(textBox1.Text, out long hodnota) && radioDec.Checked)
+                    {
+                        labelDec.Text = hodnota.ToString();
+                        labelBin.Text = prevodSoustavy(hodnota, 2);
+                        labelOct.Text = prevodSoustavy(hodnota, 8);
+                        labelHex.Text = hodnota.ToString("X");
+                    }
+                    else if (radioBin.Checked)
+                    {
+                        labelBin.Text = textBox1.Text;
+                        long dec = prevodSoustavy(textBox1.Text, 2);
+                        labelDec.Text = dec.ToString();
+                        labelOct.Text = prevodSoustavy(dec, 8);
+                        labelHex.Text = dec.ToString("X");
+                    }
+                    else if (radioOct.Checked)
+                    {
+                        labelOct.Text = textBox1.Text;
+                        long dec = prevodSoustavy(textBox1.Text, 8);
+                        labelDec.Text = dec.ToString();
+                        labelBin.Text = prevodSoustavy(dec, 2);
+                        labelHex.Text = dec.ToString("X");
+                    }
+                    else if (radioHex.Checked)
+                    {
+                        labelHex.Text = textBox1.Text;
+                        long dec = Convert.ToInt64(textBox1.Text, 16);
+                        labelDec.Text = dec.ToString();
+                        labelBin.Text = prevodSoustavy(dec, 2);
+                        labelOct.Text = prevodSoustavy(dec, 8);
+                    }                  
+                    else invalidInput();
+                } 
+                if(kalkPrevod.Visible)
                 {
-                    labelBin.Text = textBox1.Text;
-                    long dec = prevodSoustavy(textBox1.Text, 2);
-                    labelDec.Text = dec.ToString();
-                    labelOct.Text = prevodSoustavy(dec, 8);
-                    labelHex.Text = dec.ToString("X");
+
                 }
-                else if(radioOct.Checked)
-                {
-                    labelOct.Text = textBox1.Text;
-                    long dec = prevodSoustavy(textBox1.Text, 8);
-                    labelDec.Text = dec.ToString();
-                    labelBin.Text = prevodSoustavy(dec, 2);
-                    labelHex.Text = dec.ToString("X");
-                }
-                else if(radioHex.Checked)
-                {
-                    labelHex.Text = textBox1.Text;
-                    long dec=Convert.ToInt64(textBox1.Text,16);
-                    labelDec.Text = dec.ToString();
-                    labelBin.Text = prevodSoustavy(dec, 2);
-                    labelOct.Text = prevodSoustavy(dec, 8);
-                }
-                else invalidInput();
             }
         }
 
@@ -1912,6 +1933,14 @@ namespace Kalkulačka_v3
             textBox1.Visible = true;
             kalkPrevod.Visible = true;
             this.Text = "Převod délky";
+            ZvolenaSoustava = 0;
+            for(int i=0;i<4;i++)
+            {
+                comboPrevodZ.Items.Add(SoustavyText[ZvolenaSoustava, i]);
+                comboPrevodDo.Items.Add(SoustavyText[ZvolenaSoustava, i]);
+            }
+            comboPrevodZ.SelectedIndex = 0;
+            comboPrevodDo.SelectedIndex = 1;
             this.Height = 500;
             this.Width = 500;
         }
