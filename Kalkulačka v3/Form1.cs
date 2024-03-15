@@ -1415,7 +1415,15 @@ namespace Kalkulačka_v3
                 } 
                 if(kalkPrevod.Visible)
                 {
-
+                    int indPrevodZ = comboPrevodZ.SelectedIndex;
+                    int indPrevodDo = comboPrevodDo.SelectedIndex;
+                    double hodnota = Double.Parse(textBox1.Text);
+                    if(indPrevodZ-indPrevodDo<0)
+                    {
+                        while(indPrevodZ<indPrevodDo)
+                            hodnota /= Soustavy[ZvolenaSoustava,++indPrevodZ];
+                    }
+                    labPrevod.Text = hodnota.ToString();
                 }
             }
         }
