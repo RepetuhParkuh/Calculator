@@ -776,7 +776,7 @@ namespace Kalkulačka_v3
                         if (operandy[i] == 'l')
                         {                            
                             double n = cisla[i - diff];
-                            if (n >= 0)
+                            if (n > 0)
                             {                                
                                 cisla[i - diff] = Math.Log10(n);
                                 operandy.RemoveAt(i - diff);
@@ -791,7 +791,7 @@ namespace Kalkulačka_v3
                         else if (operandy[i] == 'n')
                         {
                             double n = cisla[i - diff];
-                            if (n >= 0)
+                            if (n > 0)
                             {
                                 cisla[i - diff] = Math.Log(n);
                                 operandy.RemoveAt(i - diff);
@@ -1483,7 +1483,7 @@ namespace Kalkulačka_v3
             double bod;            
             var data = new List<Tuple<double, double>>();
             
-            for (double x = -30; x <= 30; x += 0.05)
+            for (double x = -30; x <= 30; x += 0.005)
             {
                 x = Math.Round(x, 8);
                 string funkce = priklad;
@@ -1492,16 +1492,10 @@ namespace Kalkulačka_v3
                     int indexOfX=funkce.IndexOf("x");
                     funkce=funkce.Remove(indexOfX, 1);
                     funkce = funkce.Insert(indexOfX, x.ToString());
-                }
-                try
-                {
-                    bod = vypocitaniPrikladu(funkce);
-                    data.Add(Tuple.Create(x, bod));
-                }
-                catch(System.OverflowException)
-                {
-                    break;
-                }
+                }                
+                bod = vypocitaniPrikladu(funkce);         
+                if(valid) data.Add(Tuple.Create(x, bod));
+                
                 valid = true;
             }
 
