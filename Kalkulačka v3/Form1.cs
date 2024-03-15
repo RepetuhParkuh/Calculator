@@ -239,6 +239,11 @@ namespace Kalkulačka_v3
             labelOct.Text = "0";
         }
 
+        private void ClearComboBox()
+        {
+            comboPrevodDo.Items.Clear();
+            comboPrevodZ.Items.Clear();
+        }
         // Zadávání čísel
         private void cisla_Click(object sender, EventArgs e)
         {
@@ -1938,11 +1943,31 @@ namespace Kalkulačka_v3
         private void delkaCalc_Click(object sender, EventArgs e)
         {
             PanelHide();
+            ClearComboBox();
             textBox1.Visible = true;
             kalkPrevod.Visible = true;
             this.Text = "Převod délky";
             ZvolenaSoustava = 0;
             for(int i=0;i<4;i++)
+            {
+                comboPrevodZ.Items.Add(SoustavyText[ZvolenaSoustava, i]);
+                comboPrevodDo.Items.Add(SoustavyText[ZvolenaSoustava, i]);
+            }
+            comboPrevodZ.SelectedIndex = 0;
+            comboPrevodDo.SelectedIndex = 1;
+            this.Height = 500;
+            this.Width = 500;
+        }
+
+        private void obsahCalc_Click(object sender, EventArgs e)
+        {
+            PanelHide();
+            ClearComboBox();
+            textBox1.Visible = true;
+            kalkPrevod.Visible = true;
+            this.Text = "Převod délky";
+            ZvolenaSoustava = 1;
+            for (int i = 0; i < 4; i++)
             {
                 comboPrevodZ.Items.Add(SoustavyText[ZvolenaSoustava, i]);
                 comboPrevodDo.Items.Add(SoustavyText[ZvolenaSoustava, i]);
@@ -1995,7 +2020,6 @@ namespace Kalkulačka_v3
         }
 
         
-
         private void Clear()
         {
             ZavCount = 0;

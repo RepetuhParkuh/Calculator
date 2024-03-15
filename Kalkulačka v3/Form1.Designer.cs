@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.nulaV = new System.Windows.Forms.Button();
             this.jednaV = new System.Windows.Forms.Button();
@@ -56,6 +56,7 @@
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.button2 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.delkaCalc = new System.Windows.Forms.Button();
             this.dateCalc = new System.Windows.Forms.Button();
             this.graphCalc = new System.Windows.Forms.Button();
             this.progCalc = new System.Windows.Forms.Button();
@@ -198,7 +199,7 @@
             this.osmT = new System.Windows.Forms.Button();
             this.devetT = new System.Windows.Forms.Button();
             this.desCarkaT = new System.Windows.Forms.Button();
-            this.delkaCalc = new System.Windows.Forms.Button();
+            this.obsahCalc = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.kalkVed.SuspendLayout();
             this.kalkZakl.SuspendLayout();
@@ -498,6 +499,7 @@
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel1.Controls.Add(this.obsahCalc);
             this.panel1.Controls.Add(this.delkaCalc);
             this.panel1.Controls.Add(this.dateCalc);
             this.panel1.Controls.Add(this.graphCalc);
@@ -511,6 +513,17 @@
             this.panel1.Size = new System.Drawing.Size(148, 675);
             this.panel1.TabIndex = 100;
             this.panel1.Visible = false;
+            // 
+            // delkaCalc
+            // 
+            this.delkaCalc.Location = new System.Drawing.Point(11, 212);
+            this.delkaCalc.Margin = new System.Windows.Forms.Padding(2);
+            this.delkaCalc.Name = "delkaCalc";
+            this.delkaCalc.Size = new System.Drawing.Size(124, 32);
+            this.delkaCalc.TabIndex = 5;
+            this.delkaCalc.Text = "Délka";
+            this.delkaCalc.UseVisualStyleBackColor = true;
+            this.delkaCalc.Click += new System.EventHandler(this.delkaCalc_Click);
             // 
             // dateCalc
             // 
@@ -1952,8 +1965,8 @@
             this.chart1.Location = new System.Drawing.Point(230, 5);
             this.chart1.Margin = new System.Windows.Forms.Padding(2);
             this.chart1.Name = "chart1";
-            series3.Name = "Series1";
-            this.chart1.Series.Add(series3);
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(326, 338);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -2044,6 +2057,7 @@
             // 
             // comboPrevodDo
             // 
+            this.comboPrevodDo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboPrevodDo.FormattingEnabled = true;
             this.comboPrevodDo.Location = new System.Drawing.Point(8, 65);
             this.comboPrevodDo.Name = "comboPrevodDo";
@@ -2062,6 +2076,7 @@
             // 
             // comboPrevodZ
             // 
+            this.comboPrevodZ.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboPrevodZ.FormattingEnabled = true;
             this.comboPrevodZ.Location = new System.Drawing.Point(8, 5);
             this.comboPrevodZ.Name = "comboPrevodZ";
@@ -2211,16 +2226,16 @@
             this.desCarkaT.UseVisualStyleBackColor = true;
             this.desCarkaT.Click += new System.EventHandler(this.desCarka_Click);
             // 
-            // delkaCalc
+            // obsahCalc
             // 
-            this.delkaCalc.Location = new System.Drawing.Point(11, 212);
-            this.delkaCalc.Margin = new System.Windows.Forms.Padding(2);
-            this.delkaCalc.Name = "delkaCalc";
-            this.delkaCalc.Size = new System.Drawing.Size(124, 32);
-            this.delkaCalc.TabIndex = 5;
-            this.delkaCalc.Text = "Délka";
-            this.delkaCalc.UseVisualStyleBackColor = true;
-            this.delkaCalc.Click += new System.EventHandler(this.delkaCalc_Click);
+            this.obsahCalc.Location = new System.Drawing.Point(11, 248);
+            this.obsahCalc.Margin = new System.Windows.Forms.Padding(2);
+            this.obsahCalc.Name = "obsahCalc";
+            this.obsahCalc.Size = new System.Drawing.Size(124, 32);
+            this.obsahCalc.TabIndex = 6;
+            this.obsahCalc.Text = "Obsah";
+            this.obsahCalc.UseVisualStyleBackColor = true;
+            this.obsahCalc.Click += new System.EventHandler(this.obsahCalc_Click);
             // 
             // Form1
             // 
@@ -2434,6 +2449,7 @@
         private System.Windows.Forms.Button devetT;
         private System.Windows.Forms.Button desCarkaT;
         private System.Windows.Forms.Button delkaCalc;
+        private System.Windows.Forms.Button obsahCalc;
     }
 }
 
