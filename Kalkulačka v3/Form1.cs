@@ -1474,7 +1474,7 @@ namespace Kalkulačka_v3
                     else
                     {
                         while (indPrevodZ > indPrevodDo)
-                            hodnota *= Soustavy[ZvolenaSoustava, ++indPrevodZ];
+                            hodnota *= Soustavy[ZvolenaSoustava, indPrevodZ--];
                     }
                     labPrevod.Text = hodnota.ToString();
                 }
@@ -1622,10 +1622,9 @@ namespace Kalkulačka_v3
                             hodnota /= Soustavy[ZvolenaSoustava, ++indPrevodZ];
                     }
                     else if(indPrevodZ - indPrevodDo > 0)
-                    {
-                        MessageBox.Show("ahoj");
+                    {                       
                         while (indPrevodZ > indPrevodDo)
-                            hodnota *= Soustavy[ZvolenaSoustava, --indPrevodZ];
+                            hodnota *= Soustavy[ZvolenaSoustava, indPrevodZ--];
                     }
                 }
                 labPrevod.Text = hodnota.ToString();
