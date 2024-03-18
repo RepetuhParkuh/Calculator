@@ -48,15 +48,19 @@ namespace Kalkulačka_v3
 
         //Převody
 
+        int ZvolenaSoustava = 0;
         double[,] Soustavy = {
             {10,10,100,1000},
-            {100,100,10000,10000}
+            {100,100,10000,10000},
+            {1000,1000,1000,1000},
+            {1000,1000,100,10}
         };
-        int ZvolenaSoustava = 0;
         string[,] SoustavyText =
         {
-            {"Mm","Cm","m","Km" },
-            {"Mm^2","Cm^2","m^2","Ha"}
+            {"Mm","Cm","m","Km"},
+            {"Mm^2","Cm^2","m^2","Ha"},
+            {"mg","g","kg","tuny"},
+            {"ml","l","hl","m^3"}
         };
         
 
@@ -244,6 +248,67 @@ namespace Kalkulačka_v3
             comboPrevodDo.Items.Clear();
             comboPrevodZ.Items.Clear();
         }
+
+        //Clear funkce
+        private void backspace_Click(object sender, EventArgs e)
+        {
+            if (!valid) textBox1.Text = "0";
+            else
+            {
+                if (textBox1.Text.Length > 0) textBox1.Text = textBox1.Text.Substring(0, textBox1.Text.Length - 1);
+                if (textBox1.Text.Length == 0) textBox1.Text = "0";
+            }
+            rovnaseFocus();
+        }
+
+        private void CE_Click(object sender, EventArgs e)
+        {
+            textBox1.Clear();
+            textBox1.Text = "0";
+            ZavCount = 0;
+            rovnaseFocus();
+        }
+        private void Clear_Click(object sender, EventArgs e)
+        {
+            Clear();
+        }
+
+        private void dateFrom_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime dateFrom = dateTimePicker1.Value;
+            DateTime dateTo = dateTimePicker2.Value;
+            if (dateFrom != dateTo)
+            {
+                TimeSpan rozdil = dateFrom - dateTo;
+                int dny = Convert.ToInt32(rozdil.TotalDays);
+                if (dny < 0) dny *= -1;
+                string sklonDnu = " dní";
+                if (dny == 1) sklonDnu = " den";
+                else if (dny >= 2 && dny <= 4) sklonDnu = " dny";
+                labelDate.Text = dny.ToString() + sklonDnu;
+            }
+            else labelDate.Text = "Stejné datumy";
+        }
+
+
+
+        private void Clear()
+        {
+            ZavCount = 0;
+            textBox1.Clear();
+            label1.Text = "";
+            cislo = 0;
+            listBox1.Items.Clear();
+            textBox1.Text = "0";
+            priklad = "";
+            chart1.ChartAreas.Clear();
+            chart1.Series.Clear();
+            chart1.DataSource = null;
+            jeGraf = false;
+            jeMocnina = false;
+            rovnaseFocus();
+        }
+
         // Zadávání čísel
         private void cisla_Click(object sender, EventArgs e)
         {
@@ -927,7 +992,7 @@ namespace Kalkulačka_v3
                                     break;
                                 case '%':
                                     if (Convert.ToInt64(cisla[i + 1 - diff]) == 0) invalidInput();
-                                    else meziVypocet = Convert.ToInt64(cisla[i - diff]) % Convert.ToInt64(cisla[i + 1 - diff]);
+                                    else meziVypocet = cisla[i - diff] % cisla[i + 1 - diff];
                                     break;
                             }
                             cisla[i - diff] = meziVypocet;
@@ -1943,6 +2008,7 @@ namespace Kalkulačka_v3
             kalkGraf.Location = new Point(kalkZakl.Location.X, kalkZakl.Location.Y);
             kalkDate.Location = new Point(kalkZakl.Location.X, kalkZakl.Location.Y);
             kalkPrevod.Location= new Point(kalkZakl.Location.X, kalkZakl.Location.Y);
+            MessageBox.Show($"{10.5 % 3.8}");
         }
 
         private void Form1_Resize(object sender, EventArgs e)
@@ -2010,34 +2076,18 @@ namespace Kalkulačka_v3
             this.Height = 500;
             this.Width = 500;
         }
+                
 
-        private void delkaCalc_Click(object sender, EventArgs e)
+        private void TlacitkaPrevody_Click(object sender, EventArgs e)
         {
+            string[] titlePrevodu = { "délky", "obsahu", "hmotnosti", "objemu" };
+
             PanelHide();
             ClearComboBox();
             textBox1.Visible = true;
             kalkPrevod.Visible = true;
-            this.Text = "Převod délky";
-            ZvolenaSoustava = 0;
-            for(int i=0;i<4;i++)
-            {
-                comboPrevodZ.Items.Add(SoustavyText[ZvolenaSoustava, i]);
-                comboPrevodDo.Items.Add(SoustavyText[ZvolenaSoustava, i]);
-            }
-            comboPrevodZ.SelectedIndex = 0;
-            comboPrevodDo.SelectedIndex = 1;
-            this.Height = 500;
-            this.Width = 500;
-        }
-
-        private void obsahCalc_Click(object sender, EventArgs e)
-        {
-            PanelHide();
-            ClearComboBox();
-            textBox1.Visible = true;
-            kalkPrevod.Visible = true;
-            this.Text = "Převod délky";
-            ZvolenaSoustava = 1;
+            ZvolenaSoustava = Convert.ToInt32((sender as Button).Tag);
+            this.Text = $"Převod {titlePrevodu[ZvolenaSoustava]}";
             for (int i = 0; i < 4; i++)
             {
                 comboPrevodZ.Items.Add(SoustavyText[ZvolenaSoustava, i]);
@@ -2049,65 +2099,7 @@ namespace Kalkulačka_v3
             this.Width = 500;
         }
 
-        //Clear funkce
-        private void backspace_Click(object sender, EventArgs e)
-        {
-            if (!valid) textBox1.Text = "0";
-            else
-            {                
-                if(textBox1.Text.Length>0) textBox1.Text=textBox1.Text.Substring(0,textBox1.Text.Length-1);
-                if (textBox1.Text.Length == 0) textBox1.Text = "0";
-            }
-            rovnaseFocus();
-        }
-
-        private void CE_Click(object sender, EventArgs e)
-        {
-            textBox1.Clear();
-            textBox1.Text = "0";
-            ZavCount = 0;
-            rovnaseFocus();
-        }
-        private void Clear_Click(object sender, EventArgs e)
-        {
-           Clear();
-        }
-
-        private void dateFrom_ValueChanged(object sender, EventArgs e)
-        {
-            DateTime dateFrom = dateTimePicker1.Value;
-            DateTime dateTo = dateTimePicker2.Value;
-            if (dateFrom != dateTo)
-            {
-                TimeSpan rozdil = dateFrom - dateTo;
-                int dny=Convert.ToInt32(rozdil.TotalDays);                
-                if (dny < 0) dny*= -1;
-                string sklonDnu = " dní";
-                if (dny == 1) sklonDnu = " den";
-                else if (dny >= 2 && dny <= 4) sklonDnu = " dny";
-                labelDate.Text = dny.ToString()+sklonDnu;
-            }
-            else labelDate.Text = "Stejné datumy";
-        }
-
         
-
-        private void Clear()
-        {
-            ZavCount = 0;
-            textBox1.Clear();
-            label1.Text = "";
-            cislo = 0;
-            listBox1.Items.Clear();
-            textBox1.Text = "0";
-            priklad = "";
-            chart1.ChartAreas.Clear();
-            chart1.Series.Clear();
-            chart1.DataSource = null;
-            jeGraf = false;
-            jeMocnina = false;
-            rovnaseFocus();
-        }
 
     }
 }

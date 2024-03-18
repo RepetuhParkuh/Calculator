@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.nulaV = new System.Windows.Forms.Button();
             this.jednaV = new System.Windows.Forms.Button();
@@ -56,6 +56,7 @@
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.button2 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.hmotnostCalc = new System.Windows.Forms.Button();
             this.obsahCalc = new System.Windows.Forms.Button();
             this.delkaCalc = new System.Windows.Forms.Button();
             this.dateCalc = new System.Windows.Forms.Button();
@@ -200,6 +201,7 @@
             this.osmT = new System.Windows.Forms.Button();
             this.devetT = new System.Windows.Forms.Button();
             this.desCarkaT = new System.Windows.Forms.Button();
+            this.button28 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.kalkVed.SuspendLayout();
             this.kalkZakl.SuspendLayout();
@@ -499,6 +501,8 @@
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel1.Controls.Add(this.button28);
+            this.panel1.Controls.Add(this.hmotnostCalc);
             this.panel1.Controls.Add(this.obsahCalc);
             this.panel1.Controls.Add(this.delkaCalc);
             this.panel1.Controls.Add(this.dateCalc);
@@ -514,6 +518,18 @@
             this.panel1.TabIndex = 100;
             this.panel1.Visible = false;
             // 
+            // hmotnostCalc
+            // 
+            this.hmotnostCalc.Location = new System.Drawing.Point(15, 349);
+            this.hmotnostCalc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.hmotnostCalc.Name = "hmotnostCalc";
+            this.hmotnostCalc.Size = new System.Drawing.Size(165, 39);
+            this.hmotnostCalc.TabIndex = 7;
+            this.hmotnostCalc.Tag = "2";
+            this.hmotnostCalc.Text = "Hmotnost";
+            this.hmotnostCalc.UseVisualStyleBackColor = true;
+            this.hmotnostCalc.Click += new System.EventHandler(this.TlacitkaPrevody_Click);
+            // 
             // obsahCalc
             // 
             this.obsahCalc.Location = new System.Drawing.Point(15, 305);
@@ -521,9 +537,10 @@
             this.obsahCalc.Name = "obsahCalc";
             this.obsahCalc.Size = new System.Drawing.Size(165, 39);
             this.obsahCalc.TabIndex = 6;
+            this.obsahCalc.Tag = "1";
             this.obsahCalc.Text = "Obsah";
             this.obsahCalc.UseVisualStyleBackColor = true;
-            this.obsahCalc.Click += new System.EventHandler(this.obsahCalc_Click);
+            this.obsahCalc.Click += new System.EventHandler(this.TlacitkaPrevody_Click);
             // 
             // delkaCalc
             // 
@@ -532,9 +549,10 @@
             this.delkaCalc.Name = "delkaCalc";
             this.delkaCalc.Size = new System.Drawing.Size(165, 39);
             this.delkaCalc.TabIndex = 5;
+            this.delkaCalc.Tag = "0";
             this.delkaCalc.Text = "Délka";
             this.delkaCalc.UseVisualStyleBackColor = true;
-            this.delkaCalc.Click += new System.EventHandler(this.delkaCalc_Click);
+            this.delkaCalc.Click += new System.EventHandler(this.TlacitkaPrevody_Click);
             // 
             // dateCalc
             // 
@@ -1105,7 +1123,7 @@
             this.kalkProg.Controls.Add(this.clearP);
             this.kalkProg.Controls.Add(this.bckP);
             this.kalkProg.Location = new System.Drawing.Point(303, 351);
-            this.kalkProg.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.kalkProg.Margin = new System.Windows.Forms.Padding(4);
             this.kalkProg.Name = "kalkProg";
             this.kalkProg.Size = new System.Drawing.Size(317, 345);
             this.kalkProg.TabIndex = 103;
@@ -1164,7 +1182,7 @@
             // 
             this.radioHex.AutoSize = true;
             this.radioHex.Location = new System.Drawing.Point(11, 89);
-            this.radioHex.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioHex.Margin = new System.Windows.Forms.Padding(4);
             this.radioHex.Name = "radioHex";
             this.radioHex.Size = new System.Drawing.Size(52, 20);
             this.radioHex.TabIndex = 74;
@@ -1176,7 +1194,7 @@
             // 
             this.radioOct.AutoSize = true;
             this.radioOct.Location = new System.Drawing.Point(11, 60);
-            this.radioOct.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioOct.Margin = new System.Windows.Forms.Padding(4);
             this.radioOct.Name = "radioOct";
             this.radioOct.Size = new System.Drawing.Size(48, 20);
             this.radioOct.TabIndex = 73;
@@ -1188,7 +1206,7 @@
             // 
             this.radioBin.AutoSize = true;
             this.radioBin.Location = new System.Drawing.Point(11, 32);
-            this.radioBin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioBin.Margin = new System.Windows.Forms.Padding(4);
             this.radioBin.Name = "radioBin";
             this.radioBin.Size = new System.Drawing.Size(47, 20);
             this.radioBin.TabIndex = 72;
@@ -1201,7 +1219,7 @@
             this.radioDec.AutoSize = true;
             this.radioDec.Checked = true;
             this.radioDec.Location = new System.Drawing.Point(11, 4);
-            this.radioDec.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioDec.Margin = new System.Windows.Forms.Padding(4);
             this.radioDec.Name = "radioDec";
             this.radioDec.Size = new System.Drawing.Size(53, 20);
             this.radioDec.TabIndex = 71;
@@ -1441,7 +1459,7 @@
             // button15
             // 
             this.button15.Location = new System.Drawing.Point(5, 300);
-            this.button15.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button15.Margin = new System.Windows.Forms.Padding(4);
             this.button15.Name = "button15";
             this.button15.Size = new System.Drawing.Size(53, 30);
             this.button15.TabIndex = 9;
@@ -1453,7 +1471,7 @@
             // progE
             // 
             this.progE.Location = new System.Drawing.Point(5, 266);
-            this.progE.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.progE.Margin = new System.Windows.Forms.Padding(4);
             this.progE.Name = "progE";
             this.progE.Size = new System.Drawing.Size(53, 30);
             this.progE.TabIndex = 8;
@@ -1465,7 +1483,7 @@
             // progD
             // 
             this.progD.Location = new System.Drawing.Point(5, 231);
-            this.progD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.progD.Margin = new System.Windows.Forms.Padding(4);
             this.progD.Name = "progD";
             this.progD.Size = new System.Drawing.Size(53, 30);
             this.progD.TabIndex = 7;
@@ -1477,7 +1495,7 @@
             // progC
             // 
             this.progC.Location = new System.Drawing.Point(5, 197);
-            this.progC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.progC.Margin = new System.Windows.Forms.Padding(4);
             this.progC.Name = "progC";
             this.progC.Size = new System.Drawing.Size(53, 30);
             this.progC.TabIndex = 6;
@@ -1489,7 +1507,7 @@
             // progB
             // 
             this.progB.Location = new System.Drawing.Point(5, 162);
-            this.progB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.progB.Margin = new System.Windows.Forms.Padding(4);
             this.progB.Name = "progB";
             this.progB.Size = new System.Drawing.Size(53, 30);
             this.progB.TabIndex = 5;
@@ -1501,7 +1519,7 @@
             // progA
             // 
             this.progA.Location = new System.Drawing.Point(5, 127);
-            this.progA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.progA.Margin = new System.Windows.Forms.Padding(4);
             this.progA.Name = "progA";
             this.progA.Size = new System.Drawing.Size(53, 30);
             this.progA.TabIndex = 4;
@@ -1513,7 +1531,7 @@
             // bitPosPrav
             // 
             this.bitPosPrav.Location = new System.Drawing.Point(128, 127);
-            this.bitPosPrav.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bitPosPrav.Margin = new System.Windows.Forms.Padding(4);
             this.bitPosPrav.Name = "bitPosPrav";
             this.bitPosPrav.Size = new System.Drawing.Size(53, 30);
             this.bitPosPrav.TabIndex = 3;
@@ -1524,7 +1542,7 @@
             // bitPosLev
             // 
             this.bitPosLev.Location = new System.Drawing.Point(67, 127);
-            this.bitPosLev.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bitPosLev.Margin = new System.Windows.Forms.Padding(4);
             this.bitPosLev.Name = "bitPosLev";
             this.bitPosLev.Size = new System.Drawing.Size(53, 30);
             this.bitPosLev.TabIndex = 2;
@@ -1535,7 +1553,7 @@
             // clearP
             // 
             this.clearP.Location = new System.Drawing.Point(189, 127);
-            this.clearP.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.clearP.Margin = new System.Windows.Forms.Padding(4);
             this.clearP.Name = "clearP";
             this.clearP.Size = new System.Drawing.Size(53, 30);
             this.clearP.TabIndex = 1;
@@ -1547,7 +1565,7 @@
             // bckP
             // 
             this.bckP.Location = new System.Drawing.Point(251, 127);
-            this.bckP.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bckP.Margin = new System.Windows.Forms.Padding(4);
             this.bckP.Name = "bckP";
             this.bckP.Size = new System.Drawing.Size(53, 30);
             this.bckP.TabIndex = 0;
@@ -1987,8 +2005,8 @@
             this.chart1.Location = new System.Drawing.Point(307, 6);
             this.chart1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart1.Name = "chart1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(435, 416);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -2070,19 +2088,20 @@
             this.kalkPrevod.Controls.Add(this.devetT);
             this.kalkPrevod.Controls.Add(this.desCarkaT);
             this.kalkPrevod.Location = new System.Drawing.Point(933, 9);
-            this.kalkPrevod.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.kalkPrevod.Margin = new System.Windows.Forms.Padding(4);
             this.kalkPrevod.Name = "kalkPrevod";
-            this.kalkPrevod.Size = new System.Drawing.Size(343, 393);
+            this.kalkPrevod.Size = new System.Drawing.Size(343, 408);
             this.kalkPrevod.TabIndex = 106;
             // 
             // comboPrevodDo
             // 
             this.comboPrevodDo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboPrevodDo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.comboPrevodDo.FormattingEnabled = true;
-            this.comboPrevodDo.Location = new System.Drawing.Point(11, 80);
-            this.comboPrevodDo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboPrevodDo.Location = new System.Drawing.Point(11, 90);
+            this.comboPrevodDo.Margin = new System.Windows.Forms.Padding(4);
             this.comboPrevodDo.Name = "comboPrevodDo";
-            this.comboPrevodDo.Size = new System.Drawing.Size(169, 24);
+            this.comboPrevodDo.Size = new System.Drawing.Size(247, 33);
             this.comboPrevodDo.TabIndex = 52;
             this.comboPrevodDo.SelectedIndexChanged += new System.EventHandler(this.ZmenaComboPrevodu);
             // 
@@ -2090,7 +2109,7 @@
             // 
             this.labPrevod.AutoSize = true;
             this.labPrevod.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F);
-            this.labPrevod.Location = new System.Drawing.Point(4, 43);
+            this.labPrevod.Location = new System.Drawing.Point(5, 49);
             this.labPrevod.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labPrevod.Name = "labPrevod";
             this.labPrevod.Size = new System.Drawing.Size(30, 32);
@@ -2100,17 +2119,18 @@
             // comboPrevodZ
             // 
             this.comboPrevodZ.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboPrevodZ.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.comboPrevodZ.FormattingEnabled = true;
             this.comboPrevodZ.Location = new System.Drawing.Point(11, 6);
-            this.comboPrevodZ.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboPrevodZ.Margin = new System.Windows.Forms.Padding(4);
             this.comboPrevodZ.Name = "comboPrevodZ";
-            this.comboPrevodZ.Size = new System.Drawing.Size(169, 24);
+            this.comboPrevodZ.Size = new System.Drawing.Size(247, 33);
             this.comboPrevodZ.TabIndex = 50;
             this.comboPrevodZ.SelectedIndexChanged += new System.EventHandler(this.ZmenaComboPrevodu);
             // 
             // btnPrevodClear
             // 
-            this.btnPrevodClear.Location = new System.Drawing.Point(69, 112);
+            this.btnPrevodClear.Location = new System.Drawing.Point(146, 130);
             this.btnPrevodClear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnPrevodClear.Name = "btnPrevodClear";
             this.btnPrevodClear.Size = new System.Drawing.Size(53, 49);
@@ -2121,7 +2141,7 @@
             // 
             // bckT
             // 
-            this.bckT.Location = new System.Drawing.Point(128, 112);
+            this.bckT.Location = new System.Drawing.Point(205, 130);
             this.bckT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bckT.Name = "bckT";
             this.bckT.Size = new System.Drawing.Size(53, 49);
@@ -2132,7 +2152,7 @@
             // 
             // nulaT
             // 
-            this.nulaT.Location = new System.Drawing.Point(69, 330);
+            this.nulaT.Location = new System.Drawing.Point(146, 348);
             this.nulaT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.nulaT.Name = "nulaT";
             this.nulaT.Size = new System.Drawing.Size(53, 49);
@@ -2143,7 +2163,7 @@
             // 
             // jednaT
             // 
-            this.jednaT.Location = new System.Drawing.Point(11, 276);
+            this.jednaT.Location = new System.Drawing.Point(88, 294);
             this.jednaT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.jednaT.Name = "jednaT";
             this.jednaT.Size = new System.Drawing.Size(53, 49);
@@ -2154,7 +2174,7 @@
             // 
             // dvaT
             // 
-            this.dvaT.Location = new System.Drawing.Point(69, 276);
+            this.dvaT.Location = new System.Drawing.Point(146, 294);
             this.dvaT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dvaT.Name = "dvaT";
             this.dvaT.Size = new System.Drawing.Size(53, 49);
@@ -2165,7 +2185,7 @@
             // 
             // triT
             // 
-            this.triT.Location = new System.Drawing.Point(128, 276);
+            this.triT.Location = new System.Drawing.Point(205, 294);
             this.triT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.triT.Name = "triT";
             this.triT.Size = new System.Drawing.Size(53, 49);
@@ -2176,7 +2196,7 @@
             // 
             // ctyriT
             // 
-            this.ctyriT.Location = new System.Drawing.Point(11, 222);
+            this.ctyriT.Location = new System.Drawing.Point(88, 240);
             this.ctyriT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ctyriT.Name = "ctyriT";
             this.ctyriT.Size = new System.Drawing.Size(53, 49);
@@ -2187,7 +2207,7 @@
             // 
             // petT
             // 
-            this.petT.Location = new System.Drawing.Point(69, 220);
+            this.petT.Location = new System.Drawing.Point(146, 238);
             this.petT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.petT.Name = "petT";
             this.petT.Size = new System.Drawing.Size(53, 49);
@@ -2198,7 +2218,7 @@
             // 
             // sestT
             // 
-            this.sestT.Location = new System.Drawing.Point(128, 220);
+            this.sestT.Location = new System.Drawing.Point(205, 238);
             this.sestT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sestT.Name = "sestT";
             this.sestT.Size = new System.Drawing.Size(53, 49);
@@ -2209,7 +2229,7 @@
             // 
             // sedmT
             // 
-            this.sedmT.Location = new System.Drawing.Point(11, 166);
+            this.sedmT.Location = new System.Drawing.Point(88, 184);
             this.sedmT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sedmT.Name = "sedmT";
             this.sedmT.Size = new System.Drawing.Size(53, 49);
@@ -2220,7 +2240,7 @@
             // 
             // osmT
             // 
-            this.osmT.Location = new System.Drawing.Point(69, 166);
+            this.osmT.Location = new System.Drawing.Point(146, 184);
             this.osmT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.osmT.Name = "osmT";
             this.osmT.Size = new System.Drawing.Size(53, 49);
@@ -2231,7 +2251,7 @@
             // 
             // devetT
             // 
-            this.devetT.Location = new System.Drawing.Point(128, 166);
+            this.devetT.Location = new System.Drawing.Point(205, 184);
             this.devetT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.devetT.Name = "devetT";
             this.devetT.Size = new System.Drawing.Size(53, 49);
@@ -2242,7 +2262,7 @@
             // 
             // desCarkaT
             // 
-            this.desCarkaT.Location = new System.Drawing.Point(128, 330);
+            this.desCarkaT.Location = new System.Drawing.Point(205, 348);
             this.desCarkaT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.desCarkaT.Name = "desCarkaT";
             this.desCarkaT.Size = new System.Drawing.Size(53, 49);
@@ -2250,6 +2270,18 @@
             this.desCarkaT.Text = ",";
             this.desCarkaT.UseVisualStyleBackColor = true;
             this.desCarkaT.Click += new System.EventHandler(this.desCarka_Click);
+            // 
+            // button28
+            // 
+            this.button28.Location = new System.Drawing.Point(15, 392);
+            this.button28.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button28.Name = "button28";
+            this.button28.Size = new System.Drawing.Size(165, 39);
+            this.button28.TabIndex = 8;
+            this.button28.Tag = "3";
+            this.button28.Text = "Objem";
+            this.button28.UseVisualStyleBackColor = true;
+            this.button28.Click += new System.EventHandler(this.TlacitkaPrevody_Click);
             // 
             // Form1
             // 
@@ -2464,6 +2496,8 @@
         private System.Windows.Forms.Button desCarkaT;
         private System.Windows.Forms.Button delkaCalc;
         private System.Windows.Forms.Button obsahCalc;
+        private System.Windows.Forms.Button hmotnostCalc;
+        private System.Windows.Forms.Button button28;
     }
 }
 
