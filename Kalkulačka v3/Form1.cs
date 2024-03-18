@@ -2025,8 +2025,7 @@ namespace Kalkulačka_v3
             kalkProg.Location = new Point(kalkZakl.Location.X, kalkZakl.Location.Y);
             kalkGraf.Location = new Point(kalkZakl.Location.X, kalkZakl.Location.Y);
             kalkDate.Location = new Point(kalkZakl.Location.X, kalkZakl.Location.Y);
-            kalkPrevod.Location= new Point(kalkZakl.Location.X, kalkZakl.Location.Y);
-            MessageBox.Show($"{10.5 % 3.8}");
+            kalkPrevod.Location= new Point(kalkZakl.Location.X, kalkZakl.Location.Y);            
         }
 
         private void Form1_Resize(object sender, EventArgs e)
