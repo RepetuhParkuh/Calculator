@@ -567,6 +567,24 @@ namespace Kalkulačka_v3
                         if (!textBox1.Text.Contains(","))
                             desCarkaP.PerformClick();
                         break;
+                    case Keys.A:
+                        progA.PerformClick();
+                        break;
+                    case Keys.B:
+                        progB.PerformClick();
+                        break;
+                    case Keys.C:
+                        progC.PerformClick();
+                        break;
+                    case Keys.D:
+                        progD.PerformClick();
+                        break;
+                    case Keys.E:
+                        progE.PerformClick();
+                        break;
+                    case Keys.F:
+                        progF.PerformClick();
+                        break;
                 }
             }
 

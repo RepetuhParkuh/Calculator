@@ -131,7 +131,7 @@
             this.button5 = new System.Windows.Forms.Button();
             this.btnKonZavP = new System.Windows.Forms.Button();
             this.btnZacZavP = new System.Windows.Forms.Button();
-            this.button15 = new System.Windows.Forms.Button();
+            this.progF = new System.Windows.Forms.Button();
             this.progE = new System.Windows.Forms.Button();
             this.progD = new System.Windows.Forms.Button();
             this.progC = new System.Windows.Forms.Button();
@@ -1112,7 +1112,7 @@
             this.kalkProg.Controls.Add(this.button5);
             this.kalkProg.Controls.Add(this.btnKonZavP);
             this.kalkProg.Controls.Add(this.btnZacZavP);
-            this.kalkProg.Controls.Add(this.button15);
+            this.kalkProg.Controls.Add(this.progF);
             this.kalkProg.Controls.Add(this.progE);
             this.kalkProg.Controls.Add(this.progD);
             this.kalkProg.Controls.Add(this.progC);
@@ -1456,17 +1456,17 @@
             this.btnZacZavP.UseVisualStyleBackColor = true;
             this.btnZacZavP.Click += new System.EventHandler(this.cisla_Click);
             // 
-            // button15
+            // progF
             // 
-            this.button15.Location = new System.Drawing.Point(5, 300);
-            this.button15.Margin = new System.Windows.Forms.Padding(4);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(53, 30);
-            this.button15.TabIndex = 9;
-            this.button15.Tag = "1";
-            this.button15.Text = "F";
-            this.button15.UseVisualStyleBackColor = true;
-            this.button15.Click += new System.EventHandler(this.cisla_Click);
+            this.progF.Location = new System.Drawing.Point(5, 300);
+            this.progF.Margin = new System.Windows.Forms.Padding(4);
+            this.progF.Name = "progF";
+            this.progF.Size = new System.Drawing.Size(53, 30);
+            this.progF.TabIndex = 9;
+            this.progF.Tag = "1";
+            this.progF.Text = "F";
+            this.progF.UseVisualStyleBackColor = true;
+            this.progF.Click += new System.EventHandler(this.cisla_Click);
             // 
             // progE
             // 
@@ -2021,51 +2021,56 @@
             this.kalkDate.Location = new System.Drawing.Point(643, 55);
             this.kalkDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.kalkDate.Name = "kalkDate";
-            this.kalkDate.Size = new System.Drawing.Size(252, 278);
+            this.kalkDate.Size = new System.Drawing.Size(283, 278);
             this.kalkDate.TabIndex = 105;
             // 
             // labelDate
             // 
             this.labelDate.AutoSize = true;
-            this.labelDate.Location = new System.Drawing.Point(12, 174);
+            this.labelDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F);
+            this.labelDate.Location = new System.Drawing.Point(11, 163);
             this.labelDate.Name = "labelDate";
-            this.labelDate.Size = new System.Drawing.Size(92, 16);
+            this.labelDate.Size = new System.Drawing.Size(196, 32);
             this.labelDate.TabIndex = 4;
             this.labelDate.Text = "Stejné datumy";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 111);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F);
+            this.label3.Location = new System.Drawing.Point(9, 82);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(25, 16);
+            this.label3.Size = new System.Drawing.Size(50, 32);
             this.label3.TabIndex = 3;
             this.label3.Text = "Do";
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(15, 130);
+            this.dateTimePicker2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.dateTimePicker2.Location = new System.Drawing.Point(3, 116);
             this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 22);
+            this.dateTimePicker2.Size = new System.Drawing.Size(277, 30);
             this.dateTimePicker2.TabIndex = 2;
             this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateFrom_ValueChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 43);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F);
+            this.label2.Location = new System.Drawing.Point(9, 11);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(25, 16);
+            this.label2.Size = new System.Drawing.Size(52, 32);
             this.label2.TabIndex = 1;
             this.label2.Text = "Od";
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(15, 64);
+            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.dateTimePicker1.Location = new System.Drawing.Point(3, 45);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
+            this.dateTimePicker1.Size = new System.Drawing.Size(277, 30);
             this.dateTimePicker1.TabIndex = 0;
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateFrom_ValueChanged);
             // 
@@ -2398,7 +2403,7 @@
         private System.Windows.Forms.Button clearP;
         private System.Windows.Forms.Button bckP;
         private System.Windows.Forms.Button btnZacZavP;
-        private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.Button progF;
         private System.Windows.Forms.Button progE;
         private System.Windows.Forms.Button progD;
         private System.Windows.Forms.Button progC;
