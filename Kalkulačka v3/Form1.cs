@@ -1657,6 +1657,11 @@ namespace Kalkulačka_v3
             chart1.DataSource = null;
             
             priklad += textBox1.Text;
+            while (ZavCount > 0)
+            {
+                priklad += ")";
+                ZavCount--;
+            }
             textBox1.Text = priklad;
             label1.Text = "";
             
