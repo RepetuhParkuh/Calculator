@@ -1217,7 +1217,7 @@ namespace Kalkulačka_v3
                 {
                     long meziVypocet = 0;
                     int diff = 0;
-                    for (int i = 0; i < operandy.Count; i++)
+                    for (int i = 0; i < operandy.Count&&valid; i++)
                     {
                         if (operandy[i] == '*' || operandy[i] == '/' || operandy[i] == '%')
                         {
@@ -1227,7 +1227,14 @@ namespace Kalkulačka_v3
                                     meziVypocet = cisla[i - diff] * cisla[i + 1 - diff];
                                     break;
                                 case '/':
-                                    meziVypocet = cisla[i - diff] / cisla[i + 1 - diff];
+                                    try
+                                    {
+                                        meziVypocet = cisla[i - diff] / cisla[i + 1 - diff];
+                                    }
+                                    catch(DivideByZeroException)
+                                    {                                        
+                                        invalidInput();                                         
+                                    }
                                     break;
                                 case '%':
                                     if (Convert.ToInt64(cisla[i + 1 - diff]) == 0) invalidInput();
