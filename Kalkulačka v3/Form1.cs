@@ -49,18 +49,33 @@ namespace Kalkulačka_v3
         //Převody
 
         int ZvolenaSoustava = 0;
+
+        double[][] Soustavy =
+        {
+            new double[] {1000,1000,1000,10,100,1000,1.6093,1.15077},
+            new double[] {100,100,10000,10000,100,2.589989},
+            new double[] {10,10,10,10,10,100,1000},
+            new double[] {1000,1000,100,10},
+            new double[] {1000,1000,1000,60,60,24,7,52},
+            new double[] {1000,1000,4.18399,860.585197}
+        };
+        
+
+        /*
         double[,] Soustavy = {
             {10,10,100,1000},
             {100,100,10000,10000},
             {1000,1000,1000,1000},
             {1000,1000,100,10}
-        };
-        string[,] SoustavyText =
+        };*/
+        string[][] SoustavyText =
         {
-            {"Mm","Cm","m","Km"},
-            {"Mm^2","Cm^2","m^2","Ha"},
-            {"mg","g","kg","tuny"},
-            {"ml","l","hl","m^3"}
+            new string[] {"nanometrů","Mikrometrů","Milimetrů","Centimetrů","Metrů","Kilometrů","Mil","Námořních mil"},
+            new string[] {"Milimetrů čtverečních","Centimetrů čtverečních","metrů čtverečních","hektarů","kilometrů čtverečních","mil čtverečních"},
+            new string[] {"miligramů","centigramů", "decigramů", "gramů","dekagramů","kilogramů","tun"},
+            new string[] {"mililitrů","litrů","hektolitrů","metrů krychlových"},
+            new string[] {"mikrosekund","milisekund", "sekund","minut","hodin","dnů","týdnů","let"},
+            new string[] {"joulů","kilojoulů","kalorií","Kilowatthodiny"}
         };
         
 
@@ -1552,12 +1567,12 @@ namespace Kalkulačka_v3
                     if(indPrevodZ-indPrevodDo<0)
                     {
                         while(indPrevodZ<indPrevodDo)
-                            hodnota /= Soustavy[ZvolenaSoustava,++indPrevodZ];
+                            hodnota /= Soustavy[ZvolenaSoustava][++indPrevodZ];
                     }
                     else
                     {
                         while (indPrevodZ > indPrevodDo)
-                            hodnota *= Soustavy[ZvolenaSoustava, indPrevodZ--];
+                            hodnota *= Soustavy[ZvolenaSoustava][indPrevodZ--];
                     }
                     labPrevod.Text = hodnota.ToString();
                 }
@@ -1702,12 +1717,12 @@ namespace Kalkulačka_v3
                     if (indPrevodZ - indPrevodDo < 0)
                     {
                         while (indPrevodZ < indPrevodDo)
-                            hodnota /= Soustavy[ZvolenaSoustava, ++indPrevodZ];
+                            hodnota /= Soustavy[ZvolenaSoustava][++indPrevodZ];
                     }
                     else if(indPrevodZ - indPrevodDo > 0)
                     {                       
                         while (indPrevodZ > indPrevodDo)
-                            hodnota *= Soustavy[ZvolenaSoustava, indPrevodZ--];
+                            hodnota *= Soustavy[ZvolenaSoustava][indPrevodZ--];
                     }
                 }
                 labPrevod.Text = hodnota.ToString();
@@ -2097,7 +2112,7 @@ namespace Kalkulačka_v3
 
         private void TlacitkaPrevody_Click(object sender, EventArgs e)
         {
-            string[] titlePrevodu = { "délky", "obsahu", "hmotnosti", "objemu" };
+            string[] titlePrevodu = { "délky", "obsahu", "hmotnosti", "objemu" , "času","energie"};
 
             PanelHide();
             ClearComboBox();
@@ -2105,10 +2120,10 @@ namespace Kalkulačka_v3
             kalkPrevod.Visible = true;
             ZvolenaSoustava = Convert.ToInt32((sender as Button).Tag);
             this.Text = $"Převod {titlePrevodu[ZvolenaSoustava]}";
-            for (int i = 0; i < 4; i++)
-            {
-                comboPrevodZ.Items.Add(SoustavyText[ZvolenaSoustava, i]);
-                comboPrevodDo.Items.Add(SoustavyText[ZvolenaSoustava, i]);
+            foreach(string s in SoustavyText[ZvolenaSoustava])
+            { 
+                comboPrevodZ.Items.Add(s);
+                comboPrevodDo.Items.Add(s);
             }
             comboPrevodZ.SelectedIndex = 0;
             comboPrevodDo.SelectedIndex = 1;
