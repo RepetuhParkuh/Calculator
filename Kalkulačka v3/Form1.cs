@@ -1223,37 +1223,35 @@ namespace Kalkulačka_v3
             if (!Int64.TryParse(prikladS, out vysledek))
             {
                 //Určování a počítání priority operací             
-                              
 
 
-                if ((prikladS.Contains("*") || prikladS.Contains("/") || prikladS.Contains("%"))&&valid)
+
+                while ((operandy.Contains('*') || operandy.Contains('/') || operandy.Contains('%')) && valid)
                 {
                     long meziVypocet = 0;
-                    int diff = 0;
-                    for (int i = 0; i < operandy.Count&&valid; i++)
+                    int indexOp;
+                    int[] pomPoleInd = new int[3];
+                    pomPoleInd[0] = operandy.IndexOf('*');
+                    pomPoleInd[1] = operandy.IndexOf('/');
+                    pomPoleInd[2] = operandy.IndexOf('%');
+                    indexOp = pomPoleInd.Where(x => x != -1).Min();
+                    switch (operandy[indexOp])
                     {
-                        if (operandy[i] == '*' || operandy[i] == '/' || operandy[i] == '%')
-                        {
-                            switch (operandy[i])
-                            {
-                                case '*':
-                                    meziVypocet = cisla[i - diff] * cisla[i + 1 - diff];
-                                    break;
-                                case '/':
-                                    if (cisla[i + 1 - diff] == 0) invalidInput();
-                                    else meziVypocet = cisla[i - diff] / cisla[i + 1 - diff];                                    
-                                    break;
-                                case '%':
-                                    if (cisla[i + 1 - diff] == 0) invalidInput();
-                                    else meziVypocet = cisla[i - diff] % cisla[i + 1 - diff];
-                                    break;
-                            }
-                            cisla[i - diff] = meziVypocet;
-                            cisla.RemoveAt(i + 1 - diff);
-                            operandy.RemoveAt(i - diff);
-                            diff++;
-                        }
+                        case '*':
+                            meziVypocet = cisla[indexOp] * cisla[indexOp + 1];
+                            break;
+                        case '/':
+                            meziVypocet = cisla[indexOp] / cisla[indexOp + 1];
+                            if (Double.IsInfinity(meziVypocet) || Double.IsNaN(meziVypocet)) invalidInput();
+                            break;
+                        case '%':
+                            if (Double.IsInfinity(1 / cisla[indexOp + 1])) invalidInput();
+                            else meziVypocet = cisla[indexOp] % cisla[indexOp + 1];
+                            break;
                     }
+                    cisla[indexOp] = meziVypocet;
+                    cisla.RemoveAt(indexOp + 1);
+                    operandy.RemoveAt(indexOp);
                 }
 
 
@@ -1284,6 +1282,7 @@ namespace Kalkulačka_v3
             }
 
             ZavCount = 0;
+            if (vysledek < 0) invalidInput();
             return vysledek;
 
         }
