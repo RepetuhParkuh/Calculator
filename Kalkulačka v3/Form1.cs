@@ -377,7 +377,7 @@ namespace Kalkulačka_v3
                 validZadani = false;
                 if(Double.TryParse(textBox1.Text,out double pom)&&pom!=0)
                 {                   
-                     textBox1.Text += 'x';
+                     textBox1.Text += '*';
                      priklad += textBox1.Text;
                      textBox1.Text = "";
                 }
@@ -389,7 +389,8 @@ namespace Kalkulačka_v3
             {
                 if (ZavCount != 0)
                 {
-                    if (textBox1.Text.Length == 0 && priklad[priklad.Length - 1] == '(') textBox1.Text = "0";
+                    if (textBox1.Text.Length == 0 && ((priklad[priklad.Length - 1] == '(') || !(priklad[priklad.Length - 1] >= '0' && priklad[priklad.Length - 1] <= '9'))) textBox1.Text = "0";
+                    else if (textBox1.Text[textBox1.Text.Length - 1] == '^') textBox1.Text += "0";
                     priklad += textBox1.Text;
                     textBox1.Text = "";
                     ZavCount--;
@@ -1120,7 +1121,11 @@ namespace Kalkulačka_v3
                 }
                 if(priklad.Length!=0)
                 {
-                    if (textBox1.Text.Length != 0&&!jeLog) priklad += textBox1.Text;
+                    if (textBox1.Text.Length != 0 && !jeLog)
+                    {
+                        if (priklad[priklad.Length - 1] == ')') priklad += '*';
+                        priklad += textBox1.Text;
+                    }
                     while(ZavCount>0)
                     {
                         priklad += ")";                       
