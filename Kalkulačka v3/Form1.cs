@@ -1086,7 +1086,7 @@ namespace Kalkulačka_v3
                 }
                 jeLog = false;               
                 label1.Text += textBox1.Text;
-                if (priklad.Length != 0 && (priklad[priklad.Length-1]>='0'&& priklad[priklad.Length - 1]<='9'))
+                if (priklad.Length != 0 && ((priklad[priklad.Length-1]>='0'&& priklad[priklad.Length - 1]<='9')|| priklad[priklad.Length - 1]=='x'))
                 {
                     if (Convert.ToInt32((sender as Button).Tag) == 10)
                     {
@@ -1677,42 +1677,42 @@ namespace Kalkulačka_v3
             chart1.Series.Clear();
             chart1.DataSource = null;
             
-            if(valid)
+            
+            priklad += textBox1.Text;
+            while (ZavCount > 0)
             {
-                priklad += textBox1.Text;
-                while (ZavCount > 0)
+                priklad += ")";
+                ZavCount--;
+            }
+            textBox1.Text = priklad;
+            label1.Text = "";
+
+            double bod;
+            var data = new List<Tuple<double, double>>();
+
+            
+            for (double x = -30; x <= 30; x += 0.005)
+            {
+                x = Math.Round(x, 8);
+                string funkce = priklad;
+                while (funkce.Contains("x"))
                 {
-                    priklad += ")";
-                    ZavCount--;
+                    int indexOfX = funkce.IndexOf("x");
+                    funkce = funkce.Remove(indexOfX, 1);
+                    funkce = funkce.Insert(indexOfX, x.ToString());
                 }
-                textBox1.Text = priklad;
-                label1.Text = "";
-
-                double bod;
-                var data = new List<Tuple<double, double>>();
-
-                for (double x = -30; x <= 30; x += 0.005)
-                {
-                    x = Math.Round(x, 8);
-                    string funkce = priklad;
-                    while (funkce.Contains("x"))
-                    {
-                        int indexOfX = funkce.IndexOf("x");
-                        funkce = funkce.Remove(indexOfX, 1);
-                        funkce = funkce.Insert(indexOfX, x.ToString());
-                    }
                     
-                    bod = vypocitaniPrikladu(funkce);
-                    if (bod > 100 || bod < -100) valid = false;
-                    if (valid) data.Add(Tuple.Create(x, bod));
-                    
-
-
-
-                    valid = true;
-                }
-
+                bod = vypocitaniPrikladu(funkce);
+                if (bod > 100 || bod < -100) valid = false;
+                if (valid) data.Add(Tuple.Create(x, bod));
                 
+                valid = true;
+            }
+
+            if (data.Count == 0) invalidInput();
+
+            if (valid)
+            {
                 textBox1.Text = priklad;
 
                 chart1.ChartAreas.Add("area1");
