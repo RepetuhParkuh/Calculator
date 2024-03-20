@@ -742,11 +742,12 @@ namespace Kalkulačka_v3
                             cislo *= cislo2;
                             break;
                         case '/':
-                            if (cislo2 == 0)
-                            {
-                                invalidInput();
-                            }
-                            else cislo /= cislo2;
+                        if (Double.IsInfinity(cislo /= cislo2) || Double.IsNaN(cislo /= cislo2))
+                        {
+                            Clear();
+                            invalidInput();
+                        }
+                        else cislo /= cislo2;
                         break;
                     }
                 
@@ -760,49 +761,53 @@ namespace Kalkulačka_v3
 
         private void zaklOper_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text.Length == 0)
+            if(valid)
             {
-                if(label1.Text.Length>0)
+                if (textBox1.Text.Length == 0)
                 {
-                    textBox1.Text=label1.Text.Substring(0,label1.Text.Length-1);
+                    if (label1.Text.Length > 0)
+                    {
+                        textBox1.Text = label1.Text.Substring(0, label1.Text.Length - 1);
+                    }
+                    else textBox1.Text = "0";
                 }
-                else textBox1.Text = "0";
-            }
-            if (pruchod == true) 
-            {
-                cislo2 = Convert.ToDouble(textBox1.Text);
-                switch (operace)
+                if (pruchod == true)
                 {
-                    case '+':
-                        cislo += cislo2;
-                        break;
-                    case '-':
-                        if (cislo2 < 0)                   
-                            cislo += (cislo2*-1);                                               
-                        else cislo -= cislo2;
-                        break;
-                    case '*':
-                        cislo *= cislo2;
-                        break;
-                    case '/':
-                        if(cislo2==0)
-                        {
-                            invalidInput();
-                        }
-                        else cislo /= cislo2;
-                        break;
+                    cislo2 = Convert.ToDouble(textBox1.Text);
+                    switch (operace)
+                    {
+                        case '+':
+                            cislo += cislo2;
+                            break;
+                        case '-':
+                            if (cislo2 < 0)
+                                cislo += (cislo2 * -1);
+                            else cislo -= cislo2;
+                            break;
+                        case '*':
+                            cislo *= cislo2;
+                            break;
+                        case '/':
+                            if (Double.IsInfinity(cislo /= cislo2) || Double.IsNaN(cislo /= cislo2))
+                            {
+                                Clear();
+                                invalidInput();                                
+                            }
+                            else cislo /= cislo2;
+                            break;
+                    }
+                    listBox1.Items.Add(cislo);
+                    label1.Text = textBox1.Text;
+                    textBox1.Text = cislo.ToString();
                 }
-                listBox1.Items.Add(cislo);
+                cislo = Convert.ToDouble(textBox1.Text);
+                textBox1.Text += (sender as Button).Text;
+                operace = Convert.ToChar((sender as Button).Text);
                 label1.Text = textBox1.Text;
-                textBox1.Text = cislo.ToString();
-            }
-            cislo = Convert.ToDouble(textBox1.Text);
-            textBox1.Text += (sender as Button).Text;
-            operace=Convert.ToChar((sender as Button).Text);
-            label1.Text = textBox1.Text;            
-            textBox1.Clear();
-            pruchod = true;
-            rovnaseFocus();
+                textBox1.Clear();
+                pruchod = true;
+                rovnaseFocus();
+            }            
         }
 
         
