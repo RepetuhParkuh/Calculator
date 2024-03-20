@@ -1011,7 +1011,7 @@ namespace Kalkulačka_v3
                 {
                     double meziVypocet = 0;
                     int diff = 0;
-                    for (int i = 0; i < operandy.Count; i++)
+                    for (int i = 0; i < operandy.Count&&valid; i++)
                     {
                         if (operandy[i] == '*' || operandy[i] == '/' || operandy[i] == '%')
                         {
@@ -1022,9 +1022,10 @@ namespace Kalkulačka_v3
                                     break;
                                 case '/':
                                     meziVypocet = cisla[i - diff] / cisla[i + 1 - diff];
+                                    if (Double.IsInfinity(meziVypocet)||Double.IsNaN(meziVypocet)) invalidInput();
                                     break;
                                 case '%':
-                                    if (Convert.ToInt64(cisla[i + 1 - diff]) == 0) invalidInput();
+                                    if (Double.IsInfinity(1/ cisla[i + 1 - diff])) invalidInput();
                                     else meziVypocet = cisla[i - diff] % cisla[i + 1 - diff];
                                     break;
                             }
@@ -1213,7 +1214,7 @@ namespace Kalkulačka_v3
                               
 
 
-                if (prikladS.Contains("*") || prikladS.Contains("/") || prikladS.Contains("%"))
+                if ((prikladS.Contains("*") || prikladS.Contains("/") || prikladS.Contains("%"))&&valid)
                 {
                     long meziVypocet = 0;
                     int diff = 0;
@@ -1227,18 +1228,12 @@ namespace Kalkulačka_v3
                                     meziVypocet = cisla[i - diff] * cisla[i + 1 - diff];
                                     break;
                                 case '/':
-                                    try
-                                    {
-                                        meziVypocet = cisla[i - diff] / cisla[i + 1 - diff];
-                                    }
-                                    catch(DivideByZeroException)
-                                    {                                        
-                                        invalidInput();                                         
-                                    }
+                                    if (cisla[i + 1 - diff] == 0) invalidInput();
+                                    else meziVypocet = cisla[i - diff] / cisla[i + 1 - diff];                                    
                                     break;
                                 case '%':
-                                    if (Convert.ToInt64(cisla[i + 1 - diff]) == 0) invalidInput();
-                                    else meziVypocet = Convert.ToInt64(cisla[i - diff]) % Convert.ToInt64(cisla[i + 1 - diff]);
+                                    if (cisla[i + 1 - diff] == 0) invalidInput();
+                                    else meziVypocet = cisla[i - diff] % cisla[i + 1 - diff];
                                     break;
                             }
                             cisla[i - diff] = meziVypocet;
@@ -1250,7 +1245,7 @@ namespace Kalkulačka_v3
                 }
 
 
-                if (cisla.Count > 0)
+                if (cisla.Count > 0 && valid)
                 {
                     vysledek = cisla[0];
 
@@ -1287,6 +1282,7 @@ namespace Kalkulačka_v3
             {
                 if(priklad.Length!=0)
                 {
+                    string pomVys;
                     //Doplnění o obsah textboxu
                     if (textBox1.Text.Length != 0) priklad += textBox1.Text;
                     //Doplnění závorek
@@ -1298,27 +1294,28 @@ namespace Kalkulačka_v3
                     //vypsání příkladu do labelu
                     label1.Text = priklad;                  
                     //vypočítání pokud 10 soustava
-                    if (radioDec.Checked) textBox1.Text = vypocitaniPrikladuProg(priklad).ToString();
+                    if (radioDec.Checked) pomVys = vypocitaniPrikladuProg(priklad).ToString();
                     //vypočítání pokud 2 soustava
                     else if(radioBin.Checked)
                     {
                         priklad = prevodPrikladuZBinDoDec(priklad);
                         //vypočítání v 10 a převod do 2
-                        textBox1.Text = prevodSoustavy(vypocitaniPrikladuProg(priklad), 2);
+                        pomVys = prevodSoustavy(vypocitaniPrikladuProg(priklad), 2);
                         
                     }
                     else if(radioOct.Checked)
                     {
                         priklad = prevodPrikladuZOctDoDec(priklad);
                         //vypočítání v 10 a převod do 8
-                        textBox1.Text = prevodSoustavy(vypocitaniPrikladuProg(priklad), 8);
+                        pomVys = prevodSoustavy(vypocitaniPrikladuProg(priklad), 8);
                     }
                     else
                     {
                         priklad = prevodPrikladuZHexDoDec(priklad);
                         //vypočítání v 10 a převod do 16
-                        textBox1.Text = vypocitaniPrikladuProg(priklad).ToString("X");
+                        pomVys = vypocitaniPrikladuProg(priklad).ToString("X");
                     }
+                    if (valid) textBox1.Text = pomVys;
                     jeVysledek = true;
                     priklad = "";
                 }
