@@ -998,54 +998,44 @@ namespace Kalkulačka_v3
                 }
 
                     //Mocniny
-                if (prikladS.Contains("^")&&valid)
-                {                    
-                    int diff = 0;
-                    for (int i = 0; i < operandy.Count; i++)
-                    {
-                        if (operandy[i] == '^')
-                        {
-                            double a = cisla[i - diff];
-                            double n = cisla[i - diff + 1];
-                            cisla[i - diff] = Math.Pow(a, n);
-                            cisla.RemoveAt(i + 1 - diff);
-                            operandy.RemoveAt(i - diff);                        
-                            diff++;
-                        }
-                    }                   
+
+                while(operandy.Contains('^'))
+                {
+                    int indexMoc = operandy.IndexOf('^');
+                    cisla[indexMoc] = Math.Pow(cisla[indexMoc], cisla[indexMoc + 1]);
+                    cisla.RemoveAt(indexMoc+1);
+                    operandy.RemoveAt(indexMoc);
                 }
 
-
-                if((prikladS.Contains("*")||prikladS.Contains("/")||prikladS.Contains("%")) && valid)
+                while((operandy.Contains('*')||operandy.Contains('/')||operandy.Contains('%'))&&valid)
                 {
                     double meziVypocet = 0;
-                    int diff = 0;
-                    for (int i = 0; i < operandy.Count&&valid; i++)
+                    int indexOp;
+                    int[] pomPoleInd = new int[3];
+                    pomPoleInd[0] = operandy.IndexOf('*');
+                    pomPoleInd[1] = operandy.IndexOf('/');
+                    pomPoleInd[2] = operandy.IndexOf('%');
+                    indexOp = pomPoleInd.Where(x => x != -1).Min();
+                    switch (operandy[indexOp])
                     {
-                        if (operandy[i] == '*' || operandy[i] == '/' || operandy[i] == '%')
-                        {
-                            switch (operandy[i])
-                            {
-                                case '*':
-                                    meziVypocet = cisla[i - diff] * cisla[i + 1 - diff];
-                                    break;
-                                case '/':
-                                    meziVypocet = cisla[i - diff] / cisla[i + 1 - diff];
-                                    if (Double.IsInfinity(meziVypocet)||Double.IsNaN(meziVypocet)) invalidInput();
-                                    break;
-                                case '%':
-                                    if (Double.IsInfinity(1/ cisla[i + 1 - diff])) invalidInput();
-                                    else meziVypocet = cisla[i - diff] % cisla[i + 1 - diff];
-                                    break;
-                            }
-                            cisla[i - diff] = meziVypocet;
-                            cisla.RemoveAt(i + 1 - diff);
-                            operandy.RemoveAt(i - diff);
-                            diff++;
-                        }
+                        case '*':
+                            meziVypocet = cisla[indexOp] * cisla[indexOp + 1];
+                            break;
+                        case '/':
+                            meziVypocet = cisla[indexOp] / cisla[indexOp+1];
+                            if (Double.IsInfinity(meziVypocet) || Double.IsNaN(meziVypocet)) invalidInput();
+                            break;
+                        case '%':
+                            if (Double.IsInfinity(1 / cisla[indexOp+1])) invalidInput();
+                            else meziVypocet = cisla[indexOp] % cisla[indexOp+1];
+                            break;
                     }
+                    cisla[indexOp] = meziVypocet;
+                    cisla.RemoveAt(indexOp + 1);
+                    operandy.RemoveAt(indexOp);
                 }
 
+                
                 
                 if(cisla.Count>0 && valid)
                 {
