@@ -1086,16 +1086,19 @@ namespace Kalkulačka_v3
                 }
                 jeLog = false;               
                 label1.Text += textBox1.Text;
-                if (Convert.ToInt32((sender as Button).Tag) == 10)
+                if (priklad.Length != 0 && (priklad[priklad.Length-1]>='0'&& priklad[priklad.Length - 1]<='9'))
                 {
-                    priklad += "%";
-                    label1.Text += "%";
-                }
-                else
-                {
-                    priklad += (sender as Button).Text;
-                    label1.Text += (sender as Button).Text;
-                }            
+                    if (Convert.ToInt32((sender as Button).Tag) == 10)
+                    {
+                        priklad += "%";
+                        label1.Text += "%";
+                    }
+                    else
+                    {
+                        priklad += (sender as Button).Text;
+                        label1.Text += (sender as Button).Text;
+                    }
+                }                
                 textBox1.Text = "0";
             }
         }
