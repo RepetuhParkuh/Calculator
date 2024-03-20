@@ -1686,9 +1686,12 @@ namespace Kalkulačka_v3
                     int indexOfX=funkce.IndexOf("x");
                     funkce=funkce.Remove(indexOfX, 1);
                     funkce = funkce.Insert(indexOfX, x.ToString());
-                }                
-                bod = vypocitaniPrikladu(funkce);         
-                if(valid) data.Add(Tuple.Create(x, bod));
+                }
+                
+                bod = vypocitaniPrikladu(funkce);
+                if (valid) data.Add(Tuple.Create(x, bod));             
+                
+                
                 
                 valid = true;
             }
