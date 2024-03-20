@@ -246,6 +246,7 @@ namespace Kalkulačka_v3
         private void invalidInput()
         {
             textBox1.Text = "Invalid input";
+            label1.Text = "";
             priklad = "";
             clearLabeluVProgKalk();
             valid = false;
@@ -386,14 +387,15 @@ namespace Kalkulačka_v3
             }
             if (s == ")")
             {
-                if(ZavCount != 0)
+                if (ZavCount != 0)
                 {
                     if (textBox1.Text.Length == 0 && priklad[priklad.Length - 1] == '(') textBox1.Text = "0";
                     priklad += textBox1.Text;
                     textBox1.Text = "";
                     ZavCount--;
                     priklad += ")";
-                }                              
+                }
+                else valid = false;
                 validZadani = false;
             }
             if(validZadani)
