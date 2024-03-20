@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.nulaV = new System.Windows.Forms.Button();
             this.jednaV = new System.Windows.Forms.Button();
@@ -2002,8 +2002,8 @@
             this.chart1.Location = new System.Drawing.Point(307, 6);
             this.chart1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart1.Name = "chart1";
-            series4.Name = "Series1";
-            this.chart1.Series.Add(series4);
+            series5.Name = "Series1";
+            this.chart1.Series.Add(series5);
             this.chart1.Size = new System.Drawing.Size(435, 416);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -2092,7 +2092,7 @@
             this.kalkPrevod.Location = new System.Drawing.Point(933, 9);
             this.kalkPrevod.Margin = new System.Windows.Forms.Padding(4);
             this.kalkPrevod.Name = "kalkPrevod";
-            this.kalkPrevod.Size = new System.Drawing.Size(343, 409);
+            this.kalkPrevod.Size = new System.Drawing.Size(357, 409);
             this.kalkPrevod.TabIndex = 106;
             // 
             // comboPrevodDo
@@ -2103,7 +2103,7 @@
             this.comboPrevodDo.Location = new System.Drawing.Point(11, 90);
             this.comboPrevodDo.Margin = new System.Windows.Forms.Padding(4);
             this.comboPrevodDo.Name = "comboPrevodDo";
-            this.comboPrevodDo.Size = new System.Drawing.Size(247, 33);
+            this.comboPrevodDo.Size = new System.Drawing.Size(335, 33);
             this.comboPrevodDo.TabIndex = 52;
             this.comboPrevodDo.SelectedIndexChanged += new System.EventHandler(this.ZmenaComboPrevodu);
             // 
@@ -2126,16 +2126,16 @@
             this.comboPrevodZ.Location = new System.Drawing.Point(11, 6);
             this.comboPrevodZ.Margin = new System.Windows.Forms.Padding(4);
             this.comboPrevodZ.Name = "comboPrevodZ";
-            this.comboPrevodZ.Size = new System.Drawing.Size(247, 33);
+            this.comboPrevodZ.Size = new System.Drawing.Size(335, 33);
             this.comboPrevodZ.TabIndex = 50;
             this.comboPrevodZ.SelectedIndexChanged += new System.EventHandler(this.ZmenaComboPrevodu);
             // 
             // btnPrevodClear
             // 
-            this.btnPrevodClear.Location = new System.Drawing.Point(147, 130);
+            this.btnPrevodClear.Location = new System.Drawing.Point(126, 133);
             this.btnPrevodClear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnPrevodClear.Name = "btnPrevodClear";
-            this.btnPrevodClear.Size = new System.Drawing.Size(53, 49);
+            this.btnPrevodClear.Size = new System.Drawing.Size(109, 49);
             this.btnPrevodClear.TabIndex = 48;
             this.btnPrevodClear.Text = "C";
             this.btnPrevodClear.UseVisualStyleBackColor = true;
@@ -2143,10 +2143,10 @@
             // 
             // bckT
             // 
-            this.bckT.Location = new System.Drawing.Point(205, 130);
+            this.bckT.Location = new System.Drawing.Point(241, 133);
             this.bckT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bckT.Name = "bckT";
-            this.bckT.Size = new System.Drawing.Size(53, 49);
+            this.bckT.Size = new System.Drawing.Size(109, 49);
             this.bckT.TabIndex = 49;
             this.bckT.Text = "<";
             this.bckT.UseVisualStyleBackColor = true;
@@ -2154,10 +2154,10 @@
             // 
             // nulaT
             // 
-            this.nulaT.Location = new System.Drawing.Point(147, 348);
+            this.nulaT.Location = new System.Drawing.Point(126, 345);
             this.nulaT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.nulaT.Name = "nulaT";
-            this.nulaT.Size = new System.Drawing.Size(53, 49);
+            this.nulaT.Size = new System.Drawing.Size(109, 49);
             this.nulaT.TabIndex = 43;
             this.nulaT.Text = "0";
             this.nulaT.UseVisualStyleBackColor = true;
@@ -2165,10 +2165,10 @@
             // 
             // jednaT
             // 
-            this.jednaT.Location = new System.Drawing.Point(88, 294);
+            this.jednaT.Location = new System.Drawing.Point(11, 292);
             this.jednaT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.jednaT.Name = "jednaT";
-            this.jednaT.Size = new System.Drawing.Size(53, 49);
+            this.jednaT.Size = new System.Drawing.Size(109, 49);
             this.jednaT.TabIndex = 39;
             this.jednaT.Text = "1";
             this.jednaT.UseVisualStyleBackColor = true;
@@ -2176,10 +2176,10 @@
             // 
             // dvaT
             // 
-            this.dvaT.Location = new System.Drawing.Point(147, 294);
+            this.dvaT.Location = new System.Drawing.Point(126, 292);
             this.dvaT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dvaT.Name = "dvaT";
-            this.dvaT.Size = new System.Drawing.Size(53, 49);
+            this.dvaT.Size = new System.Drawing.Size(109, 49);
             this.dvaT.TabIndex = 42;
             this.dvaT.Text = "2";
             this.dvaT.UseVisualStyleBackColor = true;
@@ -2187,10 +2187,10 @@
             // 
             // triT
             // 
-            this.triT.Location = new System.Drawing.Point(205, 294);
+            this.triT.Location = new System.Drawing.Point(241, 292);
             this.triT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.triT.Name = "triT";
-            this.triT.Size = new System.Drawing.Size(53, 49);
+            this.triT.Size = new System.Drawing.Size(109, 49);
             this.triT.TabIndex = 46;
             this.triT.Text = "3";
             this.triT.UseVisualStyleBackColor = true;
@@ -2198,10 +2198,10 @@
             // 
             // ctyriT
             // 
-            this.ctyriT.Location = new System.Drawing.Point(88, 240);
+            this.ctyriT.Location = new System.Drawing.Point(11, 239);
             this.ctyriT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ctyriT.Name = "ctyriT";
-            this.ctyriT.Size = new System.Drawing.Size(53, 49);
+            this.ctyriT.Size = new System.Drawing.Size(109, 49);
             this.ctyriT.TabIndex = 38;
             this.ctyriT.Text = "4";
             this.ctyriT.UseVisualStyleBackColor = true;
@@ -2209,10 +2209,10 @@
             // 
             // petT
             // 
-            this.petT.Location = new System.Drawing.Point(147, 238);
+            this.petT.Location = new System.Drawing.Point(126, 239);
             this.petT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.petT.Name = "petT";
-            this.petT.Size = new System.Drawing.Size(53, 49);
+            this.petT.Size = new System.Drawing.Size(109, 49);
             this.petT.TabIndex = 41;
             this.petT.Text = "5";
             this.petT.UseVisualStyleBackColor = true;
@@ -2220,10 +2220,10 @@
             // 
             // sestT
             // 
-            this.sestT.Location = new System.Drawing.Point(205, 238);
+            this.sestT.Location = new System.Drawing.Point(241, 239);
             this.sestT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sestT.Name = "sestT";
-            this.sestT.Size = new System.Drawing.Size(53, 49);
+            this.sestT.Size = new System.Drawing.Size(109, 49);
             this.sestT.TabIndex = 45;
             this.sestT.Text = "6";
             this.sestT.UseVisualStyleBackColor = true;
@@ -2231,10 +2231,10 @@
             // 
             // sedmT
             // 
-            this.sedmT.Location = new System.Drawing.Point(88, 185);
+            this.sedmT.Location = new System.Drawing.Point(11, 186);
             this.sedmT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sedmT.Name = "sedmT";
-            this.sedmT.Size = new System.Drawing.Size(53, 49);
+            this.sedmT.Size = new System.Drawing.Size(109, 49);
             this.sedmT.TabIndex = 37;
             this.sedmT.Text = "7";
             this.sedmT.UseVisualStyleBackColor = true;
@@ -2242,10 +2242,10 @@
             // 
             // osmT
             // 
-            this.osmT.Location = new System.Drawing.Point(147, 185);
+            this.osmT.Location = new System.Drawing.Point(126, 186);
             this.osmT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.osmT.Name = "osmT";
-            this.osmT.Size = new System.Drawing.Size(53, 49);
+            this.osmT.Size = new System.Drawing.Size(109, 49);
             this.osmT.TabIndex = 40;
             this.osmT.Text = "8";
             this.osmT.UseVisualStyleBackColor = true;
@@ -2253,10 +2253,10 @@
             // 
             // devetT
             // 
-            this.devetT.Location = new System.Drawing.Point(205, 185);
+            this.devetT.Location = new System.Drawing.Point(241, 186);
             this.devetT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.devetT.Name = "devetT";
-            this.devetT.Size = new System.Drawing.Size(53, 49);
+            this.devetT.Size = new System.Drawing.Size(109, 49);
             this.devetT.TabIndex = 44;
             this.devetT.Text = "9";
             this.devetT.UseVisualStyleBackColor = true;
@@ -2264,10 +2264,10 @@
             // 
             // desCarkaT
             // 
-            this.desCarkaT.Location = new System.Drawing.Point(205, 348);
+            this.desCarkaT.Location = new System.Drawing.Point(241, 345);
             this.desCarkaT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.desCarkaT.Name = "desCarkaT";
-            this.desCarkaT.Size = new System.Drawing.Size(53, 49);
+            this.desCarkaT.Size = new System.Drawing.Size(109, 49);
             this.desCarkaT.TabIndex = 47;
             this.desCarkaT.Text = ",";
             this.desCarkaT.UseVisualStyleBackColor = true;
