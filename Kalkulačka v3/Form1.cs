@@ -1701,9 +1701,11 @@ namespace Kalkulačka_v3
                         funkce = funkce.Remove(indexOfX, 1);
                         funkce = funkce.Insert(indexOfX, x.ToString());
                     }
-
+                    
                     bod = vypocitaniPrikladu(funkce);
+                    if (bod > 100 || bod < -100) valid = false;
                     if (valid) data.Add(Tuple.Create(x, bod));
+                    
 
 
 
