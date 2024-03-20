@@ -246,6 +246,7 @@ namespace Kalkulačka_v3
         private void invalidInput()
         {
             textBox1.Text = "Invalid input";
+            priklad = "";
             clearLabeluVProgKalk();
             valid = false;
         }
@@ -1106,6 +1107,12 @@ namespace Kalkulačka_v3
                     textBox1.Text = "";
                     jeMocnina = false;
                 }
+                if(jeLog)
+                {
+                    priklad += textBox1.Text;
+                    textBox1.Text = "";
+                    jeLog = false;
+                }
                 if(priklad.Length!=0)
                 {
                     if (textBox1.Text.Length != 0&&!jeLog) priklad += textBox1.Text;
@@ -1126,7 +1133,7 @@ namespace Kalkulačka_v3
                     else invalidInput();
                     priklad = "";
                     jeVysledek = true;
-                }
+                }                
             }
         }
 
@@ -1787,8 +1794,7 @@ namespace Kalkulačka_v3
         {
             if (jeMocnina)
             {
-                priklad += "(" + textBox1.Text + ")";
-                textBox1.Text = "";
+                textBox1.Text = "(" + textBox1.Text + ")";                
                 jeMocnina = false;
                 valid = true;
             }
@@ -1802,18 +1808,21 @@ namespace Kalkulačka_v3
                 else
                 {
                     jeLog = true;
-                    priklad += $"root({logPar})";
-                    label1.Text = priklad;
-                    textBox1.Text = "";
+                    textBox1.Text = $"root({logPar})";                   
+                    
                 }
                                
             }
             else if(textBox1.Text == "x")
             {
                 jeLog = true;
-                priklad += $"root(x)";
-                label1.Text = priklad;
+                textBox1.Text = $"root(x)";                
                 textBox1.Text = "";
+            }
+            else if (valid && textBox1.Text.Length != 0)
+            {
+                jeLog = true;
+                textBox1.Text = $"root({textBox1.Text})";
             }
             else if (valid && priklad[priklad.Length - 1] == ')')
             {
@@ -1832,6 +1841,7 @@ namespace Kalkulačka_v3
                 priklad = priklad.Insert(pomIndZav, "root");
                 label1.Text = priklad;
             }
+            
         }
 
 
@@ -1873,10 +1883,8 @@ namespace Kalkulačka_v3
                 }
                 else
                 {
-                    jeLog = true;                           
-                    priklad+= $"log({logPar})";
-                    label1.Text = priklad;
-                    textBox1.Text = "";
+                    jeLog = true;
+                    textBox1.Text = $"log({logPar})";
                 }
             }
             else if (textBox1.Text == "x")
@@ -1885,6 +1893,11 @@ namespace Kalkulačka_v3
                 priklad += $"log(x)";
                 label1.Text = priklad;
                 textBox1.Text = "";
+            }
+            else if (valid && textBox1.Text.Length != 0)
+            {
+                jeLog = true;
+                textBox1.Text = $"log({textBox1.Text})";
             }
             else if(valid&&priklad[priklad.Length-1]==')')
             {
@@ -1923,9 +1936,7 @@ namespace Kalkulačka_v3
                 else
                 {
                     jeLog = true;
-                    priklad += $"ln({logPar})";
-                    label1.Text = priklad;
-                    textBox1.Text = "";
+                    textBox1.Text = $"ln({logPar})";
                 }
             }
             else if (textBox1.Text == "x")
@@ -1934,6 +1945,11 @@ namespace Kalkulačka_v3
                 priklad += $"ln(x)";
                 label1.Text = priklad;
                 textBox1.Text = "";
+            }
+            else if (valid && textBox1.Text.Length != 0)
+            {
+                jeLog = true;
+                textBox1.Text = $"ln({textBox1.Text})";
             }
             else if (valid&&priklad[priklad.Length - 1] == ')')
             {
@@ -2008,9 +2024,7 @@ namespace Kalkulačka_v3
             if (Double.TryParse(textBox1.Text, out double logPar) && valid)
             {
                 jeLog = true;
-                priklad += $"abs({logPar})";
-                label1.Text = priklad;
-                textBox1.Text = "";
+                textBox1.Text = $"abs({logPar})";
             }
             else if (textBox1.Text == "x")
             {
@@ -2018,6 +2032,11 @@ namespace Kalkulačka_v3
                 priklad += $"abs(x)";
                 label1.Text = priklad;
                 textBox1.Text = "";
+            }
+            else if (valid && textBox1.Text.Length != 0)
+            {
+                jeLog = true;
+                textBox1.Text = $"abs({textBox1.Text})";
             }
             else if (valid && priklad[priklad.Length - 1] == ')')
             {
