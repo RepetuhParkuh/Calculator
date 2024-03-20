@@ -385,14 +385,14 @@ namespace Kalkulačka_v3
             }
             if (s == ")")
             {
-                if (textBox1.Text.Length == 0&&priklad[priklad.Length-1]=='(') textBox1.Text = "0";
-                priklad += textBox1.Text;
-                textBox1.Text = "";
-                if (ZavCount != 0)
+                if(ZavCount != 0)
                 {
+                    if (textBox1.Text.Length == 0 && priklad[priklad.Length - 1] == '(') textBox1.Text = "0";
+                    priklad += textBox1.Text;
+                    textBox1.Text = "";
                     ZavCount--;
                     priklad += ")";
-                }
+                }                              
                 validZadani = false;
             }
             if(validZadani)
