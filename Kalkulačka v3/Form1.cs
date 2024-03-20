@@ -1774,12 +1774,12 @@ namespace Kalkulačka_v3
         //Mocniny
         private void druhaMocnina_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text.Length > 0&&valid)
+            if (textBox1.Text.Length > 0 && valid)
             {
                 double pom = Convert.ToDouble(textBox1.Text);
                 textBox1.Clear();
                 textBox1.Text = (pom *= pom).ToString();
-            }
+            }            
             rovnaseFocus();
         }
 
@@ -1804,6 +1804,11 @@ namespace Kalkulačka_v3
             {
                 textBox1.Text += "^2";
                 jeMocnina = true;
+            }
+            else if (priklad[priklad.Length - 1] == ')')
+            {
+                priklad += "^2";
+                label1.Text = priklad;
             }
             rovnaseFocus();
         }
@@ -1853,6 +1858,24 @@ namespace Kalkulačka_v3
                     if (pomPocZav == 0)
                     {
                         pomIndZav = i;
+                        if (i - 1 >= 0)
+                        {
+                            if (priklad[i - 1] == 'n')
+                            {
+                                priklad = priklad.Insert(pomIndZav -= 2, "(");
+                                priklad += ')';
+                            }
+                            else if (priklad[i - 1] == 'g' || priklad[i - 1] == 's')
+                            {
+                                priklad = priklad.Insert(pomIndZav -= 3, "(");
+                                priklad += ')';
+                            }
+                            else if (priklad[i - 1] == 't')
+                            {
+                                priklad = priklad.Insert(pomIndZav -= 4, "(");
+                                priklad += ')';
+                            }
+                        }
                         break;
                     }
                 }
@@ -1868,6 +1891,12 @@ namespace Kalkulačka_v3
             if (textBox1.Text.Length != 0 && !operandyPole.Contains(textBox1.Text[textBox1.Text.Length-1])&&valid&&!jeMocnina)
             {
                 textBox1.Text += "^";
+                jeMocnina = true;
+                valid = false;
+            }
+            else if (priklad[priklad.Length - 1] == ')')
+            {
+                textBox1.Text = "^";
                 jeMocnina = true;
                 valid = false;
             }
@@ -1928,6 +1957,24 @@ namespace Kalkulačka_v3
                     if (pomPocZav == 0)
                     {
                         pomIndZav = i;
+                        if(i-1>=0)
+                        {
+                            if (priklad[i - 1] == 'n')
+                            {
+                                priklad = priklad.Insert(pomIndZav -= 2, "(");
+                                priklad += ')';
+                            }
+                            else if (priklad[i - 1] == 'g' || priklad[i - 1] == 's')
+                            {
+                                priklad = priklad.Insert(pomIndZav -= 3, "(");
+                                priklad += ')';
+                            }
+                            else if (priklad[i - 1] == 't')
+                            {
+                                priklad = priklad.Insert(pomIndZav -= 4, "(");
+                                priklad += ')';
+                            }
+                        }                        
                         break;
                     }                   
                 }
@@ -1980,6 +2027,24 @@ namespace Kalkulačka_v3
                     if (pomPocZav == 0)
                     {
                         pomIndZav = i;
+                        if (i - 1 >= 0)
+                        {
+                            if (priklad[i - 1] == 'n')
+                            {
+                                priklad = priklad.Insert(pomIndZav -= 2, "(");
+                                priklad += ')';
+                            }
+                            else if (priklad[i - 1] == 'g' || priklad[i - 1] == 's')
+                            {
+                                priklad = priklad.Insert(pomIndZav -= 3, "(");
+                                priklad += ')';
+                            }
+                            else if (priklad[i - 1] == 't')
+                            {
+                                priklad = priklad.Insert(pomIndZav -= 4, "(");
+                                priklad += ')';
+                            }
+                        }
                         break;
                     }
                 }
@@ -2067,6 +2132,24 @@ namespace Kalkulačka_v3
                     if (pomPocZav == 0)
                     {
                         pomIndZav = i;
+                        if (i - 1 >= 0)
+                        {
+                            if (priklad[i - 1] == 'n')
+                            {
+                                priklad = priklad.Insert(pomIndZav -= 2, "(");
+                                priklad += ')';
+                            }
+                            else if (priklad[i - 1] == 'g' || priklad[i - 1] == 's')
+                            {
+                                priklad = priklad.Insert(pomIndZav -= 3, "(");
+                                priklad += ')';
+                            }
+                            else if (priklad[i - 1] == 't')
+                            {
+                                priklad = priklad.Insert(pomIndZav -= 4, "(");
+                                priklad += ')';
+                            }
+                        }
                         break;
                     }
                 }
