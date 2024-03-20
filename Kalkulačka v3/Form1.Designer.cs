@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.nulaV = new System.Windows.Forms.Button();
             this.jednaV = new System.Windows.Forms.Button();
@@ -53,7 +53,6 @@
             this.button9 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.button2 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.energieCalc = new System.Windows.Forms.Button();
@@ -72,14 +71,12 @@
             this.button43 = new System.Windows.Forms.Button();
             this.button42 = new System.Windows.Forms.Button();
             this.button41 = new System.Windows.Forms.Button();
-            this.button40 = new System.Windows.Forms.Button();
             this.btnZacZavV = new System.Windows.Forms.Button();
             this.button38 = new System.Windows.Forms.Button();
             this.button37 = new System.Windows.Forms.Button();
             this.button36 = new System.Windows.Forms.Button();
             this.btnKonZavV = new System.Windows.Forms.Button();
             this.btnMod = new System.Windows.Forms.Button();
-            this.button33 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.kalkZakl = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
@@ -149,7 +146,6 @@
             this.button6 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
-            this.button17 = new System.Windows.Forms.Button();
             this.button19 = new System.Windows.Forms.Button();
             this.button21 = new System.Windows.Forms.Button();
             this.button22 = new System.Windows.Forms.Button();
@@ -477,19 +473,6 @@
             this.button11.UseVisualStyleBackColor = true;
             this.button11.Click += new System.EventHandler(this.obracenaHodnota_Click);
             // 
-            // listBox1
-            // 
-            this.listBox1.BackColor = System.Drawing.SystemColors.Menu;
-            this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listBox1.Enabled = false;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(285, 11);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(125, 416);
-            this.listBox1.TabIndex = 25;
-            // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(24, 7);
@@ -520,7 +503,7 @@
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.MaximumSize = new System.Drawing.Size(451, 999);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(197, 882);
+            this.panel1.Size = new System.Drawing.Size(197, 981);
             this.panel1.TabIndex = 100;
             this.panel1.Visible = false;
             // 
@@ -658,14 +641,12 @@
             this.kalkVed.Controls.Add(this.button43);
             this.kalkVed.Controls.Add(this.button42);
             this.kalkVed.Controls.Add(this.button41);
-            this.kalkVed.Controls.Add(this.button40);
             this.kalkVed.Controls.Add(this.btnZacZavV);
             this.kalkVed.Controls.Add(this.button38);
             this.kalkVed.Controls.Add(this.button37);
             this.kalkVed.Controls.Add(this.button36);
             this.kalkVed.Controls.Add(this.btnKonZavV);
             this.kalkVed.Controls.Add(this.btnMod);
-            this.kalkVed.Controls.Add(this.button33);
             this.kalkVed.Controls.Add(this.button7);
             this.kalkVed.Controls.Add(this.nulaV);
             this.kalkVed.Controls.Add(this.jednaV);
@@ -692,7 +673,7 @@
             this.kalkVed.Location = new System.Drawing.Point(303, 55);
             this.kalkVed.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.kalkVed.Name = "kalkVed";
-            this.kalkVed.Size = new System.Drawing.Size(317, 278);
+            this.kalkVed.Size = new System.Drawing.Size(350, 278);
             this.kalkVed.TabIndex = 101;
             this.kalkVed.Visible = false;
             // 
@@ -741,17 +722,6 @@
             this.button41.Text = "xY";
             this.button41.UseVisualStyleBackColor = true;
             this.button41.Click += new System.EventHandler(this.libovolnaMocnina_Click);
-            // 
-            // button40
-            // 
-            this.button40.Location = new System.Drawing.Point(11, 11);
-            this.button40.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button40.Name = "button40";
-            this.button40.Size = new System.Drawing.Size(53, 30);
-            this.button40.TabIndex = 11;
-            this.button40.Text = "2nd";
-            this.button40.UseVisualStyleBackColor = true;
-            this.button40.Visible = false;
             // 
             // btnZacZavV
             // 
@@ -820,16 +790,6 @@
             this.btnMod.Text = "mod";
             this.btnMod.UseVisualStyleBackColor = true;
             this.btnMod.Click += new System.EventHandler(this.vedOper_Click);
-            // 
-            // button33
-            // 
-            this.button33.Location = new System.Drawing.Point(187, 47);
-            this.button33.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button33.Name = "button33";
-            this.button33.Size = new System.Drawing.Size(53, 30);
-            this.button33.TabIndex = 42;
-            this.button33.Text = "exp";
-            this.button33.UseVisualStyleBackColor = true;
             // 
             // button7
             // 
@@ -1167,10 +1127,10 @@
             this.kalkProg.Controls.Add(this.bitPosLev);
             this.kalkProg.Controls.Add(this.clearP);
             this.kalkProg.Controls.Add(this.bckP);
-            this.kalkProg.Location = new System.Drawing.Point(303, 351);
+            this.kalkProg.Location = new System.Drawing.Point(330, 535);
             this.kalkProg.Margin = new System.Windows.Forms.Padding(4);
             this.kalkProg.Name = "kalkProg";
-            this.kalkProg.Size = new System.Drawing.Size(317, 345);
+            this.kalkProg.Size = new System.Drawing.Size(449, 468);
             this.kalkProg.TabIndex = 103;
             this.kalkProg.Visible = false;
             // 
@@ -1213,10 +1173,10 @@
             // button1
             // 
             this.button1.Enabled = false;
-            this.button1.Location = new System.Drawing.Point(67, 300);
+            this.button1.Location = new System.Drawing.Point(92, 412);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(53, 30);
+            this.button1.Size = new System.Drawing.Size(80, 52);
             this.button1.TabIndex = 75;
             this.button1.Tag = "0";
             this.button1.Text = "+/-";
@@ -1276,10 +1236,10 @@
             // desCarkaP
             // 
             this.desCarkaP.Enabled = false;
-            this.desCarkaP.Location = new System.Drawing.Point(189, 300);
+            this.desCarkaP.Location = new System.Drawing.Point(264, 412);
             this.desCarkaP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.desCarkaP.Name = "desCarkaP";
-            this.desCarkaP.Size = new System.Drawing.Size(53, 30);
+            this.desCarkaP.Size = new System.Drawing.Size(80, 52);
             this.desCarkaP.TabIndex = 70;
             this.desCarkaP.Text = ",";
             this.desCarkaP.UseVisualStyleBackColor = true;
@@ -1287,10 +1247,10 @@
             // 
             // nulaP
             // 
-            this.nulaP.Location = new System.Drawing.Point(128, 300);
+            this.nulaP.Location = new System.Drawing.Point(178, 412);
             this.nulaP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.nulaP.Name = "nulaP";
-            this.nulaP.Size = new System.Drawing.Size(53, 30);
+            this.nulaP.Size = new System.Drawing.Size(80, 52);
             this.nulaP.TabIndex = 69;
             this.nulaP.Tag = "4";
             this.nulaP.Text = "0";
@@ -1299,10 +1259,10 @@
             // 
             // triP
             // 
-            this.triP.Location = new System.Drawing.Point(189, 266);
+            this.triP.Location = new System.Drawing.Point(264, 352);
             this.triP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.triP.Name = "triP";
-            this.triP.Size = new System.Drawing.Size(53, 30);
+            this.triP.Size = new System.Drawing.Size(80, 52);
             this.triP.TabIndex = 68;
             this.triP.Tag = "3";
             this.triP.Text = "3";
@@ -1311,10 +1271,10 @@
             // 
             // dvaP
             // 
-            this.dvaP.Location = new System.Drawing.Point(128, 266);
+            this.dvaP.Location = new System.Drawing.Point(178, 352);
             this.dvaP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dvaP.Name = "dvaP";
-            this.dvaP.Size = new System.Drawing.Size(53, 30);
+            this.dvaP.Size = new System.Drawing.Size(80, 52);
             this.dvaP.TabIndex = 67;
             this.dvaP.Tag = "3";
             this.dvaP.Text = "2";
@@ -1323,10 +1283,10 @@
             // 
             // jednaP
             // 
-            this.jednaP.Location = new System.Drawing.Point(67, 266);
+            this.jednaP.Location = new System.Drawing.Point(92, 352);
             this.jednaP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.jednaP.Name = "jednaP";
-            this.jednaP.Size = new System.Drawing.Size(53, 30);
+            this.jednaP.Size = new System.Drawing.Size(80, 52);
             this.jednaP.TabIndex = 66;
             this.jednaP.Tag = "4";
             this.jednaP.Text = "1";
@@ -1335,10 +1295,10 @@
             // 
             // sestP
             // 
-            this.sestP.Location = new System.Drawing.Point(189, 231);
+            this.sestP.Location = new System.Drawing.Point(264, 292);
             this.sestP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sestP.Name = "sestP";
-            this.sestP.Size = new System.Drawing.Size(53, 30);
+            this.sestP.Size = new System.Drawing.Size(80, 52);
             this.sestP.TabIndex = 58;
             this.sestP.Tag = "3";
             this.sestP.Text = "6";
@@ -1347,10 +1307,10 @@
             // 
             // petP
             // 
-            this.petP.Location = new System.Drawing.Point(128, 231);
+            this.petP.Location = new System.Drawing.Point(178, 292);
             this.petP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.petP.Name = "petP";
-            this.petP.Size = new System.Drawing.Size(53, 30);
+            this.petP.Size = new System.Drawing.Size(80, 52);
             this.petP.TabIndex = 65;
             this.petP.Tag = "3";
             this.petP.Text = "5";
@@ -1359,10 +1319,10 @@
             // 
             // ctyriP
             // 
-            this.ctyriP.Location = new System.Drawing.Point(67, 231);
+            this.ctyriP.Location = new System.Drawing.Point(92, 292);
             this.ctyriP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ctyriP.Name = "ctyriP";
-            this.ctyriP.Size = new System.Drawing.Size(53, 30);
+            this.ctyriP.Size = new System.Drawing.Size(80, 52);
             this.ctyriP.TabIndex = 64;
             this.ctyriP.Tag = "3";
             this.ctyriP.Text = "4";
@@ -1371,10 +1331,10 @@
             // 
             // devetP
             // 
-            this.devetP.Location = new System.Drawing.Point(189, 197);
+            this.devetP.Location = new System.Drawing.Point(264, 236);
             this.devetP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.devetP.Name = "devetP";
-            this.devetP.Size = new System.Drawing.Size(53, 30);
+            this.devetP.Size = new System.Drawing.Size(80, 52);
             this.devetP.TabIndex = 63;
             this.devetP.Tag = "2";
             this.devetP.Text = "9";
@@ -1383,10 +1343,10 @@
             // 
             // osmP
             // 
-            this.osmP.Location = new System.Drawing.Point(128, 197);
+            this.osmP.Location = new System.Drawing.Point(178, 236);
             this.osmP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.osmP.Name = "osmP";
-            this.osmP.Size = new System.Drawing.Size(53, 30);
+            this.osmP.Size = new System.Drawing.Size(80, 52);
             this.osmP.TabIndex = 58;
             this.osmP.Tag = "2";
             this.osmP.Text = "8";
@@ -1395,10 +1355,10 @@
             // 
             // sedmP
             // 
-            this.sedmP.Location = new System.Drawing.Point(67, 197);
+            this.sedmP.Location = new System.Drawing.Point(92, 236);
             this.sedmP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sedmP.Name = "sedmP";
-            this.sedmP.Size = new System.Drawing.Size(53, 30);
+            this.sedmP.Size = new System.Drawing.Size(80, 52);
             this.sedmP.TabIndex = 62;
             this.sedmP.Tag = "3";
             this.sedmP.Text = "7";
@@ -1407,10 +1367,10 @@
             // 
             // rovnaseP
             // 
-            this.rovnaseP.Location = new System.Drawing.Point(251, 300);
+            this.rovnaseP.Location = new System.Drawing.Point(350, 412);
             this.rovnaseP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rovnaseP.Name = "rovnaseP";
-            this.rovnaseP.Size = new System.Drawing.Size(53, 30);
+            this.rovnaseP.Size = new System.Drawing.Size(80, 52);
             this.rovnaseP.TabIndex = 58;
             this.rovnaseP.Tag = "4";
             this.rovnaseP.Text = "=";
@@ -1419,10 +1379,10 @@
             // 
             // plusP
             // 
-            this.plusP.Location = new System.Drawing.Point(251, 266);
+            this.plusP.Location = new System.Drawing.Point(350, 352);
             this.plusP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.plusP.Name = "plusP";
-            this.plusP.Size = new System.Drawing.Size(53, 30);
+            this.plusP.Size = new System.Drawing.Size(80, 52);
             this.plusP.TabIndex = 58;
             this.plusP.Tag = "4";
             this.plusP.Text = "+";
@@ -1431,10 +1391,10 @@
             // 
             // minusP
             // 
-            this.minusP.Location = new System.Drawing.Point(251, 231);
+            this.minusP.Location = new System.Drawing.Point(350, 292);
             this.minusP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.minusP.Name = "minusP";
-            this.minusP.Size = new System.Drawing.Size(53, 30);
+            this.minusP.Size = new System.Drawing.Size(80, 52);
             this.minusP.TabIndex = 61;
             this.minusP.Tag = "4";
             this.minusP.Text = "-";
@@ -1443,10 +1403,10 @@
             // 
             // kratP
             // 
-            this.kratP.Location = new System.Drawing.Point(251, 197);
+            this.kratP.Location = new System.Drawing.Point(350, 236);
             this.kratP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.kratP.Name = "kratP";
-            this.kratP.Size = new System.Drawing.Size(53, 30);
+            this.kratP.Size = new System.Drawing.Size(80, 52);
             this.kratP.TabIndex = 58;
             this.kratP.Tag = "4";
             this.kratP.Text = "*";
@@ -1455,10 +1415,10 @@
             // 
             // delenoP
             // 
-            this.delenoP.Location = new System.Drawing.Point(251, 162);
+            this.delenoP.Location = new System.Drawing.Point(350, 180);
             this.delenoP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.delenoP.Name = "delenoP";
-            this.delenoP.Size = new System.Drawing.Size(53, 30);
+            this.delenoP.Size = new System.Drawing.Size(80, 52);
             this.delenoP.TabIndex = 60;
             this.delenoP.Tag = "4";
             this.delenoP.Text = "/";
@@ -1467,10 +1427,10 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(189, 162);
+            this.button5.Location = new System.Drawing.Point(264, 180);
             this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(53, 30);
+            this.button5.Size = new System.Drawing.Size(80, 52);
             this.button5.TabIndex = 59;
             this.button5.Tag = "10";
             this.button5.Text = "mod";
@@ -1479,10 +1439,10 @@
             // 
             // btnKonZavP
             // 
-            this.btnKonZavP.Location = new System.Drawing.Point(128, 162);
+            this.btnKonZavP.Location = new System.Drawing.Point(178, 180);
             this.btnKonZavP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnKonZavP.Name = "btnKonZavP";
-            this.btnKonZavP.Size = new System.Drawing.Size(53, 30);
+            this.btnKonZavP.Size = new System.Drawing.Size(80, 52);
             this.btnKonZavP.TabIndex = 58;
             this.btnKonZavP.Tag = "4";
             this.btnKonZavP.Text = ")";
@@ -1491,10 +1451,10 @@
             // 
             // btnZacZavP
             // 
-            this.btnZacZavP.Location = new System.Drawing.Point(67, 162);
+            this.btnZacZavP.Location = new System.Drawing.Point(92, 180);
             this.btnZacZavP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnZacZavP.Name = "btnZacZavP";
-            this.btnZacZavP.Size = new System.Drawing.Size(53, 30);
+            this.btnZacZavP.Size = new System.Drawing.Size(80, 52);
             this.btnZacZavP.TabIndex = 24;
             this.btnZacZavP.Tag = "4";
             this.btnZacZavP.Text = "(";
@@ -1503,10 +1463,10 @@
             // 
             // progF
             // 
-            this.progF.Location = new System.Drawing.Point(5, 300);
+            this.progF.Location = new System.Drawing.Point(5, 412);
             this.progF.Margin = new System.Windows.Forms.Padding(4);
             this.progF.Name = "progF";
-            this.progF.Size = new System.Drawing.Size(53, 30);
+            this.progF.Size = new System.Drawing.Size(80, 52);
             this.progF.TabIndex = 9;
             this.progF.Tag = "1";
             this.progF.Text = "F";
@@ -1515,10 +1475,10 @@
             // 
             // progE
             // 
-            this.progE.Location = new System.Drawing.Point(5, 266);
+            this.progE.Location = new System.Drawing.Point(5, 352);
             this.progE.Margin = new System.Windows.Forms.Padding(4);
             this.progE.Name = "progE";
-            this.progE.Size = new System.Drawing.Size(53, 30);
+            this.progE.Size = new System.Drawing.Size(80, 52);
             this.progE.TabIndex = 8;
             this.progE.Tag = "1";
             this.progE.Text = "E";
@@ -1527,10 +1487,10 @@
             // 
             // progD
             // 
-            this.progD.Location = new System.Drawing.Point(5, 231);
+            this.progD.Location = new System.Drawing.Point(5, 292);
             this.progD.Margin = new System.Windows.Forms.Padding(4);
             this.progD.Name = "progD";
-            this.progD.Size = new System.Drawing.Size(53, 30);
+            this.progD.Size = new System.Drawing.Size(80, 52);
             this.progD.TabIndex = 7;
             this.progD.Tag = "1";
             this.progD.Text = "D";
@@ -1539,10 +1499,10 @@
             // 
             // progC
             // 
-            this.progC.Location = new System.Drawing.Point(5, 197);
+            this.progC.Location = new System.Drawing.Point(5, 236);
             this.progC.Margin = new System.Windows.Forms.Padding(4);
             this.progC.Name = "progC";
-            this.progC.Size = new System.Drawing.Size(53, 30);
+            this.progC.Size = new System.Drawing.Size(80, 52);
             this.progC.TabIndex = 6;
             this.progC.Tag = "1";
             this.progC.Text = "C";
@@ -1551,10 +1511,10 @@
             // 
             // progB
             // 
-            this.progB.Location = new System.Drawing.Point(5, 162);
+            this.progB.Location = new System.Drawing.Point(5, 180);
             this.progB.Margin = new System.Windows.Forms.Padding(4);
             this.progB.Name = "progB";
-            this.progB.Size = new System.Drawing.Size(53, 30);
+            this.progB.Size = new System.Drawing.Size(80, 52);
             this.progB.TabIndex = 5;
             this.progB.Tag = "1";
             this.progB.Text = "B";
@@ -1563,10 +1523,10 @@
             // 
             // progA
             // 
-            this.progA.Location = new System.Drawing.Point(5, 127);
+            this.progA.Location = new System.Drawing.Point(5, 122);
             this.progA.Margin = new System.Windows.Forms.Padding(4);
             this.progA.Name = "progA";
-            this.progA.Size = new System.Drawing.Size(53, 30);
+            this.progA.Size = new System.Drawing.Size(80, 52);
             this.progA.TabIndex = 4;
             this.progA.Tag = "1";
             this.progA.Text = "A";
@@ -1575,10 +1535,10 @@
             // 
             // bitPosPrav
             // 
-            this.bitPosPrav.Location = new System.Drawing.Point(128, 127);
+            this.bitPosPrav.Location = new System.Drawing.Point(178, 122);
             this.bitPosPrav.Margin = new System.Windows.Forms.Padding(4);
             this.bitPosPrav.Name = "bitPosPrav";
-            this.bitPosPrav.Size = new System.Drawing.Size(53, 30);
+            this.bitPosPrav.Size = new System.Drawing.Size(80, 52);
             this.bitPosPrav.TabIndex = 3;
             this.bitPosPrav.Tag = "4";
             this.bitPosPrav.Text = ">>";
@@ -1586,10 +1546,10 @@
             // 
             // bitPosLev
             // 
-            this.bitPosLev.Location = new System.Drawing.Point(67, 127);
+            this.bitPosLev.Location = new System.Drawing.Point(92, 122);
             this.bitPosLev.Margin = new System.Windows.Forms.Padding(4);
             this.bitPosLev.Name = "bitPosLev";
-            this.bitPosLev.Size = new System.Drawing.Size(53, 30);
+            this.bitPosLev.Size = new System.Drawing.Size(80, 52);
             this.bitPosLev.TabIndex = 2;
             this.bitPosLev.Tag = "4";
             this.bitPosLev.Text = "<<";
@@ -1597,10 +1557,10 @@
             // 
             // clearP
             // 
-            this.clearP.Location = new System.Drawing.Point(189, 127);
+            this.clearP.Location = new System.Drawing.Point(262, 122);
             this.clearP.Margin = new System.Windows.Forms.Padding(4);
             this.clearP.Name = "clearP";
-            this.clearP.Size = new System.Drawing.Size(53, 30);
+            this.clearP.Size = new System.Drawing.Size(80, 52);
             this.clearP.TabIndex = 1;
             this.clearP.Tag = "4";
             this.clearP.Text = "C";
@@ -1609,10 +1569,10 @@
             // 
             // bckP
             // 
-            this.bckP.Location = new System.Drawing.Point(251, 127);
+            this.bckP.Location = new System.Drawing.Point(350, 122);
             this.bckP.Margin = new System.Windows.Forms.Padding(4);
             this.bckP.Name = "bckP";
-            this.bckP.Size = new System.Drawing.Size(53, 30);
+            this.bckP.Size = new System.Drawing.Size(80, 52);
             this.bckP.TabIndex = 0;
             this.bckP.Tag = "4";
             this.bckP.Text = "<";
@@ -1625,7 +1585,6 @@
             this.kalkGraf.Controls.Add(this.button6);
             this.kalkGraf.Controls.Add(this.button12);
             this.kalkGraf.Controls.Add(this.button13);
-            this.kalkGraf.Controls.Add(this.button17);
             this.kalkGraf.Controls.Add(this.button19);
             this.kalkGraf.Controls.Add(this.button21);
             this.kalkGraf.Controls.Add(this.button22);
@@ -1657,7 +1616,7 @@
             this.kalkGraf.Controls.Add(this.delenoG);
             this.kalkGraf.Controls.Add(this.kratG);
             this.kalkGraf.Controls.Add(this.chart1);
-            this.kalkGraf.Location = new System.Drawing.Point(627, 423);
+            this.kalkGraf.Location = new System.Drawing.Point(786, 537);
             this.kalkGraf.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.kalkGraf.Name = "kalkGraf";
             this.kalkGraf.Size = new System.Drawing.Size(755, 468);
@@ -1708,17 +1667,6 @@
             this.button13.Text = "xY";
             this.button13.UseVisualStyleBackColor = true;
             this.button13.Click += new System.EventHandler(this.libovolnaMocnina_Click);
-            // 
-            // button17
-            // 
-            this.button17.Location = new System.Drawing.Point(3, 6);
-            this.button17.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(53, 30);
-            this.button17.TabIndex = 58;
-            this.button17.Text = "2nd";
-            this.button17.UseVisualStyleBackColor = true;
-            this.button17.Visible = false;
             // 
             // button19
             // 
@@ -2054,8 +2002,8 @@
             this.chart1.Location = new System.Drawing.Point(307, 6);
             this.chart1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart1.Name = "chart1";
-            series2.Name = "Series1";
-            this.chart1.Series.Add(series2);
+            series4.Name = "Series1";
+            this.chart1.Series.Add(series4);
             this.chart1.Size = new System.Drawing.Size(435, 416);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -2329,7 +2277,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1393, 917);
+            this.ClientSize = new System.Drawing.Size(1553, 1016);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.kalkPrevod);
             this.Controls.Add(this.kalkDate);
@@ -2338,7 +2286,6 @@
             this.Controls.Add(this.kalkVed);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.kalkZakl);
             this.KeyPreview = true;
@@ -2391,7 +2338,6 @@
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button basicCalc;
@@ -2424,12 +2370,10 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button btnKonZavV;
         private System.Windows.Forms.Button btnMod;
-        private System.Windows.Forms.Button button33;
         private System.Windows.Forms.Button button44;
         private System.Windows.Forms.Button button43;
         private System.Windows.Forms.Button button42;
         private System.Windows.Forms.Button button41;
-        private System.Windows.Forms.Button button40;
         private System.Windows.Forms.Button btnZacZavV;
         private System.Windows.Forms.Button button38;
         private System.Windows.Forms.Button button37;
@@ -2488,7 +2432,6 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.Button button17;
         private System.Windows.Forms.Button button19;
         private System.Windows.Forms.Button button21;
         private System.Windows.Forms.Button button22;
