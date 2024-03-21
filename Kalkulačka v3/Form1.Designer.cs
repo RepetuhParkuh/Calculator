@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.nulaV = new System.Windows.Forms.Button();
             this.jednaV = new System.Windows.Forms.Button();
@@ -137,40 +137,6 @@
             this.clearP = new System.Windows.Forms.Button();
             this.bckP = new System.Windows.Forms.Button();
             this.kalkGraf = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button19 = new System.Windows.Forms.Button();
-            this.button21 = new System.Windows.Forms.Button();
-            this.button22 = new System.Windows.Forms.Button();
-            this.button24 = new System.Windows.Forms.Button();
-            this.button25 = new System.Windows.Forms.Button();
-            this.button26 = new System.Windows.Forms.Button();
-            this.button27 = new System.Windows.Forms.Button();
-            this.btnX = new System.Windows.Forms.Button();
-            this.nulaG = new System.Windows.Forms.Button();
-            this.jednaG = new System.Windows.Forms.Button();
-            this.dvaG = new System.Windows.Forms.Button();
-            this.button32 = new System.Windows.Forms.Button();
-            this.triG = new System.Windows.Forms.Button();
-            this.button35 = new System.Windows.Forms.Button();
-            this.ctyriG = new System.Windows.Forms.Button();
-            this.button45 = new System.Windows.Forms.Button();
-            this.petG = new System.Windows.Forms.Button();
-            this.button47 = new System.Windows.Forms.Button();
-            this.sestG = new System.Windows.Forms.Button();
-            this.sedmG = new System.Windows.Forms.Button();
-            this.button50 = new System.Windows.Forms.Button();
-            this.osmG = new System.Windows.Forms.Button();
-            this.bckG = new System.Windows.Forms.Button();
-            this.devetG = new System.Windows.Forms.Button();
-            this.btnMakeGraph = new System.Windows.Forms.Button();
-            this.plusG = new System.Windows.Forms.Button();
-            this.desCarkaG = new System.Windows.Forms.Button();
-            this.minusG = new System.Windows.Forms.Button();
-            this.delenoG = new System.Windows.Forms.Button();
-            this.kratG = new System.Windows.Forms.Button();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.kalkDate = new System.Windows.Forms.Panel();
             this.labelDate = new System.Windows.Forms.Label();
@@ -197,6 +163,40 @@
             this.desCarkaT = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.button15 = new System.Windows.Forms.Button();
+            this.button17 = new System.Windows.Forms.Button();
+            this.button29 = new System.Windows.Forms.Button();
+            this.button30 = new System.Windows.Forms.Button();
+            this.button31 = new System.Windows.Forms.Button();
+            this.button33 = new System.Windows.Forms.Button();
+            this.button34 = new System.Windows.Forms.Button();
+            this.button39 = new System.Windows.Forms.Button();
+            this.button40 = new System.Windows.Forms.Button();
+            this.button46 = new System.Windows.Forms.Button();
+            this.button48 = new System.Windows.Forms.Button();
+            this.btnX = new System.Windows.Forms.Button();
+            this.nulaG = new System.Windows.Forms.Button();
+            this.jednaG = new System.Windows.Forms.Button();
+            this.dvaG = new System.Windows.Forms.Button();
+            this.button55 = new System.Windows.Forms.Button();
+            this.triG = new System.Windows.Forms.Button();
+            this.button57 = new System.Windows.Forms.Button();
+            this.ctyriG = new System.Windows.Forms.Button();
+            this.button59 = new System.Windows.Forms.Button();
+            this.petG = new System.Windows.Forms.Button();
+            this.button61 = new System.Windows.Forms.Button();
+            this.sestG = new System.Windows.Forms.Button();
+            this.sedmG = new System.Windows.Forms.Button();
+            this.button64 = new System.Windows.Forms.Button();
+            this.osmG = new System.Windows.Forms.Button();
+            this.bckG = new System.Windows.Forms.Button();
+            this.devetG = new System.Windows.Forms.Button();
+            this.btnMakeGraph = new System.Windows.Forms.Button();
+            this.plusG = new System.Windows.Forms.Button();
+            this.desCarkaG = new System.Windows.Forms.Button();
+            this.minusG = new System.Windows.Forms.Button();
+            this.delenoG = new System.Windows.Forms.Button();
+            this.kratG = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.kalkVed.SuspendLayout();
             this.kalkZakl.SuspendLayout();
@@ -669,7 +669,7 @@
             this.kalkVed.Controls.Add(this.minusV);
             this.kalkVed.Controls.Add(this.delenoV);
             this.kalkVed.Controls.Add(this.kratV);
-            this.kalkVed.Location = new System.Drawing.Point(374, 36);
+            this.kalkVed.Location = new System.Drawing.Point(352, 36);
             this.kalkVed.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.kalkVed.Name = "kalkVed";
             this.kalkVed.Size = new System.Drawing.Size(427, 350);
@@ -1517,31 +1517,31 @@
             // 
             // kalkGraf
             // 
-            this.kalkGraf.Controls.Add(this.button3);
-            this.kalkGraf.Controls.Add(this.button6);
-            this.kalkGraf.Controls.Add(this.button12);
-            this.kalkGraf.Controls.Add(this.button13);
-            this.kalkGraf.Controls.Add(this.button19);
-            this.kalkGraf.Controls.Add(this.button21);
-            this.kalkGraf.Controls.Add(this.button22);
-            this.kalkGraf.Controls.Add(this.button24);
-            this.kalkGraf.Controls.Add(this.button25);
-            this.kalkGraf.Controls.Add(this.button26);
-            this.kalkGraf.Controls.Add(this.button27);
+            this.kalkGraf.Controls.Add(this.button15);
+            this.kalkGraf.Controls.Add(this.button17);
+            this.kalkGraf.Controls.Add(this.button29);
+            this.kalkGraf.Controls.Add(this.button30);
+            this.kalkGraf.Controls.Add(this.button31);
+            this.kalkGraf.Controls.Add(this.button33);
+            this.kalkGraf.Controls.Add(this.button34);
+            this.kalkGraf.Controls.Add(this.button39);
+            this.kalkGraf.Controls.Add(this.button40);
+            this.kalkGraf.Controls.Add(this.button46);
+            this.kalkGraf.Controls.Add(this.button48);
             this.kalkGraf.Controls.Add(this.btnX);
             this.kalkGraf.Controls.Add(this.nulaG);
             this.kalkGraf.Controls.Add(this.jednaG);
             this.kalkGraf.Controls.Add(this.dvaG);
-            this.kalkGraf.Controls.Add(this.button32);
+            this.kalkGraf.Controls.Add(this.button55);
             this.kalkGraf.Controls.Add(this.triG);
-            this.kalkGraf.Controls.Add(this.button35);
+            this.kalkGraf.Controls.Add(this.button57);
             this.kalkGraf.Controls.Add(this.ctyriG);
-            this.kalkGraf.Controls.Add(this.button45);
+            this.kalkGraf.Controls.Add(this.button59);
             this.kalkGraf.Controls.Add(this.petG);
-            this.kalkGraf.Controls.Add(this.button47);
+            this.kalkGraf.Controls.Add(this.button61);
             this.kalkGraf.Controls.Add(this.sestG);
             this.kalkGraf.Controls.Add(this.sedmG);
-            this.kalkGraf.Controls.Add(this.button50);
+            this.kalkGraf.Controls.Add(this.button64);
             this.kalkGraf.Controls.Add(this.osmG);
             this.kalkGraf.Controls.Add(this.bckG);
             this.kalkGraf.Controls.Add(this.devetG);
@@ -1552,394 +1552,20 @@
             this.kalkGraf.Controls.Add(this.delenoG);
             this.kalkGraf.Controls.Add(this.kratG);
             this.kalkGraf.Controls.Add(this.chart1);
-            this.kalkGraf.Location = new System.Drawing.Point(786, 537);
+            this.kalkGraf.Location = new System.Drawing.Point(801, 36);
             this.kalkGraf.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.kalkGraf.Name = "kalkGraf";
-            this.kalkGraf.Size = new System.Drawing.Size(755, 468);
+            this.kalkGraf.Size = new System.Drawing.Size(910, 430);
             this.kalkGraf.TabIndex = 104;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(3, 212);
-            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(53, 30);
-            this.button3.TabIndex = 64;
-            this.button3.Tag = "3";
-            this.button3.Text = "ln";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.SpecialniFunkce_Click);
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(3, 178);
-            this.button6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(53, 30);
-            this.button6.TabIndex = 63;
-            this.button6.Tag = "2";
-            this.button6.Text = "log";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.SpecialniFunkce_Click);
-            // 
-            // button12
-            // 
-            this.button12.Location = new System.Drawing.Point(3, 144);
-            this.button12.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(53, 30);
-            this.button12.TabIndex = 62;
-            this.button12.Text = "10X";
-            this.button12.UseVisualStyleBackColor = true;
-            this.button12.Click += new System.EventHandler(this.mocnina10_Click);
-            // 
-            // button13
-            // 
-            this.button13.Location = new System.Drawing.Point(3, 110);
-            this.button13.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(53, 30);
-            this.button13.TabIndex = 61;
-            this.button13.Text = "xY";
-            this.button13.UseVisualStyleBackColor = true;
-            this.button13.Click += new System.EventHandler(this.libovolnaMocnina_Click);
-            // 
-            // button19
-            // 
-            this.button19.Location = new System.Drawing.Point(61, 76);
-            this.button19.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(53, 30);
-            this.button19.TabIndex = 67;
-            this.button19.Text = "(";
-            this.button19.UseVisualStyleBackColor = true;
-            this.button19.Click += new System.EventHandler(this.cisla_Click);
-            // 
-            // button21
-            // 
-            this.button21.Location = new System.Drawing.Point(61, 6);
-            this.button21.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button21.Name = "button21";
-            this.button21.Size = new System.Drawing.Size(53, 30);
-            this.button21.TabIndex = 65;
-            this.button21.Text = "Pi";
-            this.button21.UseVisualStyleBackColor = true;
-            this.button21.Click += new System.EventHandler(this.Pi_Click);
-            // 
-            // button22
-            // 
-            this.button22.Location = new System.Drawing.Point(120, 6);
-            this.button22.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button22.Name = "button22";
-            this.button22.Size = new System.Drawing.Size(53, 30);
-            this.button22.TabIndex = 72;
-            this.button22.Text = "e";
-            this.button22.UseVisualStyleBackColor = true;
-            this.button22.Click += new System.EventHandler(this.Euler_Click);
-            // 
-            // button24
-            // 
-            this.button24.Location = new System.Drawing.Point(120, 42);
-            this.button24.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button24.Name = "button24";
-            this.button24.Size = new System.Drawing.Size(53, 30);
-            this.button24.TabIndex = 73;
-            this.button24.Tag = "1";
-            this.button24.Text = "|x|";
-            this.button24.UseVisualStyleBackColor = true;
-            this.button24.Click += new System.EventHandler(this.SpecialniFunkce_Click);
-            // 
-            // button25
-            // 
-            this.button25.Location = new System.Drawing.Point(120, 76);
-            this.button25.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button25.Name = "button25";
-            this.button25.Size = new System.Drawing.Size(53, 30);
-            this.button25.TabIndex = 74;
-            this.button25.Text = ")";
-            this.button25.UseVisualStyleBackColor = true;
-            this.button25.Click += new System.EventHandler(this.cisla_Click);
-            // 
-            // button26
-            // 
-            this.button26.Location = new System.Drawing.Point(237, 42);
-            this.button26.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button26.Name = "button26";
-            this.button26.Size = new System.Drawing.Size(53, 30);
-            this.button26.TabIndex = 87;
-            this.button26.Tag = "10";
-            this.button26.UseVisualStyleBackColor = true;
-            // 
-            // button27
-            // 
-            this.button27.Location = new System.Drawing.Point(179, 42);
-            this.button27.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button27.Name = "button27";
-            this.button27.Size = new System.Drawing.Size(53, 30);
-            this.button27.TabIndex = 80;
-            this.button27.UseVisualStyleBackColor = true;
-            // 
-            // btnX
-            // 
-            this.btnX.Location = new System.Drawing.Point(179, 76);
-            this.btnX.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnX.Name = "btnX";
-            this.btnX.Size = new System.Drawing.Size(53, 30);
-            this.btnX.TabIndex = 81;
-            this.btnX.Text = "x";
-            this.btnX.UseVisualStyleBackColor = true;
-            this.btnX.Click += new System.EventHandler(this.cisla_Click);
-            // 
-            // nulaG
-            // 
-            this.nulaG.Location = new System.Drawing.Point(120, 212);
-            this.nulaG.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.nulaG.Name = "nulaG";
-            this.nulaG.Size = new System.Drawing.Size(53, 30);
-            this.nulaG.TabIndex = 78;
-            this.nulaG.Text = "0";
-            this.nulaG.UseVisualStyleBackColor = true;
-            this.nulaG.Click += new System.EventHandler(this.cisla_Click);
-            // 
-            // jednaG
-            // 
-            this.jednaG.Location = new System.Drawing.Point(61, 178);
-            this.jednaG.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.jednaG.Name = "jednaG";
-            this.jednaG.Size = new System.Drawing.Size(53, 30);
-            this.jednaG.TabIndex = 70;
-            this.jednaG.Text = "1";
-            this.jednaG.UseVisualStyleBackColor = true;
-            this.jednaG.Click += new System.EventHandler(this.cisla_Click);
-            // 
-            // dvaG
-            // 
-            this.dvaG.Location = new System.Drawing.Point(120, 178);
-            this.dvaG.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dvaG.Name = "dvaG";
-            this.dvaG.Size = new System.Drawing.Size(53, 30);
-            this.dvaG.TabIndex = 77;
-            this.dvaG.Text = "2";
-            this.dvaG.UseVisualStyleBackColor = true;
-            this.dvaG.Click += new System.EventHandler(this.cisla_Click);
-            // 
-            // button32
-            // 
-            this.button32.Location = new System.Drawing.Point(61, 42);
-            this.button32.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button32.Name = "button32";
-            this.button32.Size = new System.Drawing.Size(53, 30);
-            this.button32.TabIndex = 66;
-            this.button32.Text = "1/x";
-            this.button32.UseVisualStyleBackColor = true;
-            this.button32.Click += new System.EventHandler(this.obracenaHodnota_Click);
-            // 
-            // triG
-            // 
-            this.triG.Location = new System.Drawing.Point(179, 178);
-            this.triG.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.triG.Name = "triG";
-            this.triG.Size = new System.Drawing.Size(53, 30);
-            this.triG.TabIndex = 84;
-            this.triG.Text = "3";
-            this.triG.UseVisualStyleBackColor = true;
-            this.triG.Click += new System.EventHandler(this.cisla_Click);
-            // 
-            // button35
-            // 
-            this.button35.Location = new System.Drawing.Point(3, 76);
-            this.button35.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button35.Name = "button35";
-            this.button35.Size = new System.Drawing.Size(53, 30);
-            this.button35.TabIndex = 60;
-            this.button35.Tag = "0";
-            this.button35.Text = "√";
-            this.button35.UseVisualStyleBackColor = true;
-            this.button35.Click += new System.EventHandler(this.SpecialniFunkce_Click);
-            // 
-            // ctyriG
-            // 
-            this.ctyriG.Location = new System.Drawing.Point(61, 144);
-            this.ctyriG.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ctyriG.Name = "ctyriG";
-            this.ctyriG.Size = new System.Drawing.Size(53, 30);
-            this.ctyriG.TabIndex = 69;
-            this.ctyriG.Text = "4";
-            this.ctyriG.UseVisualStyleBackColor = true;
-            this.ctyriG.Click += new System.EventHandler(this.cisla_Click);
-            // 
-            // button45
-            // 
-            this.button45.Location = new System.Drawing.Point(3, 42);
-            this.button45.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button45.Name = "button45";
-            this.button45.Size = new System.Drawing.Size(53, 30);
-            this.button45.TabIndex = 59;
-            this.button45.Text = "x2";
-            this.button45.UseVisualStyleBackColor = true;
-            this.button45.Click += new System.EventHandler(this.druhaMocninaV_Click);
-            // 
-            // petG
-            // 
-            this.petG.Location = new System.Drawing.Point(120, 144);
-            this.petG.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.petG.Name = "petG";
-            this.petG.Size = new System.Drawing.Size(53, 30);
-            this.petG.TabIndex = 76;
-            this.petG.Text = "5";
-            this.petG.UseVisualStyleBackColor = true;
-            this.petG.Click += new System.EventHandler(this.cisla_Click);
-            // 
-            // button47
-            // 
-            this.button47.Location = new System.Drawing.Point(61, 212);
-            this.button47.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button47.Name = "button47";
-            this.button47.Size = new System.Drawing.Size(53, 30);
-            this.button47.TabIndex = 71;
-            this.button47.Text = "+/-";
-            this.button47.UseVisualStyleBackColor = true;
-            this.button47.Click += new System.EventHandler(this.btnPlusMinus_Click);
-            // 
-            // sestG
-            // 
-            this.sestG.Location = new System.Drawing.Point(179, 144);
-            this.sestG.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.sestG.Name = "sestG";
-            this.sestG.Size = new System.Drawing.Size(53, 30);
-            this.sestG.TabIndex = 83;
-            this.sestG.Text = "6";
-            this.sestG.UseVisualStyleBackColor = true;
-            this.sestG.Click += new System.EventHandler(this.cisla_Click);
-            // 
-            // sedmG
-            // 
-            this.sedmG.Location = new System.Drawing.Point(61, 110);
-            this.sedmG.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.sedmG.Name = "sedmG";
-            this.sedmG.Size = new System.Drawing.Size(53, 30);
-            this.sedmG.TabIndex = 68;
-            this.sedmG.Text = "7";
-            this.sedmG.UseVisualStyleBackColor = true;
-            this.sedmG.Click += new System.EventHandler(this.cisla_Click);
-            // 
-            // button50
-            // 
-            this.button50.Location = new System.Drawing.Point(179, 6);
-            this.button50.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button50.Name = "button50";
-            this.button50.Size = new System.Drawing.Size(53, 30);
-            this.button50.TabIndex = 79;
-            this.button50.Text = "C";
-            this.button50.UseVisualStyleBackColor = true;
-            this.button50.Click += new System.EventHandler(this.Clear_Click);
-            // 
-            // osmG
-            // 
-            this.osmG.Location = new System.Drawing.Point(120, 110);
-            this.osmG.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.osmG.Name = "osmG";
-            this.osmG.Size = new System.Drawing.Size(53, 30);
-            this.osmG.TabIndex = 75;
-            this.osmG.Text = "8";
-            this.osmG.UseVisualStyleBackColor = true;
-            this.osmG.Click += new System.EventHandler(this.cisla_Click);
-            // 
-            // bckG
-            // 
-            this.bckG.Location = new System.Drawing.Point(237, 6);
-            this.bckG.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.bckG.Name = "bckG";
-            this.bckG.Size = new System.Drawing.Size(53, 30);
-            this.bckG.TabIndex = 86;
-            this.bckG.Text = "<";
-            this.bckG.UseVisualStyleBackColor = true;
-            this.bckG.Click += new System.EventHandler(this.Backspace_Click);
-            // 
-            // devetG
-            // 
-            this.devetG.Location = new System.Drawing.Point(179, 110);
-            this.devetG.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.devetG.Name = "devetG";
-            this.devetG.Size = new System.Drawing.Size(53, 30);
-            this.devetG.TabIndex = 82;
-            this.devetG.Text = "9";
-            this.devetG.UseVisualStyleBackColor = true;
-            this.devetG.Click += new System.EventHandler(this.cisla_Click);
-            // 
-            // btnMakeGraph
-            // 
-            this.btnMakeGraph.Location = new System.Drawing.Point(237, 212);
-            this.btnMakeGraph.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnMakeGraph.Name = "btnMakeGraph";
-            this.btnMakeGraph.Size = new System.Drawing.Size(53, 30);
-            this.btnMakeGraph.TabIndex = 92;
-            this.btnMakeGraph.UseVisualStyleBackColor = true;
-            this.btnMakeGraph.Click += new System.EventHandler(this.makeGraph_Click);
-            // 
-            // plusG
-            // 
-            this.plusG.Location = new System.Drawing.Point(237, 178);
-            this.plusG.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.plusG.Name = "plusG";
-            this.plusG.Size = new System.Drawing.Size(53, 30);
-            this.plusG.TabIndex = 91;
-            this.plusG.Text = "+";
-            this.plusG.UseVisualStyleBackColor = true;
-            this.plusG.Click += new System.EventHandler(this.vedOper_Click);
-            // 
-            // desCarkaG
-            // 
-            this.desCarkaG.Location = new System.Drawing.Point(179, 212);
-            this.desCarkaG.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.desCarkaG.Name = "desCarkaG";
-            this.desCarkaG.Size = new System.Drawing.Size(53, 30);
-            this.desCarkaG.TabIndex = 85;
-            this.desCarkaG.Text = ",";
-            this.desCarkaG.UseVisualStyleBackColor = true;
-            this.desCarkaG.Click += new System.EventHandler(this.desCarka_Click);
-            // 
-            // minusG
-            // 
-            this.minusG.Location = new System.Drawing.Point(237, 144);
-            this.minusG.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.minusG.Name = "minusG";
-            this.minusG.Size = new System.Drawing.Size(53, 30);
-            this.minusG.TabIndex = 90;
-            this.minusG.Text = "-";
-            this.minusG.UseVisualStyleBackColor = true;
-            this.minusG.Click += new System.EventHandler(this.vedOper_Click);
-            // 
-            // delenoG
-            // 
-            this.delenoG.Location = new System.Drawing.Point(237, 76);
-            this.delenoG.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.delenoG.Name = "delenoG";
-            this.delenoG.Size = new System.Drawing.Size(53, 30);
-            this.delenoG.TabIndex = 88;
-            this.delenoG.Text = "/";
-            this.delenoG.UseVisualStyleBackColor = true;
-            this.delenoG.Click += new System.EventHandler(this.vedOper_Click);
-            // 
-            // kratG
-            // 
-            this.kratG.Location = new System.Drawing.Point(237, 110);
-            this.kratG.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.kratG.Name = "kratG";
-            this.kratG.Size = new System.Drawing.Size(53, 30);
-            this.kratG.TabIndex = 89;
-            this.kratG.Text = "*";
-            this.kratG.UseVisualStyleBackColor = true;
-            this.kratG.Click += new System.EventHandler(this.vedOper_Click);
             // 
             // chart1
             // 
             this.chart1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.chart1.Location = new System.Drawing.Point(307, 6);
+            this.chart1.Location = new System.Drawing.Point(468, 6);
             this.chart1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart1.Name = "chart1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
+            series4.Name = "Series1";
+            this.chart1.Series.Add(series4);
             this.chart1.Size = new System.Drawing.Size(435, 416);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -1951,7 +1577,7 @@
             this.kalkDate.Controls.Add(this.dateTimePicker2);
             this.kalkDate.Controls.Add(this.label2);
             this.kalkDate.Controls.Add(this.dateTimePicker1);
-            this.kalkDate.Location = new System.Drawing.Point(1281, 16);
+            this.kalkDate.Location = new System.Drawing.Point(1252, 725);
             this.kalkDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.kalkDate.Name = "kalkDate";
             this.kalkDate.Size = new System.Drawing.Size(283, 278);
@@ -2025,7 +1651,7 @@
             this.kalkPrevod.Controls.Add(this.osmT);
             this.kalkPrevod.Controls.Add(this.devetT);
             this.kalkPrevod.Controls.Add(this.desCarkaT);
-            this.kalkPrevod.Location = new System.Drawing.Point(1571, 16);
+            this.kalkPrevod.Location = new System.Drawing.Point(1559, 569);
             this.kalkPrevod.Margin = new System.Windows.Forms.Padding(4);
             this.kalkPrevod.Name = "kalkPrevod";
             this.kalkPrevod.Size = new System.Drawing.Size(357, 409);
@@ -2233,6 +1859,382 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.SpecialniFunkce_Click);
             // 
+            // button15
+            // 
+            this.button15.Location = new System.Drawing.Point(10, 288);
+            this.button15.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(76, 43);
+            this.button15.TabIndex = 127;
+            this.button15.Tag = "5";
+            this.button15.Text = "Cos";
+            this.button15.UseVisualStyleBackColor = true;
+            this.button15.Click += new System.EventHandler(this.SpecialniFunkce_Click);
+            // 
+            // button17
+            // 
+            this.button17.Location = new System.Drawing.Point(10, 241);
+            this.button17.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button17.Name = "button17";
+            this.button17.Size = new System.Drawing.Size(76, 43);
+            this.button17.TabIndex = 126;
+            this.button17.Tag = "4";
+            this.button17.Text = "Sin";
+            this.button17.UseVisualStyleBackColor = true;
+            this.button17.Click += new System.EventHandler(this.SpecialniFunkce_Click);
+            // 
+            // button29
+            // 
+            this.button29.Location = new System.Drawing.Point(10, 194);
+            this.button29.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button29.Name = "button29";
+            this.button29.Size = new System.Drawing.Size(76, 43);
+            this.button29.TabIndex = 98;
+            this.button29.Tag = "3";
+            this.button29.Text = "ln";
+            this.button29.UseVisualStyleBackColor = true;
+            this.button29.Click += new System.EventHandler(this.SpecialniFunkce_Click);
+            // 
+            // button30
+            // 
+            this.button30.Location = new System.Drawing.Point(10, 147);
+            this.button30.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button30.Name = "button30";
+            this.button30.Size = new System.Drawing.Size(76, 43);
+            this.button30.TabIndex = 97;
+            this.button30.Tag = "2";
+            this.button30.Text = "log";
+            this.button30.UseVisualStyleBackColor = true;
+            this.button30.Click += new System.EventHandler(this.SpecialniFunkce_Click);
+            // 
+            // button31
+            // 
+            this.button31.Location = new System.Drawing.Point(10, 100);
+            this.button31.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button31.Name = "button31";
+            this.button31.Size = new System.Drawing.Size(76, 43);
+            this.button31.TabIndex = 96;
+            this.button31.Text = "10X";
+            this.button31.UseVisualStyleBackColor = true;
+            // 
+            // button33
+            // 
+            this.button33.Location = new System.Drawing.Point(10, 53);
+            this.button33.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button33.Name = "button33";
+            this.button33.Size = new System.Drawing.Size(76, 43);
+            this.button33.TabIndex = 95;
+            this.button33.Text = "xY";
+            this.button33.UseVisualStyleBackColor = true;
+            this.button33.Click += new System.EventHandler(this.libovolnaMocnina_Click);
+            // 
+            // button34
+            // 
+            this.button34.Location = new System.Drawing.Point(92, 100);
+            this.button34.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button34.Name = "button34";
+            this.button34.Size = new System.Drawing.Size(76, 43);
+            this.button34.TabIndex = 101;
+            this.button34.Text = "(";
+            this.button34.UseVisualStyleBackColor = true;
+            this.button34.Click += new System.EventHandler(this.cisla_Click);
+            // 
+            // button39
+            // 
+            this.button39.Location = new System.Drawing.Point(92, 6);
+            this.button39.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button39.Name = "button39";
+            this.button39.Size = new System.Drawing.Size(76, 43);
+            this.button39.TabIndex = 99;
+            this.button39.Text = "Pi";
+            this.button39.UseVisualStyleBackColor = true;
+            this.button39.Click += new System.EventHandler(this.Pi_Click);
+            // 
+            // button40
+            // 
+            this.button40.Location = new System.Drawing.Point(174, 6);
+            this.button40.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button40.Name = "button40";
+            this.button40.Size = new System.Drawing.Size(76, 43);
+            this.button40.TabIndex = 106;
+            this.button40.Text = "e";
+            this.button40.UseVisualStyleBackColor = true;
+            this.button40.Click += new System.EventHandler(this.Euler_Click);
+            // 
+            // button46
+            // 
+            this.button46.Location = new System.Drawing.Point(256, 53);
+            this.button46.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button46.Name = "button46";
+            this.button46.Size = new System.Drawing.Size(76, 43);
+            this.button46.TabIndex = 107;
+            this.button46.Tag = "1";
+            this.button46.Text = "|x|";
+            this.button46.UseVisualStyleBackColor = true;
+            this.button46.Click += new System.EventHandler(this.SpecialniFunkce_Click);
+            // 
+            // button48
+            // 
+            this.button48.Location = new System.Drawing.Point(174, 100);
+            this.button48.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button48.Name = "button48";
+            this.button48.Size = new System.Drawing.Size(76, 43);
+            this.button48.TabIndex = 108;
+            this.button48.Text = ")";
+            this.button48.UseVisualStyleBackColor = true;
+            this.button48.Click += new System.EventHandler(this.cisla_Click);
+            // 
+            // btnX
+            // 
+            this.btnX.Location = new System.Drawing.Point(256, 100);
+            this.btnX.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnX.Name = "btnX";
+            this.btnX.Size = new System.Drawing.Size(76, 43);
+            this.btnX.TabIndex = 114;
+            this.btnX.Text = "x";
+            this.btnX.UseVisualStyleBackColor = true;
+            this.btnX.Click += new System.EventHandler(this.cisla_Click);
+            // 
+            // nulaG
+            // 
+            this.nulaG.Location = new System.Drawing.Point(174, 288);
+            this.nulaG.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.nulaG.Name = "nulaG";
+            this.nulaG.Size = new System.Drawing.Size(76, 43);
+            this.nulaG.TabIndex = 112;
+            this.nulaG.Text = "0";
+            this.nulaG.UseVisualStyleBackColor = true;
+            this.nulaG.Click += new System.EventHandler(this.cisla_Click);
+            // 
+            // jednaG
+            // 
+            this.jednaG.Location = new System.Drawing.Point(92, 241);
+            this.jednaG.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.jednaG.Name = "jednaG";
+            this.jednaG.Size = new System.Drawing.Size(76, 43);
+            this.jednaG.TabIndex = 104;
+            this.jednaG.Text = "1";
+            this.jednaG.UseVisualStyleBackColor = true;
+            this.jednaG.Click += new System.EventHandler(this.cisla_Click);
+            // 
+            // dvaG
+            // 
+            this.dvaG.Location = new System.Drawing.Point(174, 241);
+            this.dvaG.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dvaG.Name = "dvaG";
+            this.dvaG.Size = new System.Drawing.Size(76, 43);
+            this.dvaG.TabIndex = 111;
+            this.dvaG.Text = "2";
+            this.dvaG.UseVisualStyleBackColor = true;
+            this.dvaG.Click += new System.EventHandler(this.cisla_Click);
+            // 
+            // button55
+            // 
+            this.button55.Location = new System.Drawing.Point(174, 53);
+            this.button55.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button55.Name = "button55";
+            this.button55.Size = new System.Drawing.Size(76, 43);
+            this.button55.TabIndex = 100;
+            this.button55.Text = "1/x";
+            this.button55.UseVisualStyleBackColor = true;
+            this.button55.Click += new System.EventHandler(this.obracenaHodnota_Click);
+            // 
+            // triG
+            // 
+            this.triG.Location = new System.Drawing.Point(256, 241);
+            this.triG.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.triG.Name = "triG";
+            this.triG.Size = new System.Drawing.Size(76, 43);
+            this.triG.TabIndex = 117;
+            this.triG.Text = "3";
+            this.triG.UseVisualStyleBackColor = true;
+            this.triG.Click += new System.EventHandler(this.cisla_Click);
+            // 
+            // button57
+            // 
+            this.button57.Location = new System.Drawing.Point(10, 6);
+            this.button57.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button57.Name = "button57";
+            this.button57.Size = new System.Drawing.Size(76, 43);
+            this.button57.TabIndex = 94;
+            this.button57.Tag = "0";
+            this.button57.Text = "√";
+            this.button57.UseVisualStyleBackColor = true;
+            this.button57.Click += new System.EventHandler(this.SpecialniFunkce_Click);
+            // 
+            // ctyriG
+            // 
+            this.ctyriG.Location = new System.Drawing.Point(92, 194);
+            this.ctyriG.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ctyriG.Name = "ctyriG";
+            this.ctyriG.Size = new System.Drawing.Size(76, 43);
+            this.ctyriG.TabIndex = 103;
+            this.ctyriG.Text = "4";
+            this.ctyriG.UseVisualStyleBackColor = true;
+            this.ctyriG.Click += new System.EventHandler(this.cisla_Click);
+            // 
+            // button59
+            // 
+            this.button59.Location = new System.Drawing.Point(92, 53);
+            this.button59.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button59.Name = "button59";
+            this.button59.Size = new System.Drawing.Size(76, 43);
+            this.button59.TabIndex = 93;
+            this.button59.Text = "x2";
+            this.button59.UseVisualStyleBackColor = true;
+            this.button59.Click += new System.EventHandler(this.druhaMocninaV_Click);
+            // 
+            // petG
+            // 
+            this.petG.Location = new System.Drawing.Point(174, 194);
+            this.petG.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.petG.Name = "petG";
+            this.petG.Size = new System.Drawing.Size(76, 43);
+            this.petG.TabIndex = 110;
+            this.petG.Text = "5";
+            this.petG.UseVisualStyleBackColor = true;
+            this.petG.Click += new System.EventHandler(this.cisla_Click);
+            // 
+            // button61
+            // 
+            this.button61.Location = new System.Drawing.Point(92, 288);
+            this.button61.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button61.Name = "button61";
+            this.button61.Size = new System.Drawing.Size(76, 43);
+            this.button61.TabIndex = 105;
+            this.button61.Text = "+/-";
+            this.button61.UseVisualStyleBackColor = true;
+            // 
+            // sestG
+            // 
+            this.sestG.Location = new System.Drawing.Point(256, 194);
+            this.sestG.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.sestG.Name = "sestG";
+            this.sestG.Size = new System.Drawing.Size(76, 43);
+            this.sestG.TabIndex = 116;
+            this.sestG.Text = "6";
+            this.sestG.UseVisualStyleBackColor = true;
+            this.sestG.Click += new System.EventHandler(this.cisla_Click);
+            // 
+            // sedmG
+            // 
+            this.sedmG.Location = new System.Drawing.Point(92, 147);
+            this.sedmG.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.sedmG.Name = "sedmG";
+            this.sedmG.Size = new System.Drawing.Size(76, 43);
+            this.sedmG.TabIndex = 102;
+            this.sedmG.Text = "7";
+            this.sedmG.UseVisualStyleBackColor = true;
+            this.sedmG.Click += new System.EventHandler(this.cisla_Click);
+            // 
+            // button64
+            // 
+            this.button64.Location = new System.Drawing.Point(256, 6);
+            this.button64.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button64.Name = "button64";
+            this.button64.Size = new System.Drawing.Size(76, 43);
+            this.button64.TabIndex = 113;
+            this.button64.Text = "C";
+            this.button64.UseVisualStyleBackColor = true;
+            this.button64.Click += new System.EventHandler(this.Clear_Click);
+            // 
+            // osmG
+            // 
+            this.osmG.Location = new System.Drawing.Point(174, 147);
+            this.osmG.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.osmG.Name = "osmG";
+            this.osmG.Size = new System.Drawing.Size(76, 43);
+            this.osmG.TabIndex = 109;
+            this.osmG.Text = "8";
+            this.osmG.UseVisualStyleBackColor = true;
+            this.osmG.Click += new System.EventHandler(this.cisla_Click);
+            // 
+            // bckG
+            // 
+            this.bckG.Location = new System.Drawing.Point(338, 6);
+            this.bckG.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.bckG.Name = "bckG";
+            this.bckG.Size = new System.Drawing.Size(76, 43);
+            this.bckG.TabIndex = 119;
+            this.bckG.Text = "<";
+            this.bckG.UseVisualStyleBackColor = true;
+            this.bckG.Click += new System.EventHandler(this.Backspace_Click);
+            // 
+            // devetG
+            // 
+            this.devetG.Location = new System.Drawing.Point(256, 147);
+            this.devetG.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.devetG.Name = "devetG";
+            this.devetG.Size = new System.Drawing.Size(76, 43);
+            this.devetG.TabIndex = 115;
+            this.devetG.Text = "9";
+            this.devetG.UseVisualStyleBackColor = true;
+            this.devetG.Click += new System.EventHandler(this.cisla_Click);
+            // 
+            // btnMakeGraph
+            // 
+            this.btnMakeGraph.Location = new System.Drawing.Point(338, 241);
+            this.btnMakeGraph.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnMakeGraph.Name = "btnMakeGraph";
+            this.btnMakeGraph.Size = new System.Drawing.Size(76, 90);
+            this.btnMakeGraph.TabIndex = 125;
+            this.btnMakeGraph.UseVisualStyleBackColor = true;
+            this.btnMakeGraph.Click += new System.EventHandler(this.makeGraph_Click);
+            // 
+            // plusG
+            // 
+            this.plusG.Location = new System.Drawing.Point(338, 194);
+            this.plusG.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.plusG.Name = "plusG";
+            this.plusG.Size = new System.Drawing.Size(76, 43);
+            this.plusG.TabIndex = 124;
+            this.plusG.Text = "+";
+            this.plusG.UseVisualStyleBackColor = true;
+            this.plusG.Click += new System.EventHandler(this.vedOper_Click);
+            // 
+            // desCarkaG
+            // 
+            this.desCarkaG.Location = new System.Drawing.Point(256, 288);
+            this.desCarkaG.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.desCarkaG.Name = "desCarkaG";
+            this.desCarkaG.Size = new System.Drawing.Size(76, 43);
+            this.desCarkaG.TabIndex = 118;
+            this.desCarkaG.Text = ",";
+            this.desCarkaG.UseVisualStyleBackColor = true;
+            // 
+            // minusG
+            // 
+            this.minusG.Location = new System.Drawing.Point(338, 147);
+            this.minusG.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.minusG.Name = "minusG";
+            this.minusG.Size = new System.Drawing.Size(76, 43);
+            this.minusG.TabIndex = 123;
+            this.minusG.Text = "-";
+            this.minusG.UseVisualStyleBackColor = true;
+            this.minusG.Click += new System.EventHandler(this.vedOper_Click);
+            // 
+            // delenoG
+            // 
+            this.delenoG.Location = new System.Drawing.Point(338, 53);
+            this.delenoG.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.delenoG.Name = "delenoG";
+            this.delenoG.Size = new System.Drawing.Size(76, 43);
+            this.delenoG.TabIndex = 121;
+            this.delenoG.Text = "/";
+            this.delenoG.UseVisualStyleBackColor = true;
+            this.delenoG.Click += new System.EventHandler(this.vedOper_Click);
+            // 
+            // kratG
+            // 
+            this.kratG.Location = new System.Drawing.Point(338, 100);
+            this.kratG.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.kratG.Name = "kratG";
+            this.kratG.Size = new System.Drawing.Size(76, 43);
+            this.kratG.TabIndex = 122;
+            this.kratG.Text = "*";
+            this.kratG.UseVisualStyleBackColor = true;
+            this.kratG.Click += new System.EventHandler(this.vedOper_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -2250,6 +2252,7 @@
             this.Controls.Add(this.kalkZakl);
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(298, 479);
             this.Name = "Form1";
             this.Text = "Kalkulačka";
@@ -2383,40 +2386,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label labelDate;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.Button button19;
-        private System.Windows.Forms.Button button21;
-        private System.Windows.Forms.Button button22;
-        private System.Windows.Forms.Button button24;
-        private System.Windows.Forms.Button button25;
-        private System.Windows.Forms.Button button26;
-        private System.Windows.Forms.Button button27;
-        private System.Windows.Forms.Button btnX;
-        private System.Windows.Forms.Button nulaG;
-        private System.Windows.Forms.Button jednaG;
-        private System.Windows.Forms.Button dvaG;
-        private System.Windows.Forms.Button button32;
-        private System.Windows.Forms.Button triG;
-        private System.Windows.Forms.Button button35;
-        private System.Windows.Forms.Button ctyriG;
-        private System.Windows.Forms.Button button45;
-        private System.Windows.Forms.Button petG;
-        private System.Windows.Forms.Button button47;
-        private System.Windows.Forms.Button sestG;
-        private System.Windows.Forms.Button sedmG;
-        private System.Windows.Forms.Button button50;
-        private System.Windows.Forms.Button osmG;
-        private System.Windows.Forms.Button bckG;
-        private System.Windows.Forms.Button devetG;
-        private System.Windows.Forms.Button btnMakeGraph;
-        private System.Windows.Forms.Button plusG;
-        private System.Windows.Forms.Button desCarkaG;
-        private System.Windows.Forms.Button minusG;
-        private System.Windows.Forms.Button delenoG;
-        private System.Windows.Forms.Button kratG;
         private System.Windows.Forms.Panel kalkPrevod;
         private System.Windows.Forms.ComboBox comboPrevodDo;
         private System.Windows.Forms.Label labPrevod;
@@ -2442,6 +2411,40 @@
         private System.Windows.Forms.Button energieCalc;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.Button button17;
+        private System.Windows.Forms.Button button29;
+        private System.Windows.Forms.Button button30;
+        private System.Windows.Forms.Button button31;
+        private System.Windows.Forms.Button button33;
+        private System.Windows.Forms.Button button34;
+        private System.Windows.Forms.Button button39;
+        private System.Windows.Forms.Button button40;
+        private System.Windows.Forms.Button button46;
+        private System.Windows.Forms.Button button48;
+        private System.Windows.Forms.Button btnX;
+        private System.Windows.Forms.Button nulaG;
+        private System.Windows.Forms.Button jednaG;
+        private System.Windows.Forms.Button dvaG;
+        private System.Windows.Forms.Button button55;
+        private System.Windows.Forms.Button triG;
+        private System.Windows.Forms.Button button57;
+        private System.Windows.Forms.Button ctyriG;
+        private System.Windows.Forms.Button button59;
+        private System.Windows.Forms.Button petG;
+        private System.Windows.Forms.Button button61;
+        private System.Windows.Forms.Button sestG;
+        private System.Windows.Forms.Button sedmG;
+        private System.Windows.Forms.Button button64;
+        private System.Windows.Forms.Button osmG;
+        private System.Windows.Forms.Button bckG;
+        private System.Windows.Forms.Button devetG;
+        private System.Windows.Forms.Button btnMakeGraph;
+        private System.Windows.Forms.Button plusG;
+        private System.Windows.Forms.Button desCarkaG;
+        private System.Windows.Forms.Button minusG;
+        private System.Windows.Forms.Button delenoG;
+        private System.Windows.Forms.Button kratG;
     }
 }
 

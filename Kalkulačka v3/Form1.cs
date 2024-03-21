@@ -35,8 +35,7 @@ namespace Calculator
         bool valid = true;
         bool jeLog = false;
         char[] operandyPole = { '+', '-', '*', '/', '%', '(' , '^'};
-        char[] funkcePole = { 'l','n','a','r','s','c'};
-        //string[] funkcePole = { "log", "ln", "abs", "root" };
+        char[] funkcePole = { 'l','n','a','r','s','c'};        
 
         //Programatorská kalkulačka
         int predchoziSoustava = 0;
@@ -858,12 +857,8 @@ namespace Calculator
                 while((operandy.Contains('*')||operandy.Contains('/')||operandy.Contains('%'))&&valid)
                 {
                     double meziVypocet = 0;
-                    int indexOp;
-                    int[] pomPoleInd = new int[3];
-                    pomPoleInd[0] = operandy.IndexOf('*');
-                    pomPoleInd[1] = operandy.IndexOf('/');
-                    pomPoleInd[2] = operandy.IndexOf('%');
-                    indexOp = pomPoleInd.Where(x => x != -1).Min();
+                    char[] pomPole = { '*', '/', '%' };
+                    int indexOp = IndexOfAny(operandy, pomPole);                   
                     switch (operandy[indexOp])
                     {
                         case '*':
@@ -887,9 +882,7 @@ namespace Calculator
                 
                 if(cisla.Count>0 && valid)
                 {
-                    vysledek = cisla[0];
-
-               
+                    vysledek = cisla[0];               
                     if (operandy.Count > 0)
                     {
                         int count = 1;
@@ -908,7 +901,6 @@ namespace Calculator
                         }
                     }
                 }
-
             }
 
             ZavCount = 0;
@@ -1535,8 +1527,6 @@ namespace Calculator
 
                 double bod;
                 var data = new List<Tuple<double, double>>();
-
-
                 for (double x = -30; x <= 30; x += 0.005)
                 {
                     x = Math.Round(x, 8);
@@ -1733,21 +1723,24 @@ namespace Calculator
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            /* JEN NA TVORBU VĚD KALK */
-            this.Text = "Základní kalkulačka";
             kalkZakl.Visible = true;
             kalkVed.Visible = false;
             kalkGraf.Visible = false;
             kalkDate.Visible = false;
             kalkPrevod.Visible = false;
-                this.Height=500;
-                this.Width=500;
-                this.FormBorderStyle = FormBorderStyle.Fixed3D;
+   
             kalkVed.Location = new Point(kalkZakl.Location.X, kalkZakl.Location.Y);
             kalkProg.Location = new Point(kalkZakl.Location.X, kalkZakl.Location.Y);
             kalkGraf.Location = new Point(kalkZakl.Location.X, kalkZakl.Location.Y);
             kalkDate.Location = new Point(kalkZakl.Location.X, kalkZakl.Location.Y);
             kalkPrevod.Location= new Point(kalkZakl.Location.X, kalkZakl.Location.Y);            
+            
+            this.FormBorderStyle = FormBorderStyle.Fixed3D;
+            this.Text = "Základní kalkulačka";
+            this.Height = 420;
+            this.Width = 210;
+            textBox1.Width = 180;
+            panel1.Height = this.Height-75;
         }
 
         private void Form1_Resize(object sender, EventArgs e)
@@ -1771,8 +1764,9 @@ namespace Calculator
             textBox1.Visible = true;
             kalkZakl.Visible = true;
             this.Text = "Základní kalkulačka";
-            this.Height = 500;
-            this.Width = 500;
+            this.Height = 420;
+            this.Width = 210;
+            textBox1.Width = 180;
         }
 
         private void sciCalc_Click(object sender, EventArgs e)
@@ -1783,6 +1777,7 @@ namespace Calculator
             this.Text = "Vědecká kalkulačka";
             this.Height = 500;
             this.Width = 500;
+            textBox1.Width = kalkVed.Width;
         }
         private void progCalc_Click(object sender, EventArgs e)
         {
@@ -1799,8 +1794,9 @@ namespace Calculator
         private void graphCalc_Click(object sender, EventArgs e)
         {
             PanelHide();
-            this.Width = 700;
+            this.Width = 800;
             textBox1.Visible = true;
+            textBox1.Width = 300;
             kalkGraf.Visible = true;
             this.Text = "Vykreslování grafů";
         }
@@ -1846,8 +1842,7 @@ namespace Calculator
             else if (textBox1.Text == "x")
             {
                 jeLog = true;
-                textBox1.Text = $"{textFunkce}(x)";
-                textBox1.Text = "";
+                textBox1.Text = $"{textFunkce}(x)";       
             }
             else if (valid && textBox1.Text.Length != 0)
             {
