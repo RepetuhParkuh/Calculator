@@ -917,7 +917,10 @@ namespace Calculator
                 }
                 jeLog = false;               
                 label1.Text += textBox1.Text;
-                if (priklad.Length != 0 && ((priklad[priklad.Length-1]>='0'&& priklad[priklad.Length - 1]<='9')|| priklad[priklad.Length - 1] == 'x' || (priklad[priklad.Length-1]>='A'&& priklad[priklad.Length - 1]<='F')))
+                if (priklad.Length != 0 &&
+                    ((priklad[priklad.Length-1]>='0'&& priklad[priklad.Length - 1]<='9')||
+                    priklad[priklad.Length - 1] == 'x' || (priklad[priklad.Length-1]>='A'&&
+                    priklad[priklad.Length - 1]<='F')))
                 {
                     if (Convert.ToInt32((sender as Button).Tag) == 10)
                     {
@@ -1069,12 +1072,8 @@ namespace Calculator
                 while ((operandy.Contains('*') || operandy.Contains('/') || operandy.Contains('%')) && valid)
                 {
                     long meziVypocet = 0;
-                    int indexOp;
-                    int[] pomPoleInd = new int[3];
-                    pomPoleInd[0] = operandy.IndexOf('*');
-                    pomPoleInd[1] = operandy.IndexOf('/');
-                    pomPoleInd[2] = operandy.IndexOf('%');
-                    indexOp = pomPoleInd.Where(x => x != -1).Min();
+                    char[] pomPole = { '*', '/', '%' };
+                    int indexOp = IndexOfAny(operandy, pomPole);
                     switch (operandy[indexOp])
                     {
                         case '*':
