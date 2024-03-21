@@ -1794,6 +1794,7 @@ namespace Calculator
         {
             PanelHide();
             this.Width = 800;
+            this.Height = 500;
             textBox1.Visible = true;
             textBox1.Width = 300;
             kalkGraf.Visible = true;
