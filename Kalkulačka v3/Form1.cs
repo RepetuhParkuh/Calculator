@@ -952,7 +952,7 @@ namespace Kalkulačka_v3
                 }
                 jeLog = false;               
                 label1.Text += textBox1.Text;
-                if (priklad.Length != 0 && ((priklad[priklad.Length-1]>='0'&& priklad[priklad.Length - 1]<='9')|| priklad[priklad.Length - 1]=='x'))
+                if (priklad.Length != 0 && ((priklad[priklad.Length-1]>='0'&& priklad[priklad.Length - 1]<='9')|| priklad[priklad.Length - 1] == 'x' || (priklad[priklad.Length-1]>='A'&& priklad[priklad.Length - 1]<='F')))
                 {
                     if (Convert.ToInt32((sender as Button).Tag) == 10)
                     {
@@ -1115,11 +1115,11 @@ namespace Kalkulačka_v3
                             meziVypocet = cisla[indexOp] * cisla[indexOp + 1];
                             break;
                         case '/':
-                            meziVypocet = cisla[indexOp] / cisla[indexOp + 1];
-                            if (Double.IsInfinity(meziVypocet) || Double.IsNaN(meziVypocet)) invalidInput();
+                            if (cisla[indexOp+1]==0) invalidInput();
+                            else meziVypocet = cisla[indexOp] / cisla[indexOp + 1];
                             break;
                         case '%':
-                            if (Double.IsInfinity(1 / cisla[indexOp + 1])) invalidInput();
+                            if (cisla[indexOp + 1] == 0) invalidInput();
                             else meziVypocet = cisla[indexOp] % cisla[indexOp + 1];
                             break;
                     }
@@ -1411,6 +1411,7 @@ namespace Kalkulačka_v3
         }
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
+            if (textBox1.Text == "Invalid input") valid = false;
             if (textBox1.Text.Length != 0 && valid)
             {
                 if(kalkProg.Visible)
