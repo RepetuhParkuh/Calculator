@@ -9,16 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 
-namespace Kalkulačka_v3
+namespace Calculator
 {
     public partial class Form1 : Form
-    {
-
-        
+    {        
         public Form1()
         {
-            InitializeComponent();
-            
+            InitializeComponent();            
         }
 
 
@@ -60,14 +57,6 @@ namespace Kalkulačka_v3
             new double[] {1000,1000,4.18399,860.585197}
         };
         
-
-        /*
-        double[,] Soustavy = {
-            {10,10,100,1000},
-            {100,100,10000,10000},
-            {1000,1000,1000,1000},
-            {1000,1000,100,10}
-        };*/
         string[][] SoustavyText =
         {
             new string[] {"nanometrů","Mikrometrů","Milimetrů","Centimetrů","Metrů","Kilometrů","Mil","Námořních mil"},
@@ -76,12 +65,11 @@ namespace Kalkulačka_v3
             new string[] {"mililitrů","litrů","hektolitrů","metrů krychlových"},
             new string[] {"mikrosekund","milisekund", "sekund","minut","hodin","dnů","týdnů","let"},
             new string[] {"joulů","kilojoulů","kalorií","Kilowatthodiny"}
-        };
-        
+        };        
 
         //Pomocné funkce
 
-        private void rovnaseFocus()
+        private void EqualsFocus()
         {
             rovnase.Focus();
             rovnaseV.Focus();
@@ -99,7 +87,7 @@ namespace Kalkulačka_v3
 
             Clear();
         }
-        private void btnFakt(object sender, EventArgs e)
+        private void BtnFakt_Click(object sender, EventArgs e)
         {
             if (double.TryParse(textBox1.Text, out double pom))
             {
@@ -116,21 +104,21 @@ namespace Kalkulačka_v3
             textBox1.Text = Math.PI.ToString("F8");
         }
 
-        private void euler_Click(object sender, EventArgs e)
+        private void Euler_Click(object sender, EventArgs e)
         {
             textBox1.Text = Math.E.ToString("F8");
         }
 
-        private void invalidInput()
+        private void InvalidInput()
         {
+            Clear();
+            ClearLabelInProgCalc();
             textBox1.Text = "Invalid input";
-            label1.Text = "";
-            priklad = "";
-            clearLabeluVProgKalk();
             valid = false;
         }
 
-        private void clearLabeluVProgKalk()
+        //Clear funkce
+        private void ClearLabelInProgCalc()
         {
             labelBin.Text = "0";
             labelDec.Text = "0";
@@ -144,8 +132,7 @@ namespace Kalkulačka_v3
             comboPrevodZ.Items.Clear();
         }
 
-        //Clear funkce
-        private void backspace_Click(object sender, EventArgs e)
+        private void Backspace_Click(object sender, EventArgs e)
         {
             if (!valid) textBox1.Text = "0";
             else
@@ -153,19 +140,29 @@ namespace Kalkulačka_v3
                 if (textBox1.Text.Length > 0) textBox1.Text = textBox1.Text.Substring(0, textBox1.Text.Length - 1);
                 if (textBox1.Text.Length == 0) textBox1.Text = "0";
             }
-            rovnaseFocus();
+            EqualsFocus();
         }
 
-        private void CE_Click(object sender, EventArgs e)
-        {
-            textBox1.Clear();
-            textBox1.Text = "0";
-            ZavCount = 0;
-            rovnaseFocus();
-        }
         private void Clear_Click(object sender, EventArgs e)
         {
             Clear();
+        }
+
+        private void Clear()
+        {
+            ZavCount = 0;
+            textBox1.Clear();
+            label1.Text = "";
+            cislo = 0;
+            cislo2 = 0;
+            textBox1.Text = "0";
+            priklad = "";
+            chart1.ChartAreas.Clear();
+            chart1.Series.Clear();
+            chart1.DataSource = null;
+            jeGraf = false;
+            jeMocnina = false;
+            EqualsFocus();
         }
 
         private void dateFrom_ValueChanged(object sender, EventArgs e)
@@ -183,25 +180,7 @@ namespace Kalkulačka_v3
                 labelDate.Text = dny.ToString() + sklonDnu;
             }
             else labelDate.Text = "Stejné datumy";
-        }
-
-
-
-        private void Clear()
-        {
-            ZavCount = 0;
-            textBox1.Clear();
-            label1.Text = "";
-            cislo = 0;
-            textBox1.Text = "0";
-            priklad = "";
-            chart1.ChartAreas.Clear();
-            chart1.Series.Clear();
-            chart1.DataSource = null;
-            jeGraf = false;
-            jeMocnina = false;
-            rovnaseFocus();
-        }
+        }        
 
         // Zadávání čísel
         private void cisla_Click(object sender, EventArgs e)
@@ -231,11 +210,9 @@ namespace Kalkulačka_v3
                     if(textBox1.Text!="0")
                     {
                         if(textBox1.Text[textBox1.Text.Length-1]=='x'||(textBox1.Text[textBox1.Text.Length - 1]>='0'&& textBox1.Text[textBox1.Text.Length - 1]<='í'))
-                        {
-                        
-                                priklad += $"{textBox1.Text}*";
-                                textBox1.Text = "";
-                        
+                        {                        
+                            priklad += $"{textBox1.Text}*";
+                            textBox1.Text = "";                        
                         }
                     }
                 }
@@ -282,7 +259,7 @@ namespace Kalkulačka_v3
                 else textBox1.Text += s;
             }
             label1.Text = priklad;
-            rovnaseFocus();
+            EqualsFocus();
         }
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
@@ -589,7 +566,7 @@ namespace Kalkulačka_v3
                         break;
                 }
             }
-            rovnaseFocus();
+            EqualsFocus();
         }
 
 
@@ -600,11 +577,9 @@ namespace Kalkulačka_v3
 
         //Základní kalkulačka - operace
         private void zaklRovnase_Click(object sender, EventArgs e)
-        {
-            
+        {            
            if (textBox1.Text.Length>0)
            {
-
                 if (pruchod == true)
                 {
                     cislo2 = Convert.ToDouble(textBox1.Text);
@@ -623,18 +598,16 @@ namespace Kalkulačka_v3
                             cislo *= cislo2;
                             break;
                         case '/':
-                        if (Double.IsInfinity(cislo /= cislo2) || Double.IsNaN(cislo /= cislo2))
-                        {
-                            Clear();
-                            invalidInput();
+                        if (Double.IsInfinity(cislo / cislo2) || Double.IsNaN(cislo / cislo2))
+                        {                            
+                            InvalidInput();
                         }
                         else cislo /= cislo2;
                         break;
-                    }
-                
-            label1.Text = "";
-            textBox1.Text = cislo.ToString();
-            pruchod = false;
+                    }                
+                label1.Text = "";
+                if(valid) textBox1.Text = cislo.ToString();
+                pruchod = false;
                 jeVysledek = true;        //Po zmáčknutí rovnáse se nebude připisovat do výsledku ale přepíše se
             }
         }
@@ -668,28 +641,28 @@ namespace Kalkulačka_v3
                             cislo *= cislo2;
                             break;
                         case '/':
-                            if (Double.IsInfinity(cislo /= cislo2) || Double.IsNaN(cislo /= cislo2))
-                            {
-                                Clear();
-                                invalidInput();                                
+                            if (Double.IsInfinity(cislo / cislo2) || Double.IsNaN(cislo / cislo2))
+                            {                            
+                                InvalidInput();                                
                             }
                             else cislo /= cislo2;
                             break;
-                    }
-                    label1.Text = textBox1.Text;
-                    textBox1.Text = cislo.ToString();
+                    }                    
+                    if(valid) label1.Text = textBox1.Text;
+                    textBox1.Text = cislo.ToString();                  
                 }
-                cislo = Convert.ToDouble(textBox1.Text);
-                textBox1.Text += (sender as Button).Text;
-                operace = Convert.ToChar((sender as Button).Text);
-                label1.Text = textBox1.Text;
-                textBox1.Clear();
-                pruchod = true;
-                rovnaseFocus();
+                if(valid)
+                {
+                    cislo = Convert.ToDouble(textBox1.Text);
+                    textBox1.Text += (sender as Button).Text;
+                    operace = Convert.ToChar((sender as Button).Text);
+                    label1.Text = textBox1.Text;
+                    textBox1.Clear();
+                    pruchod = true;
+                }
+                EqualsFocus();
             }            
-        }
-
-        
+        }        
 
         //Vědecká kalkulačka - operace
 
@@ -740,8 +713,7 @@ namespace Kalkulačka_v3
                             //Odstraneni podprikladu z hlavniho prikladu
                             prikladS = prikladS.Remove(indexZacZav, i - indexZacZav + 1);
                             //Vlozeni vysledku z podprikladu                            
-                            double pomVys = vypocitaniPrikladu(podPriklad);
-                           
+                            double pomVys = vypocitaniPrikladu(podPriklad);                           
                             prikladS = prikladS.Insert(indexZacZav, pomVys.ToString());                            
                             zavorka = false;                            
                             //jistota ze to projde vsechny zavorky spravne
@@ -760,11 +732,9 @@ namespace Kalkulačka_v3
                 {                    
                     cislo += c;
                     znam = false;                        
-                }
-                    
+                }                    
                 else if (c == '+' || c == '-' || c == '*' || c == '/' || c == '%'||c=='^')
-                {                  
-                  
+                {                
                     if(cislo!="")
                     {                           
                         cisla.Add(Convert.ToDouble(cislo));
@@ -772,7 +742,7 @@ namespace Kalkulačka_v3
                     cislo = "";
                     operandy.Add(c);
                     znam = true;
-                }    
+                }                
                 /* l = log
                  * n = ln
                  * a = abs
@@ -805,12 +775,9 @@ namespace Kalkulačka_v3
             
             if(cislo!=""&&Double.TryParse(cislo,out double pomCislo)) cisla.Add(pomCislo);
             if(!double.TryParse(prikladS,out vysledek))
-            {               
-                
-
+            {
                 //Určování a počítání priority operací             
-                          
-
+                
                     //Složitější funkce
                 if(funkcePole.Any(prikladS.Contains) && valid)
                 {
@@ -828,7 +795,7 @@ namespace Kalkulačka_v3
                             }
                             else
                             {
-                                invalidInput();
+                                InvalidInput();
                                 break;
                             }
                         }
@@ -843,7 +810,7 @@ namespace Kalkulačka_v3
                             }
                             else
                             {
-                                invalidInput();
+                                InvalidInput();
                                 break;
                             }
                         }
@@ -865,7 +832,7 @@ namespace Kalkulačka_v3
                             }
                             else
                             {
-                                invalidInput();
+                                InvalidInput();
                                 break;
                             }
                         }
@@ -898,10 +865,10 @@ namespace Kalkulačka_v3
                             break;
                         case '/':
                             meziVypocet = cisla[indexOp] / cisla[indexOp+1];
-                            if (Double.IsInfinity(meziVypocet) || Double.IsNaN(meziVypocet)) invalidInput();
+                            if (Double.IsInfinity(meziVypocet) || Double.IsNaN(meziVypocet)) InvalidInput();
                             break;
                         case '%':
-                            if (Double.IsInfinity(1 / cisla[indexOp+1])) invalidInput();
+                            if (Double.IsInfinity(1 / cisla[indexOp+1])) InvalidInput();
                             else meziVypocet = cisla[indexOp] % cisla[indexOp+1];
                             break;
                     }
@@ -970,7 +937,7 @@ namespace Kalkulačka_v3
         }
         private void rovnaseV_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text.Length != 0 && textBox1.Text[textBox1.Text.Length - 1] == '^') invalidInput();
+            if (textBox1.Text.Length != 0 && textBox1.Text[textBox1.Text.Length - 1] == '^') InvalidInput();
             if (valid)
             {
                 if (jeMocnina)
@@ -1005,7 +972,7 @@ namespace Kalkulačka_v3
                     {
                         textBox1.Text = vysledek.ToString();
                     }
-                    else invalidInput();
+                    else InvalidInput();
                     priklad = "";
                     jeVysledek = true;
                 }                
@@ -1116,11 +1083,11 @@ namespace Kalkulačka_v3
                             meziVypocet = cisla[indexOp] * cisla[indexOp + 1];
                             break;
                         case '/':
-                            if (cisla[indexOp+1]==0) invalidInput();
+                            if (cisla[indexOp+1]==0) InvalidInput();
                             else meziVypocet = cisla[indexOp] / cisla[indexOp + 1];
                             break;
                         case '%':
-                            if (cisla[indexOp + 1] == 0) invalidInput();
+                            if (cisla[indexOp + 1] == 0) InvalidInput();
                             else meziVypocet = cisla[indexOp] % cisla[indexOp + 1];
                             break;
                     }
@@ -1157,7 +1124,7 @@ namespace Kalkulačka_v3
             }
 
             ZavCount = 0;
-            if (vysledek < 0) invalidInput();
+            if (vysledek < 0) InvalidInput();
             return vysledek;
 
         }
@@ -1448,7 +1415,7 @@ namespace Kalkulačka_v3
                         labelBin.Text = prevodSoustavy(dec, 2);
                         labelOct.Text = prevodSoustavy(dec, 8);
                     }                  
-                    else invalidInput();
+                    else InvalidInput();
                 } 
                 if(kalkPrevod.Visible)
                 {
@@ -1537,7 +1504,7 @@ namespace Kalkulačka_v3
         // Grafy
         private void makeGraph_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text.Length!=0&&textBox1.Text[textBox1.Text.Length - 1] == '^') invalidInput();
+            if (textBox1.Text.Length!=0&&textBox1.Text[textBox1.Text.Length - 1] == '^') InvalidInput();
             if(valid)
             {
                 if (jeGraf)
@@ -1582,7 +1549,7 @@ namespace Kalkulačka_v3
                     valid = true;
                 }
 
-                if (data.Count == 0) invalidInput();
+                if (data.Count == 0) InvalidInput();
 
                 if (valid)
                 {
@@ -1612,7 +1579,7 @@ namespace Kalkulačka_v3
             
 
             jeVysledek = true;
-            rovnaseFocus();
+            EqualsFocus();
         }
 
         //Převody
@@ -1649,7 +1616,7 @@ namespace Kalkulačka_v3
                 textBox1.Clear();
                 textBox1.Text = (pom *= pom).ToString();
             }            
-            rovnaseFocus();
+            EqualsFocus();
         }
 
         private void druhaOdmocnina_Click(object sender, EventArgs e)
@@ -1663,7 +1630,7 @@ namespace Kalkulačka_v3
                     textBox1.Text=pom.ToString();
                 }
             }
-            rovnaseFocus();
+            EqualsFocus();
         }
 
         private void druhaMocninaV_Click(object sender, EventArgs e)
@@ -1679,7 +1646,7 @@ namespace Kalkulačka_v3
                 priklad += "^2";
                 label1.Text = priklad;
             }
-            rovnaseFocus();
+            EqualsFocus();
         }    
 
 
@@ -1697,7 +1664,7 @@ namespace Kalkulačka_v3
                 jeMocnina = true;
                 valid = false;
             }
-            rovnaseFocus();
+            EqualsFocus();
         }
         private void mocnina10_Click(object sender, EventArgs e)
         {
@@ -1706,7 +1673,7 @@ namespace Kalkulačka_v3
                 textBox1.Text = "10^" + textBox1.Text;
                 jeMocnina=true;
             }
-            rovnaseFocus();
+            EqualsFocus();
         }
         
 
@@ -1730,7 +1697,7 @@ namespace Kalkulačka_v3
                 }
                 else textBox1.Text = "0";
             }
-            rovnaseFocus();
+            EqualsFocus();
         }
 
         private void obracenaHodnota_Click(object sender, EventArgs e)
@@ -1740,7 +1707,7 @@ namespace Kalkulačka_v3
                 textBox1.Text = (1 / pomVys).ToString();
                 jeVysledek = true;
             }
-            rovnaseFocus();
+            EqualsFocus();
         }
         private void desCarka_Click(object sender, EventArgs e)
         {
@@ -1750,7 +1717,7 @@ namespace Kalkulačka_v3
                 if (!textBox1.Text.Contains(",") && !jeVysledek) textBox1.Text += (sender as Button).Text;
                 else textBox1.Text = "0" + (sender as Button).Text;
             }
-            rovnaseFocus();
+            EqualsFocus();
         }
 
         
@@ -1811,7 +1778,6 @@ namespace Kalkulačka_v3
             this.Height = 500;
             this.Width = 500;
         }
-
         private void progCalc_Click(object sender, EventArgs e)
         {
             PanelHide();
@@ -1824,7 +1790,6 @@ namespace Kalkulačka_v3
             this.Height = 600;
             this.Width = 500;
         }
-
         private void graphCalc_Click(object sender, EventArgs e)
         {
             PanelHide();
@@ -1833,7 +1798,6 @@ namespace Kalkulačka_v3
             kalkGraf.Visible = true;
             this.Text = "Vykreslování grafů";
         }
-
         private void dateCalc_Click(object sender, EventArgs e)
         {
             PanelHide();
@@ -1843,7 +1807,6 @@ namespace Kalkulačka_v3
             this.Height = 500;
             this.Width = 500;
         }
-
         private void SpecialniFunkce_Click(object sender, EventArgs e)
         {
             string textFunkce="";
@@ -1870,7 +1833,7 @@ namespace Kalkulačka_v3
 
                 if (logPar < 0)
                 {
-                    invalidInput();
+                    InvalidInput();
                 }
                 else
                 {
@@ -1947,9 +1910,6 @@ namespace Kalkulačka_v3
             comboPrevodDo.SelectedIndex = 1;
             this.Height = 500;
             this.Width = 500;
-        }
-
-        
-
+        }       
     }
 }

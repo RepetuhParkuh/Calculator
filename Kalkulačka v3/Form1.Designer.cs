@@ -1,4 +1,4 @@
-﻿namespace Kalkulačka_v3
+﻿namespace Calculator
 {
     partial class Form1
     {
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.nulaV = new System.Windows.Forms.Button();
             this.jednaV = new System.Windows.Forms.Button();
@@ -79,7 +79,6 @@
             this.btnMod = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.kalkZakl = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
             this.nula = new System.Windows.Forms.Button();
             this.jedna = new System.Windows.Forms.Button();
             this.dva = new System.Windows.Forms.Button();
@@ -415,7 +414,7 @@
             this.bckV.TabIndex = 51;
             this.bckV.Text = "<";
             this.bckV.UseVisualStyleBackColor = true;
-            this.bckV.Click += new System.EventHandler(this.backspace_Click);
+            this.bckV.Click += new System.EventHandler(this.Backspace_Click);
             // 
             // clearV
             // 
@@ -503,7 +502,7 @@
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.MaximumSize = new System.Drawing.Size(451, 999);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(197, 981);
+            this.panel1.Size = new System.Drawing.Size(225, 981);
             this.panel1.TabIndex = 100;
             this.panel1.Visible = false;
             // 
@@ -754,7 +753,7 @@
             this.button37.TabIndex = 31;
             this.button37.Text = "e";
             this.button37.UseVisualStyleBackColor = true;
-            this.button37.Click += new System.EventHandler(this.euler_Click);
+            this.button37.Click += new System.EventHandler(this.Euler_Click);
             // 
             // button36
             // 
@@ -800,12 +799,11 @@
             this.button7.TabIndex = 43;
             this.button7.Text = "n!";
             this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.btnFakt);
+            this.button7.Click += new System.EventHandler(this.BtnFakt_Click);
             // 
             // kalkZakl
             // 
             this.kalkZakl.BackColor = System.Drawing.Color.Transparent;
-            this.kalkZakl.Controls.Add(this.button4);
             this.kalkZakl.Controls.Add(this.nula);
             this.kalkZakl.Controls.Add(this.jedna);
             this.kalkZakl.Controls.Add(this.dva);
@@ -833,17 +831,6 @@
             this.kalkZakl.Name = "kalkZakl";
             this.kalkZakl.Size = new System.Drawing.Size(252, 336);
             this.kalkZakl.TabIndex = 102;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(67, 2);
-            this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(53, 49);
-            this.button4.TabIndex = 21;
-            this.button4.Text = "CA";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.CE_Click);
             // 
             // nula
             // 
@@ -1008,7 +995,7 @@
             this.bck.TabIndex = 41;
             this.bck.Text = "<";
             this.bck.UseVisualStyleBackColor = true;
-            this.bck.Click += new System.EventHandler(this.backspace_Click);
+            this.bck.Click += new System.EventHandler(this.Backspace_Click);
             // 
             // devet
             // 
@@ -1577,7 +1564,7 @@
             this.bckP.Tag = "4";
             this.bckP.Text = "<";
             this.bckP.UseVisualStyleBackColor = true;
-            this.bckP.Click += new System.EventHandler(this.backspace_Click);
+            this.bckP.Click += new System.EventHandler(this.Backspace_Click);
             // 
             // kalkGraf
             // 
@@ -1699,7 +1686,7 @@
             this.button22.TabIndex = 72;
             this.button22.Text = "e";
             this.button22.UseVisualStyleBackColor = true;
-            this.button22.Click += new System.EventHandler(this.euler_Click);
+            this.button22.Click += new System.EventHandler(this.Euler_Click);
             // 
             // button24
             // 
@@ -1918,7 +1905,7 @@
             this.bckG.TabIndex = 86;
             this.bckG.Text = "<";
             this.bckG.UseVisualStyleBackColor = true;
-            this.bckG.Click += new System.EventHandler(this.backspace_Click);
+            this.bckG.Click += new System.EventHandler(this.Backspace_Click);
             // 
             // devetG
             // 
@@ -2002,8 +1989,8 @@
             this.chart1.Location = new System.Drawing.Point(307, 6);
             this.chart1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart1.Name = "chart1";
-            series5.Name = "Series1";
-            this.chart1.Series.Add(series5);
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(435, 416);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -2150,7 +2137,7 @@
             this.bckT.TabIndex = 49;
             this.bckT.Text = "<";
             this.bckT.UseVisualStyleBackColor = true;
-            this.bckT.Click += new System.EventHandler(this.backspace_Click);
+            this.bckT.Click += new System.EventHandler(this.Backspace_Click);
             // 
             // nulaT
             // 
@@ -2344,7 +2331,6 @@
         private System.Windows.Forms.Panel kalkVed;
         private System.Windows.Forms.Button scienceCalc;
         private System.Windows.Forms.Panel kalkZakl;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button nula;
         private System.Windows.Forms.Button jedna;
         private System.Windows.Forms.Button dva;

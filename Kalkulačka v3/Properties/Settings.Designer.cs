@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Kalkulačka_v3.Properties
+namespace Calculator.Properties
 {
 
 

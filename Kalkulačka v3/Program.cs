@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Kalkulačka_v3
+namespace Calculator
 {
     internal static class Program
     {
