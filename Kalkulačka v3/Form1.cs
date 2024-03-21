@@ -970,7 +970,8 @@ namespace Kalkulačka_v3
         }
         private void rovnaseV_Click(object sender, EventArgs e)
         {
-            if(valid)
+            if (textBox1.Text.Length != 0 && textBox1.Text[textBox1.Text.Length - 1] == '^') invalidInput();
+            if (valid)
             {
                 if (jeMocnina)
                 {
@@ -1536,74 +1537,78 @@ namespace Kalkulačka_v3
         // Grafy
         private void makeGraph_Click(object sender, EventArgs e)
         {
-            if(jeGraf)
+            if (textBox1.Text.Length!=0&&textBox1.Text[textBox1.Text.Length - 1] == '^') invalidInput();
+            if(valid)
             {
-                Clear();
-            }
-            jeGraf = true;
-
-            chart1.ChartAreas.Clear();
-            chart1.Series.Clear();
-            chart1.DataSource = null;
-            
-            
-            priklad += textBox1.Text;
-            while (ZavCount > 0)
-            {
-                priklad += ")";
-                ZavCount--;
-            }
-            textBox1.Text = priklad;
-            label1.Text = "";
-
-            double bod;
-            var data = new List<Tuple<double, double>>();
-
-            
-            for (double x = -30; x <= 30; x += 0.005)
-            {
-                x = Math.Round(x, 8);
-                string funkce = priklad;
-                while (funkce.Contains("x"))
+                if (jeGraf)
                 {
-                    int indexOfX = funkce.IndexOf("x");
-                    funkce = funkce.Remove(indexOfX, 1);
-                    funkce = funkce.Insert(indexOfX, x.ToString());
+                    Clear();
                 }
-                    
-                bod = vypocitaniPrikladu(funkce);
-                if (bod > 100 || bod < -100) valid = false;
-                if (valid) data.Add(Tuple.Create(x, bod));
-                
-                valid = true;
-            }
+                jeGraf = true;
 
-            if (data.Count == 0) invalidInput();
+                chart1.ChartAreas.Clear();
+                chart1.Series.Clear();
+                chart1.DataSource = null;
 
-            if (valid)
-            {
+
+                priklad += textBox1.Text;
+                while (ZavCount > 0)
+                {
+                    priklad += ")";
+                    ZavCount--;
+                }
                 textBox1.Text = priklad;
+                label1.Text = "";
 
-                chart1.ChartAreas.Add("area1");
+                double bod;
+                var data = new List<Tuple<double, double>>();
 
-                var series = chart1.Series.Add("series1");
 
-                series.ChartType = SeriesChartType.Line;
-                series.ChartArea = "area1";
-                series.XValueMember = "Item1";
-                series.YValueMembers = "Item2";
+                for (double x = -30; x <= 30; x += 0.005)
+                {
+                    x = Math.Round(x, 8);
+                    string funkce = priklad;
+                    while (funkce.Contains("x"))
+                    {
+                        int indexOfX = funkce.IndexOf("x");
+                        funkce = funkce.Remove(indexOfX, 1);
+                        funkce = funkce.Insert(indexOfX, x.ToString());
+                    }
 
-                chart1.DataSource = data;
+                    bod = vypocitaniPrikladu(funkce);
+                    if (bod > 100 || bod < -100) valid = false;
+                    if (valid) data.Add(Tuple.Create(x, bod));
 
-                chart1.ChartAreas[0].AxisX.Interval = 5.0;
-                chart1.ChartAreas[0].AxisX.Minimum = -30;
-                chart1.ChartAreas[0].AxisX.Maximum = 30;
+                    valid = true;
+                }
 
-                chart1.ChartAreas[0].AxisY.Interval = 5.0;
-                chart1.ChartAreas[0].AxisY.Minimum = -30;
-                chart1.ChartAreas[0].AxisY.Maximum = 30;
-                
-            }
+                if (data.Count == 0) invalidInput();
+
+                if (valid)
+                {
+                    textBox1.Text = priklad;
+
+                    chart1.ChartAreas.Add("area1");
+
+                    var series = chart1.Series.Add("series1");
+
+                    series.ChartType = SeriesChartType.Line;
+                    series.ChartArea = "area1";
+                    series.XValueMember = "Item1";
+                    series.YValueMembers = "Item2";
+
+                    chart1.DataSource = data;
+
+                    chart1.ChartAreas[0].AxisX.Interval = 5.0;
+                    chart1.ChartAreas[0].AxisX.Minimum = -30;
+                    chart1.ChartAreas[0].AxisX.Maximum = 30;
+
+                    chart1.ChartAreas[0].AxisY.Interval = 5.0;
+                    chart1.ChartAreas[0].AxisY.Minimum = -30;
+                    chart1.ChartAreas[0].AxisY.Maximum = 30;
+
+                }
+            }            
             
 
             jeVysledek = true;
@@ -1664,12 +1669,12 @@ namespace Kalkulačka_v3
         private void druhaMocninaV_Click(object sender, EventArgs e)
         {
             
-            if (textBox1.Text.Length != 0&&!operandyPole.Contains(textBox1.Text[textBox1.Text.Length - 1])&&valid && !jeMocnina)
+            if (textBox1.Text.Length != 0&&!operandyPole.Contains(textBox1.Text[textBox1.Text.Length - 1])&&valid/* && !jeMocnina*/)
             {
                 textBox1.Text += "^2";
                 jeMocnina = true;
             }
-            else if (priklad[priklad.Length - 1] == ')')
+            else if (priklad.Length!=0&&priklad[priklad.Length - 1] == ')')
             {
                 priklad += "^2";
                 label1.Text = priklad;
@@ -1680,13 +1685,13 @@ namespace Kalkulačka_v3
 
         private void libovolnaMocnina_Click(object sender, EventArgs e)
         {            
-            if (textBox1.Text.Length != 0 && !operandyPole.Contains(textBox1.Text[textBox1.Text.Length-1])&&valid&&!jeMocnina)
+            if (textBox1.Text.Length != 0 && !operandyPole.Contains(textBox1.Text[textBox1.Text.Length-1])&&valid/*&&!jeMocnina*/)
             {
                 textBox1.Text += "^";
                 jeMocnina = true;
                 valid = false;
             }
-            else if (priklad[priklad.Length - 1] == ')')
+            else if (priklad.Length!=0&&priklad[priklad.Length - 1] == ')')
             {
                 textBox1.Text = "^";
                 jeMocnina = true;
@@ -1854,7 +1859,7 @@ namespace Kalkulačka_v3
                     break;
             }
 
-            if (jeMocnina)
+            if (jeMocnina && textBox1.Text[textBox1.Text.Length-1]!='^')
             {
                 textBox1.Text = "(" + textBox1.Text + ")";
                 jeMocnina = false;
