@@ -106,12 +106,10 @@
             this.labelOct = new System.Windows.Forms.Label();
             this.labelBin = new System.Windows.Forms.Label();
             this.labelDec = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.radioHex = new System.Windows.Forms.RadioButton();
             this.radioOct = new System.Windows.Forms.RadioButton();
             this.radioBin = new System.Windows.Forms.RadioButton();
             this.radioDec = new System.Windows.Forms.RadioButton();
-            this.desCarkaP = new System.Windows.Forms.Button();
             this.nulaP = new System.Windows.Forms.Button();
             this.triP = new System.Windows.Forms.Button();
             this.dvaP = new System.Windows.Forms.Button();
@@ -136,8 +134,6 @@
             this.progC = new System.Windows.Forms.Button();
             this.progB = new System.Windows.Forms.Button();
             this.progA = new System.Windows.Forms.Button();
-            this.bitPosPrav = new System.Windows.Forms.Button();
-            this.bitPosLev = new System.Windows.Forms.Button();
             this.clearP = new System.Windows.Forms.Button();
             this.bckP = new System.Windows.Forms.Button();
             this.kalkGraf = new System.Windows.Forms.Panel();
@@ -199,6 +195,8 @@
             this.osmT = new System.Windows.Forms.Button();
             this.devetT = new System.Windows.Forms.Button();
             this.desCarkaT = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.kalkVed.SuspendLayout();
             this.kalkZakl.SuspendLayout();
@@ -224,10 +222,10 @@
             // 
             // nulaV
             // 
-            this.nulaV.Location = new System.Drawing.Point(128, 217);
+            this.nulaV.Location = new System.Drawing.Point(175, 296);
             this.nulaV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.nulaV.Name = "nulaV";
-            this.nulaV.Size = new System.Drawing.Size(53, 30);
+            this.nulaV.Size = new System.Drawing.Size(76, 43);
             this.nulaV.TabIndex = 37;
             this.nulaV.Text = "0";
             this.nulaV.UseVisualStyleBackColor = true;
@@ -235,10 +233,10 @@
             // 
             // jednaV
             // 
-            this.jednaV.Location = new System.Drawing.Point(69, 183);
+            this.jednaV.Location = new System.Drawing.Point(93, 249);
             this.jednaV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.jednaV.Name = "jednaV";
-            this.jednaV.Size = new System.Drawing.Size(53, 30);
+            this.jednaV.Size = new System.Drawing.Size(76, 43);
             this.jednaV.TabIndex = 26;
             this.jednaV.Text = "1";
             this.jednaV.UseVisualStyleBackColor = true;
@@ -246,10 +244,10 @@
             // 
             // dvaV
             // 
-            this.dvaV.Location = new System.Drawing.Point(128, 183);
+            this.dvaV.Location = new System.Drawing.Point(175, 249);
             this.dvaV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dvaV.Name = "dvaV";
-            this.dvaV.Size = new System.Drawing.Size(53, 30);
+            this.dvaV.Size = new System.Drawing.Size(76, 43);
             this.dvaV.TabIndex = 36;
             this.dvaV.Text = "2";
             this.dvaV.UseVisualStyleBackColor = true;
@@ -257,10 +255,10 @@
             // 
             // triV
             // 
-            this.triV.Location = new System.Drawing.Point(187, 183);
+            this.triV.Location = new System.Drawing.Point(257, 249);
             this.triV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.triV.Name = "triV";
-            this.triV.Size = new System.Drawing.Size(53, 30);
+            this.triV.Size = new System.Drawing.Size(76, 43);
             this.triV.TabIndex = 46;
             this.triV.Text = "3";
             this.triV.UseVisualStyleBackColor = true;
@@ -268,10 +266,10 @@
             // 
             // ctyriV
             // 
-            this.ctyriV.Location = new System.Drawing.Point(69, 149);
+            this.ctyriV.Location = new System.Drawing.Point(93, 202);
             this.ctyriV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ctyriV.Name = "ctyriV";
-            this.ctyriV.Size = new System.Drawing.Size(53, 30);
+            this.ctyriV.Size = new System.Drawing.Size(76, 43);
             this.ctyriV.TabIndex = 25;
             this.ctyriV.Text = "4";
             this.ctyriV.UseVisualStyleBackColor = true;
@@ -279,10 +277,10 @@
             // 
             // petV
             // 
-            this.petV.Location = new System.Drawing.Point(128, 149);
+            this.petV.Location = new System.Drawing.Point(175, 202);
             this.petV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.petV.Name = "petV";
-            this.petV.Size = new System.Drawing.Size(53, 30);
+            this.petV.Size = new System.Drawing.Size(76, 43);
             this.petV.TabIndex = 35;
             this.petV.Text = "5";
             this.petV.UseVisualStyleBackColor = true;
@@ -290,10 +288,10 @@
             // 
             // sestV
             // 
-            this.sestV.Location = new System.Drawing.Point(187, 149);
+            this.sestV.Location = new System.Drawing.Point(257, 202);
             this.sestV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sestV.Name = "sestV";
-            this.sestV.Size = new System.Drawing.Size(53, 30);
+            this.sestV.Size = new System.Drawing.Size(76, 43);
             this.sestV.TabIndex = 45;
             this.sestV.Text = "6";
             this.sestV.UseVisualStyleBackColor = true;
@@ -301,10 +299,10 @@
             // 
             // sedmV
             // 
-            this.sedmV.Location = new System.Drawing.Point(69, 114);
+            this.sedmV.Location = new System.Drawing.Point(93, 155);
             this.sedmV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sedmV.Name = "sedmV";
-            this.sedmV.Size = new System.Drawing.Size(53, 30);
+            this.sedmV.Size = new System.Drawing.Size(76, 43);
             this.sedmV.TabIndex = 24;
             this.sedmV.Text = "7";
             this.sedmV.UseVisualStyleBackColor = true;
@@ -312,10 +310,10 @@
             // 
             // osmV
             // 
-            this.osmV.Location = new System.Drawing.Point(128, 114);
+            this.osmV.Location = new System.Drawing.Point(175, 155);
             this.osmV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.osmV.Name = "osmV";
-            this.osmV.Size = new System.Drawing.Size(53, 30);
+            this.osmV.Size = new System.Drawing.Size(76, 43);
             this.osmV.TabIndex = 34;
             this.osmV.Text = "8";
             this.osmV.UseVisualStyleBackColor = true;
@@ -323,10 +321,10 @@
             // 
             // devetV
             // 
-            this.devetV.Location = new System.Drawing.Point(187, 114);
+            this.devetV.Location = new System.Drawing.Point(257, 155);
             this.devetV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.devetV.Name = "devetV";
-            this.devetV.Size = new System.Drawing.Size(53, 30);
+            this.devetV.Size = new System.Drawing.Size(76, 43);
             this.devetV.TabIndex = 44;
             this.devetV.Text = "9";
             this.devetV.UseVisualStyleBackColor = true;
@@ -334,10 +332,10 @@
             // 
             // plusV
             // 
-            this.plusV.Location = new System.Drawing.Point(245, 183);
+            this.plusV.Location = new System.Drawing.Point(339, 249);
             this.plusV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.plusV.Name = "plusV";
-            this.plusV.Size = new System.Drawing.Size(53, 30);
+            this.plusV.Size = new System.Drawing.Size(76, 43);
             this.plusV.TabIndex = 56;
             this.plusV.Text = "+";
             this.plusV.UseVisualStyleBackColor = true;
@@ -345,10 +343,10 @@
             // 
             // minusV
             // 
-            this.minusV.Location = new System.Drawing.Point(245, 149);
+            this.minusV.Location = new System.Drawing.Point(339, 202);
             this.minusV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.minusV.Name = "minusV";
-            this.minusV.Size = new System.Drawing.Size(53, 30);
+            this.minusV.Size = new System.Drawing.Size(76, 43);
             this.minusV.TabIndex = 55;
             this.minusV.Text = "-";
             this.minusV.UseVisualStyleBackColor = true;
@@ -356,10 +354,10 @@
             // 
             // kratV
             // 
-            this.kratV.Location = new System.Drawing.Point(245, 114);
+            this.kratV.Location = new System.Drawing.Point(339, 155);
             this.kratV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.kratV.Name = "kratV";
-            this.kratV.Size = new System.Drawing.Size(53, 30);
+            this.kratV.Size = new System.Drawing.Size(76, 43);
             this.kratV.TabIndex = 54;
             this.kratV.Text = "*";
             this.kratV.UseVisualStyleBackColor = true;
@@ -367,10 +365,10 @@
             // 
             // delenoV
             // 
-            this.delenoV.Location = new System.Drawing.Point(245, 81);
+            this.delenoV.Location = new System.Drawing.Point(339, 108);
             this.delenoV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.delenoV.Name = "delenoV";
-            this.delenoV.Size = new System.Drawing.Size(53, 30);
+            this.delenoV.Size = new System.Drawing.Size(76, 43);
             this.delenoV.TabIndex = 53;
             this.delenoV.Text = "/";
             this.delenoV.UseVisualStyleBackColor = true;
@@ -378,10 +376,10 @@
             // 
             // desCarkaV
             // 
-            this.desCarkaV.Location = new System.Drawing.Point(187, 217);
+            this.desCarkaV.Location = new System.Drawing.Point(257, 296);
             this.desCarkaV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.desCarkaV.Name = "desCarkaV";
-            this.desCarkaV.Size = new System.Drawing.Size(53, 30);
+            this.desCarkaV.Size = new System.Drawing.Size(76, 43);
             this.desCarkaV.TabIndex = 47;
             this.desCarkaV.Text = ",";
             this.desCarkaV.UseVisualStyleBackColor = true;
@@ -389,10 +387,10 @@
             // 
             // rovnaseV
             // 
-            this.rovnaseV.Location = new System.Drawing.Point(245, 217);
+            this.rovnaseV.Location = new System.Drawing.Point(339, 296);
             this.rovnaseV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rovnaseV.Name = "rovnaseV";
-            this.rovnaseV.Size = new System.Drawing.Size(53, 30);
+            this.rovnaseV.Size = new System.Drawing.Size(76, 43);
             this.rovnaseV.TabIndex = 57;
             this.rovnaseV.Text = "=";
             this.rovnaseV.UseVisualStyleBackColor = true;
@@ -407,10 +405,10 @@
             // 
             // bckV
             // 
-            this.bckV.Location = new System.Drawing.Point(245, 11);
+            this.bckV.Location = new System.Drawing.Point(339, 14);
             this.bckV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bckV.Name = "bckV";
-            this.bckV.Size = new System.Drawing.Size(53, 30);
+            this.bckV.Size = new System.Drawing.Size(76, 43);
             this.bckV.TabIndex = 51;
             this.bckV.Text = "<";
             this.bckV.UseVisualStyleBackColor = true;
@@ -418,10 +416,10 @@
             // 
             // clearV
             // 
-            this.clearV.Location = new System.Drawing.Point(187, 11);
+            this.clearV.Location = new System.Drawing.Point(257, 14);
             this.clearV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.clearV.Name = "clearV";
-            this.clearV.Size = new System.Drawing.Size(53, 30);
+            this.clearV.Size = new System.Drawing.Size(76, 43);
             this.clearV.TabIndex = 41;
             this.clearV.Text = "C";
             this.clearV.UseVisualStyleBackColor = true;
@@ -429,10 +427,10 @@
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(69, 217);
+            this.button8.Location = new System.Drawing.Point(93, 296);
             this.button8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(53, 30);
+            this.button8.Size = new System.Drawing.Size(76, 43);
             this.button8.TabIndex = 27;
             this.button8.Text = "+/-";
             this.button8.UseVisualStyleBackColor = true;
@@ -440,10 +438,10 @@
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(11, 47);
+            this.button9.Location = new System.Drawing.Point(93, 61);
             this.button9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(53, 30);
+            this.button9.Size = new System.Drawing.Size(76, 43);
             this.button9.TabIndex = 12;
             this.button9.Text = "x2";
             this.button9.UseVisualStyleBackColor = true;
@@ -451,10 +449,10 @@
             // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(11, 81);
+            this.button10.Location = new System.Drawing.Point(11, 14);
             this.button10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(53, 30);
+            this.button10.Size = new System.Drawing.Size(76, 43);
             this.button10.TabIndex = 13;
             this.button10.Tag = "0";
             this.button10.Text = "√";
@@ -463,10 +461,10 @@
             // 
             // button11
             // 
-            this.button11.Location = new System.Drawing.Point(69, 47);
+            this.button11.Location = new System.Drawing.Point(175, 61);
             this.button11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(53, 30);
+            this.button11.Size = new System.Drawing.Size(76, 43);
             this.button11.TabIndex = 22;
             this.button11.Text = "1/x";
             this.button11.UseVisualStyleBackColor = true;
@@ -502,7 +500,7 @@
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.MaximumSize = new System.Drawing.Size(451, 999);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(225, 981);
+            this.panel1.Size = new System.Drawing.Size(225, 998);
             this.panel1.TabIndex = 100;
             this.panel1.Visible = false;
             // 
@@ -636,6 +634,8 @@
             // kalkVed
             // 
             this.kalkVed.BackColor = System.Drawing.Color.Transparent;
+            this.kalkVed.Controls.Add(this.button4);
+            this.kalkVed.Controls.Add(this.button1);
             this.kalkVed.Controls.Add(this.button44);
             this.kalkVed.Controls.Add(this.button43);
             this.kalkVed.Controls.Add(this.button42);
@@ -669,19 +669,19 @@
             this.kalkVed.Controls.Add(this.minusV);
             this.kalkVed.Controls.Add(this.delenoV);
             this.kalkVed.Controls.Add(this.kratV);
-            this.kalkVed.Location = new System.Drawing.Point(303, 55);
+            this.kalkVed.Location = new System.Drawing.Point(374, 36);
             this.kalkVed.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.kalkVed.Name = "kalkVed";
-            this.kalkVed.Size = new System.Drawing.Size(350, 278);
+            this.kalkVed.Size = new System.Drawing.Size(427, 350);
             this.kalkVed.TabIndex = 101;
             this.kalkVed.Visible = false;
             // 
             // button44
             // 
-            this.button44.Location = new System.Drawing.Point(11, 217);
+            this.button44.Location = new System.Drawing.Point(11, 202);
             this.button44.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button44.Name = "button44";
-            this.button44.Size = new System.Drawing.Size(53, 30);
+            this.button44.Size = new System.Drawing.Size(76, 43);
             this.button44.TabIndex = 17;
             this.button44.Tag = "3";
             this.button44.Text = "ln";
@@ -690,10 +690,10 @@
             // 
             // button43
             // 
-            this.button43.Location = new System.Drawing.Point(11, 183);
+            this.button43.Location = new System.Drawing.Point(11, 155);
             this.button43.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button43.Name = "button43";
-            this.button43.Size = new System.Drawing.Size(53, 30);
+            this.button43.Size = new System.Drawing.Size(76, 43);
             this.button43.TabIndex = 16;
             this.button43.Tag = "2";
             this.button43.Text = "log";
@@ -702,10 +702,10 @@
             // 
             // button42
             // 
-            this.button42.Location = new System.Drawing.Point(11, 149);
+            this.button42.Location = new System.Drawing.Point(11, 108);
             this.button42.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button42.Name = "button42";
-            this.button42.Size = new System.Drawing.Size(53, 30);
+            this.button42.Size = new System.Drawing.Size(76, 43);
             this.button42.TabIndex = 15;
             this.button42.Text = "10X";
             this.button42.UseVisualStyleBackColor = true;
@@ -713,10 +713,10 @@
             // 
             // button41
             // 
-            this.button41.Location = new System.Drawing.Point(11, 114);
+            this.button41.Location = new System.Drawing.Point(11, 61);
             this.button41.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button41.Name = "button41";
-            this.button41.Size = new System.Drawing.Size(53, 30);
+            this.button41.Size = new System.Drawing.Size(76, 43);
             this.button41.TabIndex = 14;
             this.button41.Text = "xY";
             this.button41.UseVisualStyleBackColor = true;
@@ -724,10 +724,10 @@
             // 
             // btnZacZavV
             // 
-            this.btnZacZavV.Location = new System.Drawing.Point(69, 81);
+            this.btnZacZavV.Location = new System.Drawing.Point(93, 108);
             this.btnZacZavV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnZacZavV.Name = "btnZacZavV";
-            this.btnZacZavV.Size = new System.Drawing.Size(53, 30);
+            this.btnZacZavV.Size = new System.Drawing.Size(76, 43);
             this.btnZacZavV.TabIndex = 23;
             this.btnZacZavV.Text = "(";
             this.btnZacZavV.UseVisualStyleBackColor = true;
@@ -735,10 +735,10 @@
             // 
             // button38
             // 
-            this.button38.Location = new System.Drawing.Point(69, 11);
+            this.button38.Location = new System.Drawing.Point(93, 14);
             this.button38.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button38.Name = "button38";
-            this.button38.Size = new System.Drawing.Size(53, 30);
+            this.button38.Size = new System.Drawing.Size(76, 43);
             this.button38.TabIndex = 21;
             this.button38.Text = "Pi";
             this.button38.UseVisualStyleBackColor = true;
@@ -746,10 +746,10 @@
             // 
             // button37
             // 
-            this.button37.Location = new System.Drawing.Point(128, 11);
+            this.button37.Location = new System.Drawing.Point(175, 14);
             this.button37.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button37.Name = "button37";
-            this.button37.Size = new System.Drawing.Size(53, 30);
+            this.button37.Size = new System.Drawing.Size(76, 43);
             this.button37.TabIndex = 31;
             this.button37.Text = "e";
             this.button37.UseVisualStyleBackColor = true;
@@ -757,10 +757,10 @@
             // 
             // button36
             // 
-            this.button36.Location = new System.Drawing.Point(128, 47);
+            this.button36.Location = new System.Drawing.Point(257, 61);
             this.button36.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button36.Name = "button36";
-            this.button36.Size = new System.Drawing.Size(53, 30);
+            this.button36.Size = new System.Drawing.Size(76, 43);
             this.button36.TabIndex = 32;
             this.button36.Tag = "1";
             this.button36.Text = "|x|";
@@ -769,10 +769,10 @@
             // 
             // btnKonZavV
             // 
-            this.btnKonZavV.Location = new System.Drawing.Point(128, 81);
+            this.btnKonZavV.Location = new System.Drawing.Point(175, 108);
             this.btnKonZavV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnKonZavV.Name = "btnKonZavV";
-            this.btnKonZavV.Size = new System.Drawing.Size(53, 30);
+            this.btnKonZavV.Size = new System.Drawing.Size(76, 43);
             this.btnKonZavV.TabIndex = 33;
             this.btnKonZavV.Text = ")";
             this.btnKonZavV.UseVisualStyleBackColor = true;
@@ -780,10 +780,10 @@
             // 
             // btnMod
             // 
-            this.btnMod.Location = new System.Drawing.Point(245, 47);
+            this.btnMod.Location = new System.Drawing.Point(339, 61);
             this.btnMod.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnMod.Name = "btnMod";
-            this.btnMod.Size = new System.Drawing.Size(53, 30);
+            this.btnMod.Size = new System.Drawing.Size(76, 43);
             this.btnMod.TabIndex = 52;
             this.btnMod.Tag = "10";
             this.btnMod.Text = "mod";
@@ -792,10 +792,10 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(187, 81);
+            this.button7.Location = new System.Drawing.Point(257, 108);
             this.button7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(53, 30);
+            this.button7.Size = new System.Drawing.Size(76, 43);
             this.button7.TabIndex = 43;
             this.button7.Text = "n!";
             this.button7.UseVisualStyleBackColor = true;
@@ -1080,12 +1080,10 @@
             this.kalkProg.Controls.Add(this.labelOct);
             this.kalkProg.Controls.Add(this.labelBin);
             this.kalkProg.Controls.Add(this.labelDec);
-            this.kalkProg.Controls.Add(this.button1);
             this.kalkProg.Controls.Add(this.radioHex);
             this.kalkProg.Controls.Add(this.radioOct);
             this.kalkProg.Controls.Add(this.radioBin);
             this.kalkProg.Controls.Add(this.radioDec);
-            this.kalkProg.Controls.Add(this.desCarkaP);
             this.kalkProg.Controls.Add(this.nulaP);
             this.kalkProg.Controls.Add(this.triP);
             this.kalkProg.Controls.Add(this.dvaP);
@@ -1110,8 +1108,6 @@
             this.kalkProg.Controls.Add(this.progC);
             this.kalkProg.Controls.Add(this.progB);
             this.kalkProg.Controls.Add(this.progA);
-            this.kalkProg.Controls.Add(this.bitPosPrav);
-            this.kalkProg.Controls.Add(this.bitPosLev);
             this.kalkProg.Controls.Add(this.clearP);
             this.kalkProg.Controls.Add(this.bckP);
             this.kalkProg.Location = new System.Drawing.Point(330, 535);
@@ -1156,19 +1152,6 @@
             this.labelDec.Size = new System.Drawing.Size(14, 16);
             this.labelDec.TabIndex = 76;
             this.labelDec.Text = "0";
-            // 
-            // button1
-            // 
-            this.button1.Enabled = false;
-            this.button1.Location = new System.Drawing.Point(92, 412);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(80, 52);
-            this.button1.TabIndex = 75;
-            this.button1.Tag = "0";
-            this.button1.Text = "+/-";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.btnPlusMinus_Click);
             // 
             // radioHex
             // 
@@ -1219,18 +1202,6 @@
             this.radioDec.Text = "Dec";
             this.radioDec.UseVisualStyleBackColor = true;
             this.radioDec.CheckedChanged += new System.EventHandler(this.zmenaSoustavy_ChangeChecked);
-            // 
-            // desCarkaP
-            // 
-            this.desCarkaP.Enabled = false;
-            this.desCarkaP.Location = new System.Drawing.Point(264, 412);
-            this.desCarkaP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.desCarkaP.Name = "desCarkaP";
-            this.desCarkaP.Size = new System.Drawing.Size(80, 52);
-            this.desCarkaP.TabIndex = 70;
-            this.desCarkaP.Text = ",";
-            this.desCarkaP.UseVisualStyleBackColor = true;
-            this.desCarkaP.Click += new System.EventHandler(this.desCarka_Click);
             // 
             // nulaP
             // 
@@ -1354,10 +1325,10 @@
             // 
             // rovnaseP
             // 
-            this.rovnaseP.Location = new System.Drawing.Point(350, 412);
+            this.rovnaseP.Location = new System.Drawing.Point(264, 412);
             this.rovnaseP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rovnaseP.Name = "rovnaseP";
-            this.rovnaseP.Size = new System.Drawing.Size(80, 52);
+            this.rovnaseP.Size = new System.Drawing.Size(166, 52);
             this.rovnaseP.TabIndex = 58;
             this.rovnaseP.Tag = "4";
             this.rovnaseP.Text = "=";
@@ -1450,7 +1421,7 @@
             // 
             // progF
             // 
-            this.progF.Location = new System.Drawing.Point(5, 412);
+            this.progF.Location = new System.Drawing.Point(92, 412);
             this.progF.Margin = new System.Windows.Forms.Padding(4);
             this.progF.Name = "progF";
             this.progF.Size = new System.Drawing.Size(80, 52);
@@ -1462,7 +1433,7 @@
             // 
             // progE
             // 
-            this.progE.Location = new System.Drawing.Point(5, 352);
+            this.progE.Location = new System.Drawing.Point(5, 412);
             this.progE.Margin = new System.Windows.Forms.Padding(4);
             this.progE.Name = "progE";
             this.progE.Size = new System.Drawing.Size(80, 52);
@@ -1474,7 +1445,7 @@
             // 
             // progD
             // 
-            this.progD.Location = new System.Drawing.Point(5, 292);
+            this.progD.Location = new System.Drawing.Point(5, 352);
             this.progD.Margin = new System.Windows.Forms.Padding(4);
             this.progD.Name = "progD";
             this.progD.Size = new System.Drawing.Size(80, 52);
@@ -1486,7 +1457,7 @@
             // 
             // progC
             // 
-            this.progC.Location = new System.Drawing.Point(5, 236);
+            this.progC.Location = new System.Drawing.Point(5, 292);
             this.progC.Margin = new System.Windows.Forms.Padding(4);
             this.progC.Name = "progC";
             this.progC.Size = new System.Drawing.Size(80, 52);
@@ -1498,7 +1469,7 @@
             // 
             // progB
             // 
-            this.progB.Location = new System.Drawing.Point(5, 180);
+            this.progB.Location = new System.Drawing.Point(5, 236);
             this.progB.Margin = new System.Windows.Forms.Padding(4);
             this.progB.Name = "progB";
             this.progB.Size = new System.Drawing.Size(80, 52);
@@ -1510,7 +1481,7 @@
             // 
             // progA
             // 
-            this.progA.Location = new System.Drawing.Point(5, 122);
+            this.progA.Location = new System.Drawing.Point(5, 180);
             this.progA.Margin = new System.Windows.Forms.Padding(4);
             this.progA.Name = "progA";
             this.progA.Size = new System.Drawing.Size(80, 52);
@@ -1520,28 +1491,6 @@
             this.progA.UseVisualStyleBackColor = true;
             this.progA.Click += new System.EventHandler(this.cisla_Click);
             // 
-            // bitPosPrav
-            // 
-            this.bitPosPrav.Location = new System.Drawing.Point(178, 122);
-            this.bitPosPrav.Margin = new System.Windows.Forms.Padding(4);
-            this.bitPosPrav.Name = "bitPosPrav";
-            this.bitPosPrav.Size = new System.Drawing.Size(80, 52);
-            this.bitPosPrav.TabIndex = 3;
-            this.bitPosPrav.Tag = "4";
-            this.bitPosPrav.Text = ">>";
-            this.bitPosPrav.UseVisualStyleBackColor = true;
-            // 
-            // bitPosLev
-            // 
-            this.bitPosLev.Location = new System.Drawing.Point(92, 122);
-            this.bitPosLev.Margin = new System.Windows.Forms.Padding(4);
-            this.bitPosLev.Name = "bitPosLev";
-            this.bitPosLev.Size = new System.Drawing.Size(80, 52);
-            this.bitPosLev.TabIndex = 2;
-            this.bitPosLev.Tag = "4";
-            this.bitPosLev.Text = "<<";
-            this.bitPosLev.UseVisualStyleBackColor = true;
-            // 
             // clearP
             // 
             this.clearP.Location = new System.Drawing.Point(262, 122);
@@ -1550,7 +1499,7 @@
             this.clearP.Size = new System.Drawing.Size(80, 52);
             this.clearP.TabIndex = 1;
             this.clearP.Tag = "4";
-            this.clearP.Text = "C";
+            this.clearP.Text = "Ca";
             this.clearP.UseVisualStyleBackColor = true;
             this.clearP.Click += new System.EventHandler(this.Clear_Click);
             // 
@@ -2002,7 +1951,7 @@
             this.kalkDate.Controls.Add(this.dateTimePicker2);
             this.kalkDate.Controls.Add(this.label2);
             this.kalkDate.Controls.Add(this.dateTimePicker1);
-            this.kalkDate.Location = new System.Drawing.Point(643, 55);
+            this.kalkDate.Location = new System.Drawing.Point(1281, 16);
             this.kalkDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.kalkDate.Name = "kalkDate";
             this.kalkDate.Size = new System.Drawing.Size(283, 278);
@@ -2076,7 +2025,7 @@
             this.kalkPrevod.Controls.Add(this.osmT);
             this.kalkPrevod.Controls.Add(this.devetT);
             this.kalkPrevod.Controls.Add(this.desCarkaT);
-            this.kalkPrevod.Location = new System.Drawing.Point(933, 9);
+            this.kalkPrevod.Location = new System.Drawing.Point(1571, 16);
             this.kalkPrevod.Margin = new System.Windows.Forms.Padding(4);
             this.kalkPrevod.Name = "kalkPrevod";
             this.kalkPrevod.Size = new System.Drawing.Size(357, 409);
@@ -2260,11 +2209,35 @@
             this.desCarkaT.UseVisualStyleBackColor = true;
             this.desCarkaT.Click += new System.EventHandler(this.desCarka_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(11, 249);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(76, 43);
+            this.button1.TabIndex = 58;
+            this.button1.Tag = "4";
+            this.button1.Text = "Sin";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.SpecialniFunkce_Click);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(11, 296);
+            this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(76, 43);
+            this.button4.TabIndex = 59;
+            this.button4.Tag = "5";
+            this.button4.Text = "Cos";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.SpecialniFunkce_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1553, 1016);
+            this.ClientSize = new System.Drawing.Size(1941, 1033);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.kalkPrevod);
             this.Controls.Add(this.kalkDate);
@@ -2365,8 +2338,6 @@
         private System.Windows.Forms.Button button37;
         private System.Windows.Forms.Button button36;
         private System.Windows.Forms.Panel kalkProg;
-        private System.Windows.Forms.Button bitPosPrav;
-        private System.Windows.Forms.Button bitPosLev;
         private System.Windows.Forms.Button clearP;
         private System.Windows.Forms.Button bckP;
         private System.Windows.Forms.Button btnZacZavP;
@@ -2384,7 +2355,6 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button btnKonZavP;
         private System.Windows.Forms.Button progCalc;
-        private System.Windows.Forms.Button desCarkaP;
         private System.Windows.Forms.Button nulaP;
         private System.Windows.Forms.Button triP;
         private System.Windows.Forms.Button dvaP;
@@ -2395,7 +2365,6 @@
         private System.Windows.Forms.Button devetP;
         private System.Windows.Forms.Button osmP;
         private System.Windows.Forms.Button sedmP;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.RadioButton radioHex;
         private System.Windows.Forms.RadioButton radioOct;
         private System.Windows.Forms.RadioButton radioBin;
@@ -2471,6 +2440,8 @@
         private System.Windows.Forms.Button button28;
         private System.Windows.Forms.Button casCalc;
         private System.Windows.Forms.Button energieCalc;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button1;
     }
 }
 

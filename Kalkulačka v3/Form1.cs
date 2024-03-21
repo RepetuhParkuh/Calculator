@@ -35,7 +35,8 @@ namespace Calculator
         bool valid = true;
         bool jeLog = false;
         char[] operandyPole = { '+', '-', '*', '/', '%', '(' , '^'};
-        string[] funkcePole = { "log", "ln", "abs", "root" };
+        char[] funkcePole = { 'l','n','a','r','s','c'};
+        //string[] funkcePole = { "log", "ln", "abs", "root" };
 
         //Programatorská kalkulačka
         int predchoziSoustava = 0;
@@ -68,6 +69,15 @@ namespace Calculator
         };        
 
         //Pomocné funkce
+
+        private int IndexOfAny(List<char> list, char[] pole)
+        {
+            for(int i=0;i<list.Count;i++)
+            {
+                if (Array.IndexOf(pole, list[i]) != -1) return i;
+            }
+            return -1;
+        }
 
         private void EqualsFocus()
         {
@@ -436,10 +446,6 @@ namespace Calculator
                     case Keys.Enter:
                         rovnaseP.PerformClick();
                         break;
-                    case Keys.Decimal:
-                        if (!textBox1.Text.Contains(","))
-                            desCarkaP.PerformClick();
-                        break;
                     case Keys.A:
                         progA.PerformClick();
                         break;
@@ -726,8 +732,9 @@ namespace Calculator
             
 
             //Získávání čísel a operandů            
+            char predchozi=' ';
             foreach (char c in prikladS)
-            {                    
+            {
                 if ((c >= '0' && c <= '9')||(znam&&c=='-')||c==',')
                 {                    
                     cislo += c;
@@ -747,26 +754,30 @@ namespace Calculator
                  * n = ln
                  * a = abs
                  * r = root
+                 * s = sin
+                 * c = cos
                  */
                 else if(c=='g'||c=='n'||c=='s'||c=='t')
-                {
+                {                    
                     switch(c)
                     {
                         case 'g':
                             operandy.Add('l');
                             break;
                         case 'n':
-                            operandy.Add('n');
+                            if (predchozi == 'l') operandy.Add('n');
+                            else operandy.Add('s');
                             break;
                         case 's':
-                            operandy.Add('a');
+                            if (predchozi == 'b') operandy.Add('a');
+                            else operandy.Add('c');
                             break;
                         case 't':
                             operandy.Add('r');
                             break;
                     }
                 }
-                        
+                predchozi = c;      
             }
 
 
@@ -779,63 +790,58 @@ namespace Calculator
                 //Určování a počítání priority operací             
                 
                     //Složitější funkce
-                if(funkcePole.Any(prikladS.Contains) && valid)
+                    
+                while(funkcePole.Any(operandy.Contains)&&valid)
                 {
-                    int diff = 0;
-                    for (int i = 0; i < operandy.Count; i++)
+                    int indexFunkce = IndexOfAny(operandy, funkcePole);
+                    double n = cisla[indexFunkce];                    
+                    switch(operandy[indexFunkce])
                     {
-                        if (operandy[i] == 'l')
-                        {                            
-                            double n = cisla[i - diff];
+                        case 'l':
                             if (n > 0)
-                            {                                
-                                cisla[i - diff] = Math.Log10(n);
-                                operandy.RemoveAt(i - diff);
-                                diff++;
+                            {
+                                cisla[indexFunkce] = Math.Log10(n);
+                                operandy.RemoveAt(indexFunkce);                                
                             }
                             else
                             {
                                 InvalidInput();
-                                break;
                             }
-                        }
-                        else if (operandy[i] == 'n')
-                        {
-                            double n = cisla[i - diff];
+                            break;
+                        case 'n':                            
                             if (n > 0)
                             {
-                                cisla[i - diff] = Math.Log(n);
-                                operandy.RemoveAt(i - diff);
-                                diff++;
+                                cisla[indexFunkce] = Math.Log(n);
+                                operandy.RemoveAt(indexFunkce);
                             }
                             else
                             {
                                 InvalidInput();
-                                break;
                             }
-                        }
-                        else if (operandy[i] == 'a')
-                        {
-                            double n = cisla[i - diff];                            
-                            cisla[i - diff] = Math.Abs(n);
-                            operandy.RemoveAt(i - diff);
-                            diff++;                            
-                        }
-                        else if (operandy[i] == 'r')
-                        {
-                            double n = cisla[i - diff];
+                            break;
+                        case 'a':                            
+                            cisla[indexFunkce] = Math.Abs(n);
+                            operandy.RemoveAt(indexFunkce);
+                            break;
+                        case 'r':
                             if (n >= 0)
                             {
-                                cisla[i - diff] = Math.Sqrt(n);
-                                operandy.RemoveAt(i - diff);
-                                diff++;
+                                cisla[indexFunkce] = Math.Sqrt(n);
+                                operandy.RemoveAt(indexFunkce);                                
                             }
                             else
                             {
-                                InvalidInput();
-                                break;
+                                InvalidInput();                                
                             }
-                        }
+                            break;
+                        case 's':
+                            cisla[indexFunkce] = Math.Sin(n);
+                            operandy.RemoveAt(indexFunkce);
+                            break;
+                        case 'c':
+                            cisla[indexFunkce] = Math.Cos(n);
+                            operandy.RemoveAt(indexFunkce);
+                            break;
                     }
                 }
 
@@ -1820,6 +1826,10 @@ namespace Calculator
                     break;
                 case 3: textFunkce = "ln";
                     break;
+                case 4: textFunkce = "sin";
+                    break;
+                case 5: textFunkce = "cos";
+                    break;
             }
 
             if (jeMocnina && textBox1.Text[textBox1.Text.Length-1]!='^')
@@ -1829,19 +1839,9 @@ namespace Calculator
                 valid = true;
             }
             if (Double.TryParse(textBox1.Text, out double logPar) && valid)
-            {
-
-                if (logPar < 0)
-                {
-                    InvalidInput();
-                }
-                else
-                {
-                    jeLog = true;
-                    textBox1.Text = $"{textFunkce}({logPar})";
-
-                }
-
+            {              
+                jeLog = true;
+                textBox1.Text = $"{textFunkce}({logPar})";
             }
             else if (textBox1.Text == "x")
             {
