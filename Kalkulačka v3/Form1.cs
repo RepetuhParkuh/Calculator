@@ -120,7 +120,7 @@ namespace Calculator
 
         private void InvalidInput()
         {
-            Clear();
+            //Clear();
             ClearLabelInProgCalc();
             textBox1.Text = "Invalid input";
             valid = false;
@@ -910,17 +910,14 @@ namespace Calculator
         {
             if(valid)
             {
-                if (jeMocnina) jeMocnina = false;
-                if (!jeLog)
-                {
-                    priklad += textBox1.Text;
-                }
+                if (jeMocnina) jeMocnina = false;                
+                priklad += textBox1.Text;                
                 jeLog = false;               
                 label1.Text += textBox1.Text;
                 if (priklad.Length != 0 &&
                     ((priklad[priklad.Length-1]>='0'&& priklad[priklad.Length - 1]<='9')||
                     priklad[priklad.Length - 1] == 'x' || (priklad[priklad.Length-1]>='A'&&
-                    priklad[priklad.Length - 1]<='F')))
+                    priklad[priklad.Length - 1] <= 'F')) || priklad[priklad.Length-1]==')')
                 {
                     if (Convert.ToInt32((sender as Button).Tag) == 10)
                     {
@@ -1540,13 +1537,11 @@ namespace Calculator
                     bod = vypocitaniPrikladu(funkce);
                     if (bod > 100 || bod < -100) valid = false;
                     if (valid) data.Add(Tuple.Create(x, bod));
-
                     valid = true;
                 }
 
                 if (data.Count == 0) InvalidInput();
-
-                if (valid)
+                if(valid)
                 {
                     textBox1.Text = priklad;
 
@@ -1568,8 +1563,10 @@ namespace Calculator
                     chart1.ChartAreas[0].AxisY.Interval = 5.0;
                     chart1.ChartAreas[0].AxisY.Minimum = -30;
                     chart1.ChartAreas[0].AxisY.Maximum = 30;
+                }              
+                    
 
-                }
+                
             }            
             
 
@@ -1849,7 +1846,7 @@ namespace Calculator
                 jeLog = true;
                 textBox1.Text = $"{textFunkce}({textBox1.Text})";
             }
-            else if (valid && priklad[priklad.Length - 1] == ')')
+            else if (valid && priklad.Length!=0 && priklad[priklad.Length - 1] == ')')
             {
                 int pomPocZav = 1;
                 int pomIndZav = 0;
