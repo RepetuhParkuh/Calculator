@@ -218,7 +218,7 @@ namespace Calculator
                 {
                     if(textBox1.Text!="0")
                     {
-                        if(textBox1.Text[textBox1.Text.Length-1]=='x'||(textBox1.Text[textBox1.Text.Length - 1]>='0'&& textBox1.Text[textBox1.Text.Length - 1]<='í'))
+                        if(textBox1.Text[textBox1.Text.Length-1]=='x'||(textBox1.Text[textBox1.Text.Length - 1]>='0'&& textBox1.Text[textBox1.Text.Length - 1] <= '9') || textBox1.Text[textBox1.Text.Length - 1]==')')
                         {                        
                             priklad += $"{textBox1.Text}*";
                             textBox1.Text = "";                        
