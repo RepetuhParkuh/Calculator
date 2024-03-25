@@ -252,8 +252,8 @@ namespace Calculator
             {
                 if (ZavCount != 0)
                 {
-                    if (textBox1.Text.Length == 0 && ((priklad[priklad.Length - 1] == '(') || !(priklad[priklad.Length - 1] >= '0' && priklad[priklad.Length - 1] <= '9'))) textBox1.Text = "0";
-                    else if (textBox1.Text[textBox1.Text.Length - 1] == '^') textBox1.Text += "0";
+                    if (textBox1.Text.Length == 0 && ((priklad[priklad.Length - 1] == '(') || !((priklad[priklad.Length - 1] >= '0' && priklad[priklad.Length - 1] <= '9') || priklad[priklad.Length - 1] == ')'))) textBox1.Text = "0";
+                    else if (textBox1.Text.Length!=0 && textBox1.Text[textBox1.Text.Length - 1] == '^') textBox1.Text += "0";
                     priklad += textBox1.Text;
                     textBox1.Text = "";
                     ZavCount--;
