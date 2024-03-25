@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.nulaV = new System.Windows.Forms.Button();
             this.jednaV = new System.Windows.Forms.Button();
@@ -67,6 +67,8 @@
             this.scienceCalc = new System.Windows.Forms.Button();
             this.basicCalc = new System.Windows.Forms.Button();
             this.kalkVed = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.button44 = new System.Windows.Forms.Button();
             this.button43 = new System.Windows.Forms.Button();
             this.button42 = new System.Windows.Forms.Button();
@@ -137,32 +139,6 @@
             this.clearP = new System.Windows.Forms.Button();
             this.bckP = new System.Windows.Forms.Button();
             this.kalkGraf = new System.Windows.Forms.Panel();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.kalkDate = new System.Windows.Forms.Panel();
-            this.labelDate = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.kalkPrevod = new System.Windows.Forms.Panel();
-            this.comboPrevodDo = new System.Windows.Forms.ComboBox();
-            this.labPrevod = new System.Windows.Forms.Label();
-            this.comboPrevodZ = new System.Windows.Forms.ComboBox();
-            this.btnPrevodClear = new System.Windows.Forms.Button();
-            this.bckT = new System.Windows.Forms.Button();
-            this.nulaT = new System.Windows.Forms.Button();
-            this.jednaT = new System.Windows.Forms.Button();
-            this.dvaT = new System.Windows.Forms.Button();
-            this.triT = new System.Windows.Forms.Button();
-            this.ctyriT = new System.Windows.Forms.Button();
-            this.petT = new System.Windows.Forms.Button();
-            this.sestT = new System.Windows.Forms.Button();
-            this.sedmT = new System.Windows.Forms.Button();
-            this.osmT = new System.Windows.Forms.Button();
-            this.devetT = new System.Windows.Forms.Button();
-            this.desCarkaT = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
             this.button17 = new System.Windows.Forms.Button();
             this.button29 = new System.Windows.Forms.Button();
@@ -197,6 +173,33 @@
             this.minusG = new System.Windows.Forms.Button();
             this.delenoG = new System.Windows.Forms.Button();
             this.kratG = new System.Windows.Forms.Button();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.kalkDate = new System.Windows.Forms.Panel();
+            this.labelDate = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.kalkPrevod = new System.Windows.Forms.Panel();
+            this.comboPrevodDo = new System.Windows.Forms.ComboBox();
+            this.labPrevod = new System.Windows.Forms.Label();
+            this.comboPrevodZ = new System.Windows.Forms.ComboBox();
+            this.btnPrevodClear = new System.Windows.Forms.Button();
+            this.bckT = new System.Windows.Forms.Button();
+            this.nulaT = new System.Windows.Forms.Button();
+            this.jednaT = new System.Windows.Forms.Button();
+            this.dvaT = new System.Windows.Forms.Button();
+            this.triT = new System.Windows.Forms.Button();
+            this.ctyriT = new System.Windows.Forms.Button();
+            this.petT = new System.Windows.Forms.Button();
+            this.sestT = new System.Windows.Forms.Button();
+            this.sedmT = new System.Windows.Forms.Button();
+            this.osmT = new System.Windows.Forms.Button();
+            this.devetT = new System.Windows.Forms.Button();
+            this.desCarkaT = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.kalkVed.SuspendLayout();
             this.kalkZakl.SuspendLayout();
@@ -485,6 +488,8 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panel1.AutoScroll = true;
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.energieCalc);
             this.panel1.Controls.Add(this.casCalc);
             this.panel1.Controls.Add(this.button28);
@@ -506,7 +511,7 @@
             // 
             // energieCalc
             // 
-            this.energieCalc.Location = new System.Drawing.Point(15, 480);
+            this.energieCalc.Location = new System.Drawing.Point(15, 509);
             this.energieCalc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.energieCalc.Name = "energieCalc";
             this.energieCalc.Size = new System.Drawing.Size(165, 39);
@@ -518,7 +523,7 @@
             // 
             // casCalc
             // 
-            this.casCalc.Location = new System.Drawing.Point(15, 436);
+            this.casCalc.Location = new System.Drawing.Point(15, 465);
             this.casCalc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.casCalc.Name = "casCalc";
             this.casCalc.Size = new System.Drawing.Size(165, 39);
@@ -530,7 +535,7 @@
             // 
             // button28
             // 
-            this.button28.Location = new System.Drawing.Point(15, 391);
+            this.button28.Location = new System.Drawing.Point(15, 420);
             this.button28.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button28.Name = "button28";
             this.button28.Size = new System.Drawing.Size(165, 39);
@@ -542,7 +547,7 @@
             // 
             // hmotnostCalc
             // 
-            this.hmotnostCalc.Location = new System.Drawing.Point(15, 350);
+            this.hmotnostCalc.Location = new System.Drawing.Point(15, 379);
             this.hmotnostCalc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.hmotnostCalc.Name = "hmotnostCalc";
             this.hmotnostCalc.Size = new System.Drawing.Size(165, 39);
@@ -554,7 +559,7 @@
             // 
             // obsahCalc
             // 
-            this.obsahCalc.Location = new System.Drawing.Point(15, 305);
+            this.obsahCalc.Location = new System.Drawing.Point(15, 334);
             this.obsahCalc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.obsahCalc.Name = "obsahCalc";
             this.obsahCalc.Size = new System.Drawing.Size(165, 39);
@@ -566,7 +571,7 @@
             // 
             // delkaCalc
             // 
-            this.delkaCalc.Location = new System.Drawing.Point(15, 261);
+            this.delkaCalc.Location = new System.Drawing.Point(15, 290);
             this.delkaCalc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.delkaCalc.Name = "delkaCalc";
             this.delkaCalc.Size = new System.Drawing.Size(165, 39);
@@ -675,6 +680,30 @@
             this.kalkVed.Size = new System.Drawing.Size(427, 350);
             this.kalkVed.TabIndex = 101;
             this.kalkVed.Visible = false;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(11, 296);
+            this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(76, 43);
+            this.button4.TabIndex = 59;
+            this.button4.Tag = "5";
+            this.button4.Text = "Cos";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.SpecialniFunkce_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(11, 249);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(76, 43);
+            this.button1.TabIndex = 58;
+            this.button1.Tag = "4";
+            this.button1.Text = "Sin";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.SpecialniFunkce_Click);
             // 
             // button44
             // 
@@ -1110,7 +1139,7 @@
             this.kalkProg.Controls.Add(this.progA);
             this.kalkProg.Controls.Add(this.clearP);
             this.kalkProg.Controls.Add(this.bckP);
-            this.kalkProg.Location = new System.Drawing.Point(330, 535);
+            this.kalkProg.Location = new System.Drawing.Point(800, 13);
             this.kalkProg.Margin = new System.Windows.Forms.Padding(4);
             this.kalkProg.Name = "kalkProg";
             this.kalkProg.Size = new System.Drawing.Size(449, 468);
@@ -1552,312 +1581,11 @@
             this.kalkGraf.Controls.Add(this.delenoG);
             this.kalkGraf.Controls.Add(this.kratG);
             this.kalkGraf.Controls.Add(this.chart1);
-            this.kalkGraf.Location = new System.Drawing.Point(801, 36);
+            this.kalkGraf.Location = new System.Drawing.Point(352, 499);
             this.kalkGraf.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.kalkGraf.Name = "kalkGraf";
             this.kalkGraf.Size = new System.Drawing.Size(910, 430);
             this.kalkGraf.TabIndex = 104;
-            // 
-            // chart1
-            // 
-            this.chart1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.chart1.Location = new System.Drawing.Point(468, 6);
-            this.chart1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.chart1.Name = "chart1";
-            series4.Name = "Series1";
-            this.chart1.Series.Add(series4);
-            this.chart1.Size = new System.Drawing.Size(435, 416);
-            this.chart1.TabIndex = 0;
-            this.chart1.Text = "chart1";
-            // 
-            // kalkDate
-            // 
-            this.kalkDate.Controls.Add(this.labelDate);
-            this.kalkDate.Controls.Add(this.label3);
-            this.kalkDate.Controls.Add(this.dateTimePicker2);
-            this.kalkDate.Controls.Add(this.label2);
-            this.kalkDate.Controls.Add(this.dateTimePicker1);
-            this.kalkDate.Location = new System.Drawing.Point(1252, 725);
-            this.kalkDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.kalkDate.Name = "kalkDate";
-            this.kalkDate.Size = new System.Drawing.Size(283, 278);
-            this.kalkDate.TabIndex = 105;
-            // 
-            // labelDate
-            // 
-            this.labelDate.AutoSize = true;
-            this.labelDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F);
-            this.labelDate.Location = new System.Drawing.Point(11, 162);
-            this.labelDate.Name = "labelDate";
-            this.labelDate.Size = new System.Drawing.Size(196, 32);
-            this.labelDate.TabIndex = 4;
-            this.labelDate.Text = "Stejné datumy";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F);
-            this.label3.Location = new System.Drawing.Point(9, 82);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(50, 32);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Do";
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.dateTimePicker2.Location = new System.Drawing.Point(3, 116);
-            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(277, 30);
-            this.dateTimePicker2.TabIndex = 2;
-            this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateFrom_ValueChanged);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F);
-            this.label2.Location = new System.Drawing.Point(9, 11);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 32);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Od";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(3, 46);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(277, 30);
-            this.dateTimePicker1.TabIndex = 0;
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateFrom_ValueChanged);
-            // 
-            // kalkPrevod
-            // 
-            this.kalkPrevod.Controls.Add(this.comboPrevodDo);
-            this.kalkPrevod.Controls.Add(this.labPrevod);
-            this.kalkPrevod.Controls.Add(this.comboPrevodZ);
-            this.kalkPrevod.Controls.Add(this.btnPrevodClear);
-            this.kalkPrevod.Controls.Add(this.bckT);
-            this.kalkPrevod.Controls.Add(this.nulaT);
-            this.kalkPrevod.Controls.Add(this.jednaT);
-            this.kalkPrevod.Controls.Add(this.dvaT);
-            this.kalkPrevod.Controls.Add(this.triT);
-            this.kalkPrevod.Controls.Add(this.ctyriT);
-            this.kalkPrevod.Controls.Add(this.petT);
-            this.kalkPrevod.Controls.Add(this.sestT);
-            this.kalkPrevod.Controls.Add(this.sedmT);
-            this.kalkPrevod.Controls.Add(this.osmT);
-            this.kalkPrevod.Controls.Add(this.devetT);
-            this.kalkPrevod.Controls.Add(this.desCarkaT);
-            this.kalkPrevod.Location = new System.Drawing.Point(1559, 569);
-            this.kalkPrevod.Margin = new System.Windows.Forms.Padding(4);
-            this.kalkPrevod.Name = "kalkPrevod";
-            this.kalkPrevod.Size = new System.Drawing.Size(357, 409);
-            this.kalkPrevod.TabIndex = 106;
-            // 
-            // comboPrevodDo
-            // 
-            this.comboPrevodDo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboPrevodDo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.comboPrevodDo.FormattingEnabled = true;
-            this.comboPrevodDo.Location = new System.Drawing.Point(11, 90);
-            this.comboPrevodDo.Margin = new System.Windows.Forms.Padding(4);
-            this.comboPrevodDo.Name = "comboPrevodDo";
-            this.comboPrevodDo.Size = new System.Drawing.Size(335, 33);
-            this.comboPrevodDo.TabIndex = 52;
-            this.comboPrevodDo.SelectedIndexChanged += new System.EventHandler(this.ZmenaComboPrevodu);
-            // 
-            // labPrevod
-            // 
-            this.labPrevod.AutoSize = true;
-            this.labPrevod.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F);
-            this.labPrevod.Location = new System.Drawing.Point(5, 49);
-            this.labPrevod.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labPrevod.Name = "labPrevod";
-            this.labPrevod.Size = new System.Drawing.Size(30, 32);
-            this.labPrevod.TabIndex = 51;
-            this.labPrevod.Text = "0";
-            // 
-            // comboPrevodZ
-            // 
-            this.comboPrevodZ.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboPrevodZ.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.comboPrevodZ.FormattingEnabled = true;
-            this.comboPrevodZ.Location = new System.Drawing.Point(11, 6);
-            this.comboPrevodZ.Margin = new System.Windows.Forms.Padding(4);
-            this.comboPrevodZ.Name = "comboPrevodZ";
-            this.comboPrevodZ.Size = new System.Drawing.Size(335, 33);
-            this.comboPrevodZ.TabIndex = 50;
-            this.comboPrevodZ.SelectedIndexChanged += new System.EventHandler(this.ZmenaComboPrevodu);
-            // 
-            // btnPrevodClear
-            // 
-            this.btnPrevodClear.Location = new System.Drawing.Point(126, 133);
-            this.btnPrevodClear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnPrevodClear.Name = "btnPrevodClear";
-            this.btnPrevodClear.Size = new System.Drawing.Size(109, 49);
-            this.btnPrevodClear.TabIndex = 48;
-            this.btnPrevodClear.Text = "C";
-            this.btnPrevodClear.UseVisualStyleBackColor = true;
-            this.btnPrevodClear.Click += new System.EventHandler(this.Clear_Click);
-            // 
-            // bckT
-            // 
-            this.bckT.Location = new System.Drawing.Point(241, 133);
-            this.bckT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.bckT.Name = "bckT";
-            this.bckT.Size = new System.Drawing.Size(109, 49);
-            this.bckT.TabIndex = 49;
-            this.bckT.Text = "<";
-            this.bckT.UseVisualStyleBackColor = true;
-            this.bckT.Click += new System.EventHandler(this.Backspace_Click);
-            // 
-            // nulaT
-            // 
-            this.nulaT.Location = new System.Drawing.Point(126, 345);
-            this.nulaT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.nulaT.Name = "nulaT";
-            this.nulaT.Size = new System.Drawing.Size(109, 49);
-            this.nulaT.TabIndex = 43;
-            this.nulaT.Text = "0";
-            this.nulaT.UseVisualStyleBackColor = true;
-            this.nulaT.Click += new System.EventHandler(this.cisla_Click);
-            // 
-            // jednaT
-            // 
-            this.jednaT.Location = new System.Drawing.Point(11, 292);
-            this.jednaT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.jednaT.Name = "jednaT";
-            this.jednaT.Size = new System.Drawing.Size(109, 49);
-            this.jednaT.TabIndex = 39;
-            this.jednaT.Text = "1";
-            this.jednaT.UseVisualStyleBackColor = true;
-            this.jednaT.Click += new System.EventHandler(this.cisla_Click);
-            // 
-            // dvaT
-            // 
-            this.dvaT.Location = new System.Drawing.Point(126, 292);
-            this.dvaT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dvaT.Name = "dvaT";
-            this.dvaT.Size = new System.Drawing.Size(109, 49);
-            this.dvaT.TabIndex = 42;
-            this.dvaT.Text = "2";
-            this.dvaT.UseVisualStyleBackColor = true;
-            this.dvaT.Click += new System.EventHandler(this.cisla_Click);
-            // 
-            // triT
-            // 
-            this.triT.Location = new System.Drawing.Point(241, 292);
-            this.triT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.triT.Name = "triT";
-            this.triT.Size = new System.Drawing.Size(109, 49);
-            this.triT.TabIndex = 46;
-            this.triT.Text = "3";
-            this.triT.UseVisualStyleBackColor = true;
-            this.triT.Click += new System.EventHandler(this.cisla_Click);
-            // 
-            // ctyriT
-            // 
-            this.ctyriT.Location = new System.Drawing.Point(11, 239);
-            this.ctyriT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ctyriT.Name = "ctyriT";
-            this.ctyriT.Size = new System.Drawing.Size(109, 49);
-            this.ctyriT.TabIndex = 38;
-            this.ctyriT.Text = "4";
-            this.ctyriT.UseVisualStyleBackColor = true;
-            this.ctyriT.Click += new System.EventHandler(this.cisla_Click);
-            // 
-            // petT
-            // 
-            this.petT.Location = new System.Drawing.Point(126, 239);
-            this.petT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.petT.Name = "petT";
-            this.petT.Size = new System.Drawing.Size(109, 49);
-            this.petT.TabIndex = 41;
-            this.petT.Text = "5";
-            this.petT.UseVisualStyleBackColor = true;
-            this.petT.Click += new System.EventHandler(this.cisla_Click);
-            // 
-            // sestT
-            // 
-            this.sestT.Location = new System.Drawing.Point(241, 239);
-            this.sestT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.sestT.Name = "sestT";
-            this.sestT.Size = new System.Drawing.Size(109, 49);
-            this.sestT.TabIndex = 45;
-            this.sestT.Text = "6";
-            this.sestT.UseVisualStyleBackColor = true;
-            this.sestT.Click += new System.EventHandler(this.cisla_Click);
-            // 
-            // sedmT
-            // 
-            this.sedmT.Location = new System.Drawing.Point(11, 186);
-            this.sedmT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.sedmT.Name = "sedmT";
-            this.sedmT.Size = new System.Drawing.Size(109, 49);
-            this.sedmT.TabIndex = 37;
-            this.sedmT.Text = "7";
-            this.sedmT.UseVisualStyleBackColor = true;
-            this.sedmT.Click += new System.EventHandler(this.cisla_Click);
-            // 
-            // osmT
-            // 
-            this.osmT.Location = new System.Drawing.Point(126, 186);
-            this.osmT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.osmT.Name = "osmT";
-            this.osmT.Size = new System.Drawing.Size(109, 49);
-            this.osmT.TabIndex = 40;
-            this.osmT.Text = "8";
-            this.osmT.UseVisualStyleBackColor = true;
-            this.osmT.Click += new System.EventHandler(this.cisla_Click);
-            // 
-            // devetT
-            // 
-            this.devetT.Location = new System.Drawing.Point(241, 186);
-            this.devetT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.devetT.Name = "devetT";
-            this.devetT.Size = new System.Drawing.Size(109, 49);
-            this.devetT.TabIndex = 44;
-            this.devetT.Text = "9";
-            this.devetT.UseVisualStyleBackColor = true;
-            this.devetT.Click += new System.EventHandler(this.cisla_Click);
-            // 
-            // desCarkaT
-            // 
-            this.desCarkaT.Location = new System.Drawing.Point(241, 345);
-            this.desCarkaT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.desCarkaT.Name = "desCarkaT";
-            this.desCarkaT.Size = new System.Drawing.Size(109, 49);
-            this.desCarkaT.TabIndex = 47;
-            this.desCarkaT.Text = ",";
-            this.desCarkaT.UseVisualStyleBackColor = true;
-            this.desCarkaT.Click += new System.EventHandler(this.desCarka_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(11, 249);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(76, 43);
-            this.button1.TabIndex = 58;
-            this.button1.Tag = "4";
-            this.button1.Text = "Sin";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.SpecialniFunkce_Click);
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(11, 296);
-            this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(76, 43);
-            this.button4.TabIndex = 59;
-            this.button4.Tag = "5";
-            this.button4.Text = "Cos";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.SpecialniFunkce_Click);
             // 
             // button15
             // 
@@ -2178,6 +1906,7 @@
             this.btnMakeGraph.Name = "btnMakeGraph";
             this.btnMakeGraph.Size = new System.Drawing.Size(76, 90);
             this.btnMakeGraph.TabIndex = 125;
+            this.btnMakeGraph.Text = "↲";
             this.btnMakeGraph.UseVisualStyleBackColor = true;
             this.btnMakeGraph.Click += new System.EventHandler(this.makeGraph_Click);
             // 
@@ -2235,11 +1964,321 @@
             this.kratG.UseVisualStyleBackColor = true;
             this.kratG.Click += new System.EventHandler(this.vedOper_Click);
             // 
+            // chart1
+            // 
+            this.chart1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.chart1.Location = new System.Drawing.Point(468, 6);
+            this.chart1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.chart1.Name = "chart1";
+            series9.Name = "Series1";
+            this.chart1.Series.Add(series9);
+            this.chart1.Size = new System.Drawing.Size(435, 416);
+            this.chart1.TabIndex = 0;
+            this.chart1.Text = "chart1";
+            // 
+            // kalkDate
+            // 
+            this.kalkDate.Controls.Add(this.label4);
+            this.kalkDate.Controls.Add(this.labelDate);
+            this.kalkDate.Controls.Add(this.label3);
+            this.kalkDate.Controls.Add(this.dateTimePicker2);
+            this.kalkDate.Controls.Add(this.label2);
+            this.kalkDate.Controls.Add(this.dateTimePicker1);
+            this.kalkDate.Location = new System.Drawing.Point(1278, 499);
+            this.kalkDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.kalkDate.Name = "kalkDate";
+            this.kalkDate.Size = new System.Drawing.Size(283, 278);
+            this.kalkDate.TabIndex = 105;
+            // 
+            // labelDate
+            // 
+            this.labelDate.AutoSize = true;
+            this.labelDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F);
+            this.labelDate.Location = new System.Drawing.Point(11, 192);
+            this.labelDate.Name = "labelDate";
+            this.labelDate.Size = new System.Drawing.Size(196, 32);
+            this.labelDate.TabIndex = 4;
+            this.labelDate.Text = "Stejné datumy";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F);
+            this.label3.Location = new System.Drawing.Point(9, 82);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(50, 32);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Do";
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.dateTimePicker2.Location = new System.Drawing.Point(3, 116);
+            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(277, 30);
+            this.dateTimePicker2.TabIndex = 2;
+            this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateFrom_ValueChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F);
+            this.label2.Location = new System.Drawing.Point(9, 11);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(52, 32);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Od";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.dateTimePicker1.Location = new System.Drawing.Point(3, 46);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(277, 30);
+            this.dateTimePicker1.TabIndex = 0;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateFrom_ValueChanged);
+            // 
+            // kalkPrevod
+            // 
+            this.kalkPrevod.Controls.Add(this.comboPrevodDo);
+            this.kalkPrevod.Controls.Add(this.labPrevod);
+            this.kalkPrevod.Controls.Add(this.comboPrevodZ);
+            this.kalkPrevod.Controls.Add(this.btnPrevodClear);
+            this.kalkPrevod.Controls.Add(this.bckT);
+            this.kalkPrevod.Controls.Add(this.nulaT);
+            this.kalkPrevod.Controls.Add(this.jednaT);
+            this.kalkPrevod.Controls.Add(this.dvaT);
+            this.kalkPrevod.Controls.Add(this.triT);
+            this.kalkPrevod.Controls.Add(this.ctyriT);
+            this.kalkPrevod.Controls.Add(this.petT);
+            this.kalkPrevod.Controls.Add(this.sestT);
+            this.kalkPrevod.Controls.Add(this.sedmT);
+            this.kalkPrevod.Controls.Add(this.osmT);
+            this.kalkPrevod.Controls.Add(this.devetT);
+            this.kalkPrevod.Controls.Add(this.desCarkaT);
+            this.kalkPrevod.Location = new System.Drawing.Point(1257, 16);
+            this.kalkPrevod.Margin = new System.Windows.Forms.Padding(4);
+            this.kalkPrevod.Name = "kalkPrevod";
+            this.kalkPrevod.Size = new System.Drawing.Size(357, 409);
+            this.kalkPrevod.TabIndex = 106;
+            // 
+            // comboPrevodDo
+            // 
+            this.comboPrevodDo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboPrevodDo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.comboPrevodDo.FormattingEnabled = true;
+            this.comboPrevodDo.Location = new System.Drawing.Point(11, 90);
+            this.comboPrevodDo.Margin = new System.Windows.Forms.Padding(4);
+            this.comboPrevodDo.Name = "comboPrevodDo";
+            this.comboPrevodDo.Size = new System.Drawing.Size(335, 33);
+            this.comboPrevodDo.TabIndex = 52;
+            this.comboPrevodDo.SelectedIndexChanged += new System.EventHandler(this.ZmenaComboPrevodu);
+            // 
+            // labPrevod
+            // 
+            this.labPrevod.AutoSize = true;
+            this.labPrevod.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F);
+            this.labPrevod.Location = new System.Drawing.Point(5, 49);
+            this.labPrevod.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labPrevod.Name = "labPrevod";
+            this.labPrevod.Size = new System.Drawing.Size(30, 32);
+            this.labPrevod.TabIndex = 51;
+            this.labPrevod.Text = "0";
+            // 
+            // comboPrevodZ
+            // 
+            this.comboPrevodZ.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboPrevodZ.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.comboPrevodZ.FormattingEnabled = true;
+            this.comboPrevodZ.Location = new System.Drawing.Point(11, 6);
+            this.comboPrevodZ.Margin = new System.Windows.Forms.Padding(4);
+            this.comboPrevodZ.Name = "comboPrevodZ";
+            this.comboPrevodZ.Size = new System.Drawing.Size(335, 33);
+            this.comboPrevodZ.TabIndex = 50;
+            this.comboPrevodZ.SelectedIndexChanged += new System.EventHandler(this.ZmenaComboPrevodu);
+            // 
+            // btnPrevodClear
+            // 
+            this.btnPrevodClear.Location = new System.Drawing.Point(126, 133);
+            this.btnPrevodClear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnPrevodClear.Name = "btnPrevodClear";
+            this.btnPrevodClear.Size = new System.Drawing.Size(109, 49);
+            this.btnPrevodClear.TabIndex = 48;
+            this.btnPrevodClear.Text = "C";
+            this.btnPrevodClear.UseVisualStyleBackColor = true;
+            this.btnPrevodClear.Click += new System.EventHandler(this.Clear_Click);
+            // 
+            // bckT
+            // 
+            this.bckT.Location = new System.Drawing.Point(241, 133);
+            this.bckT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.bckT.Name = "bckT";
+            this.bckT.Size = new System.Drawing.Size(109, 49);
+            this.bckT.TabIndex = 49;
+            this.bckT.Text = "<";
+            this.bckT.UseVisualStyleBackColor = true;
+            this.bckT.Click += new System.EventHandler(this.Backspace_Click);
+            // 
+            // nulaT
+            // 
+            this.nulaT.Location = new System.Drawing.Point(126, 345);
+            this.nulaT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.nulaT.Name = "nulaT";
+            this.nulaT.Size = new System.Drawing.Size(109, 49);
+            this.nulaT.TabIndex = 43;
+            this.nulaT.Text = "0";
+            this.nulaT.UseVisualStyleBackColor = true;
+            this.nulaT.Click += new System.EventHandler(this.cisla_Click);
+            // 
+            // jednaT
+            // 
+            this.jednaT.Location = new System.Drawing.Point(11, 292);
+            this.jednaT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.jednaT.Name = "jednaT";
+            this.jednaT.Size = new System.Drawing.Size(109, 49);
+            this.jednaT.TabIndex = 39;
+            this.jednaT.Text = "1";
+            this.jednaT.UseVisualStyleBackColor = true;
+            this.jednaT.Click += new System.EventHandler(this.cisla_Click);
+            // 
+            // dvaT
+            // 
+            this.dvaT.Location = new System.Drawing.Point(126, 292);
+            this.dvaT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dvaT.Name = "dvaT";
+            this.dvaT.Size = new System.Drawing.Size(109, 49);
+            this.dvaT.TabIndex = 42;
+            this.dvaT.Text = "2";
+            this.dvaT.UseVisualStyleBackColor = true;
+            this.dvaT.Click += new System.EventHandler(this.cisla_Click);
+            // 
+            // triT
+            // 
+            this.triT.Location = new System.Drawing.Point(241, 292);
+            this.triT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.triT.Name = "triT";
+            this.triT.Size = new System.Drawing.Size(109, 49);
+            this.triT.TabIndex = 46;
+            this.triT.Text = "3";
+            this.triT.UseVisualStyleBackColor = true;
+            this.triT.Click += new System.EventHandler(this.cisla_Click);
+            // 
+            // ctyriT
+            // 
+            this.ctyriT.Location = new System.Drawing.Point(11, 239);
+            this.ctyriT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ctyriT.Name = "ctyriT";
+            this.ctyriT.Size = new System.Drawing.Size(109, 49);
+            this.ctyriT.TabIndex = 38;
+            this.ctyriT.Text = "4";
+            this.ctyriT.UseVisualStyleBackColor = true;
+            this.ctyriT.Click += new System.EventHandler(this.cisla_Click);
+            // 
+            // petT
+            // 
+            this.petT.Location = new System.Drawing.Point(126, 239);
+            this.petT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.petT.Name = "petT";
+            this.petT.Size = new System.Drawing.Size(109, 49);
+            this.petT.TabIndex = 41;
+            this.petT.Text = "5";
+            this.petT.UseVisualStyleBackColor = true;
+            this.petT.Click += new System.EventHandler(this.cisla_Click);
+            // 
+            // sestT
+            // 
+            this.sestT.Location = new System.Drawing.Point(241, 239);
+            this.sestT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.sestT.Name = "sestT";
+            this.sestT.Size = new System.Drawing.Size(109, 49);
+            this.sestT.TabIndex = 45;
+            this.sestT.Text = "6";
+            this.sestT.UseVisualStyleBackColor = true;
+            this.sestT.Click += new System.EventHandler(this.cisla_Click);
+            // 
+            // sedmT
+            // 
+            this.sedmT.Location = new System.Drawing.Point(11, 186);
+            this.sedmT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.sedmT.Name = "sedmT";
+            this.sedmT.Size = new System.Drawing.Size(109, 49);
+            this.sedmT.TabIndex = 37;
+            this.sedmT.Text = "7";
+            this.sedmT.UseVisualStyleBackColor = true;
+            this.sedmT.Click += new System.EventHandler(this.cisla_Click);
+            // 
+            // osmT
+            // 
+            this.osmT.Location = new System.Drawing.Point(126, 186);
+            this.osmT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.osmT.Name = "osmT";
+            this.osmT.Size = new System.Drawing.Size(109, 49);
+            this.osmT.TabIndex = 40;
+            this.osmT.Text = "8";
+            this.osmT.UseVisualStyleBackColor = true;
+            this.osmT.Click += new System.EventHandler(this.cisla_Click);
+            // 
+            // devetT
+            // 
+            this.devetT.Location = new System.Drawing.Point(241, 186);
+            this.devetT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.devetT.Name = "devetT";
+            this.devetT.Size = new System.Drawing.Size(109, 49);
+            this.devetT.TabIndex = 44;
+            this.devetT.Text = "9";
+            this.devetT.UseVisualStyleBackColor = true;
+            this.devetT.Click += new System.EventHandler(this.cisla_Click);
+            // 
+            // desCarkaT
+            // 
+            this.desCarkaT.Location = new System.Drawing.Point(241, 345);
+            this.desCarkaT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.desCarkaT.Name = "desCarkaT";
+            this.desCarkaT.Size = new System.Drawing.Size(109, 49);
+            this.desCarkaT.TabIndex = 47;
+            this.desCarkaT.Text = ",";
+            this.desCarkaT.UseVisualStyleBackColor = true;
+            this.desCarkaT.Click += new System.EventHandler(this.desCarka_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label4.Location = new System.Drawing.Point(17, 162);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(59, 22);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Rozdíl";
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(15, 552);
+            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(165, 39);
+            this.button3.TabIndex = 11;
+            this.button3.Tag = "6";
+            this.button3.Text = "Výkon";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.TlacitkaPrevody_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label5.Location = new System.Drawing.Point(18, 249);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(99, 22);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "Převodníky";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1941, 1033);
+            this.ClientSize = new System.Drawing.Size(1634, 1033);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.kalkPrevod);
             this.Controls.Add(this.kalkDate);
@@ -2250,6 +2289,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.kalkZakl);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
@@ -2260,6 +2300,7 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.Resize += new System.EventHandler(this.Form1_Resize);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.kalkVed.ResumeLayout(false);
             this.kalkZakl.ResumeLayout(false);
             this.kalkProg.ResumeLayout(false);
@@ -2445,6 +2486,9 @@
         private System.Windows.Forms.Button minusG;
         private System.Windows.Forms.Button delenoG;
         private System.Windows.Forms.Button kratG;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label5;
     }
 }
 

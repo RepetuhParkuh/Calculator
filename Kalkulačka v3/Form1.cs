@@ -54,7 +54,8 @@ namespace Calculator
             new double[] {10,10,10,10,10,100,1000},
             new double[] {1000,1000,100,10},
             new double[] {1000,1000,1000,60,60,24,7,52},
-            new double[] {1000,1000,4.18399,860.585197}
+            new double[] {1000,1000,4.18399,860.585197},
+            new double[] {1000,1000, 0.745701 }
         };
         
         string[][] SoustavyText =
@@ -64,7 +65,8 @@ namespace Calculator
             new string[] {"miligramů","centigramů", "decigramů", "gramů","dekagramů","kilogramů","tun"},
             new string[] {"mililitrů","litrů","hektolitrů","metrů krychlových"},
             new string[] {"mikrosekund","milisekund", "sekund","minut","hodin","dnů","týdnů","let"},
-            new string[] {"joulů","kilojoulů","kalorií","Kilowatthodiny"}
+            new string[] {"joulů","kilojoulů","kalorií","Kilowatthodiny"},
+            new string[] {"Wattů","Kilowattů","Koní"}
         };        
 
         //Pomocné funkce
@@ -1667,8 +1669,89 @@ namespace Calculator
             }
             EqualsFocus();
         }
-        
 
+        private void SpecialniFunkce_Click(object sender, EventArgs e)
+        {
+            string textFunkce = "";
+            switch (Convert.ToInt32((sender as Button).Tag))
+            {
+                case 0:
+                    textFunkce = "root";
+                    break;
+                case 1:
+                    textFunkce = "abs";
+                    break;
+                case 2:
+                    textFunkce = "log";
+                    break;
+                case 3:
+                    textFunkce = "ln";
+                    break;
+                case 4:
+                    textFunkce = "sin";
+                    break;
+                case 5:
+                    textFunkce = "cos";
+                    break;
+            }
+
+            if (jeMocnina && textBox1.Text[textBox1.Text.Length - 1] != '^')
+            {
+                textBox1.Text = "(" + textBox1.Text + ")";
+                jeMocnina = false;
+                valid = true;
+            }
+            if (Double.TryParse(textBox1.Text, out double logPar) && valid)
+            {
+                jeLog = true;
+                textBox1.Text = $"{textFunkce}({logPar})";
+            }
+            else if (textBox1.Text == "x")
+            {
+                jeLog = true;
+                textBox1.Text = $"{textFunkce}(x)";
+            }
+            else if (valid && textBox1.Text.Length != 0)
+            {
+                jeLog = true;
+                textBox1.Text = $"{textFunkce}({textBox1.Text})";
+            }
+            else if (valid && priklad.Length != 0 && priklad[priklad.Length - 1] == ')')
+            {
+                int pomPocZav = 1;
+                int pomIndZav = 0;
+                for (int i = priklad.Length - 2; i >= 0; i--)
+                {
+                    if (priklad[i] == '(') pomPocZav--;
+                    else if (priklad[i] == ')') pomPocZav++;
+                    if (pomPocZav == 0)
+                    {
+                        pomIndZav = i;
+                        if (i - 1 >= 0)
+                        {
+                            if (priklad[i - 1] == 'n')
+                            {
+                                priklad = priklad.Insert(pomIndZav -= 2, "(");
+                                priklad += ')';
+                            }
+                            else if (priklad[i - 1] == 'g' || priklad[i - 1] == 's')
+                            {
+                                priklad = priklad.Insert(pomIndZav -= 3, "(");
+                                priklad += ')';
+                            }
+                            else if (priklad[i - 1] == 't')
+                            {
+                                priklad = priklad.Insert(pomIndZav -= 4, "(");
+                                priklad += ')';
+                            }
+                        }
+                        break;
+                    }
+                }
+                priklad = priklad.Insert(pomIndZav, textFunkce);
+                label1.Text = priklad;
+            }
+        }
 
         //Změny hodnot
         private void btnPlusMinus_Click(object sender, EventArgs e)
@@ -1729,9 +1812,9 @@ namespace Calculator
             kalkProg.Location = new Point(kalkZakl.Location.X, kalkZakl.Location.Y);
             kalkGraf.Location = new Point(kalkZakl.Location.X, kalkZakl.Location.Y);
             kalkDate.Location = new Point(kalkZakl.Location.X, kalkZakl.Location.Y);
-            kalkPrevod.Location= new Point(kalkZakl.Location.X, kalkZakl.Location.Y);            
-            
-            this.FormBorderStyle = FormBorderStyle.Fixed3D;
+            kalkPrevod.Location= new Point(kalkZakl.Location.X, kalkZakl.Location.Y);
+
+            this.FormBorderStyle = FormBorderStyle.Fixed3D;       
             this.Text = "Základní kalkulačka";
             this.Height = 420;
             this.Width = 210;
@@ -1771,8 +1854,8 @@ namespace Calculator
             textBox1.Visible = true;
             kalkVed.Visible=true;
             this.Text = "Vědecká kalkulačka";
-            this.Height = 500;
-            this.Width = 500;
+            this.Height = 450;
+            this.Width = 400;
             textBox1.Width = kalkVed.Width;
         }
         private void progCalc_Click(object sender, EventArgs e)
@@ -1784,8 +1867,8 @@ namespace Calculator
             kalkProg.Visible = true;
             this.Text = "Programátorská kalkulačka";
             textBox1.Width = kalkProg.Width;
-            this.Height = 600;
-            this.Width = 500;
+            this.Height = 550;
+            this.Width = 400;
         }
         private void graphCalc_Click(object sender, EventArgs e)
         {
@@ -1803,89 +1886,14 @@ namespace Calculator
             textBox1.Visible=false;
             kalkDate.Visible = true;
             this.Text = "Výpočet data";
-            this.Height = 500;
-            this.Width = 500;
+            this.Height = 300;
+            this.Width = 300;
         }
-        private void SpecialniFunkce_Click(object sender, EventArgs e)
-        {
-            string textFunkce="";
-            switch(Convert.ToInt32((sender as Button).Tag))
-            {
-                case 0: textFunkce = "root";
-                    break;
-                case 1: textFunkce = "abs";
-                    break;
-                case 2: textFunkce = "log";
-                    break;
-                case 3: textFunkce = "ln";
-                    break;
-                case 4: textFunkce = "sin";
-                    break;
-                case 5: textFunkce = "cos";
-                    break;
-            }
-
-            if (jeMocnina && textBox1.Text[textBox1.Text.Length-1]!='^')
-            {
-                textBox1.Text = "(" + textBox1.Text + ")";
-                jeMocnina = false;
-                valid = true;
-            }
-            if (Double.TryParse(textBox1.Text, out double logPar) && valid)
-            {              
-                jeLog = true;
-                textBox1.Text = $"{textFunkce}({logPar})";
-            }
-            else if (textBox1.Text == "x")
-            {
-                jeLog = true;
-                textBox1.Text = $"{textFunkce}(x)";       
-            }
-            else if (valid && textBox1.Text.Length != 0)
-            {
-                jeLog = true;
-                textBox1.Text = $"{textFunkce}({textBox1.Text})";
-            }
-            else if (valid && priklad.Length!=0 && priklad[priklad.Length - 1] == ')')
-            {
-                int pomPocZav = 1;
-                int pomIndZav = 0;
-                for (int i = priklad.Length - 2; i >= 0; i--)
-                {
-                    if (priklad[i] == '(') pomPocZav--;
-                    else if (priklad[i] == ')') pomPocZav++;
-                    if (pomPocZav == 0)
-                    {
-                        pomIndZav = i;
-                        if (i - 1 >= 0)
-                        {
-                            if (priklad[i - 1] == 'n')
-                            {
-                                priklad = priklad.Insert(pomIndZav -= 2, "(");
-                                priklad += ')';
-                            }
-                            else if (priklad[i - 1] == 'g' || priklad[i - 1] == 's')
-                            {
-                                priklad = priklad.Insert(pomIndZav -= 3, "(");
-                                priklad += ')';
-                            }
-                            else if (priklad[i - 1] == 't')
-                            {
-                                priklad = priklad.Insert(pomIndZav -= 4, "(");
-                                priklad += ')';
-                            }
-                        }
-                        break;
-                    }
-                }
-                priklad = priklad.Insert(pomIndZav, textFunkce);
-                label1.Text = priklad;
-            }
-        }
+        
 
         private void TlacitkaPrevody_Click(object sender, EventArgs e)
         {
-            string[] titlePrevodu = { "délky", "obsahu", "hmotnosti", "objemu" , "času","energie"};
+            string[] titlePrevodu = { "délky", "obsahu", "hmotnosti", "objemu" , "času","energie","výkonu"};
 
             PanelHide();
             ClearComboBox();
@@ -1900,8 +1908,9 @@ namespace Calculator
             }
             comboPrevodZ.SelectedIndex = 0;
             comboPrevodDo.SelectedIndex = 1;
-            this.Height = 500;
-            this.Width = 500;
+            this.Height = 475;
+            this.Width = 350;
+            textBox1.Width = kalkPrevod.Width;
         }       
     }
 }
