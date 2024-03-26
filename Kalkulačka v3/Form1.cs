@@ -1514,7 +1514,8 @@ namespace Calculator
                 chart1.DataSource = null;
 
 
-                priklad += textBox1.Text;
+                if (priklad.Length != 0 && priklad[priklad.Length - 1] == ')' && Double.TryParse(textBox1.Text, out double d)) priklad += $"*{d}";
+                else priklad += textBox1.Text;
                 while (ZavCount > 0)
                 {
                     priklad += ")";
@@ -1751,6 +1752,7 @@ namespace Calculator
                 priklad = priklad.Insert(pomIndZav, textFunkce);
                 label1.Text = priklad;
             }
+            EqualsFocus();
         }
 
         //Změny hodnot
