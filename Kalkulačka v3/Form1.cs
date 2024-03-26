@@ -266,6 +266,7 @@ namespace Calculator
             }
             if(validZadani)
             {
+                if (s!="x"&&textBox1.Text[textBox1.Text.Length - 1] == 'x') textBox1.Text += '*';
                 if(textBox1.Text=="0") textBox1.Text = s;                //Braní textu tlačítek jako zadávání
                 else textBox1.Text += s;
             }
@@ -1791,8 +1792,8 @@ namespace Calculator
             if (valid)
             {
                 if (textBox1.Text.Length == 0) textBox1.Text = "0";            
-                if (!textBox1.Text.Contains(",") && !jeVysledek) textBox1.Text += (sender as Button).Text;
-                else textBox1.Text = "0" + (sender as Button).Text;
+                if (!textBox1.Text.Contains(",") && !jeVysledek && textBox1.Text[textBox1.Text.Length-1]!='x') textBox1.Text += (sender as Button).Text;
+                else if(jeVysledek) textBox1.Text = "0" + (sender as Button).Text;
             }
             EqualsFocus();
         }
