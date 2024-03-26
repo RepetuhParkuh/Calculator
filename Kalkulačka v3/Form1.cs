@@ -266,7 +266,7 @@ namespace Calculator
             }
             if(validZadani)
             {
-                if (s!="x"&&textBox1.Text[textBox1.Text.Length - 1] == 'x') textBox1.Text += '*';
+                if (s!="x"&&textBox1.Text.Length!=0&&textBox1.Text[textBox1.Text.Length - 1] == 'x') textBox1.Text += '*';
                 if(textBox1.Text=="0") textBox1.Text = s;                //Braní textu tlačítek jako zadávání
                 else textBox1.Text += s;
             }
@@ -1697,7 +1697,7 @@ namespace Calculator
                     break;
             }
 
-            if (jeMocnina && textBox1.Text[textBox1.Text.Length - 1] != '^')
+            if (jeMocnina && textBox1.Text.Length!=0 && textBox1.Text[textBox1.Text.Length - 1] != '^')
             {
                 textBox1.Text = "(" + textBox1.Text + ")";
                 jeMocnina = false;
@@ -1785,6 +1785,12 @@ namespace Calculator
                 textBox1.Text = (1 / pomVys).ToString();
                 jeVysledek = true;
             }
+            EqualsFocus();
+        }
+
+        private void obracenaHodnotaV_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = $"1/{textBox1.Text}";
             EqualsFocus();
         }
         private void desCarka_Click(object sender, EventArgs e)

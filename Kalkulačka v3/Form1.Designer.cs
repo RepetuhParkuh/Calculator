@@ -473,7 +473,7 @@
             this.button11.TabIndex = 22;
             this.button11.Text = "1/x";
             this.button11.UseVisualStyleBackColor = true;
-            this.button11.Click += new System.EventHandler(this.obracenaHodnota_Click);
+            this.button11.Click += new System.EventHandler(this.obracenaHodnotaV_Click);
             // 
             // button2
             // 
@@ -1781,7 +1781,7 @@
             this.button55.TabIndex = 100;
             this.button55.Text = "1/x";
             this.button55.UseVisualStyleBackColor = true;
-            this.button55.Click += new System.EventHandler(this.obracenaHodnota_Click);
+            this.button55.Click += new System.EventHandler(this.obracenaHodnotaV_Click);
             // 
             // triG
             // 
