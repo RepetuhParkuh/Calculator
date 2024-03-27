@@ -122,7 +122,6 @@ namespace Calculator
 
         private void InvalidInput()
         {
-            //Clear();
             ClearLabelInProgCalc();
             textBox1.Text = "Invalid input";
             valid = false;
@@ -579,8 +578,6 @@ namespace Calculator
 
 
         /* Kalkulačky */
-
-
 
         //Základní kalkulačka - operace
         private void zaklRovnase_Click(object sender, EventArgs e)
@@ -1421,12 +1418,12 @@ namespace Calculator
                     if(indPrevodZ-indPrevodDo<0)
                     {
                         while(indPrevodZ<indPrevodDo)
-                            hodnota /= Soustavy[ZvolenaSoustava][++indPrevodZ];
+                            hodnota /= Soustavy[ZvolenaSoustava][++indPrevodZ]; //Prvně přesun o soustavu dál pak převod
                     }
                     else
                     {
                         while (indPrevodZ > indPrevodDo)
-                            hodnota *= Soustavy[ZvolenaSoustava][indPrevodZ--];
+                            hodnota *= Soustavy[ZvolenaSoustava][indPrevodZ--];  //Prvně převod pak přesun o soustavu zpět
                     }
                     labPrevod.Text = hodnota.ToString();
                 }
@@ -1524,7 +1521,7 @@ namespace Calculator
                 label1.Text = "";
 
                 double bod;
-                var data = new List<Tuple<double, double>>();
+                var data = new List<Tuple<double, double>>();   //List párových proměnných
                 for (double x = -30; x <= 30; x += 0.005)
                 {
                     x = Math.Round(x, 8);
