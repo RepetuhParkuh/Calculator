@@ -265,6 +265,7 @@ namespace Calculator
             }
             if(validZadani)
             {
+                if (s!="x"&&textBox1.Text.Length!=0&&textBox1.Text[textBox1.Text.Length - 1] == 'x') textBox1.Text += '*';
                 if(textBox1.Text=="0") textBox1.Text = s;                //Braní textu tlačítek jako zadávání
                 else textBox1.Text += s;
             }
@@ -1511,7 +1512,8 @@ namespace Calculator
                 chart1.DataSource = null;
 
 
-                priklad += textBox1.Text;
+                if (priklad.Length != 0 && priklad[priklad.Length - 1] == ')' && Double.TryParse(textBox1.Text, out double d)) priklad += $"*{d}";
+                else priklad += textBox1.Text;
                 while (ZavCount > 0)
                 {
                     priklad += ")";
@@ -1692,7 +1694,7 @@ namespace Calculator
                     break;
             }
 
-            if (jeMocnina && textBox1.Text[textBox1.Text.Length - 1] != '^')
+            if (jeMocnina && textBox1.Text.Length!=0 && textBox1.Text[textBox1.Text.Length - 1] != '^')
             {
                 textBox1.Text = "(" + textBox1.Text + ")";
                 jeMocnina = false;
@@ -1748,6 +1750,7 @@ namespace Calculator
                 priklad = priklad.Insert(pomIndZav, textFunkce);
                 label1.Text = priklad;
             }
+            EqualsFocus();
         }
 
         //Změny hodnot
@@ -1781,13 +1784,19 @@ namespace Calculator
             }
             EqualsFocus();
         }
+
+        private void obracenaHodnotaV_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = $"1/{textBox1.Text}";
+            EqualsFocus();
+        }
         private void desCarka_Click(object sender, EventArgs e)
         {
             if (valid)
             {
                 if (textBox1.Text.Length == 0) textBox1.Text = "0";            
-                if (!textBox1.Text.Contains(",") && !jeVysledek) textBox1.Text += (sender as Button).Text;
-                else textBox1.Text = "0" + (sender as Button).Text;
+                if (!textBox1.Text.Contains(",") && !jeVysledek && textBox1.Text[textBox1.Text.Length-1]!='x') textBox1.Text += (sender as Button).Text;
+                else if(jeVysledek) textBox1.Text = "0" + (sender as Button).Text;
             }
             EqualsFocus();
         }
